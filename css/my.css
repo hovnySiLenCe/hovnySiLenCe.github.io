@@ -1,0 +1,65 @@
+/* Here is your custom css styles. */
+
+/*Here is the numbers of the lines*/
+.gutter{
+	display: none;
+}
+
+.logo-span{
+	font-size: 19px !important;
+}
+/*Here is the Code system.*/
+span{
+	font-family: Consolas !important;
+}
+
+/*The border's background*/
+pre{
+	background: #ffffff !important;
+}
+
+/*Markdown*/
+.meta{
+	color:#f5871f !important;
+	font-size: 16px !important;
+}
+.keyword{
+	color:#8959a8 !important;
+	font-size: 16px !important;
+}
+span.title{
+	font-
+	color: #4271ae !important;
+	font-size: 16px !important;	
+}
+.built_in{
+	color: #f5871f !important;
+	font-size: 16px !important;
+}
+.number{
+	color: #f5871f !important;
+	font-size: 16px !important;
+}
+.string{
+	color: #718c00 !important;
+	font-size: 16px !important;
+}
+.params{
+	color: #f5871f !important;
+	font-size: 16px !important;
+}
+.comment{
+	color: #8e908c !important;
+}
+div.title.center-align{
+	font-family: Segoe Print !important;
+}
+div.description.center-align{
+	font-family: Segoe Print !important;
+}
+.card-title{
+	font-size: 19px !important;
+}
+.recommend .title{
+	font-family: "微软雅黑" !important;
+}
