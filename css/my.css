@@ -63,3 +63,7 @@ div.description.center-align{
 .recommend .title{
 	font-family: "微软雅黑" !important;
 }
+/*底部摘要*/
+[data-aos][data-aos][data-aos-delay='100'].aos-animate, body[data-aos-delay='100'] [data-aos].aos-animate {
+    display: none;
+}
