@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, aafsdfsdf">
-    <meta name="description" content="Hello World | h^ovny&#39;s blog">
+    <meta name="keywords" content="「Luogu P3306」[SDOI2013]随机数生成器 解题报告, aafsdfsdf">
+    <meta name="description" content="题目描述题目描述小$W$喜欢读书，尤其喜欢读《约翰克里斯朵夫》。最近小W准备读一本新书，这本书一共有$P$页，页码范围为$0 \cdots P-1$。
+小$W$很忙，所以每天只能读一页书。为了使事情有趣一些，他打算使用NOI2012上学习的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | h^ovny&#39;s blog</title>
+    <title>「Luogu P3306」[SDOI2013]随机数生成器 解题报告 | h^ovny&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -288,13 +289,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        「Luogu P3306」[SDOI2013]随机数生成器 解题报告
                     </div>
                 </div>
             </div>
@@ -397,7 +398,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-08
+                    2019-04-21
                 </div>
 
                 
@@ -413,15 +414,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><a href="https://www.luogu.org/problemnew/show/P3306" target="_blank" rel="noopener">题目描述</a></h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>小$W$喜欢读书，尤其喜欢读《约翰克里斯朵夫》。最近小W准备读一本新书，这本书一共有$P$页，页码范围为$0 \cdots P-1$。</p>
+<p>小$W$很忙，所以每天只能读一页书。为了使事情有趣一些，他打算使用NOI2012上学习的线性同余法生成一个序列，来决定每天具体读哪一页。</p>
+<p>我们用$Xi$来表示通过这种方法生成出来的第$i$个数，也即小$W$第$i$天会读哪一页。这个方法需要设置$3$个参数$a,b,X1$，满足$0\leq a,b,X1\leq p-1$，且$a,b,X1$都是整数。按照下面的公式生成出来一系列的整数：$X_{i+1} \equiv aX_i+b \pmod p$其中$mod$表示取余操作。</p>
+<p>但是这种方法可能导致某两天读的页码一样。</p>
+<p>小W要读这本书的第$t$页，所以他想知道最早在哪一天能读到第$T$页，或者指出他永远不会读到第$t$页。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>输入含有多组数据，第一行一个正整数$T$，表示这个测试点内的数据组数。</p>
+<p>接下来$T$行，每行有五个整数$p$，$a$，$b$，$X1$，$t$，表示一组数据。保证$X1$和$t$都是合法的页码。 注意：$P$一定为质数</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>共$T$行，每行一个整数表示他最早读到第$t$页是哪一天。如果他永远不会读到第$t$页，输出$-1$。</p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><p>输入样例#1：<br>3<br>7  1 1 3 3<br>7  2 2 2 0<br>7  2 2 2 1<br>输出样例#1：<br>1<br>3<br>-1</p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>$0≤a≤P−1,0≤b≤P−1,2≤P≤10^9$</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><del>致敬</del>自己的$16$次提交，漏洞百出</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这种题目，当然就是<del>找规律</del>套路题啊</p>
+<p>有经验就会知道这是一道<code>BSGS</code>的题 <del>找BSGS找到的不是BSGS是什么</del></p>
+<p>最复杂的就是<del>颓</del>推公式了</p>
+<p>先随便从$x_1$开始写几组</p>
+<blockquote>
+<p>$x_1=x_1$  题目已经给出了</p>
+<p>$x_2=ax_1+b$</p>
+<p>$x_3=a^2x_1+ab+b$</p>
+<p>$x_4=a^3x_1+a^2b+ab+b$</p>
+</blockquote>
+<p>好像就可以得出结论了<br>$$<br>x_i=a^{i-1}x_1+a^{i-1}b+a^{i-2}b+…+b<br>$$<br>对于后面这一串东东，<del>如果上过小学</del>学过<strong>等比数列求和公式</strong>的巨蛤都知道</p>
+<p>$$<br>x_i=a^{i-1}x_1+\frac{b(1-a^{i-1})} {1-a}<br>$$</p>
+<p>那么是不是可以开始狂颓公式了</p>
+<p><del>1、换元（这绝对不是高中数学课</del><br>$$<br>x_i \equiv t(mod\ p)<br>$$</p>
+<p>然后把上面那个代入<br>$$<br>a^{i-1}x_1+\frac {b(1-a^{i-1})} {1-a} \equiv t<br>$$<br>疯狂搞一搞，把$a^{i-1}$搞出来<br>$$<br>（1-a）·a^{i-1}x_1+{b(1-a^{i-1})} \equiv t-t·a<br>$$</p>
+<p>$$<br>(x_1-x_1·a)·a^{i-1}+b-b·a^{i-1} \equiv t-t·a<br>$$</p>
+<p>$$<br>(x_1-x_1·a-b)·a^{i-1}\equiv t-t·a-b<br>$$</p>
+<p>$$<br>a^{i-1}\equiv \frac {t-t·a-b} {x_1-x_1·a-b}<br>$$</p>
+<p>这样我们就可以按照普通的$BSGS$求，把结果$+1$即可</p>
+<p><del>然后就很OK了</del></p>
+<p>然鹅并没完，（不要问为什么，<del>否则我也不会提交16次了</del></p>
+<p><strong>考虑几种特殊情况：</strong></p>
+<p>$1、x_1=t$</p>
+<p>第一天就可以读到，输出<code>1</code>，其实也没是什么影响，因为结果还是一样的</p>
+<p>$2、a=1$</p>
+<p>这就变成了$x_1+k·b \equiv t(mod\ p)$，费马小定理求一下就好了，注意无解的情况——也就是$b=0$</p>
+<p>$3、a=0$</p>
+<p><del>傻子</del>都知道和$x_1$无关了，这时只要判断一下$b==t$，则第二天就能读到$t$，否则读一辈子都读不完<del>（那就别读了</del></p>
+<h2 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;//这里原题中的t用r表示</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> head[N],nxt[N],val[N],num[N];<span class="comment">//用hash表存会快一点，虽然可以用unordered_map</span></span><br><span class="line"><span class="keyword">int</span> T,t,ans;</span><br><span class="line">ll a,b,r,p,x,Mol,Den,res;<span class="comment">//Mol是分子，Den是分母，（鬼畜的变量名</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    rgt <span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">    rgt <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c)) c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">isdigit</span>(c)) s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>,c=getchar();</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Insert</span><span class="params">(rgt <span class="keyword">int</span> x,rgt <span class="keyword">int</span> y)</span> </span>&#123;<span class="comment">//插入，链式前向星</span></span><br><span class="line">    nxt[++t]=head[x%N],head[x%N]=t;</span><br><span class="line">    val[t]=x,num[t]=y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Search</span><span class="params">(rgt <span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">//查询，理论上是挺快的</span></span><br><span class="line">    <span class="keyword">for</span>(rgt <span class="keyword">int</span> i=head[x%N];i;i=nxt[i])</span><br><span class="line">        <span class="keyword">if</span>(val[i]==x) <span class="keyword">return</span> num[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(rgt ll a,rgt <span class="keyword">int</span> b)</span> </span>&#123;<span class="comment">//快速幂</span></span><br><span class="line">    rgt ll res=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) res=res*a%p;</span><br><span class="line">        a=a*a%p,b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;<span class="comment">//初始化</span></span><br><span class="line">    <span class="built_in">memset</span>(head,<span class="number">0</span>,<span class="keyword">sizeof</span>(head)),t=<span class="number">0</span>;<span class="comment">//t用于链式前向星，原来的t代码中用r表示</span></span><br><span class="line">    Mol=((r-r*a-b)%p+p)%p,Den=Pow(((x-a*x-b)%p+p)%p,p<span class="number">-2</span>);<span class="comment">//求出右边那一大串东东</span></span><br><span class="line">    b=Mol*Den%p;<span class="comment">//现在就变成了a^x≡b(mod p)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">BSGS</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Init();</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//有这个下文x==r的特判就可以省去</span></span><br><span class="line">    rgt <span class="keyword">int</span> i,j,t;</span><br><span class="line">    t=<span class="built_in">sqrt</span>(p)+<span class="number">1</span>,res=b;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;t;i++) Insert(res,i),res=res*a%p;</span><br><span class="line">    a=Pow(a,t),res=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(!a) <span class="keyword">return</span> (!b)?<span class="number">1</span>:<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=t;i++) &#123;</span><br><span class="line">        j=Search(res);</span><br><span class="line">        <span class="keyword">if</span>(j&gt;=<span class="number">0</span>&amp;&amp;i*t-j&gt;=<span class="number">0</span>) <span class="keyword">return</span> i*t-j;</span><br><span class="line">        res=res*a%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T=read();</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        p=read(),a=read(),b=read(),x=read(),r=read();</span><br><span class="line">        <span class="keyword">if</span>(x==r) &#123;<span class="built_in">printf</span>(<span class="string">"1\n"</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!b) <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                r=((r-x)%p+p)%p;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,r*Pow(b,p<span class="number">-2</span>)%p+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!a) &#123;</span><br><span class="line">            <span class="keyword">if</span>(b==r) <span class="built_in">printf</span>(<span class="string">"2\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ans=BSGS();</span><br><span class="line">        <span class="keyword">if</span>(~ans) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans+<span class="number">1</span>);<span class="comment">//答案记得+1</span></span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -562,7 +594,7 @@
                     </span>
                     <a href="http://hovnySiLenCe.github.io" class="b-link-green">h^ovny's blog</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/image/hello-world.html" class="b-link-green">Hello World</a>
+                    <a href="/2019/04/21/Luogu_P3306-[SDOI2013]RandomMachine-Solution/" class="b-link-green">「Luogu P3306」[SDOI2013]随机数生成器 解题报告</a>
                 </p>
             </div>
         </div>
@@ -588,20 +620,21 @@
                 <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/image/hello-world.html">
+                <a href="/2019/04/21/Luogu_P3306-[SDOI2013]RandomMachine-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「Luogu P3306」[SDOI2013]随机数生成器 解题报告">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">「Luogu P3306」[SDOI2013]随机数生成器 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary">题目描述题目描述小$W$喜欢读书，尤其喜欢读《约翰克里斯朵夫》。最近小W准备读一本新书，这本书一共有$P$页，页码范围为$0 \cdots P-1$。
+小$W$很忙，所以每天只能读一页书。为了使事情有趣一些，他打算使用NOI2012上学习的</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-21
                             </span>
                         <span class="publish-author">
                             
@@ -619,23 +652,25 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/image/hello-world.html">
+                <a href="/2019/04/17/Maxflow-Mistakes/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="「网络流挖坑大全」最大流最小割 错误点记录">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">「网络流挖坑大全」最大流最小割 错误点记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary">
+2018年12月27日     天气：阴        心情：一般   because!——学网络流第二、三道题就WA，查错花了INF的时间今天作为学习网络流的第二天，本人决定潜心研究记录网络流的错题
+悼念我昨天的晚自修，没有去陪h^ov</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-17
                             </span>
                         <span class="publish-author">
                             
@@ -645,7 +680,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -706,6 +740,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
