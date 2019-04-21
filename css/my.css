@@ -64,6 +64,6 @@ div.description.center-align{
 	font-family: "微软雅黑" !important;
 }
 /*底部摘要*/
-body[data-aos-delay='100'] [data-aos].aos-animate {
+[data-aos^=fade][data-aos^=fade].aos-animate {
     display: none;
 }
