@@ -4,10 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="日记和梦, aafsdfsdf">
-    <meta name="description" content="2017.5.26 周日 阴雨只是发现义中里的人都格外努力，模拟赛失利不是你的智商比不上别人，是你还不够勤奋，是你还不够努力！！！
-
-2019.5.12 周日 晴&amp;amp;热更日记更日记，今天选班委了，很荣幸，副班，这是一个对自己的约束，我">
+    <meta name="keywords" content="「Luogu P3365」改造二叉树 解题报告, aafsdfsdf">
+    <meta name="description" content="题面前言在打模拟赛的时候好像$sha$了一样想不出来，（肯定是我太菜了
+解题思路题目中描述的是一棵二叉搜索树，但是实际上题目不要求改变树的形态，所以我们就把树形结构转化为线性结构，这应该是一个比较有用的小$tip$吧
+转化为线性的数组之后，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>日记和梦 | h^ovny&#39;s blog</title>
+    <title>「Luogu P3365」改造二叉树 解题报告 | h^ovny&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -277,7 +277,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'f0a1b7875844c3ae0d28f3cc44e9a6241da33e2623a69f0a71263158dffb4e87';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('要密码喵 >_<')).toString(CryptoJS.enc.Hex)) {
                 alert('错了错了！哼~');
@@ -290,13 +290,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        日记和梦
+                        「Luogu P3365」改造二叉树 解题报告
                     </div>
                 </div>
             </div>
@@ -388,8 +388,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Dream/" target="_blank">
-                                <span class="chip bg-color">Dream</span>
+                            <a href="/tags/动态规划/" target="_blank">
+                                <span class="chip bg-color">动态规划</span>
                             </a>
                         
                     </div>
@@ -400,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/梦/" class="post-category" target="_blank">
-                                梦
+                            <a href="/categories/解题报告/" class="post-category" target="_blank">
+                                解题报告
                             </a>
                         
                     </div>
@@ -412,7 +412,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-09
+                    2019-05-12
                 </div>
 
                 
@@ -428,32 +428,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="2017-5-26-周日-阴雨"><a href="#2017-5-26-周日-阴雨" class="headerlink" title="2017.5.26 周日 阴雨"></a>2017.5.26 周日 阴雨</h2><p>只是发现义中里的人都格外努力，模拟赛失利不是你的智商比不上别人，是你还<strong>不够勤奋</strong>，是你还<strong>不够努力！！！</strong></p>
-<hr>
-<h2 id="2019-5-12-周日-晴-amp-热"><a href="#2019-5-12-周日-晴-amp-热" class="headerlink" title="2019.5.12 周日 晴&amp;热"></a>2019.5.12 周日 晴&amp;热</h2><p>更日记更日记，今天选班委了，很荣幸，副班，这是一个对自己的约束，我要一定加油！！！</p>
-<p>然后就是，模拟赛，有事粗心，是我刷的题目不够多，不够杂，没关系，努力就好，我相信自己！！！</p>
-<hr>
-<h2 id="2019-4-29-周日-阴转雨"><a href="#2019-4-29-周日-阴转雨" class="headerlink" title="2019.4.29 周日 阴转雨"></a>2019.4.29 周日 阴转雨</h2><p>又咕日记了qaq，复杂，还好吧，期中考完，告一段落了，是自己太菜了，还要好好颓文化课，emmm，我觉得吧，不能总说自己菜，以前的自己是多么有自信！</p>
-<hr>
-<h2 id="2019-4-21-周日-晴转雨"><a href="#2019-4-21-周日-晴转雨" class="headerlink" title="2019.4.21 周日 晴转雨"></a>2019.4.21 周日 晴转雨</h2><p>日记咕了这么久，又回来了，今天修了很久$blog$，希望能更好吧</p>
-<hr>
-<h2 id="2019-4-17-周三-晴-amp-老热"><a href="#2019-4-17-周三-晴-amp-老热" class="headerlink" title="2019.4.17 周三 晴&amp;老热"></a>2019.4.17 周三 晴&amp;老热</h2><p>昨天由于想要在$20$分钟内写完一篇题解<del>当然不可能啦</del>，所以就把昨天的日记咕掉了，今天发现自己真的挖了很多坑，所以决定填坑啊啊啊~包括还有一堆的知识笔记没写$qaq​$</p>
-<hr>
-<h2 id="2019-4-15-周一-晴-amp-a-little-阴"><a href="#2019-4-15-周一-晴-amp-a-little-阴" class="headerlink" title="2019.4.15 周一 晴&amp;a little 阴"></a>2019.4.15 周一 晴&amp;a little 阴</h2><p>今天心情不错，好吧其实刚开始也不是很好，终于做完了$permutation$，然后来补日记了，不过说实在，我们的$permutation$似乎还挺顺利的？！第一次做数学做出兴趣（上<del>高中</del>捉跃班以来），很久没像今晚这样开心了，多亏了<code>沐.</code>，挺感谢她的，另外就是有点想宝贝……</p>
-<hr>
-<h2 id="2019-4-11-周四-阴"><a href="#2019-4-11-周四-阴" class="headerlink" title="2019.4.11 周四 阴"></a>2019.4.11 周四 阴</h2><p>心情还好就是有点累，很晚了，果然只写了一道模拟退火，白天<del>勇动</del>杀病毒qaq，明天加油~</p>
-<hr>
-<h2 id="2019-4-10-周三-有点小凉"><a href="#2019-4-10-周三-有点小凉" class="headerlink" title="2019.4.10 周三 有点小凉"></a>2019.4.10 周三 有点小凉</h2><p>$A$了一道树剖水题，然后话很长的时间写了一道假的$Trie$树<del>因为正解是后缀数组啊</del></p>
-<p>有点<del>蒙蔽</del>懵逼，有感觉想刷题，但不知道要刷什么，目前还处于不断填坑的阶段，毕竟收藏的题目有点多，然而似乎好多不会写，尴尬哈~</p>
-<p>明天的目标写一下吧，<del>看明天是不是一个都完成不了</del></p>
+                <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P3365" target="_blank" rel="noopener">题面</a></h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在打模拟赛的时候好像$sha$了一样想不出来，（肯定是我太菜了</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>题目中描述的是<strong>一棵二叉搜索树</strong>，但是实际上题目不要求改变<strong>树的形态</strong>，所以我们就把<strong>树形结构转化为线性结构</strong>，这应该是一个比较有用的小$tip$吧</p>
+<p>转化为线性的数组之后，就变成了这样的问题：</p>
 <blockquote>
-<p>1、填完今天和昨天两题题解的坑</p>
-<p>2、填点数论和分块的坑，并且填掉<a href="https://www.luogu.org/problemnew/show/P1337" target="_blank" rel="noopener"><code>[JSOI2004\]平衡点 / 吊打XXX</code></a>这题的坑</p>
-<p>3、一切当然都要在文化课写完的前提上啊！！！</p>
-<p>4、在某种程度上说，还应该修一下$blog$</p>
+<p>求 使数组 <strong>严格上升</strong> <strong>最少</strong> 要改变的元素个数</p>
 </blockquote>
-<hr>
-<h2 id="2019-4-9-周二-巨热"><a href="#2019-4-9-周二-巨热" class="headerlink" title="2019.4.9 周二 巨热"></a>2019.4.9 周二 巨热</h2><p>好吧，从今天开始$Keep\  a\ diary$了，<strong>或许过去辉煌或是堕落，但从现在开始，我就是全新的自己！</strong></p>
+<p>一开始想不出来，那就可以先打打暴力找灵感</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;++i) &#123;<span class="comment">//DP，f数组表示在保留i这个元素的情况下，</span></span><br><span class="line">	<span class="keyword">for</span>(j=i<span class="number">-1</span>;j&gt;=<span class="number">0</span>;--j)<span class="comment">//最多可以保留多少元素</span></span><br><span class="line">		<span class="keyword">if</span>(b[i]-b[j]&gt;=i-j)</span><br><span class="line">			f[i]=max(f[i],f[j]+<span class="number">1</span>);</span><br><span class="line">    ans=max(f[i],ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实还是有点像$LIS$的感觉的</p>
+<p>那从哪里入手呢？</p>
+<p>$b[i]-b[j]&gt;=i-j$</p>
+<p>好像这个式子可以<strong>移项</strong>啊</p>
+<p>然后就变成</p>
+<p>$b[i]-i&gt;=b[j]-j$！！</p>
+<p>这下真的可以用最长不下降子序列那套东西了</p>
+<p>将$O(n^2)$优化成$O(nlogn)$ <del>就是这么优秀</del></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>献上<del>极短</del>丑陋的代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getchar() *(p++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7f7f7f7f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100007<span class="comment">//有巨佬说这里开奇数的数组能快一点</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> son[N][<span class="number">2</span>],n,t,a[N],b[N];</span><br><span class="line"><span class="keyword">char</span> bf[<span class="number">1</span>&lt;&lt;<span class="number">23</span>],*p;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;<span class="comment">//快读不管</span></span><br><span class="line">	rgt <span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">	rgt <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c)) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c)) s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>,c=getchar();</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">built</span><span class="params">(rgt <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(son[x][<span class="number">0</span>]) built(son[x][<span class="number">0</span>]);a[++t]=b[x];</span><br><span class="line">	<span class="keyword">if</span>(son[x][<span class="number">1</span>]) built(son[x][<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	bf[fread(bf,<span class="number">1</span>,<span class="number">1</span>&lt;&lt;<span class="number">23</span>,<span class="built_in">stdin</span>)]=<span class="string">'\0'</span>,p=bf;<span class="comment">//快读一部分不管</span></span><br><span class="line">	n=read();</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) b[i]=read();<span class="comment">//读入每个原宿</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++) son[read()][read()]=i;<span class="comment">//偷懒读入边</span></span><br><span class="line">	built(<span class="number">1</span>),b[t=<span class="number">0</span>]=-INF;<span class="comment">//因为b[i]-i之后可能为负数，保险就赋一个极小值</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;++i) &#123;</span><br><span class="line">		a[i]-=i;<span class="comment">//处理一下</span></span><br><span class="line">		<span class="keyword">if</span>(b[t]&lt;=a[i]) b[++t]=a[i];<span class="comment">//最长不下降子序列板子</span></span><br><span class="line">		<span class="keyword">else</span> *upper_bound(b+<span class="number">1</span>,b+t+<span class="number">1</span>,a[i])=a[i];<span class="comment">//直接指针</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,n-t);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -594,7 +586,7 @@
                     </span>
                     <a href="http://hovnySiLenCe.github.io" class="b-link-green">h^ovny's blog</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/09/Diary/" class="b-link-green">日记和梦</a>
+                    <a href="/2019/05/12/Luogu-P3365-TransformationBinaryTree-Solution/" class="b-link-green">「Luogu P3365」改造二叉树 解题报告</a>
                 </p>
             </div>
         </div>
@@ -619,28 +611,29 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/04/21/Luogu_P3306-[SDOI2013]RandomMachine-Solution/">
+                <a href="/2019/05/12/Maxflow-Mistakes/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「Luogu P3306」[SDOI2013]随机数生成器 解题报告">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="「网络流挖坑大全」最大流最小割 错误点记录">
                         
-                        <span class="card-title">「Luogu P3306」[SDOI2013]随机数生成器 解题报告</span>
+                        <span class="card-title">「网络流挖坑大全」最大流最小割 错误点记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">题目描述小$W$喜欢读书，尤其喜欢读《约翰克里斯朵夫》。最近小W准备读一本新书，这本书一共有$P$页，页码范围为$0 \cdots P-1$。
-小$W$很忙，所以每天只能读一页书。为了使事情有趣一些，他打算使用NOI2012上学习的线性同余</div>
+                    <div class="summary">
+2018年12月27日     天气：阴        心情：一般   because!——学网络流第二、三道题就WA，查错花了INF的时间今天作为学习网络流的第二天，本人决定潜心研究记录网络流的错题
+悼念我昨天的晚自修，没有去陪h^ov</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-21
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-12
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                    解题报告
+                            <a href="/categories/错误点记录/" class="post-category" target="_blank">
+                                    错误点记录
                                 </a>
                             
                             
@@ -650,8 +643,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BSGS/" target="_blank">
-                        <span class="chip bg-color">BSGS</span>
+                    <a href="/tags/网络流/" target="_blank">
+                        <span class="chip bg-color">网络流</span>
                     </a>
                     
                 </div>
@@ -665,23 +658,20 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/02/Luogu_P2486-[SDOI2011]Dye-Solution/">
+                <a href="/2019/04/21/USACO18OPEN-Disruption-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="「Luogu P2486」[SDOI2011]染色 解题报告">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="[USACO18OPEN]Disruption 解题报告">
                         
-                        <span class="card-title">「Luogu P2486」[SDOI2011]染色 解题报告</span>
+                        <span class="card-title">[USACO18OPEN]Disruption 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">前言这是屯了一道很久的题目，昨天做完今天补一下题解，其实也并不是很难，只要想清楚一些细节就好了
-题面树上区间覆盖，区间查询颜色段数
-解题思路由易到难是我们数学老师经常说的一句话，所以我们这里也来乱搞应用一下
-0、预备首先，这当然是一道树剖的</div>
+                    <div class="summary">题目描述题目描述$Farmer\ John$自豪于他所经营的交通发达的的农场。这个农场是由$N$块牧场（$2 \leq N \leq 50,000$）组成的，$N-1$条双向道路将它们连接起来，每一条道路的都为一单位长度。$Farmer\ </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-21
                             </span>
                         <span class="publish-author">
                             
