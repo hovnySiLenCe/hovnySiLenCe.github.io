@@ -4,11 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="「Luogu P3183」[HAOI2016]食物链 解题报告, aafsdfsdf">
-    <meta name="description" content="身为一个蒟蒻，由于刷不过[NOI2001]食物链
-于是出门左转写了道另一道假的食物链 戳这里  
-这里的食物链个条数其实就是有向图的路径数 （应该是这么说吧，我弱）  
-思路：拓扑(Topulogy)（一本正经的话说八道）+宽搜+乱搞+（由">
+    <meta name="keywords" content="aafsdfsdf">
+    <meta name="description" content="解题思路其实这就是Hamilton路径的模板题 $\to ​$
+根本做法其实是状压DP
+用b数组存边，然后f数组用来跑$DP$
+用$i$表示 状压后，已经走过的点有哪些（当然啦，包含下面的$j$点），为f数组的第一维
+用$j$表示 最后到的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Luogu P3183」[HAOI2016]食物链 解题报告 | h^ovny&#39;s blog</title>
+    <title>h^ovny&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -291,13 +292,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        「Luogu P3183」[HAOI2016]食物链 解题报告
+                        
                     </div>
                 </div>
             </div>
@@ -387,29 +388,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/拓扑/" target="_blank">
-                                <span class="chip bg-color">拓扑</span>
-                            </a>
-                        
-                            <a href="/tags/BFS/" target="_blank">
-                                <span class="chip bg-color">BFS</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                解题报告
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -417,7 +401,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-27
+                    2019-06-11
                 </div>
 
                 
@@ -433,20 +417,15 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>身为一个蒟蒻，由于刷不过<a href="https://www.luogu.org/problemnew/show/P2024" target="_blank" rel="noopener">[NOI2001]食物链</a></p>
-<p>于是出门左转写了道另一道<del>假的</del>食物链 <a href="https://www.luogu.org/problemnew/show/P3183" target="_blank" rel="noopener">戳这里</a>  </p>
-<p>这里的食物链<del>个</del>条数其实就是有向图的路径数 （应该是这么说吧，我弱）  </p>
-<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><h3 id="拓扑-Topulogy-（一本正经的话说八道）-宽搜-乱搞-（由于本人很弱，所以想不出来了）……"><a href="#拓扑-Topulogy-（一本正经的话说八道）-宽搜-乱搞-（由于本人很弱，所以想不出来了）……" class="headerlink" title="拓扑(Topulogy)（一本正经的话说八道）+宽搜+乱搞+（由于本人很弱，所以想不出来了）……"></a>拓扑<del>(Topulogy)（一本正经的话说八道）</del>+宽搜+乱搞+（由于本人很弱，所以想不出来了）……</h3><p>不用先求拓扑序  </p>
-<p>一边遍历一边用 f数组 统计路径数  </p>
-<p>存个图，然后队列遍历，要注意的是<strong>单独的一个点不算一条链</strong>  </p>
-<p>所以就第一遍把<strong>单独的点</strong>处理出去（不进队列）  </p>
-<p>最后的问题就是累加了  </p>
-<p>如果这个点<strong>出度为0</strong>时，就</p>
-<blockquote>
-<p>ans+= f[to]</p>
-</blockquote>
-<p>否则更新f[to]，并再次把to入队</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> to,nxt;</span><br><span class="line">&#125;b[<span class="number">200010</span>];</span><br><span class="line"><span class="keyword">int</span> n,t,T;</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">		c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><span class="comment">//建边</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	b[++t].to=y;</span><br><span class="line">	b[t].nxt=head[x];</span><br><span class="line">	head[x]=t;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Topulogy</span><span class="params">()</span><span class="comment">//假的拓扑（英语不好）</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> cur,to;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;p;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//初始化入度为0的点（不包括单独的点）</span></span><br><span class="line">		<span class="keyword">if</span>(!d[i]&amp;&amp;head[i])<span class="comment">//分别判断入度为0和是否是单独的点</span></span><br><span class="line">		&#123;</span><br><span class="line">			f[i]=<span class="number">1</span>;<span class="comment">//初始化路径数，否则会都是0哦~</span></span><br><span class="line">			p.push(i);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">while</span>(!p.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		cur=p.front();p.pop();</span><br><span class="line">		<span class="keyword">for</span>(i=head[cur];i;i=b[i].nxt)</span><br><span class="line">		&#123;</span><br><span class="line">			to=b[i].to;</span><br><span class="line">			d[to]--;</span><br><span class="line">			f[to]+=f[cur];</span><br><span class="line">			<span class="keyword">if</span>(d[to]==<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(!head[to])</span><br><span class="line">					ans+=f[to];</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					p.push(to);<span class="comment">//只有入度为0且出度不为0时才入队</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">	n=read();T=read();</span><br><span class="line">	<span class="keyword">while</span>(T--)</span><br><span class="line">	&#123;</span><br><span class="line">		x=read();y=read();</span><br><span class="line">		add(x,y);<span class="comment">//建边</span></span><br><span class="line">		d[y]++;<span class="comment">//入度</span></span><br><span class="line">	&#125;</span><br><span class="line">	Topulogy();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><del>其实这就是<code>Hamilton路径</code>的模板题</del> <a href="https://hovnysilence.github.io/2019/03/27/AlgorithmGuide-0x01_ShortHamiltonPath-Solution/">$\to ​$</a></p>
+<p>根本做法其实是<strong>状压DP</strong></p>
+<p>用<code>b</code>数组存边，然后<code>f</code>数组用来跑$DP$</p>
+<p>用$i$表示 状压后，已经走过的点有哪些（当然啦，包含下面的$j$点），为<code>f</code>数组的第一维</p>
+<p>用$j$表示 最后到的是哪个点，为<code>f</code>数组的第二维</p>
+<p>然后对于每种情况，可以从其他状态转移过来，这里就不详述了，具体的见代码</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7f7f7f7f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 19</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,Max,res,ans;<span class="comment">//Max表示每一位都取的状压值（也就是范围）</span></span><br><span class="line"><span class="keyword">int</span> b[N][N],f[<span class="number">1</span>&lt;&lt;<span class="number">19</span>][N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c)) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c)) s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>,c=getchar();</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,k,x,y;</span><br><span class="line">	n=read(),m=read();</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=m;i++)<span class="comment">//单向边</span></span><br><span class="line">		x=read(),y=read(),b[x][y]=read();</span><br><span class="line">	Max=(<span class="number">1</span>&lt;&lt;n)<span class="number">-1</span>;<span class="comment">//求范围，f[1][0]=0</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">3</span>;i&lt;=Max;i++) &#123;<span class="comment">//因为必经过0号点，所以直接从状态2开始，虽然2无意义，但是你要赋初值啊</span></span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++) &#123;<span class="comment">//就是枚举，判断可以 以哪些点为终点</span></span><br><span class="line">			f[i][j]=-INF;<span class="comment">//赋初值</span></span><br><span class="line">			<span class="keyword">if</span>((i&gt;&gt;j)&amp;<span class="number">1</span>) &#123;<span class="comment">//判断</span></span><br><span class="line">				res=i^(<span class="number">1</span>&lt;&lt;j);<span class="comment">//除去为结尾的这个点，可以从哪些状态转移过来</span></span><br><span class="line">				<span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;n;k++)<span class="comment">//再枚举</span></span><br><span class="line">					<span class="keyword">if</span>((res&gt;&gt;k)&amp;<span class="number">1</span>&amp;&amp;b[k][j])<span class="comment">//再判断，要注意有边才能走</span></span><br><span class="line">						f[i][j]=max(f[i][j],f[res][k]+b[k][j]);<span class="comment">//求较大值</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	--n;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>+(<span class="number">1</span>&lt;&lt;n);i&lt;=Max;i++)<span class="comment">//以n为结尾的各种情况，i赋的初值是为了保证n-1这个点能取到</span></span><br><span class="line">		ans=max(ans,f[i][n]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="一点小问题"><a href="#一点小问题" class="headerlink" title="一点小问题"></a>一点小问题</h2><p>可以自行思考一下时间复杂度</p>
+<p>这里是不会超的，但是将$n$改为$20$时，仍不会$T$，<del>暴力就是这么优秀</del></p>
 
             </div>
             <hr>
@@ -587,7 +566,7 @@
                     </span>
                     <a href="http://hovnySiLenCe.github.io" class="b-link-green">h^ovny's blog</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/27/Luogu_P3183-[HAOI2016]FoodLink-Solution/" class="b-link-green">「Luogu P3183」[HAOI2016]食物链 解题报告</a>
+                    <a href="/2019/06/11/Luogu_P4802-[CCO 2015]PathShortestMost-Solution/" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -610,43 +589,37 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/03/27/Luogu_P2508-[HAOI2008]CirclePoint-Solution/">
+                <a href="/2019/06/11/Luogu_P4802-[CCO 2015]PathShortestMost-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="「Luogu P2508」[HAOI2008]圆上的整点 解题报告">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt>
                         
-                        <span class="card-title">「Luogu P2508」[HAOI2008]圆上的整点 解题报告</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">题面给定圆的半径，求圆上整点数这是一道很Nice的数学题！超爱！好吧，由于这道题，我去Study了一下复数(complex number)复杂的数真棒！！！有兴趣的戳这里！！！$\huge \to$思路：高斯素数的原理，将整数分解质因数后，</div>
+                    <div class="summary">解题思路其实这就是Hamilton路径的模板题 $\to ​$
+根本做法其实是状压DP
+用b数组存边，然后f数组用来跑$DP$
+用$i$表示 状压后，已经走过的点有哪些（当然啦，包含下面的$j$点），为f数组的第一维
+用$j$表示 最后到的</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-11
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                    解题报告
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            h^ovny
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/数论/" target="_blank">
-                        <span class="chip bg-color">数论</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -657,44 +630,33 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/27/Luogu_P2278-[HNOI2003]TheOperatingSystem-Solution/">
+                <a href="/2019/06/10/Luogu_P3931-[ZJOI2006]LogisticsTransportation-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「Luogu P2278」[HNOI2003]操作系统 解题报告">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt>
                         
-                        <span class="card-title">「Luogu P2278」[HNOI2003]操作系统 解题报告</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">题面一道模拟题，模拟CPU的处理过程？！省选模拟题
-思路：模拟退火大法+优先队列乱搞要注意的点1、空闲时，CPU要处理进程
-2、当队列中没有进程时，要先进行判断，然后访问
-3、当优先级高的进程替换掉原进程时，原进程已经处理过的时间要减去
-4</div>
+                    <div class="summary">前言震惊！这种非主流的方法居然$A$了
+解题思路介绍一种不一样的思路，也就是不是DP的写法，
+纯粹的最短路
+数据范围比较小，然后又不同的天数
+于是就可以搞分层图
+改变路径的情况只要在一层的$n$号点与下一层$1$号点之间连一条边权为$K$的</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-10
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                    解题报告
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            h^ovny
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/模拟/" target="_blank">
-                        <span class="chip bg-color">模拟</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -756,13 +718,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
