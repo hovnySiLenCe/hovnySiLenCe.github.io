@@ -5,7 +5,16 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="「SP6517」JOCHEF - Farmer Sepp 解题报告, aafsdfsdf">
-    <meta name="description" content="前言">
+    <meta name="description" content="解题思路悬线法、DP
+对于每个位置，
+记录
+
+以这个位置为下界的最大矩阵的
+左边界 ：$l[i][j]$
+右边界：$r[i][j]$
+高，也就是上下界差：$h[i][j]$
+
+当然啦，暴力做是会$T$的（废话），于是可以充分利用已经求出的信">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -430,7 +439,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
+                <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>悬线法、DP</strong></p>
+<p>对于每个位置，</p>
+<p>记录</p>
+<blockquote>
+<p>以这个位置为下界的最大矩阵的</p>
+<p>左边界 ：$l[i][j]$</p>
+<p>右边界：$r[i][j]$</p>
+<p>高，也就是上下界差：$h[i][j]$</p>
+</blockquote>
+<p>当然啦，暴力做是会$T$的（废话），于是可以充分利用已经求出的信息</p>
+<p>进行$\to\ DP$</p>
+<p>递推式：</p>
+<p><img src="\image\Maximizing&amp;LargestSubmatrix-9.jpg" alt></p>
+<p>在每个位置更新答案，当然，在<code>C</code>的位置不能选，直接<code>continue</code>掉</p>
+<h2 id="Code："><a href="#Code：" class="headerlink" title="Code："></a>Code：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 4007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,l[N][N],r[N][N],h[N][N];</span><br><span class="line"><span class="keyword">char</span> b[N][N];</span><br><span class="line">ll k,ans,L;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c)) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c)) s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>,c=getchar();</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j;</span><br><span class="line">	<span class="keyword">char</span> c;</span><br><span class="line">	<span class="keyword">while</span>((n=read())) &#123;</span><br><span class="line">		m=read(),k=read(),ans=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) &#123;<span class="comment">//读入</span></span><br><span class="line">			c=getchar();</span><br><span class="line">			<span class="keyword">while</span>(c==<span class="string">'\n'</span>||c==<span class="string">'\r'</span>) c=getchar();</span><br><span class="line">			b[i][<span class="number">1</span>]=c,l[i][<span class="number">1</span>]=r[i][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;=m;j++)<span class="comment">//初始化</span></span><br><span class="line">				b[i][j]=getchar(),l[i][j]=r[i][j]=j;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) &#123;<span class="comment">//处理出每个位置左右的障碍点</span></span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;=m;j++)</span><br><span class="line">				<span class="keyword">if</span>(b[i][j]==b[i][j<span class="number">-1</span>])</span><br><span class="line">					l[i][j]=l[i][j<span class="number">-1</span>];</span><br><span class="line">			<span class="keyword">for</span>(j=m<span class="number">-1</span>;j;j--)</span><br><span class="line">				<span class="keyword">if</span>(b[i][j]==b[i][j+<span class="number">1</span>])</span><br><span class="line">					r[i][j]=r[i][j+<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=m;j++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(b[i][j]==<span class="string">'C'</span>) <span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">if</span>(b[i][j]==b[i<span class="number">-1</span>][j]) &#123;<span class="comment">//更新可能的矩形</span></span><br><span class="line">					l[i][j]=max(l[i][j],l[i<span class="number">-1</span>][j]);</span><br><span class="line">					r[i][j]=min(r[i][j],r[i<span class="number">-1</span>][j]);</span><br><span class="line">					h[i][j]=h[i<span class="number">-1</span>][j]+<span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> h[i][j]=<span class="number">1</span>;</span><br><span class="line">				L=r[i][j]-l[i][j]+<span class="number">1</span>;</span><br><span class="line">				ans=max(ans,L*h[i][j]);<span class="comment">//用矩形面积公式更新</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans*k);<span class="comment">//别忘了要乘上单位面积</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
             </div>
             <hr>
 
@@ -606,7 +630,16 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">前言</div>
+                    <div class="summary">解题思路悬线法、DP
+对于每个位置，
+记录
+
+以这个位置为下界的最大矩阵的
+左边界 ：$l[i][j]$
+右边界：$r[i][j]$
+高，也就是上下界差：$h[i][j]$
+
+当然啦，暴力做是会$T$的（废话），于是可以充分利用已经求出的信</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-14
