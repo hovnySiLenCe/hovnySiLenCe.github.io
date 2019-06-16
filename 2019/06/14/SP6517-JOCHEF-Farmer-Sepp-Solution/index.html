@@ -4,12 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="「Luogu P4802」[CCO 2015]路短最 解题报告, aafsdfsdf">
-    <meta name="description" content="解题思路其实这就是Hamilton路径的模板题 $\to ​$
-根本做法其实是状压DP
-用b数组存边，然后f数组用来跑$DP$
-用$i$表示 状压后，已经走过的点有哪些（当然啦，包含下面的$j$点），为f数组的第一维
-用$j$表示 最后到的">
+    <meta name="keywords" content="「SP6517」JOCHEF - Farmer Sepp 解题报告, aafsdfsdf">
+    <meta name="description" content="前言">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Luogu P4802」[CCO 2015]路短最 解题报告 | h^ovny&#39;s blog</title>
+    <title>「SP6517」JOCHEF - Farmer Sepp 解题报告 | h^ovny&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -292,13 +288,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        「Luogu P4802」[CCO 2015]路短最 解题报告
+                        「SP6517」JOCHEF - Farmer Sepp 解题报告
                     </div>
                 </div>
             </div>
@@ -390,12 +386,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/状压DP/" target="_blank">
-                                <span class="chip bg-color">状压DP</span>
+                            <a href="/tags/动态规划/" target="_blank">
+                                <span class="chip bg-color">动态规划</span>
                             </a>
                         
-                            <a href="/tags/Hamilton路径/" target="_blank">
-                                <span class="chip bg-color">Hamilton路径</span>
+                            <a href="/tags/悬线法/" target="_blank">
+                                <span class="chip bg-color">悬线法</span>
                             </a>
                         
                     </div>
@@ -418,7 +414,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-11
+                    2019-06-14
                 </div>
 
                 
@@ -434,16 +430,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><del>其实这就是<code>Hamilton路径</code>的模板题</del> <a href="https://hovnysilence.github.io/2019/03/27/AlgorithmGuide-0x01_ShortHamiltonPath-Solution/">$\to ​$</a></p>
-<p>根本做法其实是<strong>状压DP</strong></p>
-<p>用<code>b</code>数组存边，然后<code>f</code>数组用来跑$DP$</p>
-<p>用$i$表示 状压后，已经走过的点有哪些（当然啦，包含下面的$j$点），为<code>f</code>数组的第一维</p>
-<p>用$j$表示 最后到的是哪个点，为<code>f</code>数组的第二维</p>
-<p>然后对于每种情况，可以从其他状态转移过来，这里就不详述了，具体的见代码</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7f7f7f7f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 19</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,Max,res,ans;<span class="comment">//Max表示每一位都取的状压值（也就是范围）</span></span><br><span class="line"><span class="keyword">int</span> b[N][N],f[<span class="number">1</span>&lt;&lt;<span class="number">19</span>][N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c)) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c)) s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>,c=getchar();</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,k,x,y;</span><br><span class="line">	n=read(),m=read();</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=m;i++)<span class="comment">//单向边</span></span><br><span class="line">		x=read(),y=read(),b[x][y]=read();</span><br><span class="line">	Max=(<span class="number">1</span>&lt;&lt;n)<span class="number">-1</span>;<span class="comment">//求范围，f[1][0]=0</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">3</span>;i&lt;=Max;i++) &#123;<span class="comment">//因为必经过0号点，所以直接从状态2开始，虽然2无意义，但是你要赋初值啊</span></span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++) &#123;<span class="comment">//就是枚举，判断可以 以哪些点为终点</span></span><br><span class="line">			f[i][j]=-INF;<span class="comment">//赋初值</span></span><br><span class="line">			<span class="keyword">if</span>((i&gt;&gt;j)&amp;<span class="number">1</span>) &#123;<span class="comment">//判断</span></span><br><span class="line">				res=i^(<span class="number">1</span>&lt;&lt;j);<span class="comment">//除去为结尾的这个点，可以从哪些状态转移过来</span></span><br><span class="line">				<span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;n;k++)<span class="comment">//再枚举</span></span><br><span class="line">					<span class="keyword">if</span>((res&gt;&gt;k)&amp;<span class="number">1</span>&amp;&amp;b[k][j])<span class="comment">//再判断，要注意有边才能走</span></span><br><span class="line">						f[i][j]=max(f[i][j],f[res][k]+b[k][j]);<span class="comment">//求较大值</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	--n;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>+(<span class="number">1</span>&lt;&lt;n);i&lt;=Max;i++)<span class="comment">//以n为结尾的各种情况，i赋的初值是为了保证n-1这个点能取到</span></span><br><span class="line">		ans=max(ans,f[i][n]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="一点小问题"><a href="#一点小问题" class="headerlink" title="一点小问题"></a>一点小问题</h2><p>可以自行思考一下时间复杂度</p>
-<p>这里是不会超的，但是将$n$改为$20$时，仍不会$T$，<del>暴力就是这么优秀</del></p>
-
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
             </div>
             <hr>
 
@@ -583,7 +570,7 @@
                     </span>
                     <a href="http://hovnySiLenCe.github.io" class="b-link-green">h^ovny's blog</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/06/11/Luogu_P4802-[CCO 2015]PathShortestMost-Solution/" class="b-link-green">「Luogu P4802」[CCO 2015]路短最 解题报告</a>
+                    <a href="/2019/06/14/SP6517-JOCHEF-Farmer-Sepp-Solution/" class="b-link-green">「SP6517」JOCHEF - Farmer Sepp 解题报告</a>
                 </p>
             </div>
         </div>
@@ -606,37 +593,37 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/13/LectureNotes-Maximizing&LargestSubmatrix-Notes/">
+                <a href="/2019/06/14/SP6517-JOCHEF-Farmer-Sepp-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「某讲稿」 极大化思想与最大子矩阵的探究 知识笔记">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="「SP6517」JOCHEF - Farmer Sepp 解题报告">
                         
-                        <span class="card-title">「某讲稿」 极大化思想与最大子矩阵的探究 知识笔记</span>
+                        <span class="card-title">「SP6517」JOCHEF - Farmer Sepp 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">写在前面这应该算是$author$的第一篇知识笔记吧，且行且珍惜，努力写好啦~
-题目引入先来康康一道题吧，
-「Luogu P1578」 奶牛浴场题目描述由于$John$建造了牛场围栏，激起了奶牛的愤怒，奶牛的产奶量急剧减少。为了讨好奶牛，$</div>
+                    <div class="summary">前言</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/知识笔记/" class="post-category" target="_blank">
-                                    知识笔记
+                            <a href="/categories/解题报告/" class="post-category" target="_blank">
+                                    解题报告
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -659,32 +646,29 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/10/Luogu_P1772-[ZJOI2006]LogisticsTransportation-Solution/">
+                <a href="/2019/06/13/LectureNotes-Maximizing&LargestSubmatrix-Notes/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="「Luogu P1772」[ZJOI2006]物流运输 解题报告">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「某讲稿」 极大化思想与最大子矩阵的探究 知识笔记">
                         
-                        <span class="card-title">「Luogu P1772」[ZJOI2006]物流运输 解题报告</span>
+                        <span class="card-title">「某讲稿」 极大化思想与最大子矩阵的探究 知识笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">前言震惊！这种非主流的方法居然$A$了
-解题思路介绍一种不一样的思路，也就是不是DP的写法，
-纯粹的最短路
-数据范围比较小，然后又不同的天数
-于是就可以搞分层图
-改变路径的情况只要在一层的$n$号点与下一层$1$号点之间连一条边权为$K$的</div>
+                    <div class="summary">写在前面这应该算是$author$的第一篇知识笔记吧，且行且珍惜，努力写好啦~
+题目引入先来康康一道题吧，
+「Luogu P1578」 奶牛浴场题目描述由于$John$建造了牛场围栏，激起了奶牛的愤怒，奶牛的产奶量急剧减少。为了讨好奶牛，$</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                    解题报告
+                            <a href="/categories/知识笔记/" class="post-category" target="_blank">
+                                    知识笔记
                                 </a>
                             
                             
@@ -694,8 +678,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/最短路/" target="_blank">
-                        <span class="chip bg-color">最短路</span>
+                    <a href="/tags/动态规划/" target="_blank">
+                        <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
+                    <a href="/tags/悬线法/" target="_blank">
+                        <span class="chip bg-color">悬线法</span>
                     </a>
                     
                 </div>
