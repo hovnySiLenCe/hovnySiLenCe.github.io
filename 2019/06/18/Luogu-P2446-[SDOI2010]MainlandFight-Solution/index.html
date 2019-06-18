@@ -4,14 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="「USACO11NOV」牛的障碍Cow Steeplechase 解题报告, aafsdfsdf">
-    <meta name="description" content="题面横的，竖的线短段，求最多能取几条没有相交的线段？
-思路学过网络流的童鞋在哪里？
-是时候重整网络流雄风了！
-好吧，废话不多说
-这是一道最小割的题目怎么想呢？
-要取最多，那反过来不就是不能取的要尽量少吗？
-深思熟虑一番后，符合网络流中的最小">
+    <meta name="keywords" content="「Luogu P2446」 [SDOI2010]大陆争霸 解题报告, aafsdfsdf">
+    <meta name="description" content="「Luogu P2446」 [SDOI2010]大陆争霸 解题报告 | h^ovny&#39;s blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「USACO11NOV」牛的障碍Cow Steeplechase 解题报告 | h^ovny&#39;s blog</title>
+    <title>「Luogu P2446」 [SDOI2010]大陆争霸 解题报告 | h^ovny&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -294,13 +288,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        「USACO11NOV」牛的障碍Cow Steeplechase 解题报告
+                        「Luogu P2446」 [SDOI2010]大陆争霸 解题报告
                     </div>
                 </div>
             </div>
@@ -392,8 +386,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/网络流/" target="_blank">
-                                <span class="chip bg-color">网络流</span>
+                            <a href="/tags/最短路/" target="_blank">
+                                <span class="chip bg-color">最短路</span>
+                            </a>
+                        
+                            <a href="/tags/Dijsktra/" target="_blank">
+                                <span class="chip bg-color">Dijsktra</span>
                             </a>
                         
                     </div>
@@ -416,7 +414,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-27
+                    2019-06-18
                 </div>
 
                 
@@ -432,23 +430,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P3033" target="_blank" rel="noopener">题面</a></h2><p>横的，竖的线<del>短</del>段，求最多能取几条没有相交的线段？</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><del>学过网络流的童鞋在哪里？</del></p>
-<p><del>是时候重整网络流雄风了！</del></p>
-<p><del>好吧，废话不多说</del></p>
-<h3 id="这是一道最小割的题目"><a href="#这是一道最小割的题目" class="headerlink" title="这是一道最小割的题目"></a>这是一道最小割的题目</h3><p>怎么想呢？</p>
-<p>要取<strong>最多</strong>，那反过来不就是<strong>不能取的要尽量少</strong>吗？</p>
-<p>深思熟虑一番后，符合网络流中的<strong>最小割</strong>，<del>于是开码</del></p>
-<p>哦，还没完！</p>
-<h3 id="建边是关键！"><a href="#建边是关键！" class="headerlink" title="建边是关键！"></a><strong>建边</strong>是关键！</h3><p>由于只有方向不同的线段才会互相影响，所以考虑在方向不同时建边</p>
-<p>由于<strong>最小割</strong>的用途是使图<strong>不连通</strong>，所以我们把<strong>横的线段</strong>与<strong>源点</strong>相连，<strong>竖的线段</strong>与<strong>汇点</strong>相连（相反也可以），在有相交的线段之间建一条边，表示能连通，这样就变成了求<strong>最小割</strong></p>
-<p><strong>但是！</strong></p>
-<p>要注意的是：由于题目的要求是取线段，而不是我们建的边，因此我们把一个点（线段）拆成<strong>入点</strong>和<strong>出点</strong>，在入点和出点之间建一条容量为1的边，其余边的容量<strong>都赋为INF</strong>，这样就肯定不会“割”去<strong>边</strong>，只会“割”去点</p>
-<h3 id="还有！"><a href="#还有！" class="headerlink" title="还有！"></a>还有！</h3><p>怎么判断线段<del>香蕉</del><strong>相交</strong>呢？</p>
-<p><del>画出来就知道了</del></p>
-<p>这个小问题，就留给大家思考吧</p>
-<p>Code：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;//虽然我不想写注释</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7f7f7f7f<span class="comment">//但是不写注释的不是好孩纸？！h^ovny：谁说的！</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 65010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 510</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> lx,ly,rx,ry,i;</span><br><span class="line">	Node(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> d,<span class="keyword">int</span> e):lx(a),ly(b),rx(c),ry(d),i(e)&#123;	&#125;</span><br><span class="line">	Node()&#123;	&#125;</span><br><span class="line">&#125;A[N&gt;&gt;<span class="number">1</span>],B[N&gt;&gt;<span class="number">1</span>];<span class="comment">//这个是分开存横的和竖的线段</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> to,cap;</span><br><span class="line">	<span class="keyword">int</span> nxt;</span><br><span class="line">	node(<span class="keyword">int</span> a,<span class="keyword">int</span> b):to(a),cap(b)&#123;	&#125;</span><br><span class="line">	node()&#123;	&#125;</span><br><span class="line">&#125;b[M&lt;&lt;<span class="number">1</span>];<span class="comment">//边</span></span><br><span class="line"><span class="keyword">int</span> head[N],deep[N];</span><br><span class="line"><span class="keyword">int</span> n,Maxflow,S,T,t=<span class="number">1</span>,ta,tb;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">		c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> cap)</span><span class="comment">//建边，比较冗长，别介意</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	b[++t]=node(y,cap);</span><br><span class="line">	b[t].nxt=head[x];</span><br><span class="line">	head[x]=t;</span><br><span class="line">	b[++t]=node(x,<span class="number">0</span>);</span><br><span class="line">	b[t].nxt=head[y];</span><br><span class="line">	head[y]=t;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">BFS</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,cur;</span><br><span class="line">	<span class="keyword">int</span> to,cap;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;p;</span><br><span class="line">	<span class="built_in">memset</span>(deep,<span class="number">0</span>,<span class="keyword">sizeof</span>(deep));</span><br><span class="line">	deep[S]=<span class="number">1</span>;p.push(S);</span><br><span class="line">	<span class="keyword">while</span>(!p.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		cur=p.front();p.pop();</span><br><span class="line">		<span class="keyword">for</span>(i=head[cur];i;i=b[i].nxt)</span><br><span class="line">		&#123;</span><br><span class="line">			to=b[i].to;cap=b[i].cap;</span><br><span class="line">			<span class="keyword">if</span>(cap&amp;&amp;!deep[to])</span><br><span class="line">			&#123;</span><br><span class="line">				deep[to]=deep[cur]+<span class="number">1</span>;</span><br><span class="line">				p.push(to);</span><br><span class="line">				<span class="keyword">if</span>(to==T)</span><br><span class="line">					<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">(<span class="keyword">int</span> k,<span class="keyword">int</span> flow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(k==T)</span><br><span class="line">		<span class="keyword">return</span> flow;</span><br><span class="line">	<span class="keyword">int</span> i,to,cap,res,rest=flow;</span><br><span class="line">	<span class="keyword">for</span>(i=head[k];i&amp;&amp;rest;i=b[i].nxt)</span><br><span class="line">	&#123;</span><br><span class="line">		to=b[i].to;cap=b[i].cap;</span><br><span class="line">		<span class="keyword">if</span>(cap&amp;&amp;deep[to]==deep[k]+<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			res=Dinic(to,min(rest,cap));</span><br><span class="line">			<span class="keyword">if</span>(!res)</span><br><span class="line">				deep[to]=<span class="number">0</span>;</span><br><span class="line">			b[i].cap-=res;</span><br><span class="line">			b[i^<span class="number">1</span>].cap+=res;</span><br><span class="line">			rest-=res;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> flow-rest;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,flow;</span><br><span class="line">	<span class="keyword">int</span> lx,ly,rx,ry;</span><br><span class="line">	n=read();T=n+n+<span class="number">1</span>;<span class="comment">//源点一般赋为0，那就先确定汇点</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//读入，然后开始玄学建边</span></span><br><span class="line">	&#123;</span><br><span class="line">		lx=read();ly=read();</span><br><span class="line">		rx=read();ry=read();</span><br><span class="line">		<span class="keyword">if</span>(lx==rx)</span><br><span class="line">		&#123;</span><br><span class="line">			B[++tb]=Node(min(lx,rx),min(ly,ry),max(lx,rx),max(ly,ry),i);<span class="comment">//注意，要是两端点有序！</span></span><br><span class="line">			add(S,i,INF);</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=ta;j++)<span class="comment">//判断是否满足，然后建边</span></span><br><span class="line">				<span class="keyword">if</span>(B[tb].ry&gt;=A[j].ly&amp;&amp;B[tb].ly&lt;=A[j].ly&amp;&amp;A[j].lx&lt;=B[tb].lx&amp;&amp;B[tb].lx&lt;=A[j].rx)</span><br><span class="line">					add(i+n,A[j].i,INF);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			A[++ta]=Node(min(lx,rx),min(ly,ry),max(lx,rx),max(ly,ry),i);</span><br><span class="line">			add(i+n,T,INF);<span class="comment">//一切同上</span></span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=tb;j++)</span><br><span class="line">				<span class="keyword">if</span>(B[j].ry&gt;=A[ta].ly&amp;&amp;B[j].ly&lt;=A[ta].ly&amp;&amp;A[ta].lx&lt;=B[j].lx&amp;&amp;B[j].lx&lt;=A[ta].rx)</span><br><span class="line">					add(B[j].i+n,i,INF);</span><br><span class="line">		&#125;</span><br><span class="line">		add(i,i+n,<span class="number">1</span>);<span class="comment">//自己的入点和出点之间建边</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(BFS())<span class="comment">//Dinic模板直接搬</span></span><br><span class="line">		<span class="keyword">while</span>((flow=Dinic(S,INF)))</span><br><span class="line">			Maxflow+=flow;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,n-Maxflow);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                
             </div>
             <hr>
 
@@ -588,7 +570,7 @@
                     </span>
                     <a href="http://hovnySiLenCe.github.io" class="b-link-green">h^ovny's blog</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/27/USACO11NOV-Cow_Steeplechase-Solution/" class="b-link-green">「USACO11NOV」牛的障碍Cow Steeplechase 解题报告</a>
+                    <a href="/2019/06/18/Luogu-P2446-[SDOI2010]MainlandFight-Solution/" class="b-link-green">「Luogu P2446」 [SDOI2010]大陆争霸 解题报告</a>
                 </p>
             </div>
         </div>
@@ -611,41 +593,46 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/03/27/AlgorithmGuide-0x01_bit-Notes/">
+                <a href="/2019/06/18/Luogu-P2446-[SDOI2010]MainlandFight-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「算法竞赛进阶指南」0x01 位运算 学习笔记">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="「Luogu P2446」 [SDOI2010]大陆争霸 解题报告">
                         
-                        <span class="card-title">「算法竞赛进阶指南」0x01 位运算 学习笔记</span>
+                        <span class="card-title">「Luogu P2446」 [SDOI2010]大陆争霸 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">二进制是计算机的根本！你了解她它吗？
-12345678910int lowbit(int x)&#123;	return x&amp;(-x);//x&amp;(~x+1),~x=-1-x;&#125;int __builtin_ctz(u</div>
+                    <div class="summary"></div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/学习笔记/" class="post-category" target="_blank">
-                                    学习笔记
+                            <a href="/categories/解题报告/" class="post-category" target="_blank">
+                                    解题报告
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/位运算/" target="_blank">
-                        <span class="chip bg-color">位运算</span>
+                    <a href="/tags/最短路/" target="_blank">
+                        <span class="chip bg-color">最短路</span>
+                    </a>
+                    
+                    <a href="/tags/Dijsktra/" target="_blank">
+                        <span class="chip bg-color">Dijsktra</span>
                     </a>
                     
                 </div>
@@ -659,26 +646,20 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/27/SP23776-KQUERYO_-_K-Query_Online-Solution/">
+                <a href="/2019/06/17/Luogu-P2577-[ZJOI2004]Lunch-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="「SP23776」KQUERYO - K-Query Online 解题报告">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「Luogu P2577」[ZJOI2004]午餐 解题报告">
                         
-                        <span class="card-title">「SP23776」KQUERYO - K-Query Online 解题报告</span>
+                        <span class="card-title">「Luogu P2577」[ZJOI2004]午餐 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">题面$n$个数，$q$次询问，询问$[i,j]$区间大于$k$的数的个数，输入时，输入$a,b,c$
-
-i = a xor last_ans
-j = b xor last_ans
-k = c xor last_ans
-
-一开始last_an</div>
+                    <div class="summary">题面题目描述上午的训练结束了，THU ACM小组集体去吃午餐，他们一行$N$人来到了著名的十食堂。这里有两个打饭的窗口，每个窗口同一时刻只能给一个人打饭。由于每个人的口味（以及胃口）不同，所以他们要吃的菜各有不同，打饭所要花费的时间是因人而</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-17
                             </span>
                         <span class="publish-author">
                             
@@ -695,8 +676,8 @@ k = c xor last_ans
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/主席树/" target="_blank">
-                        <span class="chip bg-color">主席树</span>
+                    <a href="/tags/动态规划/" target="_blank">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
