@@ -4,12 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="「Luogu P2278」[HNOI2003]操作系统 解题报告, aafsdfsdf">
-    <meta name="description" content="题面一道模拟题，模拟CPU的处理过程？！省选模拟题
-思路：模拟退火大法+优先队列乱搞要注意的点1、空闲时，CPU要处理进程
-2、当队列中没有进程时，要先进行判断，然后访问
-3、当优先级高的进程替换掉原进程时，原进程已经处理过的时间要减去
-4">
+    <meta name="keywords" content="「OI-wiki」 距离 学习笔记, aafsdfsdf">
+    <meta name="description" content="欧几里得距离
+曼哈顿距离
+切比雪夫距离
+$L_m$距离
+汉明距离
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Luogu P2278」[HNOI2003]操作系统 解题报告 | h^ovny&#39;s blog</title>
+    <title>「OI-wiki」 距离 学习笔记 | h^ovny&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -292,13 +293,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        「Luogu P2278」[HNOI2003]操作系统 解题报告
+                        「OI-wiki」 距离 学习笔记
                     </div>
                 </div>
             </div>
@@ -390,8 +391,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/模拟/" target="_blank">
-                                <span class="chip bg-color">模拟</span>
+                            <a href="/tags/计算几何/" target="_blank">
+                                <span class="chip bg-color">计算几何</span>
+                            </a>
+                        
+                            <a href="/tags/距离/" target="_blank">
+                                <span class="chip bg-color">距离</span>
                             </a>
                         
                     </div>
@@ -402,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                解题报告
+                            <a href="/categories/学习笔记/" class="post-category" target="_blank">
+                                学习笔记
                             </a>
                         
                     </div>
@@ -414,7 +419,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-27
+                    2019-06-25
                 </div>
 
                 
@@ -430,14 +435,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P2278" target="_blank" rel="noopener">题面</a></h2><p>一道模拟题，模拟CPU的处理过程？！<del>省选模拟题</del></p>
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><h3 id="模拟退火大法-优先队列乱搞"><a href="#模拟退火大法-优先队列乱搞" class="headerlink" title="模拟退火大法+优先队列乱搞"></a>模拟<del>退火</del>大法+优先队列乱搞</h3><h3 id="要注意的点"><a href="#要注意的点" class="headerlink" title="要注意的点"></a>要注意的点</h3><p>1、空闲时，CPU要处理进程</p>
-<p>2、当队列中没有进程时，要先进行判断，然后访问</p>
-<p>3、当优先级高的进程替换掉原进程时，原进程已经处理过的时间要减去</p>
-<p>4、结束进程时要更新后面进程的时间</p>
-<p>既然是模拟题，那就不讲具体了<del>h^ovny：我懒</del></p>
-<p>Code：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> i,S,l,p;</span><br><span class="line">	node(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> d):i(a),S(b),l(c),p(d)&#123;	&#125;</span><br><span class="line">	node()&#123;	&#125;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> node X) <span class="keyword">const</span>&#123;<span class="comment">//重载</span></span><br><span class="line">		<span class="keyword">if</span>(p!=X.p)</span><br><span class="line">			<span class="keyword">return</span> p&lt;X.p;</span><br><span class="line">		<span class="keyword">return</span> S&gt;X.S;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;Now,cur;<span class="comment">//Now表示当前处理的进程</span></span><br><span class="line"><span class="keyword">int</span> i,S,l,p;</span><br><span class="line">priority_queue&lt;node&gt;P;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;i,&amp;S,&amp;l,&amp;p);<span class="comment">//预先读入一组</span></span><br><span class="line">	Now=node(i,S,l,p);</span><br><span class="line">	<span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;i,&amp;S,&amp;l,&amp;p))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span>(Now.S+Now.l&lt;=S&amp;&amp;!P.empty())<span class="comment">//中间空闲时间先处理掉</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,Now.i,Now.S+Now.l);</span><br><span class="line">			cur=P.top();P.pop();</span><br><span class="line">			<span class="keyword">if</span>(cur.S&lt;Now.S+Now.l)<span class="comment">//计算影响</span></span><br><span class="line">				cur.l+=Now.S+Now.l-cur.S;</span><br><span class="line">			Now=cur;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(Now.S+Now.l&lt;=S)<span class="comment">//如果队列空了，Now就没有输出</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,Now.i,Now.S+Now.l);</span><br><span class="line">			Now=node(i,S,l,p);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(p&gt;Now.p)<span class="comment">//更高级的任务</span></span><br><span class="line">		&#123;</span><br><span class="line">			Now.l=Now.l+Now.S-S;</span><br><span class="line">			P.push(Now);</span><br><span class="line">			Now=node(i,S,l,p);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		P.push(node(i,S,l,p));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,Now.i,Now.S+Now.l);<span class="comment">//队列中还有进程，但Now无法被更新</span></span><br><span class="line">	<span class="keyword">while</span>(!P.empty())<span class="comment">//弹出队列中的进程</span></span><br><span class="line">	&#123;</span><br><span class="line">		cur=P.top();P.pop();</span><br><span class="line">		<span class="keyword">if</span>(cur.S&lt;Now.S+Now.l)<span class="comment">//前面进程对当前的影响</span></span><br><span class="line">			cur.l+=Now.l+Now.S-cur.S;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,cur.i,cur.S+cur.l);</span><br><span class="line">		Now=cur;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <p>欧几里得距离</p>
+<p>曼哈顿距离</p>
+<p>切比雪夫距离</p>
+<p>$L_m$距离</p>
+<p>汉明距离</p>
 
             </div>
             <hr>
@@ -578,7 +580,7 @@
                     </span>
                     <a href="http://hovnySiLenCe.github.io" class="b-link-green">h^ovny's blog</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/27/Luogu_P2278-[HNOI2003]TheOperatingSystem-Solution/" class="b-link-green">「Luogu P2278」[HNOI2003]操作系统 解题报告</a>
+                    <a href="/2019/06/25/Oiwiki-Distance-Notes/" class="b-link-green">「OI-wiki」 距离 学习笔记</a>
                 </p>
             </div>
         </div>
@@ -601,47 +603,51 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/03/27/Luogu_P3183-[HAOI2016]FoodLink-Solution/">
+                <a href="/2019/06/25/Oiwiki-Distance-Notes/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="「Luogu P3183」[HAOI2016]食物链 解题报告">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「OI-wiki」 距离 学习笔记">
                         
-                        <span class="card-title">「Luogu P3183」[HAOI2016]食物链 解题报告</span>
+                        <span class="card-title">「OI-wiki」 距离 学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">身为一个蒟蒻，由于刷不过[NOI2001]食物链
-于是出门左转写了道另一道假的食物链 戳这里  
-这里的食物链个条数其实就是有向图的路径数 （应该是这么说吧，我弱）  
-思路：拓扑(Topulogy)（一本正经的话说八道）+宽搜+乱搞+（由</div>
+                    <div class="summary">欧几里得距离
+曼哈顿距离
+切比雪夫距离
+$L_m$距离
+汉明距离
+</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                    解题报告
+                            <a href="/categories/学习笔记/" class="post-category" target="_blank">
+                                    学习笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/拓扑/" target="_blank">
-                        <span class="chip bg-color">拓扑</span>
+                    <a href="/tags/计算几何/" target="_blank">
+                        <span class="chip bg-color">计算几何</span>
                     </a>
                     
-                    <a href="/tags/BFS/" target="_blank">
-                        <span class="chip bg-color">BFS</span>
+                    <a href="/tags/距离/" target="_blank">
+                        <span class="chip bg-color">距离</span>
                     </a>
                     
                 </div>
@@ -655,25 +661,20 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/27/Luogu_P2201-TheArrayEditor-Solution/">
+                <a href="/2019/06/18/Luogu-P2446-[SDOI2010]MainlandFight-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="「Luogu P2201」数列编辑器 解题报告">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="「Luogu P2446」 [SDOI2010]大陆争霸 解题报告">
                         
-                        <span class="card-title">「Luogu P2201」数列编辑器 解题报告</span>
+                        <span class="card-title">「Luogu P2446」 [SDOI2010]大陆争霸 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">数列编辑器，在线IDE本期的主题是你谷的在线IDE  
-小学生？！小学生虐我 :cry:  
-思路：怎么说链表也是可以的吧，虽然比较繁琐  
-然后涉及到了前缀和和一些优化手段（应该可以说是记忆化吧）？  
-用p记录光标的位置  
-虽然这道题</div>
+                    <div class="summary">题面题目描述幻想历$8012$年$5$月$12$日深夜，斯普林·布拉泽降下神谕：$“Trust\ me, earn\ eternal\ life.”$ 克里斯军团士气大增。作为克里斯军团的主帅，你决定利用这一机会发动奇袭，一举击败杰森国。具</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-18
                             </span>
                         <span class="publish-author">
                             
@@ -690,8 +691,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/模拟/" target="_blank">
-                        <span class="chip bg-color">模拟</span>
+                    <a href="/tags/最短路/" target="_blank">
+                        <span class="chip bg-color">最短路</span>
+                    </a>
+                    
+                    <a href="/tags/Dijkstra/" target="_blank">
+                        <span class="chip bg-color">Dijkstra</span>
                     </a>
                     
                 </div>
