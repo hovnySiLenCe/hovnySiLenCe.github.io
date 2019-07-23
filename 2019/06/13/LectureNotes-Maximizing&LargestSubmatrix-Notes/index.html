@@ -450,7 +450,7 @@
 <p><code>小Q</code>找到了一张由$N \times M$个正方形的格子组成的矩形纸片，每个格子被涂有黑白两种颜色之一。<code>小Q</code>想在这种纸中裁减一部分作为新棋盘，当然，他希望这个棋盘尽可能的大。</p>
 <p>不过<code>小Q</code>还没有决定是找一个正方形的棋盘还是一个矩形的棋盘（当然，不管哪种，棋盘必须都黑白相间，即相邻的格子不同色），所以他希望可以找到最大的正方形棋盘面积和最大的矩形棋盘面积，从而决定哪个更好一些。</p>
 <p>于是<code>小Q</code>找到了即将参加全国信息学竞赛的你，你能帮助他么？</p>
-<h3 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式：-1"><a href="#输入格式：-1" class="headerlink" title="输入格式："></a>输入格式：</h4><p>包含两个整数$N$和$M$，分别表示矩形纸片的长和宽。接下来的$N$行包含一个$N \ \times M$的$01$矩阵，表示这张矩形纸片的颜色（$0$表示白色，$1$表示黑色）。</p>
+<h3 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式：-1"><a href="#输入格式：-1" class="headerlink" title="输入格式："></a>输入格式：</h4><p>包含两个整数$N$和$M$，分别表示矩形纸片的长和宽。接下来的$N$行包含一个$N \times M$的$01$矩阵，表示这张矩形纸片的颜色（$0$表示白色，$1$表示黑色）。</p>
 <h4 id="输出格式：-1"><a href="#输出格式：-1" class="headerlink" title="输出格式："></a>输出格式：</h4><p>包含两行，每行包含一个整数。第一行为可以找到的最大正方形棋盘的面积，第二行为可以找到的最大矩形棋盘的面积（注意正方形和矩形是可以相交或者包含的）。</p>
 <h3 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例-1：-1"><a href="#输入样例-1：-1" class="headerlink" title="输入样例#1："></a>输入样例#1：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 3</span><br><span class="line">1 0 1</span><br><span class="line">0 1 0</span><br><span class="line">1 0 0</span><br></pre></td></tr></table></figure>
 <h4 id="输出样例-1：-1"><a href="#输出样例-1：-1" class="headerlink" title="输出样例#1："></a>输出样例#1：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
@@ -471,11 +471,11 @@
 <p>如图：</p>
 <p><img src="\image\Maximizing&amp;LargestSubmatrix-1.jpg" alt></p>
 <p>这是一个矩阵，为了方便处理，我们引入了矩阵的四个顶点</p>
-<p>然后枚举每个点，比如我们做到这点，只向一个方向更新，令$U$为以$i$点为左边的矩形最大可能的上界编号，$U$则为相对应的最大可能的下界编号</p>
+<p>然后枚举每个点，比如我们做到这点，只向一个方向更新，令$U$为以$i$点为左边的矩形最大可能的上界编号，$D$则为相对应的最大可能的下界编号</p>
 <p><img src="\image\Maximizing&amp;LargestSubmatrix-2.jpg" alt></p>
 <p>此时：$U=7\  \ D=0$</p>
 <p>可以看出，还可以向右拓展，于是做到$j$点</p>
-<p><img src="\image\Maximizing&amp;LargestSubmatrix-4.jpg" alt></p>
+<p><img src="\image\Maximizing&amp;LargestSubmatrix-3.jpg" alt></p>
 <p>此时：$U=7\ \ D=0$</p>
 <p>虽然说，现在的答案已经是最大了（程序又不是人，但是我们还要拓展</p>
 <p>既然要求$i$点一定要在矩形的边缘上且矩形内不能有障碍点，所以就改变$U$或$D$的值</p>
@@ -763,12 +763,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/状压DP/" target="_blank">
-                        <span class="chip bg-color">状压DP</span>
-                    </a>
-                    
                     <a href="/tags/Hamilton路径/" target="_blank">
                         <span class="chip bg-color">Hamilton路径</span>
+                    </a>
+                    
+                    <a href="/tags/状压DP/" target="_blank">
+                        <span class="chip bg-color">状压DP</span>
                     </a>
                     
                 </div>
