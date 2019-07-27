@@ -452,123 +452,6 @@
             <hr>
 
             
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">嘻嘻嘻~</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
-            
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
@@ -612,23 +495,17 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/03/27/Luogu_P3395-Barricades-Solution/">
+                <a href="/2019/03/27/Luogu_P2508-[HAOI2008]CirclePoint-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="「Luogu P3395」路障 解题报告">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="「Luogu P2508」[HAOI2008]圆上的整点 解题报告">
                         
-                        <span class="card-title">「Luogu P3395」路障 解题报告</span>
+                        <span class="card-title">「Luogu P2508」[HAOI2008]圆上的整点 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">点开有惊喜其实是题面  
-这D1T1给的很有面子！  我居然做的来！
-从左上角走到右上角  
-然后n&lt;=1000  
-所以果断放弃DFS，选择BFS  
-思路还是一样的BFS
-证明：走到一个点的时间越早越好（因为时间越晚能走到的点越少</div>
+                    <div class="summary">题面给定圆的半径，求圆上整点数这是一道很Nice的数学题！超爱！好吧，由于这道题，我去Study了一下复数(complex number)复杂的数真棒！！！有兴趣的戳这里！！！$\huge \to$思路：高斯素数的原理，将整数分解质因数后，</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
@@ -648,8 +525,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BFS/" target="_blank">
-                        <span class="chip bg-color">BFS</span>
+                    <a href="/tags/数论/" target="_blank">
+                        <span class="chip bg-color">数论</span>
                     </a>
                     
                 </div>
@@ -663,17 +540,21 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/27/Luogu_P2508-[HAOI2008]CirclePoint-Solution/">
+                <a href="/2019/03/27/Luogu_P2278-[HNOI2003]TheOperatingSystem-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="「Luogu P2508」[HAOI2008]圆上的整点 解题报告">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「Luogu P2278」[HNOI2003]操作系统 解题报告">
                         
-                        <span class="card-title">「Luogu P2508」[HAOI2008]圆上的整点 解题报告</span>
+                        <span class="card-title">「Luogu P2278」[HNOI2003]操作系统 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">题面给定圆的半径，求圆上整点数这是一道很Nice的数学题！超爱！好吧，由于这道题，我去Study了一下复数(complex number)复杂的数真棒！！！有兴趣的戳这里！！！$\huge \to$思路：高斯素数的原理，将整数分解质因数后，</div>
+                    <div class="summary">题面一道模拟题，模拟CPU的处理过程？！省选模拟题
+思路：模拟退火大法+优先队列乱搞要注意的点1、空闲时，CPU要处理进程
+2、当队列中没有进程时，要先进行判断，然后访问
+3、当优先级高的进程替换掉原进程时，原进程已经处理过的时间要减去
+4</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
@@ -693,8 +574,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/数论/" target="_blank">
-                        <span class="chip bg-color">数论</span>
+                    <a href="/tags/模拟/" target="_blank">
+                        <span class="chip bg-color">模拟</span>
                     </a>
                     
                 </div>
