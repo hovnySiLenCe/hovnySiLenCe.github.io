@@ -5,11 +5,10 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="「网络流挖坑大全」最大流最小割 错误点记录, aafsdfsdf">
-    <meta name="description" content="
-2018年12月27日     天气：阴        心情：一般because!——学网络流第二、三道题就WA，查错花了INF的时间
+    <meta name="description" content="2018年12月27日     天气：阴        心情：一般because!——学网络流第二、三道题就WA，查错花了INF的时间
 今天作为学习网络流的第二天，本人决定潜心研究记录网络流的错题
 顺便补上昨天的错题
-Ⅰ、炸点优化对象炸弄">
+Ⅰ、炸点优化对象炸弄错">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -415,7 +414,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-23
+                    2018-12-27
                 </div>
 
                 
@@ -431,8 +430,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <a id="more"></a>
-<h2 id="2018年12月27日-天气：阴-心情：一般"><a href="#2018年12月27日-天气：阴-心情：一般" class="headerlink" title="2018年12月27日     天气：阴        心情：一般"></a>2018年12月27日     天气：阴        心情：一般</h2><p>because!——<del>学网络流第二、三道题就WA，查错花了INF的时间</del></p>
+                <h2 id="2018年12月27日-天气：阴-心情：一般"><a href="#2018年12月27日-天气：阴-心情：一般" class="headerlink" title="2018年12月27日     天气：阴        心情：一般"></a>2018年12月27日     天气：阴        心情：一般</h2><p>because!——<del>学网络流第二、三道题就WA，查错花了INF的时间</del></p>
 <p>今天作为学习网络流的第二天，本人决定潜心<del>研究</del>记录网络流的错题</p>
 <p>顺便补上昨天的错题</p>
 <h2 id="Ⅰ、炸点优化对象炸弄错了"><a href="#Ⅰ、炸点优化对象炸弄错了" class="headerlink" title="Ⅰ、炸点优化对象炸弄错了"></a>Ⅰ、炸点优化对象<del>炸</del>弄错了</h2><h3 id="BJOI2006-狼抓兔子"><a href="#BJOI2006-狼抓兔子" class="headerlink" title="[BJOI2006]狼抓兔子"></a><a href="https://www.luogu.org/problemnew/show/P4001" target="_blank" rel="noopener">[BJOI2006]狼抓兔子</a></h3><h3 id="WA-Code："><a href="#WA-Code：" class="headerlink" title="WA Code："></a>WA Code：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">(<span class="keyword">int</span> k,<span class="keyword">int</span> flow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(k==T)</span><br><span class="line">		<span class="keyword">return</span> flow;</span><br><span class="line">	<span class="keyword">int</span> i,to,cap,res,rest=flow;</span><br><span class="line">	<span class="keyword">for</span>(i=head[k];i&amp;&amp;rest;i=b[i].nxt)</span><br><span class="line">	&#123;</span><br><span class="line">		to=b[i].to;cap=b[i].cap;</span><br><span class="line">		<span class="keyword">if</span>(cap&amp;&amp;deep[to]==deep[k]+<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			res=Dinic(to,min(rest,cap));</span><br><span class="line">			<span class="keyword">if</span>(!res)</span><br><span class="line">				deep[res]=<span class="number">0</span>;<span class="comment">//它错在这里！！！炸点炸的应该是to不是res！</span></span><br><span class="line">			b[i].cap-=res;</span><br><span class="line">			b[i^<span class="number">1</span>].cap+=res;</span><br><span class="line">			rest-=res;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> flow-rest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -493,7 +491,7 @@
         repo: 'gitalk',
         owner: 'h^ovny',
         admin: "h^ovny",
-        id: '2019-07-23T17-54-22',
+        id: '2018-12-27T18-15-01',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -516,10 +514,58 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/03/11/UVA1328-Period-Solution/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="「UVA1328」Period 解题报告">
+                        
+                        <span class="card-title">「UVA1328」Period 解题报告</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            求一个字符串的任意前缀的循环节(最短)
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/解题报告/" class="post-category" target="_blank">
+                                    解题报告
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/KMP/" target="_blank">
+                        <span class="chip bg-color">KMP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
             </div>
             <div class="card">
-                <a href="/2019/07/23/Maxflow-Mistakes/">
+                <a href="/2018/12/27/Maxflow-Mistakes/">
                     <div class="card-image">
                         
                         
@@ -536,7 +582,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-23
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-27
                             </span>
                         <span class="publish-author">
                             
@@ -556,59 +602,6 @@
                     
                     <a href="/tags/网络流/" target="_blank">
                         <span class="chip bg-color">网络流</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/06/26/Luogu_P3964-[TJOI2013]SquirrelParty-Solution/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="「Luogu P3964」[TJOI2013]松鼠聚会 解题报告 (咕)">
-                        
-                        <span class="card-title">「Luogu P3964」[TJOI2013]松鼠聚会 解题报告 (咕)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            切比雪夫距离转曼哈顿距离
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/解题报告/" class="post-category" target="_blank">
-                                    解题报告
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/计算几何/" target="_blank">
-                        <span class="chip bg-color">计算几何</span>
-                    </a>
-                    
-                    <a href="/tags/距离/" target="_blank">
-                        <span class="chip bg-color">距离</span>
                     </a>
                     
                 </div>
