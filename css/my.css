@@ -1,5 +1,4 @@
 /* Here is your custom css styles. */
-
 /*Here is the numbers of the lines*/
 .gutter{
 	display: none;
@@ -65,5 +64,5 @@ div.description.center-align{
 }
 /*底部摘要*/
 [data-aos^=fade][data-aos^=fade].aos-animate {
-    display: none;
+    /*display: none;*/
 }
