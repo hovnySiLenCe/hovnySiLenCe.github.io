@@ -258,7 +258,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'd07c61565c1538e700b8bc520bb2d15a63047f0484b56e171d2cba135b65b394';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('要密码喵 >_<')).toString(CryptoJS.enc.Hex)) {
                 alert('错了错了！哼~');
