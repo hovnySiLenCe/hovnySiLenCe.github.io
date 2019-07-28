@@ -66,3 +66,14 @@ div.description.center-align{
 [data-aos^=fade][data-aos^=fade].aos-animate {
     display: none;
 }*/
+.frind-ship .title h1 {
+    line-height: 0.8rem;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #fff;
+    font-family: Consolas;
+    font-weight: 500;
+}
+p {
+    font-size: 16px;
+    line-height: 1rem;
+}
