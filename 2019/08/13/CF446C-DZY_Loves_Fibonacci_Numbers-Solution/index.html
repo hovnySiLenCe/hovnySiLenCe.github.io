@@ -4,9 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="欢迎来踩~, aafsdfsdf">
-    <meta name="description" content="留下你的评论再走！ qwq
-">
+    <meta name="keywords" content="CF446C DZY Loves Fibonacci Numbers 解题报告, aafsdfsdf">
+    <meta name="description" content="题面解题思路线段树
+题目中涉及了区间加、区间修改，因此定是线段树的题
+但是明显，就算区间转移，但是由于斐波那契数列在累加，可能一个区间内的斐波那契数列的第一、二项的不会仅仅是普通斐波那契数列中的任意一样，也就是出现广义斐波那契数列的情况
+设">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>欢迎来踩~ | h^ovny&#39;s blog</title>
+    <title>CF446C DZY Loves Fibonacci Numbers 解题报告 | h^ovny&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -271,13 +273,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        欢迎来踩~
+                        CF446C DZY Loves Fibonacci Numbers 解题报告
                     </div>
                 </div>
             </div>
@@ -388,8 +390,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Test/" target="_blank">
-                                <span class="chip bg-color">Test</span>
+                            <a href="/tags/线段树/" target="_blank">
+                                <span class="chip bg-color">线段树</span>
+                            </a>
+                        
+                            <a href="/tags/数论/" target="_blank">
+                                <span class="chip bg-color">数论</span>
                             </a>
                         
                     </div>
@@ -397,13 +403,22 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/解题报告/" class="post-category" target="_blank">
+                                解题报告
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-28
+                    2019-08-13
                 </div>
 
                 
@@ -419,7 +434,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>留下你的评论再走！ qwq</p>
+                <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/CF446C" target="_blank" rel="noopener">题面</a></h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>线段树</p>
+<p>题目中涉及了<strong>区间加</strong>、<strong>区间修改</strong>，因此定是线段树的题</p>
+<p>但是明显，就算区间转移，但是由于斐波那契数列在累加，可能一个区间内的斐波那契数列的第一、二项的不会仅仅是普通斐波那契数列中的任意一样，也就是出现<strong>广义斐波那契数列</strong>的情况</p>
+<p>设普通斐波那契数列为 $\large {F_n}$，广义斐波那契数列为 $\large {S_n}$</p>
+<p>1、$\large \forall $ 任一广义斐波那契数列有：<br>$$<br>\large \sum_{i=1}^nS_i=S_{n+2}-S_2<br>$$<br>证明：</p>
+<blockquote>
+<p>$\large S_3=S_2+S_1$</p>
+<p>$\large S_4=S_3+S_2=S_2+S_1+S_2$</p>
+<p>$\large S_5=S_4+S_3=S_3+S_2+S_1+S_2$</p>
+<p>$\large S_6=S_5+S_4=S_4+S_3+S_2+S_1+S_2$</p>
+<p>$\large S_7=S_6+S_5=S_5+S_4+S_3+S_2+S_1+S_2$</p>
+<p>$\large \dots$</p>
+</blockquote>
+<p>移项可得：</p>
+<blockquote>
+<p>$\large S_4-S_2=S_2+S_1$</p>
+<p>$\large S_5-S_2=S_3+S_2+S_1$</p>
+<p>$\large S_6-S_2=S_4+S_3+S_2+S_1$</p>
+<p>$\large S_7-S_2=S_5+S_4+S_3+S_2+S_1$</p>
+<p>$\large \dots$</p>
+</blockquote>
+<p>2、$\large \forall$ 任一广义斐波那契数列，有<br>$$<br>\large S_n=a \times F_{n-2}+b \times F_{n-1},a=S_1,b=S_2<br>$$<br>于是只要把这两个性质合理地运用一下，写成函数，就可以很快地进行求和和求任一一项的操作，这将在 $push$ 函数里大有用处</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rint rgt int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 0x7f7f7f7f</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> p 1000000009</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 300007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,T,L,R,tl[N&lt;&lt;<span class="number">2</span>],tr[N&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> f[N&lt;&lt;<span class="number">2</span>],sum[N],fib[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	rint s=<span class="number">0</span>;</span><br><span class="line">	rgt <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c)) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c)) s=(s&lt;&lt;<span class="number">1</span>)+(s&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>,c=getchar();</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">dec</span><span class="params">(rint x)</span> </span>&#123;<span class="keyword">return</span> (x&gt;=p)?x-p:x;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">rec</span><span class="params">(rint x)</span> </span>&#123;<span class="keyword">return</span> (x&lt;<span class="number">0</span>)?x+p:x;&#125;<span class="comment">//这两个都是取模函数</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">calc</span><span class="params">(rint k,rint l,rint r)</span> </span>&#123;<span class="keyword">return</span> (k&gt;<span class="number">1</span>)?(<span class="number">1l</span>l*fib[k<span class="number">-2</span>]*l+<span class="number">1l</span>l*fib[k<span class="number">-1</span>]*r)%p:l;&#125;<span class="comment">//求第k项</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Sum</span><span class="params">(rint k,rint l,rint r)</span> </span>&#123;<span class="keyword">return</span> rec((<span class="number">1l</span>l*l*fib[k]+<span class="number">1l</span>l*r*fib[k+<span class="number">1</span>])%p-r);&#125;<span class="comment">//前k项和</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(rint k,rint l,rint r)</span> </span>&#123;<span class="comment">//下传标记</span></span><br><span class="line">	f[k]=dec(f[k]+Sum(r-l+<span class="number">1</span>,tl[k],tr[k]));</span><br><span class="line">	<span class="keyword">if</span>(l!=r) &#123;</span><br><span class="line">		rint mid=(l+r)&gt;&gt;<span class="number">1</span>,ls=k&lt;&lt;<span class="number">1</span>;</span><br><span class="line">		tl[ls]=dec(tl[ls]+tl[k]),tl[ls|<span class="number">1</span>]=dec(tl[ls|<span class="number">1</span>]+calc(mid-l+<span class="number">2</span>,tl[k],tr[k])),</span><br><span class="line">		tr[ls]=dec(tr[ls]+tr[k]),tr[ls|<span class="number">1</span>]=dec(tr[ls|<span class="number">1</span>]+calc(mid-l+<span class="number">3</span>,tl[k],tr[k]));</span><br><span class="line">	&#125;tl[k]=tr[k]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Modify</span><span class="params">(rint k,rint l,rint r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(tl[k]||tr[k]) push(k,l,r);</span><br><span class="line">	<span class="keyword">if</span>(r&lt;L||R&lt;l) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span>(L&lt;=l&amp;&amp;r&lt;=R) &#123;tl[k]=fib[l-L+<span class="number">1</span>],tr[k]=fib[l-L+<span class="number">2</span>];<span class="keyword">return</span> push(k,l,r);&#125;</span><br><span class="line">	rint mid=(l+r)&gt;&gt;<span class="number">1</span>,ls=k&lt;&lt;<span class="number">1</span>;</span><br><span class="line">	Modify(ls,l,mid),Modify(ls|<span class="number">1</span>,mid+<span class="number">1</span>,r);</span><br><span class="line">	f[k]=dec(f[ls]+f[ls|<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Query</span><span class="params">(rint k,rint l,rint r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(tl[k]||tr[k]) push(k,l,r);</span><br><span class="line">	<span class="keyword">if</span>(r&lt;L||R&lt;l) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(L&lt;=l&amp;&amp;r&lt;=R) <span class="keyword">return</span> f[k];</span><br><span class="line">	rint mid=(l+r)&gt;&gt;<span class="number">1</span>,ls=k&lt;&lt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> dec(Query(ls,l,mid)+Query(ls|<span class="number">1</span>,mid+<span class="number">1</span>,r));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,op;</span><br><span class="line">	n=read(),T=read();</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) sum[i]=dec(sum[i<span class="number">-1</span>]+read());</span><br><span class="line">	fib[<span class="number">1</span>]=fib[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n+<span class="number">2</span>;++i) fib[i+<span class="number">2</span>]=dec(fib[i]+fib[i+<span class="number">1</span>]);<span class="comment">//预处理出Fib数列</span></span><br><span class="line">	<span class="keyword">while</span>(T--) &#123;</span><br><span class="line">		op=read(),L=read(),R=read();</span><br><span class="line">		(op&lt;<span class="number">2</span>)?Modify(<span class="number">1</span>,<span class="number">1</span>,n),<span class="number">1</span>:<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dec(Query(<span class="number">1</span>,<span class="number">1</span>,n)+rec(sum[R]-sum[L<span class="number">-1</span>])));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -458,7 +495,7 @@
         repo: 'gitalk',
         owner: 'hovnySiLenCe',
         admin: "hovnySiLenCe",
-        id: '2019-07-28T19-18-35',
+        id: '2019-08-13T21-13-11',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -483,24 +520,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/07/29/USACO12DEC-BarnRunning_Away_From-Solution/">
+                <a href="/2019/08/14/Luogu_P2619-[NationalTeam2]Tree_I-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="「USACO12DEC」逃跑的BarnRunning Away From… 解题报告">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="「Luogu P2619」[国家集训队2]Tree I 解题报告">
                         
-                        <span class="card-title">「USACO12DEC」逃跑的BarnRunning Away From… 解题报告</span>
+                        <span class="card-title">「Luogu P2619」[国家集训队2]Tree I 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            没那么复杂的题
+                            求一定白边的最小生成树
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-29
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-14
                         </span>
                         <span class="publish-author">
                             
@@ -517,12 +554,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/离散化/" target="_blank">
-                        <span class="chip bg-color">离散化</span>
+                    <a href="/tags/wqs二分-带权二分/" target="_blank">
+                        <span class="chip bg-color">wqs二分/带权二分</span>
                     </a>
                     
-                    <a href="/tags/树状数组/" target="_blank">
-                        <span class="chip bg-color">树状数组</span>
+                    <a href="/tags/Kruskal/" target="_blank">
+                        <span class="chip bg-color">Kruskal</span>
+                    </a>
+                    
+                    <a href="/tags/二分/" target="_blank">
+                        <span class="chip bg-color">二分</span>
                     </a>
                     
                 </div>
@@ -536,24 +577,24 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/26/Luogu_P3964-[TJOI2013]SquirrelParty-Solution/">
+                <a href="/2019/07/29/CF519E-A_and_B_and_Lecture_Rooms-Solution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="「Luogu P3964」[TJOI2013]松鼠聚会 解题报告 (咕)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="「CF519E」A and B and Lecture Rooms 解题报告">
                         
-                        <span class="card-title">「Luogu P3964」[TJOI2013]松鼠聚会 解题报告 (咕)</span>
+                        <span class="card-title">「CF519E」A and B and Lecture Rooms 解题报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            切比雪夫距离转曼哈顿距离
+                            树上两点中点相关
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-26
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-29
                             </span>
                         <span class="publish-author">
                             
@@ -570,12 +611,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/计算几何/" target="_blank">
-                        <span class="chip bg-color">计算几何</span>
-                    </a>
-                    
-                    <a href="/tags/距离/" target="_blank">
-                        <span class="chip bg-color">距离</span>
+                    <a href="/tags/Lca/" target="_blank">
+                        <span class="chip bg-color">Lca</span>
                     </a>
                     
                 </div>
@@ -690,7 +727,7 @@
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            只是来过，在那一角留下你我的痕迹罢，便再不后悔.
+            曾经，留下过往，斯人已去，又何能止步不前.
             
 
             
