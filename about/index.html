@@ -281,7 +281,7 @@
 </div>
 <script>
 // 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getMinutes() + '.jpg)');
 </script>
     </div>
 </div>
@@ -488,7 +488,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"解题报告","value":46},{"name":"学习笔记","value":3},{"name":"技术","value":1},{"name":"错误点记录","value":1},{"name":"游记","value":1}],
+                data: [{"name":"学习笔记","value":3},{"name":"解题报告","value":46},{"name":"技术","value":1},{"name":"错误点记录","value":1},{"name":"游记","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -512,7 +512,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["网络流","动态规划","模拟","数论","Manacher","最短路","树链剖分","计算几何","距离","Hamilton路径"]
+                data: ["网络流","动态规划","模拟","数论","Manacher","最短路","树链剖分","计算几何","距离","状压DP"]
             }
         ],
         yAxis: [
@@ -636,20 +636,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Hamilton路径/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Hamilton路径</span>
+            <a href="/tags/位运算/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">位运算</span>
             </a>
             
             
             
             <a href="/tags/状压DP/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">状压DP</span>
-            </a>
-            
-            
-            
-            <a href="/tags/位运算/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">位运算</span>
             </a>
             
             
@@ -672,14 +666,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/ODT/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">ODT</span>
+            <a href="/tags/Lca/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Lca</span>
             </a>
             
             
             
-            <a href="/tags/Lca/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Lca</span>
+            <a href="/tags/Hamilton路径/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Hamilton路径</span>
             </a>
             
             
@@ -690,14 +684,20 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/莫队/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">莫队</span>
+            <a href="/tags/离散化/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">离散化</span>
             </a>
             
             
             
-            <a href="/tags/离散化/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">离散化</span>
+            <a href="/tags/ODT/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">ODT</span>
+            </a>
+            
+            
+            
+            <a href="/tags/莫队/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">莫队</span>
             </a>
             
             
@@ -720,32 +720,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/Dijkstra/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Dijkstra</span>
-            </a>
-            
-            
-            
             <a href="/tags/树链剖分/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">树链剖分</span>
             </a>
             
             
             
-            <a href="/tags/wqs二分-带权二分/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">wqs二分/带权二分</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Kruskal/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Kruskal</span>
-            </a>
-            
-            
-            
-            <a href="/tags/二分/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">二分</span>
+            <a href="/tags/Dijkstra/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Dijkstra</span>
             </a>
             
             
@@ -816,20 +798,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
+            <a href="/tags/二分/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">二分</span>
+            </a>
+            
+            
+            
             <a href="/tags/悬线法/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">悬线法</span>
-            </a>
-            
-            
-            
-            <a href="/tags/KMP/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">KMP</span>
-            </a>
-            
-            
-            
-            <a href="/tags/归并排序/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">归并排序</span>
             </a>
             
             
@@ -840,8 +816,32 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
+            <a href="/tags/KMP/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">KMP</span>
+            </a>
+            
+            
+            
             <a href="/tags/最小割/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">最小割</span>
+            </a>
+            
+            
+            
+            <a href="/tags/归并排序/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">归并排序</span>
+            </a>
+            
+            
+            
+            <a href="/tags/wqs二分-带权二分/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">wqs二分/带权二分</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Kruskal/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Kruskal</span>
             </a>
             
             
