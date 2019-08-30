@@ -444,7 +444,7 @@
 <p>先根据套路，把 $k$ 除掉<br>$$<br>\large \sum_{a_1=\lceil \frac L k \rceil }^{\lfloor \frac R k \rfloor}\cdots\sum_{a_n=\lceil \frac L k \rceil }^{\lfloor \frac R k \rfloor}[\gcd\limits_{i=1}^n(a_i)=1]<br>$$</p>
 <p>之后运用反演结论，<del>（还是套路</del><br>$$<br>\large \sum_{a_1=\lceil \frac L k \rceil }^{\lfloor \frac R k \rfloor}\cdots\sum_{a_n=\lceil \frac L k \rceil }^{\lfloor \frac R k \rfloor}\sum_{d|\gcd\limits_{i=1}^n(a_i)}\mu(d)<br>$$<br>改变枚举顺序<br>$$<br>\large \sum_{d=1}^{\lfloor\frac R k\rfloor}\mu(d)\sum_{a_1=\lceil \frac L k \rceil }^{\lfloor \frac R k \rfloor}d|a_i\cdots\sum_{a_n=\lceil \frac L k \rceil }^{\lfloor \frac R k \rfloor}d|a_n<br>$$<br>也就是<br>$$<br>\large \sum_{d=1}^{\lfloor\frac R k\rfloor}\mu(d)\cdot\left(\lfloor\frac{\lfloor \frac R k \rfloor} d \rfloor-\lfloor \frac {\lceil \frac L k \rceil-1} d\rfloor\right)^n<br>$$<br>于是现在就珂以数论分块求啦</p>
 <p>只不过 $\mu(n)$ 貌似线性筛不出来，没关系，杜教筛大法好</p>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p><del>O(能过)</del> $O(n^{\frac 2 3}+\sqrt n*log_2(n))$</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p><del>O(能过)</del> $O(n^{\frac 2 3}+\sqrt nlog_2(n))$</p>
 <h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><p>1、杜教筛记得从 $2$ 开始筛</p>
 <p>2、数论分块求解时注意 <code>l&gt;L</code> 的情况，此时不能使用 <code>min(L/(L/l),R/(R/L))</code></p>
 <p>3、注意过程中 <code>int</code> 类型的溢出</p>
@@ -516,9 +516,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="「Luogu P4449」于神之怒加强版 解题报告">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="「Luogu P4449」于神之怒加强版 解题报告 (咕)">
                         
-                        <span class="card-title">「Luogu P4449」于神之怒加强版 解题报告</span>
+                        <span class="card-title">「Luogu P4449」于神之怒加强版 解题报告 (咕)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
