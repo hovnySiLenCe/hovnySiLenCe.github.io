@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>h^ovny&#39;s blog</title>
+  
+  <subtitle>Forever</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://hovnySiLenCe.github.io/"/>
+  <updated>2019-10-28T14:02:05.620Z</updated>
+  <id>http://hovnySiLenCe.github.io/</id>
+  
+  <author>
+    <name>h^ovny</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P3154」[CQOI2009]循环赛 解题报告 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/28/A-Luogu_P3154-%5BCQOI2009%5DCircleMatch-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/28/A-Luogu_P3154-[CQOI2009]CircleMatch-Solution/</id>
+    <published>2019-10-28T13:58:35.000Z</published>
+    <updated>2019-10-28T14:02:05.620Z</updated>
+    
+    <summary type="html">
+    
+      Hash+dfs
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="dfs" scheme="http://hovnySiLenCe.github.io/tags/dfs/"/>
+    
+      <category term="Hash" scheme="http://hovnySiLenCe.github.io/tags/Hash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3230」[HNOI2013]比赛 解题报告 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/28/A-Luogu_P3230-%5BHNOI2013%5DMatch-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/28/A-Luogu_P3230-[HNOI2013]Match-Solution/</id>
+    <published>2019-10-28T13:48:20.000Z</published>
+    <updated>2019-10-28T14:02:37.465Z</updated>
+    
+    <summary type="html">
+    
+      Hash+dfs
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="dfs" scheme="http://hovnySiLenCe.github.io/tags/dfs/"/>
+    
+      <category term="Hash" scheme="http://hovnySiLenCe.github.io/tags/Hash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P5596」[XR-4]题 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/24/Luogu_P5596-%5BXR-4%5DProblem-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/24/Luogu_P5596-[XR-4]Problem-Solution/</id>
+    <published>2019-10-24T05:54:01.000Z</published>
+    <updated>2019-10-28T11:45:07.921Z</updated>
+    
+    <summary type="html">
+    
+      看着挺像数学题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3569」[POI2014]KAR-Cards 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/23/Luogu_P3569-%5BPOI2014%5DKAR-Cards-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/23/Luogu_P3569-[POI2014]KAR-Cards-Solution/</id>
+    <published>2019-10-23T14:17:56.000Z</published>
+    <updated>2019-10-28T12:52:38.938Z</updated>
+    
+    <summary type="html">
+    
+      让我如何描述...
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「算法导论」渐进记号&amp;主定理 学习笔记 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/18/A-IntroductiontoAlgorithms-MasterTheorem-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/18/A-IntroductiontoAlgorithms-MasterTheorem-Notes/</id>
+    <published>2019-10-18T12:48:38.000Z</published>
+    <updated>2019-10-28T13:25:59.319Z</updated>
+    
+    <summary type="html">
+    
+      浅谈渐进记号与主定理
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="主定理" scheme="http://hovnySiLenCe.github.io/tags/%E4%B8%BB%E5%AE%9A%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Author」模板集合 学习笔记 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/10/A-Author-Templates-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/10/A-Author-Templates-Notes/</id>
+    <published>2019-10-10T07:59:54.000Z</published>
+    <updated>2019-10-28T12:53:01.044Z</updated>
+    
+    <summary type="html">
+    
+      模板集合，不定时更新
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="模板" scheme="http://hovnySiLenCe.github.io/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Contest」2019.09.15 Cx Solution (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/10/A-Contest-2019_09_15_Cx-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/10/A-Contest-2019_09_15_Cx-Solution/</id>
+    <published>2019-10-10T07:47:08.000Z</published>
+    <updated>2019-10-28T12:53:00.050Z</updated>
+    
+    <summary type="html">
+    
+      单调队列专场
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="模拟赛" scheme="http://hovnySiLenCe.github.io/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P2599」[ZJOI2009]取石子游戏 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/08/Luogu_P2599-%5BZJOI2009%5DPebbleGame-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/08/Luogu_P2599-[ZJOI2009]PebbleGame-Solution/</id>
+    <published>2019-10-08T07:59:42.000Z</published>
+    <updated>2019-10-28T12:52:42.097Z</updated>
+    
+    <summary type="html">
+    
+      只能取两端石子的取石子游戏
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="动态规划" scheme="http://hovnySiLenCe.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Contest」[JudgeOI]Homer·VS·Judge 解题报告 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/04/A-Contest-JudgeOI2019-HomerVSJudge-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/04/A-Contest-JudgeOI2019-HomerVSJudge-Solution/</id>
+    <published>2019-10-04T07:56:21.000Z</published>
+    <updated>2019-10-28T12:52:59.538Z</updated>
+    
+    <summary type="html">
+    
+      Orz Judge
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="模拟赛" scheme="http://hovnySiLenCe.github.io/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Contest」SCPFoundation 解题报告 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/03/A-Contest-SCPFoundation-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/03/A-Contest-SCPFoundation-Solution/</id>
+    <published>2019-10-03T07:06:29.000Z</published>
+    <updated>2019-10-28T14:01:59.381Z</updated>
+    
+    <summary type="html">
+    
+      神仙模拟赛
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="模拟赛" scheme="http://hovnySiLenCe.github.io/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3554」[POI2013]LUK-Triumphal arch 解题报告 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/09/29/A-Luogu_P3554-%5BPOI2013%5DLUK-Triumphal_arch-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/09/29/A-Luogu_P3554-[POI2013]LUK-Triumphal_arch-Solution/</id>
+    <published>2019-09-29T14:20:01.000Z</published>
+    <updated>2019-10-28T12:52:57.541Z</updated>
+    
+    <summary type="html">
+    
+      树上每次可以覆盖k点问题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="二分" scheme="http://hovnySiLenCe.github.io/tags/%E4%BA%8C%E5%88%86/"/>
+    
+      <category term="树形dp" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E5%BD%A2dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P1210」[HNOI2003]消防局的设立 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/09/26/Luogu_P2279-%5BHNOI2003%5DFireStation-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/09/26/Luogu_P2279-[HNOI2003]FireStation-Solution/</id>
+    <published>2019-09-26T04:57:49.000Z</published>
+    <updated>2019-10-28T12:52:45.386Z</updated>
+    
+    <summary type="html">
+    
+      树上半径为2的圆覆盖
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="树形dp" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E5%BD%A2dp/"/>
+    
+      <category term="动态规划" scheme="http://hovnySiLenCe.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「OI-wiki」 Lucas&amp;ExLucas定理 学习笔记 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/09/22/A-Oiwiki-Lucas&amp;ExLucas-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2019/09/22/A-Oiwiki-Lucas&amp;ExLucas-Notes/</id>
+    <published>2019-09-22T06:50:23.000Z</published>
+    <updated>2019-10-28T12:52:55.610Z</updated>
+    
+    <summary type="html">
+    
+      大组合数取模
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="Lucas定理" scheme="http://hovnySiLenCe.github.io/tags/Lucas%E5%AE%9A%E7%90%86/"/>
+    
+      <category term="扩展Lucas定理" scheme="http://hovnySiLenCe.github.io/tags/%E6%89%A9%E5%B1%95Lucas%E5%AE%9A%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「某讲稿」 点分治 学习笔记 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/09/20/A-LectureNotes-TreeDivide-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2019/09/20/A-LectureNotes-TreeDivide-Notes/</id>
+    <published>2019-09-20T13:46:14.000Z</published>
+    <updated>2019-10-28T12:52:58.030Z</updated>
+    
+    <summary type="html">
+    
+      有关点分治的问题（入门
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="点分治" scheme="http://hovnySiLenCe.github.io/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Contest」2019.09.08 Cx Solution (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/09/15/A-Contest-2019_09_08_Cx-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/09/15/A-Contest-2019_09_08_Cx-Solution/</id>
+    <published>2019-09-15T07:46:53.000Z</published>
+    <updated>2019-10-28T13:17:39.276Z</updated>
+    
+    <summary type="html">
+    
+      单调队列专场
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="模拟赛" scheme="http://hovnySiLenCe.github.io/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「技术」LaTex数学符号（2）</title>
+    <link href="http://hovnySiLenCe.github.io/2019/08/30/LaTeX_2/"/>
+    <id>http://hovnySiLenCe.github.io/2019/08/30/LaTeX_2/</id>
+    <published>2019-08-30T01:28:47.000Z</published>
+    <updated>2019-10-28T13:26:59.410Z</updated>
+    
+    <summary type="html">
+    
+      真·LaTeX语法 qwq
+    
+    </summary>
+    
+      <category term="技术" scheme="http://hovnySiLenCe.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="LaTeX" scheme="http://hovnySiLenCe.github.io/tags/LaTeX/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P4449」于神之怒加强版 解题报告 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/08/30/Luogu_P4449-God&#39;sBlaze-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/08/30/Luogu_P4449-God&#39;sBlaze-Solution/</id>
+    <published>2019-08-30T01:02:33.000Z</published>
+    <updated>2019-10-28T12:52:36.465Z</updated>
+    
+    <summary type="html">
+    
+      求gcd的k次和
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数论" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="莫比乌斯反演" scheme="http://hovnySiLenCe.github.io/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
+    
+      <category term="数论分块" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3172」[CQOI2015]选数 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/08/30/Luogu_P3172-%5BCQOI2015%5DSelectNumber-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/08/30/Luogu_P3172-[CQOI2015]SelectNumber-Solution/</id>
+    <published>2019-08-30T00:59:06.000Z</published>
+    <updated>2019-10-28T12:52:41.209Z</updated>
+    
+    <summary type="html">
+    
+      莫比乌斯反演入门题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数论" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="莫比乌斯反演" scheme="http://hovnySiLenCe.github.io/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
+    
+      <category term="数论分块" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P2221」[HAOI2012]高速公路 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/08/15/Luogu_P2221-%5BHAOI2012%5DFreeway-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/08/15/Luogu_P2221-[HAOI2012]Freeway-Solution/</id>
+    <published>2019-08-15T10:26:02.000Z</published>
+    <updated>2019-10-28T12:52:46.291Z</updated>
+    
+    <summary type="html">
+    
+      线段树维护一个复杂的东西
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P2619」[国家集训队2]Tree I 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/08/14/Luogu_P2619-%5BNationalTeam2%5DTree_I-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/08/14/Luogu_P2619-[NationalTeam2]Tree_I-Solution/</id>
+    <published>2019-08-14T00:23:23.000Z</published>
+    <updated>2019-10-28T12:52:41.652Z</updated>
+    
+    <summary type="html">
+    
+      求一定白边的最小生成树
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="二分" scheme="http://hovnySiLenCe.github.io/tags/%E4%BA%8C%E5%88%86/"/>
+    
+      <category term="wqs二分/带权二分" scheme="http://hovnySiLenCe.github.io/tags/wqs%E4%BA%8C%E5%88%86-%E5%B8%A6%E6%9D%83%E4%BA%8C%E5%88%86/"/>
+    
+      <category term="Kruskal" scheme="http://hovnySiLenCe.github.io/tags/Kruskal/"/>
+    
+  </entry>
+  
+</feed>
