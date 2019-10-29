@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「Luogu P3230」[HNOI2013]比赛 解题报告 (咕) | h^ovny&#39;s blog</title>
+  <title itemprop="name">「Luogu P3230」[HNOI2013]比赛 解题报告 | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -358,7 +358,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      「Luogu P3230」[HNOI2013]比赛 解题报告 (咕)</h1>
+      「Luogu P3230」[HNOI2013]比赛 解题报告</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -384,7 +384,115 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/P3230" target="_blank" rel="noopener">题面</a></h2>
+          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/P3230" target="_blank" rel="noopener">题面</a></h2><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong>DFS+剪枝+Hash</strong></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先肯定是 $dfs$，</p>
+<p>看成是一张 $n\times n$ 的比赛表，然后一次 $dfs$ 每场比赛的胜负即可，</p>
+<p>主要考虑如何剪枝</p>
+<h4 id="可行性剪枝"><a href="#可行性剪枝" class="headerlink" title="可行性剪枝"></a>可行性剪枝</h4><p>1、如果当前人赢了所有比赛仍不能达到他的分数，剪枝</p>
+<p>2、如果剩下的所有比赛都平所得的总分大于实际总分或者都赢的总分小于实际总分，剪枝</p>
+<p>$code$ 如下：</p>
+<pre><code class="lang-cpp">if(b[x]+3*(n-y+1)&lt;a[x]) return 0;
+rint res=(n-x-1)*(n-x)/2+(n-y+1);
+if(sum+3*res&lt;T||sum+2*res&gt;T) return 0;//T为总分
+</code></pre>
+<p><strong>3、</strong>（重点）设在所有比赛中平局的场数为 $l$，任意一方胜利的场数为 $w$，显然有</p>
+<script type="math/tex; mode=display">
+\begin{equation}  
+\left\{  
+             \begin{array}{**lr**}  
+             w+l=\dfrac{n\times(n-1)} {2}\\
+             3w+2l=T\\
+             \end{array}  
+\right.  
+\end{equation}</script><p>既然是一个二元一次方程组，就可以解一下，得</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\left\{
+        \begin{array}{**lr**}
+        w=T-n\times(n-1)\\
+        l=\dfrac {n\times(n-1)} 2-w
+        \end{array}
+\right.
+\end{equation}</script><p>这样就可以继续可行性剪枝</p>
+<p>当胜利的场数或者平局的场数不足时才做，剪去的时间很客观<del>（但是还是过不了</del></p>
+<p>$code$ 如下：</p>
+<pre><code class="lang-cpp">if(w&amp;&amp;b[x]+3&lt;=a[x]) --w,b[x]+=3,res+=dfs(x,y+1,sum+3),b[x]-=3,++w;
+if(l&amp;&amp;b[x]+1&lt;=a[x]&amp;&amp;b[y]+1&lt;=a[y]) {
+    ++b[x],++b[y],--l;
+        res+=dfs(x,y+1,sum+2);
+    --b[x],--b[y],++l;
+}
+if(w&amp;&amp;b[y]+3&lt;=a[y]&amp;&amp;b[y]+3+3*(n-x+1)) --w,b[y]+=3,res+=dfs(x,y+1,sum+3),b[y]-=3,++w;
+</code></pre>
+<h4 id="改变搜索顺序"><a href="#改变搜索顺序" class="headerlink" title="改变搜索顺序"></a>改变搜索顺序</h4><p>将实际分数按<strong>从大到小排序</strong>后搜索效率更高</p>
+<h4 id="记忆化！！！"><a href="#记忆化！！！" class="headerlink" title="记忆化！！！"></a>记忆化！！！</h4><p>真·神仙</p>
+<p>用 $Hash$ 完成记忆化，用 $map$ 存，每次一个人的所有比赛比完之后，判断一下状态是否已经到达过</p>
+<p>$code$ 如下：</p>
+<pre><code class="lang-cpp">if(y&gt;n) {
+    for(rint i=x+1;i&lt;=n;++i) c[i]=a[i]-b[i];
+    sort(c+x+1,c+n+1);LL key=0;
+    for(rint i=x+1;i&lt;=n;i++) key=key*base+c[i];
+    if(v.find(key)!=v.end()) return v[key];
+    return v[key]=dfs(x+1,x+2,sum);
+}
+</code></pre>
+<p>要注意的是：</p>
+<p>1、我们 $Hash$ 的是每个人当前分数与实际的分数差</p>
+<p>2、$Hash$ 之前排序是因为相同数字是等效的，本质上只不过是将一些数字分成几堆，而如何分，顺序是无关的，因此是等效的</p>
+<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><p>1、$Hash$ 判断有没有出现过是不能用 <code>if(v[key])</code>，因为可能这种情况无解，应用 <code>if(v.find(key)!=v.end())</code>.</p>
+<p>2、别忘排序，$Hash$ 的是当前与实际分数的差</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+const LL base=1e9+7;//base的取值28也可以
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int n,T,a[11],b[11],c[11],w,l;
+map&lt;LL,int&gt;v;//一开始想用ull自然溢出的，不过貌似没有什么问题
+inline int dfs(rint x,rint y,rint sum) {
+    if(x==n) return 1;
+    if(b[x]+3*(n-y+1)&lt;a[x]) return 0;//可行性剪枝1
+    if(y&gt;n) {//一个人的所有比赛完后Hash，再搜索下一个人
+        for(rint i=x+1;i&lt;=n;++i) c[i]=a[i]-b[i];
+        sort(c+x+1,c+n+1);LL key=0;
+        for(rint i=x+1;i&lt;=n;i++) key=key*base+c[i];
+        if(v.find(key)!=v.end()) return v[key];//0也是有可能的，因此不能用if(v[key])
+        return v[key]=dfs(x+1,x+2,sum);//注意记录值
+    }
+    rint res=(n-x-1)*(n-x)/2+(n-y+1);//可行性剪枝2
+    if(sum+3*res&lt;T||sum+2*res&gt;T) return 0;res=0;
+    if(w&amp;&amp;b[x]+3&lt;=a[x]) --w,b[x]+=3,res+=dfs(x,y+1,sum+3),b[x]-=3,++w;//可行性剪枝3
+    if(l&amp;&amp;b[x]+1&lt;=a[x]&amp;&amp;b[y]+1&lt;=a[y]) {
+        ++b[x],++b[y],--l;
+            res+=dfs(x,y+1,sum+2);
+        --b[x],--b[y],++l;
+    }
+    if(w&amp;&amp;b[y]+3&lt;=a[y]&amp;&amp;b[y]+3+3*(n-x+1)/*可行性剪枝1*/) --w,b[y]+=3,res+=dfs(x,y+1,sum+3),b[y]-=3,++w;
+    return res%base;//不要忘记取膜
+}
+inline bool cmp(rint x,rint y){return x&gt;y;}
+int main()
+{
+    rint i;n=read();
+    for(i=1;i&lt;=n;i++) T+=a[i]=read();
+    sort(a+1,a+n+1,cmp),w=T-n*(n-1),l=n*(n-1)/2-w;//算出胜场和平场
+    printf(&quot;%d&quot;,dfs(1,2,0));
+    return 0;
+}
+</code></pre>
+<h2 id="推荐题目"><a href="#推荐题目" class="headerlink" title="推荐题目"></a>推荐题目</h2><p><a href="https://www.luogu.org/problem/P3154" target="_blank" rel="noopener">emmm 双倍经验 <del>~弱化版</del> Luogu P3154 [CQOI2009]循环赛</a></p>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -422,7 +530,7 @@
               Previous Post</span>
               <div class="info">
                 <h3>
-                「Luogu P3154」[CQOI2009]循环赛 解题报告 (咕)</h3>
+                「Luogu P3154」[CQOI2009]循环赛 解题报告</h3>
                 <hr>
               </div>
             </a>
