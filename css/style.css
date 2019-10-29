@@ -5803,14 +5803,20 @@ button.botui-actions-buttons-button {
     text-size-adjust:100%;
     width:auto
 }
+/*浮动后字体*/
 .logolink a:hover .sakurasono {
+    font-family: Segoe Print;
     background-color:orange;
+    padding: 4px;
     color:#fff
 }
 .logolink a:hover .shironeko,.logolink a:hover rt {
+    font-family: Segoe Print;
     color:orange
 }
+/*浮动前字体*/
 .logolink.moe-mashiro a {
+    font-family: Comic Sans MS;
     color:#464646;
     float:left;
     font-size:28px;
@@ -5825,6 +5831,8 @@ button.botui-actions-buttons-button {
 .logolink.moe-mashiro .sakurasono {
     font-size:25px;
     border-radius:9px;
+    padding-left: 4px;
+    padding-right: 4px;
     padding-bottom:2px;
     padding-top:5px
 }
