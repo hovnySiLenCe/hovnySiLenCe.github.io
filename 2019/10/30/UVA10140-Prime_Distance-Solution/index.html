@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「USACO12DEC」逃跑的BarnRunning Away From… 解题报告 | h^ovny&#39;s blog</title>
+  <title itemprop="name">「UVA10140」 Prime Distance 解题报告 | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -354,11 +354,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/63.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/63.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/85.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/85.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      「USACO12DEC」逃跑的BarnRunning Away From… 解题报告</h1>
+      「UVA10140」 Prime Distance 解题报告</h1>
       <p class="entry-census">
         <span>
           <a href="https://hovnySiLenCe.github.io/">
@@ -370,7 +370,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2019-7-29<span class="bull">
+        2019-10-30<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -384,88 +384,50 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/P3066" target="_blank" rel="noopener">题面</a></h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>方法很多，比如<code>左偏树</code>、<code>主席树</code>、<code>树上查分</code> <del>看到数据结构大佬瑟瑟发抖</del></p>
-<p>这里提供一种新的算法 $\large \to$ <strong>树状数组+离散化</strong>（并不用记录 $dfs$ 序</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>求子树中到根的距离在一定范围内的点，可以对每棵子树用树状数组维护一个所有点到根的距离，查询时查询一定范围即可</p>
-<p>但是明显这是不行的，<strong>空间和时间都不允许</strong></p>
-<p>考虑一下优化，<strong>绝对距离</strong>是没必要的，可以有<strong>相对距离</strong>来表示两点间的情况（也就是说，我们只需要知道两者的大小关系），因此可以预处理出每个点到 $root$ 的距离，排序后维护其离散值即可，查询时也可以用离散值来代替</p>
-<p>再考虑对每个点维护子树信息的优化，不难发现，$dfs$ 实现时，对于一个点，$dfs$ 其子树前 和 完成后，对答案造成的影响只有子树里的信息，因此可以只开一个树状数组维护信息，每次记录 $dfs$ 前后的结果，两者之差即为答案</p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><p>1、先 $dfs$ 跑一遍，预处理出所有点到 $root(1)$ 的 $dis$ 值，用 $p$ 数组记录</p>
-<p>2、将 $p$ 数组按升序排序</p>
-<p>3、再次 $dfs$，用树状数组 $f$ 记录各点到 $root$ 距离的离散值，每次在访问一个节点的儿子前，查询该点能到最远距离的离散值，然后在树状数组中标记这个点的 $dis$，遍历子树，最后再次查询，两次查询之差即为该点的答案，因为只对该点子树进行的操作，不会产生额外的影响</p>
-<pre><code class="lang-cpp">cur=lower_bound(p+1,p+t+1,dis[k])-p;//当前点的离散值
-pos=lower_bound(p+cur,p+t+1,dis[k]+R)-p;//最远能到的点的离散值
-if(p[pos]&gt;dis[k]+R) --pos;//要求 小于等于
-res=Query(pos),Modify(cur);//先查询，再修改
-. . .
-Ans[k]=Query(pos)-res;//再次查询，记录两次查询的差为答案
-</code></pre>
-<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><p>1、记得开 $long\ long $</p>
-<p>2、$1$ 到 $root$ 的 $dis$ 值，虽然是 $0$ 也要记录，否则会影响上述过程中 $cur$ 的值，间接影响答案，如下图情况，若题目中的 $L&lt;10$ 则 $root$ 的答案会少 $1$ ，当然，也可以通过特判解决</p>
-<p><img src="\image\USACO12DEC-1.jpg" alt></p>
+          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/UVA10140" target="_blank" rel="noopener">题面</a></h2><p>大概的意思就是求 $[l,r]$ 区间相邻最近和最远的质数</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这里明显的就是一个<strong>埃氏筛</strong>的运用（很久前咕掉的现在补上</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>区间的长度不超过 $1e6$，又有筛质数时，有效的其实是<strong>小于</strong> $n$ 的质数，因此可以先预处理出 $[1,\sqrt{\mathtt{INT\_MAX}}]$ 的质数，然后在用其取筛 $[l,r]$ 区间的质数，直接那个 $O(n\log\log n)$ 的<strong>Eratosthenes 筛法</strong>即可</p>
+<h2 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h2><p>1、$1$ 也算质数</p>
+<p>2、筛素数的时候可能会把这个质数本身筛掉</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define rgt register
 #define LL long long
-#define N 200003
+#define rll rgt LL
+#define inf 0x7f7f7f7f7f
+#define M 1000007
 using namespace std;
-struct Edge{
-    int to,nxt;
-    LL dis;
-    Edge(int a,int b,LL c):to(a),nxt(b),dis(c){}
-    Edge(){}
-}b[N];//记录边
-int head[N],n,t;
-int f[N],Ans[N];
-LL dis[N],p[N],R;
-inline LL read() {
-    rgt LL s=0;
-    rgt char c=getchar();
-    while(!isdigit(c)) c=getchar();
-    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
-    return s;
-}
-inline void add(rgt int x,rgt int y) {
-    b[++t]=Edge(y,head[x],read()),head[x]=t;
-}
-inline void built(rgt int k) {//预处理dis
-    p[++t]=dis[k];//1到root的距离也要加入
-    rgt int i,to;
-    for(i=head[k];i;i=b[i].nxt) {
-        to=b[i].to,
-        dis[to]=dis[k]+b[i].dis;
-        built(to);
+const int N=sqrt(INT_MAX);
+LL l,r,t,Max,Min,lx,ly,rx,ry,x,y,pr[N&gt;&gt;1];
+bool v[N+3],b[M];
+int main() {
+    rll i,j,c;
+    for(i=2;i&lt;=N;i++) {//初始化质数
+        if(!v[i]) pr[++t]=i;
+        for(j=1;j&lt;=t;j++) {
+            c=i*pr[j];if(c&gt;N) break;
+            v[c]=1;if(i%pr[j]==0) break;
+        }
     }
-}
-inline int Query(rgt int x) {
-    int res=0;
-    for(;x;x-=x&amp;(-x)) res+=f[x];
-    return res;
-}
-inline void Modify(rgt int x) {
-    for(;x&lt;=t;x+=x&amp;(-x)) ++f[x];
-}
-inline void solve(rgt int k) {
-    rgt int i,to,cur,res,pos;
-    cur=lower_bound(p+1,p+t+1,dis[k])-p;
-    pos=lower_bound(p+cur,p+t+1,dis[k]+R)-p;//假装从cur开始查能省点时间
-    if(p[pos]&gt;dis[k]+R) --pos;
-    res=Query(pos),Modify(cur);
-    for(i=head[k];i;i=b[i].nxt)
-        to=b[i].to,solve(to);
-    Ans[k]=Query(pos)-res;
-}
-int main()
-{
-    int i;
-    n=read(),R=read();//n点数，R距离
-    for(i=2;i&lt;=n;i++) add(read(),i);
-    t=0,built(1),//第一遍dfs
-    sort(p+1,p+t+1),solve(1);//第二遍dfs得出结果
-    for(i=1;i&lt;=n;i++) printf(&quot;%d\n&quot;,Ans[i]);
+    while(~scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r)) {
+        memset(b,0,sizeof(b)),Max=-1,Min=inf+1,y=-1;
+        if(l==1) b[0]=1;
+        for(i=1;i&lt;=t&amp;&amp;pr[i]&lt;=r;i++) {
+            c=pr[i]*max(l/pr[i]+(l%pr[i]&gt;0),2ll);//取max是防止不筛掉自己
+            while(c&lt;=r) b[c-l]=1,c+=pr[i];//标记合数
+        }
+        for(i=0;i&lt;=r-l;i++)
+            if(!b[i]) {
+                x=y,y=i+l;
+                if(x&lt;0) continue;
+                if(y-x&lt;Min)    lx=x,ly=y,Min=y-x;
+                if(y-x&gt;Max) rx=x,ry=y,Max=y-x;
+            }
+        if(Max&lt;0||Min&gt;inf) printf(&quot;There are no adjacent primes.\n&quot;);
+        else printf(&quot;%lld,%lld are closest, %lld,%lld are most distant.\n&quot;,lx,ly,rx,ry);
+    }
     return 0;
 }
 </code></pre>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>如果题目没有 <code>子树中</code>的限制…</p>
 
         </div>
         <!-- .entry-content -->
@@ -493,36 +455,19 @@ int main()
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/07/29/CF519E-A_and_B_and_Lecture_Rooms-Solution/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/20.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/20.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                「CF519E」A and B and Lecture Rooms 解题报告</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2019/06/26/A-Luogu_P3964-[TJOI2013]SquirrelParty-Solution/" rel="next">
+            <a href="/2019/10/30/Luogu_P1941-FlappyBird-Solution/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/79.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/79.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/84.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/84.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                「Luogu P3964」[TJOI2013]松鼠聚会 解题报告 (咕)</h3>
+                「Luogu P1941」飞扬的小鸟 解题报告</h3>
                 <hr>
               </div>
             </a>

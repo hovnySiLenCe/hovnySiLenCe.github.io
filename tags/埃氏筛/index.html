@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「USACO12DEC」逃跑的BarnRunning Away From… 解题报告 | h^ovny&#39;s blog</title>
+  <title itemprop="name">Tag: 埃氏筛 | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -348,212 +348,64 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/63.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/63.jpg">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      「USACO12DEC」逃跑的BarnRunning Away From… 解题报告</h1>
-      <p class="entry-census">
-        <span>
-          <a href="https://hovnySiLenCe.github.io/">
-            <img src="/images/avatar.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="https://hovnySiLenCe.github.io/">h^ovny</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2019-7-29<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="埃氏筛.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">埃氏筛</h1>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/P3066" target="_blank" rel="noopener">题面</a></h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>方法很多，比如<code>左偏树</code>、<code>主席树</code>、<code>树上查分</code> <del>看到数据结构大佬瑟瑟发抖</del></p>
-<p>这里提供一种新的算法 $\large \to$ <strong>树状数组+离散化</strong>（并不用记录 $dfs$ 序</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>求子树中到根的距离在一定范围内的点，可以对每棵子树用树状数组维护一个所有点到根的距离，查询时查询一定范围即可</p>
-<p>但是明显这是不行的，<strong>空间和时间都不允许</strong></p>
-<p>考虑一下优化，<strong>绝对距离</strong>是没必要的，可以有<strong>相对距离</strong>来表示两点间的情况（也就是说，我们只需要知道两者的大小关系），因此可以预处理出每个点到 $root$ 的距离，排序后维护其离散值即可，查询时也可以用离散值来代替</p>
-<p>再考虑对每个点维护子树信息的优化，不难发现，$dfs$ 实现时，对于一个点，$dfs$ 其子树前 和 完成后，对答案造成的影响只有子树里的信息，因此可以只开一个树状数组维护信息，每次记录 $dfs$ 前后的结果，两者之差即为答案</p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><p>1、先 $dfs$ 跑一遍，预处理出所有点到 $root(1)$ 的 $dis$ 值，用 $p$ 数组记录</p>
-<p>2、将 $p$ 数组按升序排序</p>
-<p>3、再次 $dfs$，用树状数组 $f$ 记录各点到 $root$ 距离的离散值，每次在访问一个节点的儿子前，查询该点能到最远距离的离散值，然后在树状数组中标记这个点的 $dis$，遍历子树，最后再次查询，两次查询之差即为该点的答案，因为只对该点子树进行的操作，不会产生额外的影响</p>
-<pre><code class="lang-cpp">cur=lower_bound(p+1,p+t+1,dis[k])-p;//当前点的离散值
-pos=lower_bound(p+cur,p+t+1,dis[k]+R)-p;//最远能到的点的离散值
-if(p[pos]&gt;dis[k]+R) --pos;//要求 小于等于
-res=Query(pos),Modify(cur);//先查询，再修改
-. . .
-Ans[k]=Query(pos)-res;//再次查询，记录两次查询的差为答案
-</code></pre>
-<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><p>1、记得开 $long\ long $</p>
-<p>2、$1$ 到 $root$ 的 $dis$ 值，虽然是 $0$ 也要记录，否则会影响上述过程中 $cur$ 的值，间接影响答案，如下图情况，若题目中的 $L&lt;10$ 则 $root$ 的答案会少 $1$ ，当然，也可以通过特判解决</p>
-<p><img src="\image\USACO12DEC-1.jpg" alt></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-#define rgt register
-#define LL long long
-#define N 200003
-using namespace std;
-struct Edge{
-    int to,nxt;
-    LL dis;
-    Edge(int a,int b,LL c):to(a),nxt(b),dis(c){}
-    Edge(){}
-}b[N];//记录边
-int head[N],n,t;
-int f[N],Ans[N];
-LL dis[N],p[N],R;
-inline LL read() {
-    rgt LL s=0;
-    rgt char c=getchar();
-    while(!isdigit(c)) c=getchar();
-    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
-    return s;
-}
-inline void add(rgt int x,rgt int y) {
-    b[++t]=Edge(y,head[x],read()),head[x]=t;
-}
-inline void built(rgt int k) {//预处理dis
-    p[++t]=dis[k];//1到root的距离也要加入
-    rgt int i,to;
-    for(i=head[k];i;i=b[i].nxt) {
-        to=b[i].to,
-        dis[to]=dis[k]+b[i].dis;
-        built(to);
-    }
-}
-inline int Query(rgt int x) {
-    int res=0;
-    for(;x;x-=x&amp;(-x)) res+=f[x];
-    return res;
-}
-inline void Modify(rgt int x) {
-    for(;x&lt;=t;x+=x&amp;(-x)) ++f[x];
-}
-inline void solve(rgt int k) {
-    rgt int i,to,cur,res,pos;
-    cur=lower_bound(p+1,p+t+1,dis[k])-p;
-    pos=lower_bound(p+cur,p+t+1,dis[k]+R)-p;//假装从cur开始查能省点时间
-    if(p[pos]&gt;dis[k]+R) --pos;
-    res=Query(pos),Modify(cur);
-    for(i=head[k];i;i=b[i].nxt)
-        to=b[i].to,solve(to);
-    Ans[k]=Query(pos)-res;
-}
-int main()
-{
-    int i;
-    n=read(),R=read();//n点数，R距离
-    for(i=2;i&lt;=n;i++) add(read(),i);
-    t=0,built(1),//第一遍dfs
-    sort(p+1,p+t+1),solve(1);//第二遍dfs得出结果
-    for(i=1;i&lt;=n;i++) printf(&quot;%d\n&quot;,Ans[i]);
-    return 0;
-}
-</code></pre>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>如果题目没有 <code>子树中</code>的限制…</p>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏<div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@initnull"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@initnull"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/07/29/CF519E-A_and_B_and_Lecture_Rooms-Solution/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/20.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/20.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                「CF519E」A and B and Lecture Rooms 解题报告</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2019/06/26/A-Luogu_P3964-[TJOI2013]SquirrelParty-Solution/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/79.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/79.jpg">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                「Luogu P3964」[TJOI2013]松鼠聚会 解题报告 (咕)</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
       
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="https://hovnySiLenCe.github.io/" class="profile gravatar"><img src="/images/avatar.jpg" itemprop="image" alt="h^ovny" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="https://hovnySiLenCe.github.io/" itemprop="url" rel="author">h^ovny</a>
-            </h3>
-          </div>
+  <!-- 首页默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2019/10/30/UVA10140-Prime_Distance-Solution/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>devil.</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@init/images/cover/85.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2019/10/30/UVA10140-Prime_Distance-Solution/">
+    「UVA10140」 Prime Distance 解题报告</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2019-10-30</div>
+    <p>
+    埃氏筛的用法</p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2019/10/30/UVA10140-Prime_Distance-Solution/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
+
+
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
-
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-  </script>
-
-
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

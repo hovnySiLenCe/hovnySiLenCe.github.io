@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2019-10-30T05:06:36.354Z</updated>
+  <updated>2019-10-30T06:48:28.623Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -17,15 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>「UVA10140」 Prime Distance 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/30/UVA10140-Prime_Distance-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/30/UVA10140-Prime_Distance-Solution/</id>
+    <published>2019-10-30T05:12:18.000Z</published>
+    <updated>2019-10-30T06:48:28.623Z</updated>
+    
+    <summary type="html">
+    
+      埃氏筛的用法
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="埃氏筛" scheme="http://hovnySiLenCe.github.io/tags/%E5%9F%83%E6%B0%8F%E7%AD%9B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>「Luogu P1941」飞扬的小鸟 解题报告</title>
     <link href="http://hovnySiLenCe.github.io/2019/10/30/Luogu_P1941-FlappyBird-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/30/Luogu_P1941-FlappyBird-Solution/</id>
     <published>2019-10-30T04:41:14.000Z</published>
-    <updated>2019-10-30T05:06:36.354Z</updated>
+    <updated>2019-10-30T05:51:53.402Z</updated>
     
     <summary type="html">
     
-      飞扬的小鸟
+      像素liao游戏DP
     
     </summary>
     
@@ -41,7 +63,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/28/Luogu_P3154-%5BCQOI2009%5DCircleMatch-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/28/Luogu_P3154-[CQOI2009]CircleMatch-Solution/</id>
     <published>2019-10-28T13:58:35.000Z</published>
-    <updated>2019-10-29T01:47:20.012Z</updated>
+    <updated>2019-10-30T05:51:00.786Z</updated>
     
     <summary type="html">
     
@@ -63,7 +85,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/28/Luogu_P3230-%5BHNOI2013%5DMatch-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/28/Luogu_P3230-[HNOI2013]Match-Solution/</id>
     <published>2019-10-28T13:48:20.000Z</published>
-    <updated>2019-10-29T01:47:16.067Z</updated>
+    <updated>2019-10-30T05:51:01.882Z</updated>
     
     <summary type="html">
     
@@ -85,7 +107,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/24/Luogu_P5596-%5BXR-4%5DProblem-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/24/Luogu_P5596-[XR-4]Problem-Solution/</id>
     <published>2019-10-24T05:54:01.000Z</published>
-    <updated>2019-10-29T00:58:04.531Z</updated>
+    <updated>2019-10-30T05:51:06.106Z</updated>
     
     <summary type="html">
     
@@ -105,7 +127,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/23/Luogu_P3569-%5BPOI2014%5DKAR-Cards-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/23/Luogu_P3569-[POI2014]KAR-Cards-Solution/</id>
     <published>2019-10-23T14:17:56.000Z</published>
-    <updated>2019-10-29T10:08:53.395Z</updated>
+    <updated>2019-10-30T05:51:03.316Z</updated>
     
     <summary type="html">
     
@@ -125,7 +147,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/18/A-IntroductiontoAlgorithms-MasterTheorem-Notes/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/18/A-IntroductiontoAlgorithms-MasterTheorem-Notes/</id>
     <published>2019-10-18T12:48:38.000Z</published>
-    <updated>2019-10-29T00:58:31.970Z</updated>
+    <updated>2019-10-30T05:50:33.826Z</updated>
     
     <summary type="html">
     
@@ -145,7 +167,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/10/A-Author-Templates-Notes/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/10/A-Author-Templates-Notes/</id>
     <published>2019-10-10T07:59:54.000Z</published>
-    <updated>2019-10-29T00:58:34.037Z</updated>
+    <updated>2019-10-30T05:50:23.611Z</updated>
     
     <summary type="html">
     
@@ -165,7 +187,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/10/A-Contest-2019_09_15_Cx-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/10/A-Contest-2019_09_15_Cx-Solution/</id>
     <published>2019-10-10T07:47:08.000Z</published>
-    <updated>2019-10-29T00:58:33.275Z</updated>
+    <updated>2019-10-30T05:50:35.906Z</updated>
     
     <summary type="html">
     
@@ -185,7 +207,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/08/Luogu_P2599-%5BZJOI2009%5DPebbleGame-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/08/Luogu_P2599-[ZJOI2009]PebbleGame-Solution/</id>
     <published>2019-10-08T07:59:42.000Z</published>
-    <updated>2019-10-29T00:58:12.197Z</updated>
+    <updated>2019-10-30T05:51:00.012Z</updated>
     
     <summary type="html">
     
@@ -205,7 +227,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/04/A-Contest-JudgeOI2019-HomerVSJudge-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/04/A-Contest-JudgeOI2019-HomerVSJudge-Solution/</id>
     <published>2019-10-04T07:56:21.000Z</published>
-    <updated>2019-10-29T00:58:32.934Z</updated>
+    <updated>2019-10-30T05:50:35.079Z</updated>
     
     <summary type="html">
     
@@ -225,7 +247,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/03/A-Contest-SCPFoundation-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/03/A-Contest-SCPFoundation-Solution/</id>
     <published>2019-10-03T07:06:29.000Z</published>
-    <updated>2019-10-29T00:58:32.503Z</updated>
+    <updated>2019-10-30T05:50:34.394Z</updated>
     
     <summary type="html">
     
@@ -245,7 +267,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/09/29/A-Luogu_P3554-%5BPOI2013%5DLUK-Triumphal_arch-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/09/29/A-Luogu_P3554-[POI2013]LUK-Triumphal_arch-Solution/</id>
     <published>2019-09-29T14:20:01.000Z</published>
-    <updated>2019-10-29T00:58:29.580Z</updated>
+    <updated>2019-10-30T05:50:41.954Z</updated>
     
     <summary type="html">
     
@@ -267,7 +289,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/09/26/Luogu_P2279-%5BHNOI2003%5DFireStation-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/09/26/Luogu_P2279-[HNOI2003]FireStation-Solution/</id>
     <published>2019-09-26T04:57:49.000Z</published>
-    <updated>2019-10-29T00:58:14.860Z</updated>
+    <updated>2019-10-30T05:50:57.114Z</updated>
     
     <summary type="html">
     
@@ -289,7 +311,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/09/22/A-Oiwiki-Lucas&amp;ExLucas-Notes/"/>
     <id>http://hovnySiLenCe.github.io/2019/09/22/A-Oiwiki-Lucas&amp;ExLucas-Notes/</id>
     <published>2019-09-22T06:50:23.000Z</published>
-    <updated>2019-10-29T00:58:28.261Z</updated>
+    <updated>2019-10-30T05:50:45.626Z</updated>
     
     <summary type="html">
     
@@ -313,7 +335,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/09/20/A-LectureNotes-TreeDivide-Notes/"/>
     <id>http://hovnySiLenCe.github.io/2019/09/20/A-LectureNotes-TreeDivide-Notes/</id>
     <published>2019-09-20T13:46:14.000Z</published>
-    <updated>2019-10-29T00:58:31.379Z</updated>
+    <updated>2019-10-30T05:50:38.193Z</updated>
     
     <summary type="html">
     
@@ -333,7 +355,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/09/15/A-Contest-2019_09_08_Cx-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/09/15/A-Contest-2019_09_08_Cx-Solution/</id>
     <published>2019-09-15T07:46:53.000Z</published>
-    <updated>2019-10-29T00:58:33.690Z</updated>
+    <updated>2019-10-30T05:50:21.978Z</updated>
     
     <summary type="html">
     
@@ -353,7 +375,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/08/30/LaTeX_2/"/>
     <id>http://hovnySiLenCe.github.io/2019/08/30/LaTeX_2/</id>
     <published>2019-08-30T01:28:47.000Z</published>
-    <updated>2019-10-29T00:58:20.244Z</updated>
+    <updated>2019-10-30T05:50:52.002Z</updated>
     
     <summary type="html">
     
@@ -373,7 +395,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/08/30/Luogu_P4449-God&#39;sBlaze-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/08/30/Luogu_P4449-God&#39;sBlaze-Solution/</id>
     <published>2019-08-30T01:02:33.000Z</published>
-    <updated>2019-10-29T00:58:06.123Z</updated>
+    <updated>2019-10-30T05:51:05.080Z</updated>
     
     <summary type="html">
     
@@ -397,7 +419,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/08/30/Luogu_P3172-%5BCQOI2015%5DSelectNumber-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/08/30/Luogu_P3172-[CQOI2015]SelectNumber-Solution/</id>
     <published>2019-08-30T00:59:06.000Z</published>
-    <updated>2019-10-29T00:58:11.247Z</updated>
+    <updated>2019-10-30T05:51:01.154Z</updated>
     
     <summary type="html">
     
@@ -413,26 +435,6 @@
       <category term="莫比乌斯反演" scheme="http://hovnySiLenCe.github.io/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
     
       <category term="数论分块" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P2221」[HAOI2012]高速公路 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/08/15/Luogu_P2221-%5BHAOI2012%5DFreeway-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/08/15/Luogu_P2221-[HAOI2012]Freeway-Solution/</id>
-    <published>2019-08-15T10:26:02.000Z</published>
-    <updated>2019-10-29T00:58:16.082Z</updated>
-    
-    <summary type="html">
-    
-      线段树维护一个复杂的东西
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
