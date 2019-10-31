@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「Author」模板集合 学习笔记 (咕) | h^ovny&#39;s blog</title>
+  <title itemprop="name">「Author」模板集合 学习笔记 (更新中) | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -358,7 +358,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      「Author」模板集合 学习笔记 (咕)</h1>
+      「Author」模板集合 学习笔记 (更新中)</h1>
       <p class="entry-census">
         <span>
           <a href="https://hovnySiLenCe.github.io/">
@@ -384,7 +384,52 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          
+          <p>$\mathtt{Update}\ \mathtt{2019.10.31}$ 貌似快咕半个月了</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><p>选的是我写莫队<del>(假装)</del>顶峰时的代码 <a href="https://www.luogu.org/problem/CF703D" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define getchar() *(p++)
+#define rgt register
+#define rint rgt int
+#define N 1000007
+using namespace std;
+struct node{
+    int l,r,i;
+}b[N];
+int n,m,t,l,r,block,pos[N],Ans[N];
+int s[N],a[N],d[N],f[N],sum[N],ans;
+char bf[1&lt;&lt;25],*p=bf;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+inline bool cmp(rgt node a,rgt node b) {//看似很飘的样子(奇偶性优化
+    return (pos[a.l]^pos[b.l])?a.l&lt;b.l:(pos[a.l]&amp;1)?a.r&lt;b.r:a.r&gt;b.r;
+}
+inline bool Add(rgt int x) {if(!sum[f[x]]++) ans^=a[x];}
+inline bool Del(rgt int x) {if(!(--sum[f[x]])) ans^=a[x];}
+int main()
+{
+    rint i;bf[fread(bf,1,1&lt;&lt;25,stdin)]=&#39;\0&#39;,n=read();
+    for(i=1;i&lt;=n;i++) d[i]=a[i]=read(),s[i]=s[i-1]^a[i];
+    m=read();sort(d+1,d+1+n),t=unique(d+1,d+1+n)-d-1,block=n/sqrt(m*0.9);//玄学的块的大小
+    for(i=1;i&lt;=n;i++) f[i]=lower_bound(d+1,d+t+1,a[i])-d,pos[i]=i/block;
+    for(i=1;i&lt;=m;i++) b[i].l=read(),b[i].r=read(),b[i].i=i;
+    sort(b+1,b+1+m,cmp),l=1;
+    for(i=1;i&lt;=m;i++) {//尽量先Add再Del,否则可能会出现一些不必要的问题
+        while(r&lt;b[i].r) Add(++r);
+        while(l&gt;b[i].l) Add(--l);
+        while(r&gt;b[i].r) Del(r--);
+        while(l&lt;b[i].l) Del(l++);
+        Ans[b[i].i]=ans^s[b[i].l-1]^s[b[i].r];
+    }
+    for(i=1;i&lt;=m;i++) printf(&quot;%d\n&quot;,Ans[i]);
+    return 0;
+}
+</code></pre>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
