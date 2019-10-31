@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2019-10-30T06:59:03.396Z</updated>
+  <updated>2019-10-31T03:02:18.370Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P4991」愤怒的XiaoX 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/10/30/Luogu_P4991-AngryXiaoX-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/10/30/Luogu_P4991-AngryXiaoX-Solution/</id>
+    <published>2019-10-30T08:27:33.000Z</published>
+    <updated>2019-10-31T03:02:18.370Z</updated>
+    
+    <summary type="html">
+    
+      区间反/翻转二进制，单点查询
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>「UVA10140」 Prime Distance 解题报告</title>
@@ -400,30 +420,6 @@
     <summary type="html">
     
       求gcd的k次和
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="数论" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-      <category term="莫比乌斯反演" scheme="http://hovnySiLenCe.github.io/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
-    
-      <category term="数论分块" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P3172」[CQOI2015]选数 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/08/30/Luogu_P3172-%5BCQOI2015%5DSelectNumber-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/08/30/Luogu_P3172-[CQOI2015]SelectNumber-Solution/</id>
-    <published>2019-08-30T00:59:06.000Z</published>
-    <updated>2019-10-30T05:51:01.154Z</updated>
-    
-    <summary type="html">
-    
-      莫比乌斯反演入门题
     
     </summary>
     
