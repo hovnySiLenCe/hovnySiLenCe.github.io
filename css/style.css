@@ -5805,18 +5805,21 @@ button.botui-actions-buttons-button {
 }
 /*浮动后字体*/
 .logolink a:hover .sakurasono {
-    font-family: Segoe Print;
+    font-family: /*Comic Sans MS*/Consolas;
+    /*font-family: Segoe Print;*/
     background-color:orange;
     padding: 4px;
     color:#fff
 }
 .logolink a:hover .shironeko,.logolink a:hover rt {
-    font-family: Segoe Print;
+    font-family: /*Comic Sans MS*/Consolas;
+    /*font-family: Segoe Print;*/
     color:orange
 }
 /*浮动前字体*/
 .logolink.moe-mashiro a {
-    font-family: Comic Sans MS;
+    font-family: Segoe Print;
+    /*font-family: Comic Sans MS;*/
     color:#464646;
     float:left;
     font-size:28px;
