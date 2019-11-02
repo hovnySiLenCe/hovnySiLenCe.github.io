@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「Luogu P3618」误会 解题报告 | h^ovny&#39;s blog</title>
+  <title itemprop="name">h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -354,11 +354,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/90.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/90.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/91.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/91.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      「Luogu P3618」误会 解题报告</h1>
+      </h1>
       <p class="entry-census">
         <span>
           <a href="https://hovnySiLenCe.github.io/">
@@ -384,24 +384,100 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/P3618" target="_blank" rel="noopener">题面</a></h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>$\mathtt{dp+hash}$</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>正解不是很是难想，由于是计数类问题，应该就想到 $Dp$，又由于字符串，即可用字符串 $hash$ 解决</p>
-<p>记原句为 $A$ 串，长度为 $la$；听到的话为 $B$ 串，长度为 $lb$</p>
-<p>考虑怎么转移，分情况讨论：</p>
-<p> · 如果在 $A$ 串位置 $i$ 能匹配上 $B$ 串，显然，<strong>替换</strong>是一种，<strong>不替换</strong>也是一种选择，直接相加 $\to$ <code>f[i]=f[i-lb]+f[i-1]</code></p>
-<p> · 反之，不能匹配，此时只有不替换一种选择，直接转移 $\to$ <code>f[i]=f[i-1]</code></p>
-<p>对于 $hash$，使用 $unsigned\ long\ long$  的自然溢出即可，（默认字符串 $hash$ 都会</p>
-<h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><p>$f_{0-lb}$ 都应初始为 $1$</p>
+          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problem/P3917" target="_blank" rel="noopener">题面</a></h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这里提供一种<del>乱搞</del>新奇的算法（完全在线<del>鬼知道有什么用</del></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>考虑<strong>拆位</strong>，由于异或的性质（算是吧，不同位之间不影响，因此可以计算每个位做出的贡献，然后累加</p>
+<p>显然，只有奇数个 $1$ 才能做出贡献，所以我们只要能计算出有多少个区间包含奇数个 $1$</p>
+<p>尝试看看有什么规律：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数</th>
+<th style="text-align:center">$2$</th>
+<th style="text-align:center">$5$</th>
+<th style="text-align:center">$6$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$2^2$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$2^1$</td>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$2^0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>对 <code>2,5,6</code> 分别拆位，表示为上述的表（当然做的时候没必要记录</p>
+<p>考虑 $2^2$，以第 $1$ 个数 $2$ 为区间右端点，有贡献的区间有 $0$ 个；以第 $2$ 个数 $5$ 为区间右端点，有贡献的区间有 $[1,2]$ 和 $[2,2]$ 共 $2$ 个；以第 $3$ 个数 $6$ 为区间右端点，有贡献的区间有 $[3,3]$ 共 $1$ 个。做出的总贡献为 $(2+1)\times 2^2$</p>
+<p>其余位同理</p>
+<p>不难看出，如果将序列按 $1$ 的位置分段，则右端点处于某段中（即为 $0$ 的情况）时，有贡献的区间数为与之距离奇数段的区间总跨度；为某段的右端点（即为 $1$ 的情况）时，贡献为与之距离偶数段的区间总跨度，$Rt$</p>
+<p><img src="/image/Luogu_P3917-1.jpg" alt></p>
+<ul>
+<li><p>在一个某段中（即为 $0$ 的情况），</p>
+<p>$7,8$ 等，贡献即为其之前蓝色区间的跨度 $6-4=2$</p>
+<p>$10,11$ 等，贡献即为其之前红色区间的跨度 $(9-6)+(4-0)=7$</p>
+</li>
+<li><p>为某段的右端点（即为 $1$ 的情况），</p>
+<p>$4$ 等，贡献即为其之前红色区间的跨度 $4-0=4$</p>
+<p>$12$ 等，贡献即为其之前蓝色区间的跨度 $(12-9)+(6-4)=5$</p>
+</li>
+</ul>
+<p>然后我们就可以得出这样一个代码：</p>
+<pre><code class="lang-cpp">int n,k,sum[31][2],p[31],pos[31];LL ans,c;
+int main()
+{
+    rint i,j;n=read();
+    for(i=1;i&lt;=n;i++) {
+        k=read(),c=1;
+        for(j=0;j&lt;30;++j,c&lt;&lt;=1) {//pos记录上一个1的位置，sum[_][0/1]记录红蓝色区间分别的跨度
+            if(k&amp;c) p[j]^=1,sum[j][p[j]]+=i-pos[j],pos[j]=i;
+            ans+=sum[j][p[j]]*c;//累加贡献
+        }
+    }
+    printf(&quot;%lld&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><p>但是，还可以优化，由于做到 $1$ 时，红蓝色区间跨度定等于 $i$，有做到 $0$ 是，对红蓝色区间的跨度无影响，因此只要改成：</p>
+<pre><code class="lang-cpp">    rint i,j;n=read();
+    for(i=1;i&lt;=n;i++) {
+        k=read(),c=1;
+        for(j=0;j&lt;30;++j,c&lt;&lt;=1) {//红蓝区间的跨度可以由另外一个推得
+            if(k&amp;c) sum[j]=i-sum[j];
+            ans+=sum[j]*c;
+        }
+    }
+</code></pre>
+<p>或者我们还可以这样考虑：由于异或具有自反性，因此可以考虑拆位后求出异或前缀，这样的话有贡献的区间即为 $1$ 的个数与 $0$ 的个数之积</p>
+<pre><code class="lang-cpp">rint i,j;n=read();
+for(i=1;i&lt;=n;i++) {
+    k=read(),c=1;
+    for(j=0;j&lt;30;++j,c&lt;&lt;=1)
+        p[j]^=k&amp;c,++sum[j][p[j]];//分别存前缀异或，以及1和0的个数
+}
+for(i=0,c=1;i&lt;30;++i,c&lt;&lt;=1) ans+=sum[i][0]*sum[i][1]*c;
+</code></pre>
+<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><p>$\mathtt{non}$</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define rgt register
 #define rint rgt int
 #define LL long long
 #define rll rgt LL
 #define inf 0x7f7f7f7f
-#define ull unsigned LL
-#define N 100003
 using namespace std;
-const int base=1000000007;
 template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
 template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
 inline int read() {
@@ -411,24 +487,18 @@ inline int read() {
     while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
     return s;
 }
-int n,m,la,lb,t,f[N];
-ull s[N],sum,bit[N];
-char a[N],b[N];
-inline int dec(rint x){return(x&gt;=base)?x-base:x;}
+int n,k,sum[31];LL ans,c;
 int main()
 {
-    rint i,k;m=read(),bit[0]=1,t=f[0]=1;
-    for(k=1;k&lt;=m;k++) {
-        scanf(&quot;%s%s&quot;,a+1,b+1),la=strlen(a+1),lb=strlen(b+1),sum=0;
-        for(i=1;i&lt;=la;i++) s[i]=s[i-1]*base+a[i]-&#39;0&#39;;//得到A串的前缀hash
-        while(t&lt;=lb) bit[t]=bit[t-1]*base,++t;//base^t
-        for(i=1;i&lt;=lb;i++) sum=sum*base+b[i]-&#39;0&#39;,f[i]=1;//计算B串的hash值&amp;初始化
-        for(i=lb;i&lt;=la;i++) {
-            if(sum==s[i]-s[i-lb]*bit[lb]) f[i]=f[i-lb];//可以替换
-            else f[i]=0;f[i]=dec(f[i]+f[i-1]);
+    rint i,j;n=read();
+    for(i=1;i&lt;=n;i++) {
+        k=read(),c=1;
+        for(j=0;j&lt;30;++j,c&lt;&lt;=1) {
+            if(k&amp;c) sum[j]=i-sum[j];
+            ans+=sum[j]*c;
         }
-        printf(&quot;Case #%d: %d\n&quot;,k,f[la]);
     }
+    printf(&quot;%lld&quot;,ans);
     return 0;
 }
 </code></pre>
@@ -459,36 +529,19 @@ int main()
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/11/01/Luogu_P3917-XorArray-Solution/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/91.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/91.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                </h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2019/11/01/Luogu_P4592-[TJOI2018]Xor-Solution/" rel="next">
+            <a href="/2019/11/01/Luogu_P3618-Mistake-Solution/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/89.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/89.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/90.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.0/images/cover/90.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                「Luogu P4592」[TJOI2018]异或 解题报告</h3>
+                「Luogu P3618」误会 解题报告</h3>
                 <hr>
               </div>
             </a>
