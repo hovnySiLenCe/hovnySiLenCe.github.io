@@ -451,7 +451,7 @@ int main()
     return 0;
 }
 </code></pre>
-<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><p>但是，还可以优化，由于做到 $1$ 时，红蓝色区间跨度定等于 $i$，有做到 $0$ 是，对红蓝色区间的跨度无影响，因此只要改成：</p>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><p>但是，还可以优化，由于做到 $1$ 时，红蓝色区间跨度之和定等于 $i$，又做到 $0$ 时，对红蓝色区间的跨度无影响，因此可以改成：</p>
 <pre><code class="lang-cpp">    rint i,j;n=read();
     for(i=1;i&lt;=n;i++) {
         k=read(),c=1;
