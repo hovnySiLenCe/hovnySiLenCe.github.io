@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2019-11-02T10:02:51.013Z</updated>
+  <updated>2019-11-05T13:08:05.609Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P4396」[AHOI2013]作业 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/05/Luogu_P4396-%5BAHOI2013%5DHomework-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/05/Luogu_P4396-[AHOI2013]Homework-Solution/</id>
+    <published>2019-11-05T12:20:35.000Z</published>
+    <updated>2019-11-05T13:08:05.609Z</updated>
+    
+    <summary type="html">
+    
+      区间[l,r]内，属于[a,b]数的个数&amp;种类数
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="莫队" scheme="http://hovnySiLenCe.github.io/tags/%E8%8E%AB%E9%98%9F/"/>
+    
+      <category term="树状数组" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="分块" scheme="http://hovnySiLenCe.github.io/tags/%E5%88%86%E5%9D%97/"/>
+    
+  </entry>
   
   <entry>
     <title>「Luogu P3917」异或序列 解题报告</title>
@@ -411,26 +435,6 @@
       <category term="Lucas定理" scheme="http://hovnySiLenCe.github.io/tags/Lucas%E5%AE%9A%E7%90%86/"/>
     
       <category term="扩展Lucas定理" scheme="http://hovnySiLenCe.github.io/tags/%E6%89%A9%E5%B1%95Lucas%E5%AE%9A%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「某讲稿」 点分治 学习笔记 (咕)</title>
-    <link href="http://hovnySiLenCe.github.io/2019/09/20/A-LectureNotes-TreeDivide-Notes/"/>
-    <id>http://hovnySiLenCe.github.io/2019/09/20/A-LectureNotes-TreeDivide-Notes/</id>
-    <published>2019-09-20T13:46:14.000Z</published>
-    <updated>2019-11-02T10:03:37.501Z</updated>
-    
-    <summary type="html">
-    
-      有关点分治的问题（入门
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="点分治" scheme="http://hovnySiLenCe.github.io/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
     
   </entry>
   
