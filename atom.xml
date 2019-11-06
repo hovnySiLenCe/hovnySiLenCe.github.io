@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2019-11-05T13:08:05.609Z</updated>
+  <updated>2019-11-06T07:51:53.584Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P4861」按钮 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/06/Luogu_P4861-Button-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/06/Luogu_P4861-Button-Solution/</id>
+    <published>2019-11-06T04:59:40.000Z</published>
+    <updated>2019-11-06T07:51:53.584Z</updated>
+    
+    <summary type="html">
+    
+      高次同余方程的欧拉定理解法
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SP5973」SELTEAM - Selecting Teams 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/06/SP5973-SELTEAM-Selecting-Teams-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/06/SP5973-SELTEAM-Selecting-Teams-Solution/</id>
+    <published>2019-11-06T04:13:12.000Z</published>
+    <updated>2019-11-06T07:57:12.969Z</updated>
+    
+    <summary type="html">
+    
+      组合数神题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>「Luogu P4396」[AHOI2013]作业 解题报告</title>
@@ -389,52 +429,6 @@
       <category term="二分" scheme="http://hovnySiLenCe.github.io/tags/%E4%BA%8C%E5%88%86/"/>
     
       <category term="树形dp" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E5%BD%A2dp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P1210」[HNOI2003]消防局的设立 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/09/26/Luogu_P2279-%5BHNOI2003%5DFireStation-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/09/26/Luogu_P2279-[HNOI2003]FireStation-Solution/</id>
-    <published>2019-09-26T04:57:49.000Z</published>
-    <updated>2019-11-02T10:03:26.565Z</updated>
-    
-    <summary type="html">
-    
-      树上半径为2的圆覆盖
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="树形dp" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E5%BD%A2dp/"/>
-    
-      <category term="动态规划" scheme="http://hovnySiLenCe.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「OI-wiki」 Lucas&amp;ExLucas定理 学习笔记 (咕)</title>
-    <link href="http://hovnySiLenCe.github.io/2019/09/22/A-Oiwiki-Lucas&amp;ExLucas-Notes/"/>
-    <id>http://hovnySiLenCe.github.io/2019/09/22/A-Oiwiki-Lucas&amp;ExLucas-Notes/</id>
-    <published>2019-09-22T06:50:23.000Z</published>
-    <updated>2019-11-02T10:03:35.550Z</updated>
-    
-    <summary type="html">
-    
-      大组合数取模
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="Lucas定理" scheme="http://hovnySiLenCe.github.io/tags/Lucas%E5%AE%9A%E7%90%86/"/>
-    
-      <category term="扩展Lucas定理" scheme="http://hovnySiLenCe.github.io/tags/%E6%89%A9%E5%B1%95Lucas%E5%AE%9A%E7%90%86/"/>
     
   </entry>
   

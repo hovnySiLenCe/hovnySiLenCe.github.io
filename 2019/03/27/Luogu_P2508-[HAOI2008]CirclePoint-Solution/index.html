@@ -384,7 +384,10 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P2508" target="_blank" rel="noopener">题面</a></h2><h3 id="给定圆的半径，求圆上整点数"><a href="#给定圆的半径，求圆上整点数" class="headerlink" title="给定圆的半径，求圆上整点数"></a>给定圆的半径，求圆上整点数</h3><h3 id="这是一道很Nice的数学题！超爱！好吧，由于这道题，我去Study了一下复数-complex-number-复杂的数"><a href="#这是一道很Nice的数学题！超爱！好吧，由于这道题，我去Study了一下复数-complex-number-复杂的数" class="headerlink" title="这是一道很Nice的数学题！超爱！好吧，由于这道题，我去Study了一下复数(complex number)复杂的数"></a>这是一道很Nice的数学题！超爱！好吧，由于这道题，我去Study了一下复数(complex number)<del>复杂的数</del></h3><h3 id="真棒！！！"><a href="#真棒！！！" class="headerlink" title="真棒！！！"></a>真棒！！！</h3><h3 id="有兴趣的戳这里！！！-huge-to"><a href="#有兴趣的戳这里！！！-huge-to" class="headerlink" title="有兴趣的戳这里！！！$\huge \to$"></a>有兴趣的戳这里！！！<a href="https://www.bilibili.com/video/av12131743/" target="_blank" rel="noopener">$\huge \to$</a></h3><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>高斯素数的原理，将整数分解质因数后，再把每个质因数分解成高斯素数，对于质数<code>4n+1</code>，它可以有效的分解成高斯素数，而质数<code>4n+3</code>不能，因为3<strong>无法</strong>分解为<strong>高斯素数</strong>，所以当一个数有奇数个3因子时，这个圆上没有整点，而3的个数为偶数时，由于能分成两组配对，所以有整点，但3对Ans的影响为0，因为<code>x*1=x</code>，因此只要不变就行了，当由于2的高斯素数表示为<code>1-i</code>*<code>1+i</code>，所以2的个数对Ans无影响</p>
+          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P2508" target="_blank" rel="noopener">题面</a></h2><p>给定圆的半径，求圆上整点数</p>
+<p>这是一道很 $Nice$ 的数学题！超爱！好吧，由于这道题，我去 $Study$ 了一下复数 $(complex\ number)$ <del>复杂的数</del></p>
+<p><strong>有兴趣的戳这里！！！<a href="https://www.bilibili.com/video/av12131743/" target="_blank" rel="noopener">$\large \to$</a></strong></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>高斯素数的原理，将整数分解质因数后，再把每个质因数分解成高斯素数，对于质数 <code>4n+1</code> ，它可以有效的分解成高斯素数，而质数 <code>4n+3</code> 不能，因为3<strong>无法</strong>分解为<strong>高斯素数</strong>，所以当一个数有奇数个3因子时，这个圆上没有整点，而3的个数为偶数时，由于能分成两组配对，所以有整点，但3对Ans的影响为0，因为 $x\times 1=x$，因此只要不变就行了，当由于 $2$ 的高斯素数表示为 <code>1-i</code> $\times$ <code>1+i</code>，所以2的个数对Ans无影响</p>
 <p>对于25如下：</p>
 <blockquote>
 <script type="math/tex; mode=display">
@@ -506,8 +509,7 @@
 </blockquote>
 <h3 id="那么高斯素数怎么表示点呢？"><a href="#那么高斯素数怎么表示点呢？" class="headerlink" title="那么高斯素数怎么表示点呢？"></a>那么高斯素数怎么表示点呢？</h3><p>它只要一个数，就可以表示点的坐标，RT：</p>
 <p><img src="https://www.cnblogs.com/images/cnblogs_com/hovny/1364959/o_K[B_22PQSQJ[L0LBICFQDMD.png" alt></p>
-<p>Code：</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define N 10000010
 #define ll long long
 using namespace std;
