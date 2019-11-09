@@ -384,92 +384,57 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>身为一个蒟蒻，由于刷不过<a href="https://www.luogu.org/problemnew/show/P2024" target="_blank" rel="noopener">[NOI2001]食物链</a></p>
-<p>于是出门左转写了道另一道<del>假的</del>食物链 <a href="https://www.luogu.org/problemnew/show/P3183" target="_blank" rel="noopener">戳这里</a>  </p>
-<p>这里的食物链<del>个</del>条数其实就是有向图的路径数 （应该是这么说吧，我弱）  </p>
-<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>拓扑<del>(Topulogy)（一本正经的话说八道）</del>+宽搜+乱搞+（由于本人很弱，所以想不出来了）</p>
-<p>不用先求拓扑序  </p>
-<p>一边遍历一边用 f数组 统计路径数  </p>
-<p>存个图，然后队列遍历，要注意的是<strong>单独的一个点不算一条链</strong>  </p>
-<p>所以就第一遍把<strong>单独的点</strong>处理出去（不进队列）  </p>
-<p>最后的问题就是累加了  </p>
-<p>如果这个点<strong>出度为0</strong>时，就</p>
-<blockquote>
-<p>ans+= f[to]</p>
-</blockquote>
-<p>否则更新f[to]，并再次把to入队</p>
-<pre><code class="lang-c++">#include&lt;bits/stdc++.h&gt;
+          <p>$\mathtt{Update\ 2019.11.08}$</p>
+<h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P3183" target="_blank" rel="noopener">题面</a></h2><p>求有向图的路径数</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>直接在有向图上 $Dp$ 即可</p>
+<p>要注意的是<strong>单独一个点不算一条链</strong></p>
+<p>存图后把入度为 $0$ 且出度不为 $0$（即非单独）的点入队，类似拓扑地跑一个 $Dp$</p>
+<p>每次对一个出点 $to$ 更新之的答案 <code>f[to]+=f[cur]</code></p>
+<p>即利用加法原理，到 $to$ 点的方案为向它连边点的方案和</p>
+<p>当该出点 $to$ 入度为 $0$ 时，分情况视之</p>
+<p>倘若该出点<strong>出度为0</strong>时，累加答案 <code>ans+=f[to]</code></p>
+<p>否则就入队用来更新其他点</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-c++">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define N 100003
 using namespace std;
 struct node{
     int to,nxt;
-}b[200010];
-int n,t,T;
-int head[100010];
-int f[100010];
-int d[100010];
-int ans;
-int read()
-{
-    int s=0;
-    char c=getchar();
-    while(!isdigit(c))
-        c=getchar();
-    while(isdigit(c))
-    {
-        s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;;
-        c=getchar();
-    }
+}b[N&lt;&lt;1];
+int n,t,T,head[N];
+int f[N],d[N],ans;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
     return s;
 }
-void add(int x,int y)//建边
-{
-    b[++t].to=y;
-    b[t].nxt=head[x];
-    head[x]=t;
-    return;
+inline void add(int x,int y) {
+    b[++t].to=y,b[t].nxt=head[x],head[x]=t;
 }
-void Topulogy()//假的拓扑（英语不好）
-{
-    int i;
-    int cur,to;
-    queue&lt;int&gt;p;
+inline void solve() {
+    rint i,cur,to;queue&lt;int&gt;p;
     for(i=1;i&lt;=n;i++)//初始化入度为0的点（不包括单独的点）
         if(!d[i]&amp;&amp;head[i])//分别判断入度为0和是否是单独的点
-        {
-            f[i]=1;//初始化路径数，否则会都是0哦~
-            p.push(i);
-        }
-    while(!p.empty())
-    {
-        cur=p.front();p.pop();
-        for(i=head[cur];i;i=b[i].nxt)
-        {
-            to=b[i].to;
-            d[to]--;
-            f[to]+=f[cur];
-            if(d[to]==0)
-            {
-                if(!head[to])
-                    ans+=f[to];
-                else
-                    p.push(to);//只有入度为0且出度不为0时才入队
+            f[i]=1,    p.push(i);//初始化路径数，否则全都是0
+    while(!p.empty()) {
+        cur=p.front(),p.pop();
+        for(i=head[cur];i;i=b[i].nxt) {
+            to=b[i].to,d[to]--,f[to]+=f[cur];
+            if(d[to]==0) {
+                if(!head[to]) ans+=f[to];
+                else p.push(to);//只有入度为0且出度不为0时才入队
             }
         }
     }
-    return;
 }
 int main()
 {
-    int x,y;
-    n=read();T=read();
-    while(T--)
-    {
-        x=read();y=read();
-        add(x,y);//建边
-        d[y]++;//入度
-    }
-    Topulogy();
-    printf(&quot;%d&quot;,ans);
+    rint x,y;n=read(),T=read();
+    while(T--) x=read(),add(x,read()),d[y]++;//入度
+    solve(),printf(&quot;%d&quot;,ans);
     return 0;
 }
 </code></pre>
@@ -503,15 +468,15 @@ int main()
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/03/27/Luogu_P3395-Barricades-Solution/" rel="prev">
+            <a href="/2019/03/27/Luogu_P2508-[HAOI2008]CirclePoint-Solution/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/46.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/46.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/38.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/38.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                「Luogu P3395」路障 解题报告</h3>
+                「Luogu P2508」[HAOI2008]圆上的整点 解题报告</h3>
                 <hr>
               </div>
             </a>
@@ -521,15 +486,15 @@ int main()
           
             <div class="post-nepre half next">
           
-            <a href="/2019/03/27/Luogu_P2508-[HAOI2008]CirclePoint-Solution/" rel="next">
+            <a href="/2019/03/27/Luogu_P2278-[HNOI2003]TheOperatingSystem-Solution/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/38.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/38.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/34.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/34.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                「Luogu P2508」[HAOI2008]圆上的整点 解题报告</h3>
+                「Luogu P2278」[HNOI2003]操作系统 解题报告</h3>
                 <hr>
               </div>
             </a>

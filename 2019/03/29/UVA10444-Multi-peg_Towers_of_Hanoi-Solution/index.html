@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">h^ovny&#39;s blog</title>
+  <title itemprop="name">「UVA10444」Multi-peg Towers of Hanoi 解题报告 | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -348,461 +348,189 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
-<div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">评论系统正在搭建中...</div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.2/images/cover/99.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.2/images/cover/99.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      「UVA10444」Multi-peg Towers of Hanoi 解题报告</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">
+            <img src="/images/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">h^ovny</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-3-29<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-</div>
+
+<div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/UVA10444" target="_blank" rel="noopener">题面</a></h2><p>求 $p(3&lt; p \le 20)$ 根杆子，$n(0\le n \le200)$ 个圆盘的最优解（规则和普通汉诺塔一样）</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>$Dp$</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>设 $f[k][i]$ 表示 $k$ 根杆子和 $i$ 个圆盘时的状态，则：</p>
+<script type="math/tex; mode=display">
+f[k][i]=min\{2\times f[k][j]+f[k-1][i-j]\},1\le j < i</script><p>表示的意思是：</p>
+<p>先把 $j$ 个圆盘在 $k$ 根杆子的情况下转移，再将剩下的 $i-j$ 个圆盘在 $k-1$ 根杆子的情况下转移</p>
+<p>这样读懂了之后代码就很好写了</p>
+<h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><p><strong>$ n\le 200 $</strong>，所以……高精或者<del>py​</del></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define INF 0x7f7f7f7f
+#define ll long long
+#define N 200
+using namespace std;
+struct node{
+    int a[110],l;
+    node operator+ (const node x) const{//其实重载个加法就非常方便了
+        int L=max(l,x.l);node y;//L表示长度
+        y.a[1]=0;
+        for(int i=1;i&lt;=L;i++) {
+            y.a[i]+=a[i]+x.a[i];
+            y.a[i+1]=y.a[i]/10;
+            y.a[i]%=10;
+        }
+        if(y.a[L+1]) ++L;y.l=L;
+        return y; 
+    } 
+}f[25][N+7],init;//init是一个单位的数，也就是1
+int n,p,t;
+inline node Min(register node a,register node b) {//比较大小
+    if(a.l!=b.l) return (a.l&lt;b.l)?a:b;
+    register int t=a.l;
+    while(a.a[t]==b.a[t]&amp;&amp;t) --t;
+    return (a.a[t]&lt;b.a[t])?a:b;
+}
+inline void Init() {//预处理一下
+    int i,j,k;init.a[1]=1,init.l=1;f[3][1]=init;
+    for(i=2;i&lt;=N;i++) f[3][i]=(f[3][i-1]+f[3][i-1])+init;
+    for(k=4;k&lt;=20;k++) {
+        f[k][1]=init;
+        for(i=2;i&lt;=N;i++) {
+            f[k][i].l=INF;
+            for(j=1;j&lt;i;j++)
+                f[k][i]=Min(f[k][i],(f[k][j]+f[k][j])+f[k-1][i-j]);
+        }
+    }
+}
+inline void Print(register int n,register int p) {
+    int i;
+    printf(&quot;Case %d: &quot;,++t);
+    if(!f[p][n].l) {puts(&quot;0&quot;);return;}
+    for(i=f[p][n].l;i;i--)
+        printf(&quot;%d&quot;,f[p][n].a[i]);
+    puts(&quot;&quot;);
+}
+int main() {
+    Init();
+    while(~scanf(&quot;%d%d&quot;,&amp;n,&amp;p)&amp;&amp;p!=0) Print(n,p);//输出就好了
+    return 0;
+}
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1null"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1null"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/04/02/Luogu_P2486-[SDOI2011]Dye-Solution/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/37.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/37.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                「Luogu P2486」[SDOI2011]染色 解题报告</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/03/27/AlgorithmGuide-0x01_ShortHamiltonPath-Solution/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/100.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/100.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                「算法竞赛进阶指南」0x01 最短Hamilton路径 解题报告</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/17/Luogu_P2577-[ZJOI2004]Lunch-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/39.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-17 21:06</div>
-      <a href="/2019/06/17/Luogu_P2577-[ZJOI2004]Lunch-Solution/" class="post-title">
-        <h3>「Luogu P2577」[ZJOI2004]午餐 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/动态规划/">动态规划<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>很巧妙的动态规划，收益匪浅</p>
-        <div class="post-bottom">
-          <a href="/2019/06/17/Luogu_P2577-[ZJOI2004]Lunch-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://hovnySiLenCe.github.io/" class="profile gravatar"><img src="/images/avatar.jpg" itemprop="image" alt="h^ovny" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://hovnySiLenCe.github.io/" itemprop="url" rel="author">h^ovny</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/14/SP6517-JOCHEF-Farmer-Sepp-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/60.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-14 18:06</div>
-      <a href="/2019/06/14/SP6517-JOCHEF-Farmer-Sepp-Solution/" class="post-title">
-        <h3>「SP6517」JOCHEF - Farmer Sepp 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/动态规划/">动态规划<em>·</em></a>
-          
-            <a href="/tags/悬线法/">悬线法<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>悬线法和最大子矩阵问题</p>
-        <div class="post-bottom">
-          <a href="/2019/06/14/SP6517-JOCHEF-Farmer-Sepp-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/13/LectureNotes-Maximizing&LargestSubmatrix-Notes/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/27.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-13 22:06</div>
-      <a href="/2019/06/13/LectureNotes-Maximizing&LargestSubmatrix-Notes/" class="post-title">
-        <h3>「某讲稿」 极大化思想与最大子矩阵的探究 学习笔记</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/动态规划/">动态规划<em>·</em></a>
-          
-            <a href="/tags/悬线法/">悬线法<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>浅谈用极大化思想解决最大子矩形问题</p>
-        <div class="post-bottom">
-          <a href="/2019/06/13/LectureNotes-Maximizing&LargestSubmatrix-Notes/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/11/Luogu_P4802-[CCO 2015]PathShortestMost-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/53.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-11 20:06</div>
-      <a href="/2019/06/11/Luogu_P4802-[CCO 2015]PathShortestMost-Solution/" class="post-title">
-        <h3>「Luogu P4802」[CCO 2015]路短最 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/状压DP/">状压DP<em>·</em></a>
-          
-            <a href="/tags/Hamilton路径/">Hamilton路径<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>不重复的最长路</p>
-        <div class="post-bottom">
-          <a href="/2019/06/11/Luogu_P4802-[CCO 2015]PathShortestMost-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/10/Luogu_P1772-[ZJOI2006]LogisticsTransportation-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/30.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-10 22:06</div>
-      <a href="/2019/06/10/Luogu_P1772-[ZJOI2006]LogisticsTransportation-Solution/" class="post-title">
-        <h3>「Luogu P1772」[ZJOI2006]物流运输 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/最短路/">最短路<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>分层图或最短路+DP</p>
-        <div class="post-bottom">
-          <a href="/2019/06/10/Luogu_P1772-[ZJOI2006]LogisticsTransportation-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/05/12/Luogu_P3365-TransformationBinaryTree-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/45.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-5-12 20:05</div>
-      <a href="/2019/05/12/Luogu_P3365-TransformationBinaryTree-Solution/" class="post-title">
-        <h3>「Luogu P3365」改造二叉树 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/动态规划/">动态规划<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>最长不下降子序列的应用</p>
-        <div class="post-bottom">
-          <a href="/2019/05/12/Luogu_P3365-TransformationBinaryTree-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/04/21/USACO18OPEN-Disruption-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/65.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-4-21 18:04</div>
-      <a href="/2019/04/21/USACO18OPEN-Disruption-Solution/" class="post-title">
-        <h3>「USACO18OPEN」 Disruption 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/树链剖分/">树链剖分<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>带修树剖，好像就分析难一点</p>
-        <div class="post-bottom">
-          <a href="/2019/04/21/USACO18OPEN-Disruption-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/04/21/Luogu_P3306-[SDOI2013]RandomMachine-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/44.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-4-21 14:04</div>
-      <a href="/2019/04/21/Luogu_P3306-[SDOI2013]RandomMachine-Solution/" class="post-title">
-        <h3>「Luogu P3306」[SDOI2013]随机数生成器 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/BSGS/">BSGS<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>推式子+BSGS</p>
-        <div class="post-bottom">
-          <a href="/2019/04/21/Luogu_P3306-[SDOI2013]RandomMachine-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/04/02/Luogu_P2486-[SDOI2011]Dye-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/37.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-4-2 22:04</div>
-      <a href="/2019/04/02/Luogu_P2486-[SDOI2011]Dye-Solution/" class="post-title">
-        <h3>「Luogu P2486」[SDOI2011]染色 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/树链剖分/">树链剖分<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>树上区间覆盖，区间查询颜色段数</p>
-        <div class="post-bottom">
-          <a href="/2019/04/02/Luogu_P2486-[SDOI2011]Dye-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/03/29/UVA10444-Multi-peg_Towers_of_Hanoi-Solution/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.2/images/cover/99.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-3-29 22:03</div>
-      <a href="/2019/03/29/UVA10444-Multi-peg_Towers_of_Hanoi-Solution/" class="post-title">
-        <h3>「UVA10444」Multi-peg Towers of Hanoi 解题报告</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/动态规划/">动态规划<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/解题报告/">解题报告</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>p根柱子的汉诺塔</p>
-        <div class="post-bottom">
-          <a href="/2019/03/29/UVA10444-Multi-peg_Towers_of_Hanoi-Solution/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/page/4/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="iconfont icon-right"></i></a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/6/" class="">Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>devil.</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
 
     </div>    
     <div class="ins-search">

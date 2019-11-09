@@ -384,26 +384,23 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P4824" target="_blank" rel="noopener">题面</a></h2><p>就是让你——在字符串A中，如果字符串B是A的子串，那么就删除在A中第一个出现的B，然后拼接在一起，一直重复上述步骤直到B不再是A的子串</p>
+          <p>$\mathtt{Update\ 2019.11.08}$</p>
+<h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P4824" target="_blank" rel="noopener">题面</a></h2><p>在字符串 $A$ 中，如果字符串 $B$ 是 $A$ 的子串，那么就删除在 $A$ 中第一个出现的 $B$，然后拼接在一起，一直重复上述步骤直到 $B$ 不再是 $A$ 的子串</p>
 <p>|A|$\le 10^6$</p>
-<hr>
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>KMP+栈</p>
-<p>1、由于是两个<strong>字符串匹配</strong>的问题，当然一下子就会想到<strong>KMP</strong></p>
-<p>2、由于是<strong>删去一段区间</strong>，很多人第一反应会想到链表，<strong>但是</strong>在这里，其实删除了一段后，对<strong>之前</strong>是<strong>没有影响</strong>的，并且，一定是<strong>从后往前删除</strong>，所以，更优的存储结构应该是<strong>栈</strong>。</p>
-<p>3、有人会问，为什么删去对前面没有影响，这就根据<strong>KMP</strong>的原理，做到<strong>i</strong>这个位置的结果就是最优的，我们只需要用<strong>f</strong>数组记录一下KMP匹配的结果（f[i]表示以i结尾最大能匹配多长的字符串）。</p>
-<h3 id="如何进行？"><a href="#如何进行？" class="headerlink" title="如何进行？"></a>如何进行？</h3><p>1、<strong>KMP板子</strong>跑一遍</p>
-<p>2、在KMP过程中，把遍历到的<strong>i</strong>（不是字符，而是下标）入栈，当匹配到一个完整的串时，把这一整串出栈，然后<strong>j</strong>从栈顶的<strong>i</strong>所能<strong>匹配到的最大的位置</strong>开始（就是f[i]记录的值），继续做KMP</p>
-<p>时间复杂度：B自身匹配一次+A与B匹配一次+A中最多每个字符进出栈一次，这么说来时间复杂度还是<strong>线性</strong>的</p>
-<hr>
-<p>于是，代码就很好构造了</p>
-<p>Code：</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>KMP+栈</strong></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>1、字符串匹配的问题，想到 $KMP$</p>
+<p>2、在匹配过程中，如果匹配成功了，就将子串 $B$ 删除，可以证明，对之前不会产生影响</p>
+<p>3、删了再加入，类似栈的操作，因此用栈维护上述操作过程中的字串即可</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>1、$KMP$ 板子跑一遍</p>
+<p>2、在 $KMP$ 过程中，把遍历到的 $i$（不是字符，而是下标）入栈，当匹配上 $B$ 时，就把匹配的部分出栈，然后 $j$ 从栈顶的 $i$ 所能<strong>匹配到的最大的位置</strong>开始（就是 <code>f[i]</code> 记录的值），继续做 $KMP$</p>
+<p>时间复杂度：$B$ 自身匹配一次 $+A$ 与 $B$ 匹配一次$+A$ 中最多每个字符进出栈一次，为 $O(|A|)$</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define N 1000010
 using namespace std;
 int la,lb,res;
 char a[N],b[N];
 int p[N],f[N];//分别表示B串自身匹配的结果、A串与B串匹配的结果
-int St[N],top;//模拟栈，STL的栈也是可以的，就是比较低效
+int St[N],top;
 int main()
 {
     int i,j;
@@ -411,36 +408,29 @@ int main()
     scanf(&quot;%s&quot;,b+1);
     la=strlen(a+1);
     lb=strlen(b+1);
-    for(i=2,j=0;i&lt;=lb;i++)//自身匹配
-    {
+    for(i=2,j=0;i&lt;=lb;i++) {//自身匹配
         while(j&amp;&amp;b[i]!=b[j+1])
             j=p[j];
         if(b[i]==b[j+1])
             j++;
         p[i]=j;
     }
-    for(i=1,j=0;i&lt;=la;i++)//A与B匹配
-    {
+    for(i=1,j=0;i&lt;=la;i++) {//A与B匹配
         while(j&amp;&amp;a[i]!=b[j+1])
             j=p[j];
         if(a[i]==b[j+1])
             j++;
         f[i]=j;//记录结果
         St[++top]=i;//入栈
-        if(j==lb)//如果匹配成功
-        {
-            res=lb;
-            while(res)//出栈，res记录应该出多少字符
-                res--,top--;
-            j=f[St[top]];//更新j值
-        }
+        if(j==lb)//如果匹配成功，弹出，并更新j值
+            top-=lb,j=f[St[top]];
     }
     for(i=1;i&lt;=top;i++)//大功率输出
         printf(&quot;%c&quot;,a[St[i]]);
     return 0;
 }
 </code></pre>
-<h3 id="推荐题目："><a href="#推荐题目：" class="headerlink" title="推荐题目："></a>推荐题目：</h3><p><a href="https://www.luogu.org/problemnew/show/P3121" target="_blank" rel="noopener">Luogu P3121 [USACO15FEB]审查（黄金）Censoring (Gold)</a> <del>似乎这俩是一对？！</del></p>
+<p>再扔道题 <a href="https://www.luogu.org/problemnew/show/P3121" target="_blank" rel="noopener">Luogu P3121 [USACO15FEB]审查（黄金）Censoring (Gold)</a></p>
 
         </div>
         <!-- .entry-content -->
@@ -471,15 +461,15 @@ int main()
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/03/27/Luogu_P3931-SAC_E#1_-_ADifficultProblem_Tree-Solution/" rel="prev">
+            <a href="/2019/03/27/Luogu_P3866-[TJOI2009]WarGame-Solution/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/49.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/49.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/48.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/48.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                「Luogu P3866」SAC E#1 - 一道难题 Tree 解题报告</h3>
+                「Luogu P3866」[TJOI2009]战争游戏 解题报告</h3>
                 <hr>
               </div>
             </a>
