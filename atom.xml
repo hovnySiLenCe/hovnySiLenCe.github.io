@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2019-11-08T06:18:34.662Z</updated>
+  <updated>2019-11-11T12:12:15.267Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P5304」[GXOI/GZOI2019]旅行者 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/11/Luogu_P5304-%5BGXOIGZOI%5DTraveler-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/11/Luogu_P5304-[GXOIGZOI]Traveler-Solution/</id>
+    <published>2019-11-11T11:31:41.000Z</published>
+    <updated>2019-11-11T12:12:15.267Z</updated>
+    
+    <summary type="html">
+    
+      两遍Dijkstra染色
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="Dijkstra" scheme="http://hovnySiLenCe.github.io/tags/Dijkstra/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「UVA12716」GCD等于XOR GCD XOR 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/</id>
+    <published>2019-11-10T11:40:25.000Z</published>
+    <updated>2019-11-11T12:12:05.262Z</updated>
+    
+    <summary type="html">
+    
+      XOR等于GCD的数的对数
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「AT3913」XOR Tree 解题报告 (咕)</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/09/A-AT3913-XOR_Tree-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/09/A-AT3913-XOR_Tree-Solution/</id>
+    <published>2019-11-09T13:14:02.000Z</published>
+    <updated>2019-11-10T13:12:58.633Z</updated>
+    
+    <summary type="html">
+    
+      神仙题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="状压DP" scheme="http://hovnySiLenCe.github.io/tags/%E7%8A%B6%E5%8E%8BDP/"/>
+    
+  </entry>
   
   <entry>
     <title>「Luogu P1993」小K的农场 解题报告</title>
@@ -125,7 +185,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/06/SP5973-SELTEAM-Selecting-Teams-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/06/SP5973-SELTEAM-Selecting-Teams-Solution/</id>
     <published>2019-11-06T04:13:12.000Z</published>
-    <updated>2019-11-06T07:57:12.969Z</updated>
+    <updated>2019-11-10T11:55:16.204Z</updated>
     
     <summary type="html">
     
@@ -189,11 +249,11 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3618-Mistake-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3618-Mistake-Solution/</id>
     <published>2019-11-01T05:45:11.000Z</published>
-    <updated>2019-11-02T10:02:51.734Z</updated>
+    <updated>2019-11-10T11:55:29.043Z</updated>
     
     <summary type="html">
     
-      hash+dp(着实被自己的配图毒到
+      hash+DP(着实被自己的配图毒到
     
     </summary>
     
@@ -275,7 +335,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/10/30/Luogu_P1941-FlappyBird-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/10/30/Luogu_P1941-FlappyBird-Solution/</id>
     <published>2019-10-30T04:41:14.000Z</published>
-    <updated>2019-11-02T10:03:28.621Z</updated>
+    <updated>2019-11-10T11:56:08.204Z</updated>
     
     <summary type="html">
     
@@ -371,66 +431,6 @@
     
     
       <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「算法导论」渐进记号&amp;主定理 学习笔记 (咕)</title>
-    <link href="http://hovnySiLenCe.github.io/2019/10/18/A-IntroductiontoAlgorithms-MasterTheorem-Notes/"/>
-    <id>http://hovnySiLenCe.github.io/2019/10/18/A-IntroductiontoAlgorithms-MasterTheorem-Notes/</id>
-    <published>2019-10-18T12:48:38.000Z</published>
-    <updated>2019-11-02T10:03:37.893Z</updated>
-    
-    <summary type="html">
-    
-      浅谈渐进记号与主定理
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="主定理" scheme="http://hovnySiLenCe.github.io/tags/%E4%B8%BB%E5%AE%9A%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Author」模板集合 学习笔记 (更新中)</title>
-    <link href="http://hovnySiLenCe.github.io/2019/10/10/A-Author-Templates-Notes/"/>
-    <id>http://hovnySiLenCe.github.io/2019/10/10/A-Author-Templates-Notes/</id>
-    <published>2019-10-10T07:59:54.000Z</published>
-    <updated>2019-11-02T10:03:39.982Z</updated>
-    
-    <summary type="html">
-    
-      模板集合，不定时更新
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="模板" scheme="http://hovnySiLenCe.github.io/tags/%E6%A8%A1%E6%9D%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Contest」2019.09.15 Cx Solution (咕)</title>
-    <link href="http://hovnySiLenCe.github.io/2019/10/10/A-Contest-2019_09_15_Cx-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/10/10/A-Contest-2019_09_15_Cx-Solution/</id>
-    <published>2019-10-10T07:47:08.000Z</published>
-    <updated>2019-11-02T10:03:39.158Z</updated>
-    
-    <summary type="html">
-    
-      单调队列专场
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="模拟赛" scheme="http://hovnySiLenCe.github.io/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/"/>
     
   </entry>
   
