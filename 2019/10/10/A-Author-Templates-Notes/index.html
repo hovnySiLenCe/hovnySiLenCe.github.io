@@ -73,7 +73,7 @@
     <div class="focusinfo no-select">
       <div class="header-tou">
         <a href="https://hovnySiLenCe.github.io/">
-          <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3/images/avatar.jpg">
+          <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/avatar.jpg">
         </a>
       </div>
       <div class="header-info">
@@ -87,7 +87,7 @@
               
                 <li>
                   <a href="https://github.com/hovnySiLenCe" target="_blank" class="social-github" title="github">
-                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3/images/icon/github.png">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/icon/github.png">
                   </a>
                 </li>
               
@@ -95,7 +95,7 @@
               
                 <li>
                   <a href="1348528381@qq.com" target="_blank" class="social-github" title="email">
-                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3/images/icon/email.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/icon/email.svg">
                   </a>
                 </li>
               
@@ -384,7 +384,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>$\mathtt{Update}\ \mathtt{2019.11.11}$ </p>
+          <p>$\mathtt{Update}\ \mathtt{2019.11.12}$</p>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><p>选的是我写莫队<del>(假装)</del>顶峰时的代码 <a href="https://www.luogu.org/problem/CF703D" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define getchar() *(p++)
@@ -429,6 +429,80 @@ int main()
     return 0;
 }
 </code></pre>
+<h3 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h3><p>第一次可持久线段树（标记永久化），来自某道由 <a href="https://www.cnblogs.com/bztMinamoto/" target="_blank" rel="noopener">$\color{red}{\mathtt{b}}\color{black}{\mathtt{ztMinamoto}}\%\%\%$</a> 翻译的题 <a href="https://www.luogu.org/problem/SP11470" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;//大致上和主席树类似，emmm...貌似主席树就是可持久化线段树...
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 100003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline LL read() {
+    rll s=0,p=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) p=(c==&#39;-&#39;),c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return p?-s:s;
+}
+inline void getc(char&amp;c) {
+    c=getchar();while(c&lt;&#39;A&#39;||c&gt;&#39;Z&#39;) c=getchar();
+}
+struct node{
+    int ls,rs;
+    LL sum,tag;
+}T[N*160];
+int n,m,L,R,t,res,a[N],root[N];LL w,ans;
+inline void built(rint k,rint l,rint r) {
+    cmax(t,k);
+    if(l==r) {T[k].sum=a[l];return;}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    built(T[k].ls=ls,l,m),built(T[k].rs=ls|1,m+1,r),
+    T[k].sum=T[ls].sum+T[ls|1].sum;
+}
+inline void Modify(rint l,rint r,rint &amp;x,rint y) {
+    if(r&lt;L||R&lt;l) return;
+    x=++t,T[t]=T[y];
+    if(L&lt;=l&amp;&amp;r&lt;=R) {T[x].tag+=w;return;}
+    T[t].sum+=w*(min(r,R)-max(l,L)+1);//划重点，标记永久化的影响
+    rint m=(l+r)&gt;&gt;1;
+    Modify(l,m,T[x].ls,T[y].ls),
+    Modify(m+1,r,T[x].rs,T[y].rs);
+}
+inline void push(rll tag,rint l,rint r) {
+    ans+=(min(R,r)-max(L,l)+1)*tag;
+}
+inline void Query(rint l,rint r,rint root) {
+    if(r&lt;L||R&lt;l) return;
+    if(T[root].tag) push(T[root].tag,l,r);//划重点，标记永久化的影响
+    if(L&lt;=l&amp;&amp;r&lt;=R) {ans+=T[root].sum;return;}
+    rint m=(l+r)&gt;&gt;1;
+    Query(l,m,T[root].ls),Query(m+1,r,T[root].rs);
+}
+int main()
+{
+    rint i;char op;
+    n=read(),m=read();
+    for(i=1;i&lt;=n;i++) a[i]=read();
+    built(1,1,n),root[0]=1;
+    while(m--) {
+        getc(op);
+        if(op==&#39;C&#39;) {
+            L=read(),R=read(),w=read(),++res;
+            Modify(1,n,root[res],root[res-1]);
+        }
+        else if(op==&#39;Q&#39;)
+            ans=0,L=read(),R=read(),Query(1,n,root[res]),printf(&quot;%lld\n&quot;,ans);
+        else if(op==&#39;H&#39;)
+            ans=0,L=read(),R=read(),Query(1,n,root[read()]),printf(&quot;%lld\n&quot;,ans);
+        else res=read();
+    }
+    return 0;
+}
+</code></pre>
+<hr>
 <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="缩点"><a href="#缩点" class="headerlink" title="缩点"></a>缩点</h3><p>没想到缩点代码居然还有小长 <a href="https://www.luogu.org/problem/P3387" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define rgt register
@@ -512,8 +586,8 @@ int main()
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
               <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3null"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3null"></li>
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1null"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1null"></li>
               </ul>
             </div>
           </div>
@@ -725,7 +799,7 @@ $(document).ready(function() {
   </section>
   <div id="mo-nav" class="">
   <div class="m-avatar">
-    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3/images/avatar.jpg">
+    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/avatar.jpg">
   </div>
   <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">h^ovny'sblog</p>
   <p style="text-align: center; word-spacing: 20px;">
@@ -990,20 +1064,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
