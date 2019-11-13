@@ -385,136 +385,101 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P3033" target="_blank" rel="noopener">题面</a></h2><p>横的，竖的线<del>短</del>段，求最多能取几条没有相交的线段？</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><del>学过网络流的童鞋在哪里？</del></p>
-<p><del>是时候重整网络流雄风了！</del></p>
-<p><del>好吧，废话不多说</del></p>
-<h3 id="这是一道最小割的题目"><a href="#这是一道最小割的题目" class="headerlink" title="这是一道最小割的题目"></a>这是一道最小割的题目</h3><p>怎么想呢？</p>
-<p>要取<strong>最多</strong>，那反过来不就是<strong>不能取的要尽量少</strong>吗？</p>
-<p>深思熟虑一番后，符合网络流中的<strong>最小割</strong>，<del>于是开码</del></p>
-<p>哦，还没完！</p>
-<h3 id="建边是关键！"><a href="#建边是关键！" class="headerlink" title="建边是关键！"></a><strong>建边</strong>是关键！</h3><p>由于只有方向不同的线段才会互相影响，所以考虑在方向不同时建边</p>
-<p>由于<strong>最小割</strong>的用途是使图<strong>不连通</strong>，所以我们把<strong>横的线段</strong>与<strong>源点</strong>相连，<strong>竖的线段</strong>与<strong>汇点</strong>相连（相反也可以），在有相交的线段之间建一条边，表示能连通，这样就变成了求<strong>最小割</strong></p>
-<p><strong>但是！</strong></p>
-<p>要注意的是：由于题目的要求是取线段，而不是我们建的边，因此我们把一个点（线段）拆成<strong>入点</strong>和<strong>出点</strong>，在入点和出点之间建一条容量为1的边，其余边的容量<strong>都赋为INF</strong>，这样就肯定不会“割”去<strong>边</strong>，只会“割”去点</p>
-<h3 id="还有！"><a href="#还有！" class="headerlink" title="还有！"></a>还有！</h3><p>怎么判断线段<del>香蕉</del><strong>相交</strong>呢？</p>
-<p><del>画出来就知道了</del></p>
-<p>这个小问题，就留给大家思考吧</p>
-<p>Code：</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;//虽然我不想写注释
-#define INF 0x7f7f7f7f//但是不写注释的不是好孩纸？！h^ovny：谁说的！
-#define M 65010
-#define N 510
+          <p>$\mathtt{Updata\ 2019.11.13}$ 今天膜你赛做到了原题，不得不来修一下 <a href="https://hovnySiLenCe.github.io/">$blog$</a></p>
+<h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.org/problemnew/show/P3033" target="_blank" rel="noopener">题面</a></h2><p>有 $n$ 条平行于坐标轴线段，取的线段要求不相交，最大化所取线段数目</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>二分图匹配</strong></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>把平行于 $x$ 轴和平行于 $y$ 轴的线段分别看成两个集合，这样就和二分图有关了</p>
+<p>从最小割的方面想，要想所选的数目尽量多，那么就是不能选的尽量少</p>
+<p>显然，如果两条线段有相交的部分，则有一条必不能取，因此以是否相交为依据建边，再跑一个最小割，或者说就是二分图的最大匹配，答案即为 $n-Maxflow$</p>
+<p>可以用 $Dinic$ 或者匈牙利算法实现</p>
+<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><p>个人认为最大的坑点是所给的线段的端点不是有序的，比如平行于 $x$ 轴的线段的两个端点可能并不是按照两点 $x$ 坐标的大小给出，要特别判断，否则，判断相交的时候就 $GG$ 了，<del>当然不要忘记网络流建边开四十倍</del></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define M 3000003
+#define N 257
 using namespace std;
-struct Node{
-    int lx,ly,rx,ry,i;
-    Node(int a,int b,int c,int d,int e):lx(a),ly(b),rx(c),ry(d),i(e){    }
-    Node(){    }
-}A[N&gt;&gt;1],B[N&gt;&gt;1];//这个是分开存横的和竖的线段
-struct node{
-    int to,cap;
-    int nxt;
-    node(int a,int b):to(a),cap(b){    }
-    node(){    }
-}b[M&lt;&lt;1];//边
-int head[N],deep[N];
-int n,Maxflow,S,T,t=1,ta,tb;
-int read()
-{
-    int s=0;
-    char c=getchar();
-    while(!isdigit(c))
-        c=getchar();
-    while(isdigit(c))
-    {
-        s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;;
-        c=getchar();
-    }
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
     return s;
 }
-void add(int x,int y,int cap)//建边，比较冗长，别介意
-{
-    b[++t]=node(y,cap);
-    b[t].nxt=head[x];
-    head[x]=t;
-    b[++t]=node(x,0);
-    b[t].nxt=head[y];
-    head[y]=t;
-    return;
+struct Edge{
+    int to,nxt,cap;
+    Edge(int a,int b,int c):to(a),nxt(b),cap(c){}
+    Edge(){}
+}b[M];
+struct segment{
+    int lx,ly,rx,ry;
+    inline void in() {
+        lx=read(),ly=read(),
+        rx=read(),ry=read();
+        if(lx&gt;rx) lx^=rx^=lx^=rx;//可能不是有序的
+        if(ly&gt;ry) ly^=ry^=ly^=ry;
+    }
+}A[N],B[N],c;
+int n,la,lb,t=1,S,T,head[N],dep[N],Maxflow;
+inline void add(rint x,rint y) {
+    b[++t]=Edge(y,head[x],1),head[x]=t,
+    b[++t]=Edge(x,head[y],0),head[y]=t;
 }
-bool BFS()
-{
-    int i,cur;
-    int to,cap;
+inline bool cross(rgt segment a,rgt segment b) {//判断相交
+    return b.lx&lt;=a.lx&amp;&amp;a.lx&lt;=b.rx&amp;&amp;a.ly&lt;=b.ly&amp;&amp;b.ly&lt;=a.ry;
+}
+inline bool BFS() {
+    rint i,to,cur,cap;
     queue&lt;int&gt;p;
-    memset(deep,0,sizeof(deep));
-    deep[S]=1;p.push(S);
-    while(!p.empty())
-    {
-        cur=p.front();p.pop();
-        for(i=head[cur];i;i=b[i].nxt)
-        {
-            to=b[i].to;cap=b[i].cap;
-            if(cap&amp;&amp;!deep[to])
-            {
-                deep[to]=deep[cur]+1;
+    memset(dep,0,sizeof(dep));
+    dep[S]=1,p.push(S);
+    while(!p.empty()) {
+        cur=p.front(),p.pop();
+        for(i=head[cur];i;i=b[i].nxt) {
+            to=b[i].to;
+            if(b[i].cap&amp;&amp;!dep[to]) {
+                dep[to]=dep[cur]+1;
+                if(to==T) return 1;
                 p.push(to);
-                if(to==T)
-                    return 1;
             }
         }
-    }
-    return 0;
+    }return 0;
 }
-int Dinic(int k,int flow)
-{
-    if(k==T)
-        return flow;
-    int i,to,cap,res,rest=flow;
-    for(i=head[k];i&amp;&amp;rest;i=b[i].nxt)
-    {
-        to=b[i].to;cap=b[i].cap;
-        if(cap&amp;&amp;deep[to]==deep[k]+1)
-        {
+inline int Dinic(rint k,rint flow) {
+    if(k==T) return flow;
+    rint i,to,cap,res,rest=flow;
+    for(i=head[k];i&amp;&amp;rest;i=b[i].nxt) {
+        to=b[i].to,cap=b[i].cap;
+        if(cap&amp;&amp;dep[to]==dep[k]+1) {
             res=Dinic(to,min(rest,cap));
-            if(!res)
-                deep[to]=0;
-            b[i].cap-=res;
-            b[i^1].cap+=res;
+            if(!res) dep[to]=0;
+            b[i].cap-=res,
+            b[i^1].cap+=res,
             rest-=res;
         }
     }
     return flow-rest;
 }
-int main()
-{
-    int i,j,flow;
-    int lx,ly,rx,ry;
-    n=read();T=n+n+1;//源点一般赋为0，那就先确定汇点
-    for(i=1;i&lt;=n;i++)//读入，然后开始玄学建边
-    {
-        lx=read();ly=read();
-        rx=read();ry=read();
-        if(lx==rx)
-        {
-            B[++tb]=Node(min(lx,rx),min(ly,ry),max(lx,rx),max(ly,ry),i);//注意，要是两端点有序！
-            add(S,i,INF);
-            for(j=1;j&lt;=ta;j++)//判断是否满足，然后建边
-                if(B[tb].ry&gt;=A[j].ly&amp;&amp;B[tb].ly&lt;=A[j].ly&amp;&amp;A[j].lx&lt;=B[tb].lx&amp;&amp;B[tb].lx&lt;=A[j].rx)
-                    add(i+n,A[j].i,INF);
-        }
-        else
-        {
-            A[++ta]=Node(min(lx,rx),min(ly,ry),max(lx,rx),max(ly,ry),i);
-            add(i+n,T,INF);//一切同上
-            for(j=1;j&lt;=tb;j++)
-                if(B[j].ry&gt;=A[ta].ly&amp;&amp;B[j].ly&lt;=A[ta].ly&amp;&amp;A[ta].lx&lt;=B[j].lx&amp;&amp;B[j].lx&lt;=A[ta].rx)
-                    add(B[j].i+n,i,INF);
-        }
-        add(i,i+n,1);//自己的入点和出点之间建边
-    }
-    while(BFS())//Dinic模板直接搬
-        while((flow=Dinic(S,INF)))
+int main() {
+    rint i,j,flow;n=read();
+    for(i=1;i&lt;=n;i++) {
+        c.in();
+        if(c.lx==c.rx) A[++la]=c;//按照平行的坐标分组
+        else B[++lb]=c;
+    }T=n+1;
+    for(i=1;i&lt;=la;i++) add(S,i);//超源和超汇
+    for(i=1;i&lt;=lb;i++) add(i+la,T);
+    for(i=1;i&lt;=la;i++)
+        for(j=1;j&lt;=lb;j++)
+            if(cross(A[i],B[j]))//相交就建边
+                add(i,j+la);
+    while(BFS())//Dinic大法吼
+        while((flow=Dinic(S,inf)))
             Maxflow+=flow;
     printf(&quot;%d&quot;,n-Maxflow);
     return 0;
