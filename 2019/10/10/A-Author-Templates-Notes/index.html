@@ -385,7 +385,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>$\mathtt{Update}\ \mathtt{2019.11.12}$</p>
+          <p>$\mathtt{Update}\ \mathtt{2019.11.13}$</p>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><p>选的是我写莫队<del>(假装)</del>顶峰时的代码 <a href="https://www.luogu.org/problem/CF703D" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define getchar() *(p++)
@@ -430,7 +430,136 @@ int main()
     return 0;
 }
 </code></pre>
-<h3 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h3><p>第一次可持久线段树（标记永久化），来自某道由 <a href="https://www.cnblogs.com/bztMinamoto/" target="_blank" rel="noopener">$\color{red}{\mathtt{b}}\color{black}{\mathtt{ztMinamoto}}\%\%\%$</a> 翻译的题 <a href="https://www.luogu.org/problem/SP11470" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<h3 id="树链剖分"><a href="#树链剖分" class="headerlink" title="树链剖分"></a>树链剖分</h3><p>树链剖分的理论复杂度是 $m\log^2n$，但是有其优秀的常数，一般跑不满 <a href="https://www.luogu.org/problem/P3384" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<p>其分为重链和长链剖分，这里写的是重链剖分，据某神仙说，树链剖分虽长但是吼打，是 $OIer$ $\times \times$ 的首选…</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 100007
+using namespace std;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int head[N],ver[N&lt;&lt;1],nxt[N&lt;&lt;1],in[N],a[N],out[N];
+int fa[N],size[N],dep[N],son[N];
+int seg[N],rev[N],top[N],num;
+LL f[N&lt;&lt;2],tag[N&lt;&lt;2],ans,p;
+int n,T,L,R,t,x,y,w,root;
+inline void add(rint x,rint y) {
+    ver[++t]=y,nxt[t]=head[x],head[x]=t,
+    ver[++t]=x,nxt[t]=head[y],head[y]=t;
+}
+inline LL dec(rll x){return(x&gt;=p)?x-p:x;}
+inline void dfs1(rint k) {
+    rint i,to;
+    dep[k]=dep[fa[k]]+1,size[k]=1;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i];if(to==fa[k]) continue;
+        fa[to]=k,dfs1(to),size[k]+=size[to];
+        if(size[to]&gt;size[son[k]])//重儿子
+            son[k]=to;
+    }
+}
+inline void dfs2(rint k) {
+    in[k]=num;//子树的其实可以不用这么维护，但是我懒的改了，in[k]=seg[k]
+    if(son[k]) {//out[k]=seg[k]+size[k]-1
+        seg[son[k]]=++num,
+        top[son[k]]=top[k],
+        rev[num]=son[k],
+        dfs2(son[k]);
+    }
+    rint i,to;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i];if(top[to]) continue;
+        seg[to]=++num,rev[num]=top[to]=to;
+        dfs2(to);//rev表示序号所对原来的位置
+    }out[k]=num;
+}
+inline void built(rint k,rint l,rint r) {
+    if(l==r){f[k]=a[rev[l]];return;}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    built(ls,l,m),built(ls|1,m+1,r);
+    f[k]=dec(f[ls]+f[ls|1]);
+}
+inline void push(rint k,rint l,rint r) {
+    f[k]=(f[k]+tag[k]*(r-l+1))%p;
+    if(l!=r) {
+        rint ls=k&lt;&lt;1;
+        tag[ls]=dec(tag[ls]+tag[k]),
+        tag[ls|1]=dec(tag[ls|1]+tag[k]);
+    }tag[k]=0;
+}
+inline void Modify(rint k,rint l,rint r) {
+    if(tag[k]) push(k,l,r);
+    if(r&lt;L||R&lt;l) return;
+    if(L&lt;=l&amp;&amp;r&lt;=R) {tag[k]=w;return push(k,l,r);}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    Modify(ls,l,m),Modify(ls|1,m+1,r);
+    f[k]=dec(f[ls]+f[ls|1]);
+}
+inline void Query(rint k,rint l,rint r) {
+    if(tag[k]) push(k,l,r);
+    if(r&lt;L||R&lt;l) return;
+    if(L&lt;=l&amp;&amp;r&lt;=R) {ans=dec(ans+f[k]);return;}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    Query(ls,l,m),Query(ls|1,m+1,r);
+}
+#define fx top[x]
+#define fy top[y]
+inline void Add(rint x,rint y) {
+    w=read()%p;
+    while(fx!=fy) {
+        if(dep[fx]&lt;dep[fy]) swap(x,y);//保证跳的是深度较小的点
+        L=seg[fx],R=seg[x],
+        Modify(1,1,n),x=fa[fx];//跳轻边
+    }
+    if(dep[x]&lt;dep[y]) swap(x,y);
+    L=seg[y],R=seg[x],Modify(1,1,n);
+}
+inline void Ask(rint x,rint y) {
+    while(fx!=fy) {
+        if(dep[fx]&lt;dep[fy]) swap(x,y);
+        L=seg[fx],R=seg[x],
+        Query(1,1,n),x=fa[fx];
+    }
+    if(dep[x]&lt;dep[y]) swap(x,y);
+    L=seg[y],R=seg[x],Query(1,1,n);
+}
+int main()
+{
+    rint i,op;
+    n=read(),T=read(),root=read(),p=read();
+    for(i=1;i&lt;=n;i++) a[i]=read()%p;
+    for(i=1;i&lt;n;i++) add(read(),read());
+    num=seg[root]=1,rev[1]=top[root]=root;//注意root不同
+    dfs1(root),dfs2(root),built(1,1,n);//建树
+    while(T--) {
+        op=read();
+        if(op==1||op==3) {
+            if(op==3) {
+                x=read(),w=read()%p,
+                L=in[x],R=out[x],Modify(1,1,n);
+            }
+            else Add(read(),read());
+        }
+        else {
+            ans=0;
+            if(op==2) Ask(read(),read());
+            else x=read(),L=in[x],R=out[x],Query(1,1,n);
+            printf(&quot;%lld\n&quot;,ans);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h3><p>第一次打可持久线段树（标记永久化），来自某道由 <a href="https://www.cnblogs.com/bztMinamoto/" target="_blank" rel="noopener">$\color{red}{\mathtt{b}}\color{black}{\mathtt{ztMinamoto}}\%\%\%$</a> 翻译的题 <a href="https://www.luogu.org/problem/SP11470" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;//大致上和主席树类似，emmm...貌似主席树就是可持久化线段树...
 #define rgt register
 #define rint rgt int
@@ -503,6 +632,94 @@ int main()
     return 0;
 }
 </code></pre>
+<h3 id="Link-Cut-Tree"><a href="#Link-Cut-Tree" class="headerlink" title="Link Cut Tree"></a>Link Cut Tree</h3><p>$LCT$ 还是比较好理解的，只是想当初为了 $LCT$ 学 $Splay$ 学的头大 <a href="https://www.luogu.org/problem/P5049" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define N 300007
+using namespace std;
+int fa[N],v[N],f[N],son[N][2];
+int n,T,St[N],top;bool r[N];
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+inline bool Ide(rint x) {return son[fa[x]][1]==x;}//判断是左还是右儿子
+inline bool Tol(rint x) {return (son[fa[x]][0]==x)||(son[fa[x]][1]==x);}//判断是否有实边相连
+inline void Flip(rint x) {swap(son[x][0],son[x][1]),r[x]^=1;}//翻转
+inline void push(rint x) {//下传翻转标记
+    if(!r[x]) return;r[x]=0;
+    if(son[x][0]) Flip(son[x][0]);
+    if(son[x][1]) Flip(son[x][1]);
+}
+inline void Update(rint x) {
+    f[x]=f[son[x][0]]^f[son[x][1]]^v[x];
+}
+inline void rotate(rgt int x) {
+    rint y=fa[x],z=fa[y];
+    rint ys=Ide(x),zs=Ide(y),v=son[x][ys^1];
+    if(Tol(y)) son[z][zs]=x;fa[x]=z;//y连的是不是虚边
+    son[x][ys^1]=y,fa[y]=x;
+    if(v) fa[v]=y;son[y][ys]=v;
+    Update(y),Update(x);//Updata
+}
+inline void Splay(rint x) {
+    rint y=x,z;St[top=1]=y;
+    while(Tol(y)) St[++top]=y=fa[y];//这里用于下传标记再翻转
+    while(top) push(St[top--]);
+    while(Tol(x)) {
+        y=fa[x],z=fa[y];
+        if(Tol(y))//仍然判虚边
+            rotate((son[y][0]==x)^(son[z][0]==y)?x:y);//如果在一条链上就先rotate父亲
+        rotate(x);//这样能使期望树高为log
+    }
+}
+inline void Access(rint x) {//将x和root连成一条链
+    for(rint y=0;x;x=fa[y=x])
+        Splay(x),son[x][1]=y,Update(x);
+}
+inline void Catch(rint x) {//使x成为root
+    Access(x),Splay(x),Flip(x);
+}
+inline int Search(rint x) {//寻找最浅的点，Link和Cut专用
+    Access(x),Splay(x);
+    while(son[x][0]) push(x),x=son[x][0];
+    Splay(x);return x;
+}
+inline void Link(rint x,rint y) {
+    Catch(x);
+    if(Search(y)!=x) fa[x]=y;//直接连虚边即可
+}
+inline void Cut(rint x,rint y) {
+    Catch(x);
+    if(Search(y)==x&amp;&amp;fa[y]==x&amp;&amp;!son[y][0])//要判断一系列复杂的东西
+        fa[y]=son[x][1]=0,Update(x);
+}
+inline void Query(rint x,rint y) {
+    Catch(x),Access(y),Splay(y);
+    printf(&quot;%d\n&quot;,f[y]);
+}
+int main()
+{
+    rint i,p,x,y;
+    n=read(),T=read();
+    for(i=1;i&lt;=n;i++) v[i]=read();
+    while(T--) {
+        p=read(),x=read(),y=read();
+        if(p==0) Query(x,y);
+        else if(p==1) Link(x,y);
+        else if(p==2) Cut(x,y);
+        else Splay(x),v[x]=y,Update(x);
+    }
+    return 0;
+}
+</code></pre>
+<p>貌似也是 $LCT$ 教会我卡常和压行（毒瘤码风</p>
 <hr>
 <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="缩点"><a href="#缩点" class="headerlink" title="缩点"></a>缩点</h3><p>没想到缩点代码居然还有小长 <a href="https://www.luogu.org/problem/P3387" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
@@ -581,6 +798,78 @@ int main()
     return 0;
 }
 </code></pre>
+<h3 id="网络最大流"><a href="#网络最大流" class="headerlink" title="网络最大流"></a>网络最大流</h3><p>网络流背板子，只是建边较难，<del>卡Dinic是违法的</del> <a href="https://www.luogu.org/problem/P3376" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define M 100007
+#define N 10007
+using namespace std;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+struct node{
+    int to,nxt,cap;
+    node(int a,int b,int c):to(a),nxt(b),cap(c){ }
+    node(){    }
+}b[M&lt;&lt;1];
+int head[N],dep[N];
+int n,m,S,T,t=1,Maxflow;
+inline void add(rint x,rint y,rint cap) {//正边流量为cap，反边流量为0
+    b[++t]=node(y,head[x],cap),head[x]=t,
+    b[++t]=node(x,head[y],0),head[y]=t;
+}
+inline bool BFS() {
+    rint i,c,to;queue&lt;int&gt;p;
+    memset(dep,0,sizeof(dep));
+    dep[S]=1,p.push(S);//dep[S]一定要赋为0
+    while(!p.empty()) {
+        c=p.front(),p.pop();
+        for(i=head[c];i;i=b[i].nxt) {
+            to=b[i].to;
+            if(b[i].cap&amp;&amp;!dep[to]) {
+                dep[to]=dep[c]+1;//一定要先标记
+                if(to==T) return 1;
+                p.push(to);
+            }
+        }
+    }return 0;
+}
+inline int Dinic(rint k,rint flow) {
+    if(k==T) return flow;
+    rint i,to,cap,res,rest=flow;
+    for(i=head[k];i&amp;&amp;rest;i=b[i].nxt) {//rest的条件不要忘记
+        to=b[i].to,cap=b[i].cap;//可以用上当前弧优化
+        if(cap&amp;&amp;dep[to]==dep[k]+1) {
+            res=Dinic(to,min(rest,cap));
+            if(!res) dep[to]=0;
+            b[i].cap-=res,
+            b[i^1].cap+=res,
+            rest-=res;
+        }
+    }return flow-rest;
+}
+int main()
+{
+    rint i,x,y,flow=0;
+    n=read(),m=read(),S=read(),T=read();
+    for(i=1;i&lt;=m;i++)
+        x=read(),y=read(),add(x,y,read());
+    while(BFS())
+        while((flow=Dinic(S,inf)))//这里还可以用上当前弧优化
+            Maxflow+=flow;
+    printf(&quot;%d&quot;,Maxflow);
+    return 0;
+}
+</code></pre>
+<p>后续还会贴上最大流的一些优化</p>
 
         </div>
         <!-- .entry-content -->
