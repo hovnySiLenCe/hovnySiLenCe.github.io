@@ -385,113 +385,80 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题面戳这里"><a href="#题面戳这里" class="headerlink" title="题面戳这里"></a><a href="http://poj.org/problem?id=1845" target="_blank" rel="noopener">题面戳这里</a></h2><h3 id="啥都别看，只是求"><a href="#啥都别看，只是求" class="headerlink" title="啥都别看，只是求"></a>啥都别看，只是求</h3><h3 id="a-b-所有的因数的和"><a href="#a-b-所有的因数的和" class="headerlink" title="$a^b$所有的因数的和"></a>$a^b$所有的因数的和</h3><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p><del>真没想到！</del></p>
-<p>其实我们可以先将$a^b$<strong>分解成质因数</strong>的</p>
-<p>因为$a^b$的因数肯定是$a^b$的质因数在一定的条件下相乘而成的</p>
-<p>然后<strong>组合一下</strong></p>
-<h3 id="正解！！！"><a href="#正解！！！" class="headerlink" title="正解！！！"></a>正解！！！</h3><p>h^ovny：走开！别误导别人！</p>
-<p>来一波公式：</p>
-<h2 id="a-Pi-n-i-1-p-i-c-i"><a href="#a-Pi-n-i-1-p-i-c-i" class="headerlink" title="$a=\Pi^n_{i=1}p[i]^{c[i]}$"></a>$a=\Pi^n_{i=1}p[i]^{c[i]}$</h2><h2 id="a-b-Pi-n-i-1-p-i-c-i-b"><a href="#a-b-Pi-n-i-1-p-i-c-i-b" class="headerlink" title="$a^b=\Pi^n_{i=1}p[i]^{c[i]*b}$"></a>$a^b=\Pi^n_{i=1}p[i]^{c[i]*b}$</h2><p>所有因数的和：</p>
-<h2 id="Ans-Pi-i-1-n-Sigma-k-i-j-0-p-i-j"><a href="#Ans-Pi-i-1-n-Sigma-k-i-j-0-p-i-j" class="headerlink" title="$Ans=\Pi{i=1}^n\Sigma^{k[i]}{j=0}p[i]^j$"></a>$Ans=\Pi<em>{i=1}^n\Sigma^{k[i]}</em>{j=0}p[i]^j$</h2><p>$\Pi$ ：读作Pi，是$\pi$的大写，表示累乘</p>
-<p>$\Sigma$ ：读作Sigma，是$\sigma$的大写，表示累加</p>
-<p>现在的问题就变成了如何求：</p>
-<h2 id="Sigma-j-0-k-i"><a href="#Sigma-j-0-k-i" class="headerlink" title="$\Sigma_{j=0}^{k[i]}$"></a>$\Sigma_{j=0}^{k[i]}$</h2><p>展开来写乘：</p>
-<h2 id="1-p-p-2-p-3-…-p-k"><a href="#1-p-p-2-p-3-…-p-k" class="headerlink" title="$(1+p+p^2+p^3+…+p^k)$"></a>$(1+p+p^2+p^3+…+p^k)$</h2><h3 id="用分治法的思想求解"><a href="#用分治法的思想求解" class="headerlink" title="用分治法的思想求解"></a>用分治法的思想求解</h3><p>当<strong>k</strong>为<strong>奇数</strong>时：</p>
-<blockquote>
-<p> $f(k)=1+p+p^2+p^3+…+p^k$<br> ​        $= (1+p+…+p^{\frac k 2})+(p^{\frac k 2+1}+…+p^k)$<br> ​        $= (1+p+…+p^{\frac k 2})+p^{\frac k 2+1}<em>(1+p+…+p^{\frac k 2})$<br> ​        $= (p^{\frac k 2+1}+1)</em>(1+p+…+p^{\frac k 2})$</p>
-</blockquote>
-<p>当<strong>k</strong>为<strong>偶数</strong>时</p>
-<blockquote>
+          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="http://poj.org/problem?id=1845" target="_blank" rel="noopener">题面</a></h2><p>$a^b$ 所有的因数的和</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>对 $a^b$ 进行唯一分解定理，可以写成：</p>
+<script type="math/tex; mode=display">
+\large (\prod {p_i}^{c_i})^b</script><p>那么就是：</p>
+<script type="math/tex; mode=display">
+\large \prod p_i^{c_i\times b}</script><p>显然，约数和为：</p>
+<script type="math/tex; mode=display">
+\large (1+p_1+p_1^2+\cdots+p_1^{c_1\times b})\times (1+p_2+p_2^2+\cdots+p_2^{c_2\times b})\times \cdots\times(1+p_i+p_i^2+\cdots+p_i^{c_i\times b})</script><p>令 $k_i=c_i\times b$，那么现在的问题就是，如何求：</p>
+<script type="math/tex; mode=display">
+\large 1+p_i+p_i^2+\cdots+p_i^{k_i}</script><p>如果您学过数列的话，可以直接等比数列求和，逆元求即可</p>
+<p>但同样也可以用分治法的思想求解</p>
+<ul>
+<li><p>当 $k\in2n+1(n\in\mathbb{N})$ 时</p>
+<p>$f(k)=1+p+p^2+p^3+…+p^k$</p>
+<p>$= (1+p+…+p^{\frac k 2})+(p^{\frac k 2+1}+…+p^k)$</p>
+<p>$= (1+p+…+p^{\frac k 2})+p^{\frac k 2+1}*(1+p+…+p^{\frac k 2})$</p>
+<p>$= (p^{\frac k 2+1}+1)*(1+p+…+p^{\frac k 2})$</p>
+</li>
+<li><p>当 $k\in2n(n\in\mathbb{N}_+)$ 时</p>
 <p>$f(k)=f(k-1)*p^k$</p>
-</blockquote>
-<p>然后配合快速幂%9901</p>
-<h2 id="正解！！！-1"><a href="#正解！！！-1" class="headerlink" title="正解！！！"></a>正解！！！</h2><p><del>人已憔悴</del></p>
-<p>Code：</p>
-<pre><code class="lang-cpp">#include&lt;cstdio&gt;
+</li>
+</ul>
+<p>配合快速幂对 $9901$ 取 $\%$</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;cstdio&gt;
 #include&lt;iostream&gt;
-#define ll long long
-#define Mod 9901
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define N 10003
+#define M 31
+#define p 9901
 using namespace std;
-ll a[30];
-ll s[30];
-bool b[10010];
-ll n,m;
-int t;
-ll ans=1;
-int read()
-{
-    int s=0;
-    char c=getchar();
-    while(!isdigit(c))
-        c=getchar();
-    while(isdigit(c))
-    {
-        s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;;
-        c=getchar();
-    }
+LL a[M],s[M],n,m,ans=1;
+int t;bool b[N];
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
     return s;
 }
-ll quickPow(ll a,ll b)
-{
-    ll res=1;
-    while(b&gt;0)
-    {
-        if(b&amp;1)
-            res=(res*a)%Mod;
-        b&gt;&gt;=1;
-        a=(a*a)%Mod;
-    }
+LL Pow(rll a,rll b) {
+    rll res=1;
+    for(;b;b&gt;&gt;=1,a=a*a%p)
+        if(b&amp;1) res=res*a%p;
     return res;
 }
-ll work(ll p,ll k)
-{
-    if(k==1)
-        return (p+1)%Mod;
-    if(k==0)
-        return 1;
-    if(k&amp;1)
-        return work(p,k/2)*(quickPow(p,k/2+1)+1)%Mod;
-    return ((work(p,k/2-1)*(quickPow(p,k/2)+1))%Mod+quickPow(p,k))%Mod;
+LL solve(rll p,rll k) {
+    if(k==1) return (p+1)%p;
+    if(k==0) return 1;
+    if(k&amp;1) return solve(p,k/2)*(Pow(p,k/2+1)+1)%p;
+    return ((solve(p,k/2-1)*(Pow(p,k/2)+1))%p+Pow(p,k))%p;
 }
-int main()
-{
-    int i,j;
-    n=read();m=read();
-    if(n%2==0)
-    {
+int main() {
+    rint i,j;
+    n=read(),m=read();
+    if(n%2==0) {
         a[++t]=2;
-        while(n%2==0)
-        {
-            s[t]++;
-            n/=2;
-        }
+        while(n%2==0) s[t]++,n/=2;
     }
     for(i=3;i*i&lt;=n;i+=2)
-        if(!b[i])
-        {
-            if(n%i==0)
-            {
+        if(!b[i]) {
+            if(n%i==0) {
                 a[++t]=i;
                 while(n%i==0)
-                {
-                    s[t]++;
-                    n/=i;
-                }
+                    s[t]++,n/=i;
             }
             j=i+i;
             while(j*j&lt;=n)
-            {
-                b[j]=1;
-                j+=i;
-            }
+                b[j]=1,j+=i;
         }
-    if(n&gt;1)
-    {
-        a[++t]=n;
-        s[t]=1;
-    }
-    for(i=1;i&lt;=t;i++)
-        ans=(ans*work(a[i],s[i]*m))%Mod;
+    if(n&gt;1)    a[++t]=n,s[t]=1;
+    for(i=1;i&lt;=t;i++) ans=(ans*solve(a[i],s[i]*m))%p;
     printf(&quot;%lld&quot;,ans);
     return 0;
 }
