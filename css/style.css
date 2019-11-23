@@ -6709,6 +6709,7 @@ progress {
     padding-bottom:10px
 }
 .toc {
+    line-height: 2rem;
     position:-webkit-sticky;
     position:sticky;
     top:100px
@@ -6732,8 +6733,10 @@ progress {
     padding-left:10px
 }
 a.toc-link {
+    font-family: "微软雅黑";
     color:currentColor;
     height:100%
+
 }
 .is-collapsible {
     max-height:1000px;
@@ -6748,6 +6751,7 @@ a.toc-link {
     top:0
 }
 .is-active-link {
+    color: orange !important;
     font-weight:700
 }
 .toc-link::before {
@@ -6758,7 +6762,7 @@ a.toc-link {
     left:0;
     margin-top:-1px;
     position:absolute;
-    width:2px
+    width:2.5px
 }
 .is-active-link::before {
     background-color:orange !important
