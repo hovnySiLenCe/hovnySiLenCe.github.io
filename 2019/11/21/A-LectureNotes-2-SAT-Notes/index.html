@@ -191,7 +191,7 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/资源/">
+                        <a href="/categories/source/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
@@ -385,7 +385,54 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
+          <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p><del>好孩纸写学习笔记要有格式</del></p>
+<h2 id="题目引入"><a href="#题目引入" class="headerlink" title="题目引入"></a>题目引入</h2><p>就用 $2-SAT$ 模板趴</p>
+<h3 id="「Luogu-P4782」【模板】2-SAT问题"><a href="#「Luogu-P4782」【模板】2-SAT问题" class="headerlink" title="「Luogu P4782」【模板】2-SAT问题"></a><a href="https://www.luogu.com.cn/problem/P4782" target="_blank" rel="noopener">「Luogu P4782」【模板】2-SAT问题</a></h3><h4 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h4><p>$2-SAT$ 问题 模板</p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>有 $n$ 个布尔变量 $x_i$，另有 $m$ 个需要满足的条件，每个条件的形式都是 “$x_i$ 为 $true/false$ 或 $x_j$ 为 $true/false$ “。比如 “$x_1$ 为 $ture$ 或 $x_3$ 为 $false$ “、”$x_7$ 为 $false$ 或 $x_2$ 为 $false$”。$2-SAT$ 问题的目标是给每个变量赋值使得所有条件得到满足。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行两个整数 $n$ 和 $m$，意义如体面所述。</p>
+<p>接下来 $m$ 行每行 $4$ 个整数 $i\ a\ j\ b$，表示 “$x_i$ 为 $a$ 或 $x_j$ 为 $b$”$(a,b\in {0,1})$</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>如无解，输出 <code>IMPOSSIBLE</code>； 否则输出 <code>POSSIBLE</code>，下 一行 $n$ 个整数 $x_i(x_i\in {0,1})$，表示构造出的解。</p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 #1："></a>输入样例 #1：</h5><pre><code>3 1
+1 1 3 0
+</code></pre><h5 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 #1："></a>输出样例 #1：</h5><pre><code>POSSIBLE
+0 0 0
+</code></pre><h4 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h4><p>$1\le n,m\le1e6$，前 $3$ 个点卡小错误，后面 $5$ 个点卡效率，由于数据随机生成，可能会含有 <code>10 0 10 0</code> 之类的坑</p>
+<h3 id="「NowCoder51271」-Katu-Puzzle"><a href="#「NowCoder51271」-Katu-Puzzle" class="headerlink" title="「NowCoder51271」 Katu Puzzle"></a><a href="https://ac.nowcoder.com/acm/problem/51271" target="_blank" rel="noopener">「NowCoder51271」 Katu Puzzle</a></h3><h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>  Katu Puzzle is presented as a directed graph G(V, E) with each edge e(a, b) labeled by a boolean operator op (one of <code>AND</code>, <code>OR</code>, <code>XOR</code>) and an integer $c (0 \leq c \leq 1)$. One Katu is solvable if one can find each vertex Vi a value $X_i (0 ≤ X_i ≤ 1)$ such that for each edge e(a, b) labeled by op and c, the following formula holds:<br> $X_a\ op\ X_b = c$<br> The calculating rules are: </p>
+<p>  <img src="\image\NowCoder51271-rules.jpg" alt></p>
+<p>  Given a Katu Puzzle, your task is to determine whether it is solvable. </p>
+<h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>The first line contains two integers $N (1 \leq N \leq 1000)$ and $M(0 \leq M \leq 1,000,000)$, indicating the number of vertices and edges.<br>The following M lines contain three integers $a (0 \leq a \lt N)$, $b(0 \leq b \lt N)$, $c$ and an operator op each, describing the edges.</p>
+<h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>Output a line containing <code>YES</code> or <code>NO</code>.</p>
+<h4 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例-1：-1"><a href="#输入样例-1：-1" class="headerlink" title="输入样例 #1："></a>输入样例 #1：</h5><pre><code>4 4
+0 1 1 AND
+1 2 1 OR
+3 2 0 AND
+3 0 0 XOR
+</code></pre><h5 id="输出样例-1：-1"><a href="#输出样例-1：-1" class="headerlink" title="输出样例 #1："></a>输出样例 #1：</h5><pre><code>YES
+//此行纯粹是为了行号
+</code></pre><hr>
+<h4 id="说明-提示-1"><a href="#说明-提示-1" class="headerlink" title="说明/提示"></a>说明/提示</h4><p>$X_0 = 1, X_1 = 1, X_2 = 0$.</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>$SAT$ 是 $satisfiability$ 的缩写，是一类适应性问题的简称，一般形式为 $k-$适应性问题，简称 $k-SAT$</p>
+<p>$2-SAT$ 是 $k-SAT$ 的一种情况，因为当 $k&gt;2$  时 $k-SAT$ 问题是 $NP$ 问题，所以……</p>
+<p>像上述题目一样，$2-SAT$ 形式一般为：给出 $n$ 个变量，以及 $m$ 个限制条件，每个限制条件形如 $(not)a_i\ op\ (not)a_j=0/1$，求是否存在对 $n$ 个变量的合法赋值方案，使 $m$ 个条件均得到满足。其中 $a_i,a_j\in {0,1}$，$op$ 可以是 $or,and,xor$ 等，也就是 $bool$ 类型运算，除了上述的类型外，貌似其他的不是很常见</p>
+<h3 id="判定方法"><a href="#判定方法" class="headerlink" title="判定方法"></a>判定方法</h3><p>$2-SAT$ 问题的判定方法如下：</p>
+<p>1、建立 $2n$ 个节点的有向图，每个变量的 $a_i$ 对应 $2$ 个节点，一般设为 $i$ 和 $i+n$</p>
+<p>2、考虑每个条件，形如 “若 $a_i$ 为 $p$ 则 $a_j$ 必须为 $q$”，$p,q\in {0,1}$。建立 $i+p\times n \to j+q\times n$ 的单向边。当然，要注意的是，上述条件蕴含着它的<strong>逆否命题</strong> “若 $a_j$ 为 $1-q$ 则 $a_i$ 必须为 $1-p$”，因此在建图的时候还应该建立 $j+(1-q)\times n\to i+(1-p)\times n$ 的单向边，也就是说，<strong>点数和边数都应是变量数和条件数的两倍</strong>，开数组，初始化的时候应特别注意</p>
+<p>3、这个时候我们就可以用 $tarjan$算法求出有向图中所有的强连通分量</p>
+<p>4、若存在 $i\in [1,n]$，满足 $i$ 和 $i+n$ 属于同一个强连通分量，则表明：若 $a_i$ 赋值为 $p$，则 $a_i$ 必须赋值为 $1-p$，显然矛盾，说明问题无解。否则题目一定有解。</p>
+<p>时间复杂度 $O(n+m)$</p>
+<p>来康个栗子</p>
+<pre><code>3 2
+1 1 3 0
+2 1 3 1
+</code></pre><p>根据上述方法建图，可得：</p>
+<p><img src="\image\2-SAT-1.jpg" alt></p>
+<p>不存在 $i,i+n$ 属于同一个强连通分量里，因此一定有解</p>
+<p>而下图则由于存在 $i,i+n$ 属于同一个强连通分量而无解</p>
+<p><img src="\image\2-SAT-2.jpg" alt></p>
+<h3 id="合法方案"><a href="#合法方案" class="headerlink" title="合法方案"></a>合法方案</h3><p>在 $tarjan$ 得出每个强连通分量之后，</p>
+<h3 id="例题选讲"><a href="#例题选讲" class="headerlink" title="例题选讲"></a>例题选讲</h3><p>上述模板题只要进行如上操作，由于或的性质，只要</p>
+<h2 id="推荐题目"><a href="#推荐题目" class="headerlink" title="推荐题目"></a>推荐题目</h2><p><a href="https://www.luogu.com.cn/problem/P4171" target="_blank" rel="noopener">类似于模板 Luogu P4171 [JSOI2010]满汉全席</a><br><a href="https://ac.nowcoder.com/acm/problem/51346" target="_blank" rel="noopener">NowCoder51346 Priest John’s Busiest Day</a></p>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -651,7 +698,7 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/资源/">
+                <a href="/categories/source/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
