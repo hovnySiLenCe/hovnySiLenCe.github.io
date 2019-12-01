@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「AT3913」XOR Tree 解题报告 (咕) | h^ovny&#39;s blog</title>
+  <title itemprop="name">「AT3913」XOR Tree 解题报告 | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -359,7 +359,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      「AT3913」XOR Tree 解题报告 (咕)</h1>
+      「AT3913」XOR Tree 解题报告</h1>
       <p class="entry-census">
         <span>
           <a href="https://hovnySiLenCe.github.io/">
@@ -387,7 +387,8 @@
         <div class="entry-content">
           <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.com.cn/problem/AT3913" target="_blank" rel="noopener">题面</a></h2><p>给定 $n$ 个节点的树，每条边有权值 $val_i\in[1,15]$ 每次操作可以选一条路径异或上一个数，最小化操作次数</p>
 <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>转边权为点权，然后状压DP</strong></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先，如果边权就有点复杂了，考虑如何把边权转化为点权，</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先，如果边权就有点复杂了，考虑如何把边权转化为点权，不难发现，对于一条路径中出了两端的点，每个点都有两两条边与之相连，那么就可以将边权转换为点权，每个点的权值即为所有与之相连的边权值的异或和，这样的话，对一条路径进行操作就变成了对两个点进行操作。又因为所有权值的大小不超过 $15$，范围很小，我们只要开个桶记录一下，权值相同的两两做一次操作即可，这样剩下来不为 $0$ 的点的数量就不超过 $15$ 个了，使用各种奇淫巧技都可以写过去（当然是据说</p>
+<p>用状压 $DP$ 可以解决，$f[i]$ 表示状态为 $i$ 时的最小次数，当然 $i$ 需要是一个异或可以为 $0$ 的状态，每个 $i$ 可以从子集转移过来</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define rgt register
 #define rint rgt int
@@ -413,16 +414,16 @@ int main()
     for(i=1;i&lt;n;i++)
         x=read(),y=read(),val=read(),d[x]^=val,d[y]^=val;
     for(i=0;i&lt;n;i++) ++sum[d[i]];
-    for(i=1;i&lt;16;i++) ans+=sum[i]&gt;&gt;1,st|=(sum[i]&amp;1)&lt;&lt;(i-1);
-    for(i=1;i&lt;T;i++) f[i]=f[i&gt;&gt;1]+(i&amp;1);
-    for(i=1;i&lt;T;i++) --f[i];
+    for(i=1;i&lt;16;i++) ans+=sum[i]&gt;&gt;1,st|=(sum[i]&amp;1)&lt;&lt;(i-1);//st表示最终状态
+    for(i=1;i&lt;T;i++) f[i]=f[i&gt;&gt;1]+(i&amp;1);//每个状态有几个1
+    for(i=1;i&lt;T;i++) --f[i];//f[i]表示每种状态最少做几次即可全部为0,最劣情况明显是1的个数-1
     for(i=0;i&lt;T;i++)
         for(j=0;j&lt;15;j++)
-            if((i&gt;&gt;j)&amp;1) p[i]^=(j+1);
+            if((i&gt;&gt;j)&amp;1) p[i]^=(j+1);//每个状态的异或和
     for(i=0;i&lt;T;i++) {
-        if(p[i]) continue;
-        for(j=(i-1)&amp;i;j;j=(j-1)&amp;i)
-            if(!p[j]) f[i]=min(f[i],f[j]+f[i^j]);
+        if(p[i]) continue;//就是异或和能不能为0
+        for(j=(i-1)&amp;i;j;j=(j-1)&amp;i)//枚举子集
+            if(!p[j]) f[i]=min(f[i],f[j]+f[i^j]);//从异或为0的子集转移过来
     }printf(&quot;%d&quot;,ans+f[st]);
     return 0;
 }
