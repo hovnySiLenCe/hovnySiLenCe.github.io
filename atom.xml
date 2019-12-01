@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2019-11-28T13:06:31.195Z</updated>
+  <updated>2019-11-28T13:34:55.030Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>「NowCoder51271」KatuPuzzle 解题报告</title>
+    <title>「NowCoder51271」Katu Puzzle 解题报告</title>
     <link href="http://hovnySiLenCe.github.io/2019/11/28/NowCoder51271-Katu_Puzzle-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/28/NowCoder51271-Katu_Puzzle-Solution/</id>
     <published>2019-11-28T07:17:23.000Z</published>
-    <updated>2019-11-28T13:06:31.195Z</updated>
+    <updated>2019-11-28T13:34:55.030Z</updated>
     
     <summary type="html">
     
@@ -41,7 +41,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/22/Luogu_P3825-%5BNOI2017%5DGame-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/22/Luogu_P3825-[NOI2017]Game-Solution/</id>
     <published>2019-11-22T14:28:17.000Z</published>
-    <updated>2019-11-23T00:24:55.032Z</updated>
+    <updated>2019-12-01T07:28:27.640Z</updated>
     
     <summary type="html">
     
@@ -59,11 +59,11 @@
   </entry>
   
   <entry>
-    <title>「某讲稿」 2-SAT 学习笔记 (咕)</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/21/A-LectureNotes-2-SAT-Notes/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/21/A-LectureNotes-2-SAT-Notes/</id>
+    <title>「某讲稿」 2-SAT 学习笔记</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/21/LectureNotes-2-SAT-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/21/LectureNotes-2-SAT-Notes/</id>
     <published>2019-11-21T08:27:23.000Z</published>
-    <updated>2019-11-28T07:49:46.601Z</updated>
+    <updated>2019-12-01T07:33:27.241Z</updated>
     
     <summary type="html">
     
@@ -107,7 +107,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/14/Luogu_P5305-%5BGXOIGZOI2019%5DOldWords-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/14/Luogu_P5305-[GXOIGZOI2019]OldWords-Solution/</id>
     <published>2019-11-13T23:48:37.000Z</published>
-    <updated>2019-11-13T23:57:09.080Z</updated>
+    <updated>2019-12-01T07:28:11.524Z</updated>
     
     <summary type="html">
     
@@ -131,7 +131,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/12/SP11470-TTM_ToTheMoon-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/12/SP11470-TTM_ToTheMoon-Solution/</id>
     <published>2019-11-12T10:55:15.000Z</published>
-    <updated>2019-11-12T11:33:07.291Z</updated>
+    <updated>2019-12-01T07:28:10.252Z</updated>
     
     <summary type="html">
     
@@ -151,7 +151,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4198-BuildingReconstruction-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4198-BuildingReconstruction-Solution/</id>
     <published>2019-11-12T07:36:04.000Z</published>
-    <updated>2019-11-12T08:31:42.780Z</updated>
+    <updated>2019-12-01T07:28:25.588Z</updated>
     
     <summary type="html">
     
@@ -171,7 +171,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4211-%5BLNOI2014%5DLCA-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4211-[LNOI2014]LCA-Solution/</id>
     <published>2019-11-11T23:25:15.000Z</published>
-    <updated>2019-11-12T08:54:53.723Z</updated>
+    <updated>2019-12-01T07:28:25.180Z</updated>
     
     <summary type="html">
     
@@ -195,7 +195,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/11/Luogu_P5304-%5BGXOIGZOI%5DTraveler-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/11/Luogu_P5304-[GXOIGZOI]Traveler-Solution/</id>
     <published>2019-11-11T11:31:41.000Z</published>
-    <updated>2019-11-11T12:12:15.267Z</updated>
+    <updated>2019-12-01T07:28:11.972Z</updated>
     
     <summary type="html">
     
@@ -215,7 +215,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/</id>
     <published>2019-11-10T11:40:25.000Z</published>
-    <updated>2019-11-11T12:12:05.262Z</updated>
+    <updated>2019-12-01T07:28:04.769Z</updated>
     
     <summary type="html">
     
@@ -235,7 +235,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/09/A-AT3913-XOR_Tree-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/09/A-AT3913-XOR_Tree-Solution/</id>
     <published>2019-11-09T13:14:02.000Z</published>
-    <updated>2019-11-10T13:12:58.633Z</updated>
+    <updated>2019-12-01T07:28:45.603Z</updated>
     
     <summary type="html">
     
@@ -255,7 +255,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/08/Luogu_P1993-LittleKFarm-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/08/Luogu_P1993-LittleKFarm-Solution/</id>
     <published>2019-11-08T05:25:40.000Z</published>
-    <updated>2019-11-08T06:18:34.662Z</updated>
+    <updated>2019-12-01T07:28:36.524Z</updated>
     
     <summary type="html">
     
@@ -277,7 +277,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/08/Luogu_P4872-OIersEasternDream-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/08/Luogu_P4872-OIersEasternDream-Solution/</id>
     <published>2019-11-08T05:22:30.000Z</published>
-    <updated>2019-11-08T06:00:41.766Z</updated>
+    <updated>2019-12-01T07:28:22.444Z</updated>
     
     <summary type="html">
     
@@ -297,7 +297,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/07/Luogu_P5300-%5BGXOI_GZOI2019%5DANDORSum-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/07/Luogu_P5300-[GXOI_GZOI2019]ANDORSum-Solution/</id>
     <published>2019-11-07T03:15:14.000Z</published>
-    <updated>2019-11-07T05:20:31.883Z</updated>
+    <updated>2019-12-01T07:28:21.156Z</updated>
     
     <summary type="html">
     
@@ -319,7 +319,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/06/Luogu_P4231-KilledInThreeSteps-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/06/Luogu_P4231-KilledInThreeSteps-Solution/</id>
     <published>2019-11-06T10:52:34.000Z</published>
-    <updated>2019-11-06T11:39:42.235Z</updated>
+    <updated>2019-12-01T07:28:24.796Z</updated>
     
     <summary type="html">
     
@@ -339,7 +339,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/06/Luogu_P4861-Button-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/06/Luogu_P4861-Button-Solution/</id>
     <published>2019-11-06T04:59:40.000Z</published>
-    <updated>2019-11-06T07:51:53.584Z</updated>
+    <updated>2019-12-01T07:28:22.852Z</updated>
     
     <summary type="html">
     
@@ -359,7 +359,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/06/SP5973-SELTEAM_SelectingTeams-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/06/SP5973-SELTEAM_SelectingTeams-Solution/</id>
     <published>2019-11-06T04:13:12.000Z</published>
-    <updated>2019-11-10T11:55:16.204Z</updated>
+    <updated>2019-12-01T07:28:08.660Z</updated>
     
     <summary type="html">
     
@@ -379,7 +379,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/05/Luogu_P4396-%5BAHOI2013%5DHomework-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/05/Luogu_P4396-[AHOI2013]Homework-Solution/</id>
     <published>2019-11-05T12:20:35.000Z</published>
-    <updated>2019-11-05T13:08:05.609Z</updated>
+    <updated>2019-12-01T07:28:24.070Z</updated>
     
     <summary type="html">
     
@@ -403,7 +403,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3917-XorArray-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3917-XorArray-Solution/</id>
     <published>2019-11-01T13:55:52.000Z</published>
-    <updated>2019-11-02T10:02:51.013Z</updated>
+    <updated>2019-12-01T07:28:26.828Z</updated>
     
     <summary type="html">
     
@@ -423,7 +423,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3618-Mistake-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3618-Mistake-Solution/</id>
     <published>2019-11-01T05:45:11.000Z</published>
-    <updated>2019-11-10T11:55:29.043Z</updated>
+    <updated>2019-12-01T07:28:28.089Z</updated>
     
     <summary type="html">
     
