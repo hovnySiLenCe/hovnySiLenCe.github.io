@@ -385,7 +385,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>$\mathtt{Update}\ \mathtt{2019.11.13}$</p>
+          <p>$\mathtt{Update}\ \mathtt{2019.12.3}$</p>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><p>选的是我写莫队<del>(假装)</del>顶峰时的代码 <a href="https://www.luogu.com.cn/problem/CF703D" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define getchar() *(p++)
@@ -720,6 +720,101 @@ int main()
 }
 </code></pre>
 <p>貌似也是 $LCT$ 教会我卡常和压行（毒瘤码风</p>
+<hr>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 $DP$"></a>数位 $DP$</h3><p>数位 $DP$ 还是比较好理解的，需要注意的就是一些初始化和 $status$</p>
+<p><a href="https://www.luogu.com.cn/problem/P2657" target="_blank" rel="noopener">模板题 [SCOI2009]windy数</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 13
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int l,r,t,num[N],f[N][N],ans;
+inline int dfs(rint k,rint st,rint op) {
+    if(!k) return 1;
+    if(!op&amp;&amp;~f[k][st]) return f[k][st];//对没有达到上限的一般情况记忆化
+    rint i,t=op?num[k]:9,res=0;//t表示的是当前枚举的上限
+    for(i=0;i&lt;=t;i++) {
+        if(abs(st-i)&lt;2) continue;
+        if(st==11&amp;&amp;i==0)
+            res+=dfs(k-1,11,op&amp;(i==t));
+        else res+=dfs(k-1,i,op&amp;(i==t));
+    }
+    if(!op) f[k][st]=res;
+    return res;
+}
+inline int solve(rint x) {
+    memset(f,-1,sizeof(f)),t=0;//个人感觉这里第二次不用memset
+    while(x) num[++t]=x%10,x/=10;
+//  do num[++t]=x%10,x/=10; while(x);这样就可以把0算进去，有些题目会要求，但是问题不大
+    return dfs(t,11,1);
+}
+int main() {
+    l=read()-1,r=read();//对询问求见进行差分
+    printf(&quot;%d&quot;,solve(r)-solve(l));
+    return 0;
+}
+</code></pre>
+<p><a href="https://www.luogu.com.cn/problem/P3413" target="_blank" rel="noopener">SAC#1 - 萌数</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define p 1000000007
+#define N 1003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int top,num[N],sum[N],bi[N];
+int ans,f[N][11][11][2];
+char a[N],b[N];
+inline int dec(rint x){return(x&gt;=p)?x-p:x;}
+inline int dfs(rint k,rint sec,rint fir,rint st,rint zt,rint op) {//六维状态
+    if(st) return f[k][sec][fir][st]=op?sum[k]+1:bi[k+1];
+    if(!k) return st;
+    if(!op&amp;&amp;~f[k][sec][fir][st]) return f[k][sec][fir][st];
+    rint i,t=op?num[k]:9;rll res=0;
+    for(i=0;i&lt;=t;i++) res=dec(res+dfs(k-1,fir,(i==0&amp;&amp;zt)?-1:i,st|(i==sec||i==fir),zt&amp;(i==0),op&amp;(i==t)));
+    if(!op) f[k][sec][fir][st]=res;
+    return res;
+}
+int main()
+{
+    rint i,j;bi[1]=1;
+    for(i=2;i&lt;N;i++) bi[i]=(LL)bi[i-1]*10%p;
+    scanf(&quot;%s%s&quot;,a+1,b+1),top=strlen(a+1);
+    for(i=1;i&lt;=top;i++) num[i]=a[top-i+1]-&#39;0&#39;;--num[1];
+    i=1;while(num[i]&lt;0) --num[i+1],num[i]+=10,++i;
+    if(!num[top]) --top;memset(f,-1,sizeof(f));
+    for(i=1;i&lt;=top;i++) sum[i]=(sum[i-1]+(LL)num[i]*bi[i])%p;
+    ans=-dfs(top,-1,-1,0,1,1),top=strlen(b+1);
+    for(i=1;i&lt;=top;i++) num[i]=b[top-i+1]-&#39;0&#39;;
+    for(i=1;i&lt;=top;i++) sum[i]=(sum[i-1]+(LL)num[i]*bi[i])%p;
+//    memset(f,-1,sizeof(f));第二次真不用memset
+    ans+=dfs(top,-1,-1,0,1,1),printf(&quot;%d&quot;,(ans%p+p)%p);
+    return 0;
+}
+</code></pre>
 <hr>
 <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="缩点"><a href="#缩点" class="headerlink" title="缩点"></a>缩点</h3><p>没想到缩点代码居然还有小长 <a href="https://www.luogu.com.cn/problem/P3387" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
