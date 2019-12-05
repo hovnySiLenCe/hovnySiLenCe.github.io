@@ -815,6 +815,128 @@ int main()
     return 0;
 }
 </code></pre>
+<p><a href="https://www.luogu.com.cn/problem/SP17247" target="_blank" rel="noopener">求每位数的和 SP17247 PR003004 - Digit Sum</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+int num[19],t,nm,T;
+LL f[19][191][2],l,r;
+inline LL dfs(rint k,rint st,rint op) {
+    if(!k) return st;
+    if(~f[k][st][op]) return f[k][st][op];
+    rint i,t=op?num[k]:9;rll res=0;
+    for(i=0;i&lt;=t;i++) res+=dfs(k-1,st+i,op&amp;(i==t));
+    return f[k][st][op]=res;
+}
+inline LL solve(rll c) {
+    t=0;while(c) num[++t]=c%10,c/=10;
+    memset(f,-1,sizeof(f));//记得初始化为0
+    return dfs(t,0,1);
+}
+int main() {
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--)
+        scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r),l=max(l-1,0ll),//不能为-1
+        printf(&quot;%lld\n&quot;,solve(r)-solve(l));//差分
+    return 0;
+}
+</code></pre>
+<p><a href="https://www.luogu.com.cn/problem/P2602" target="_blank" rel="noopener">求数字出现的次数 Luogu P2602 [ZJOI2010]数字计数</a></p>
+<p>对于这题我也不知道为什么开结构体所有一起算会炸，发现问题的联系我跪谢</p>
+<p>最恐怖的是稍微该点地方答案就不同，$IDE$ 上跑的结果也不同</p>
+<p>$Wrong\ Answer\ version$</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 11
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+struct node{
+    LL s[11];int p;
+    inline node operator+ (const node a) const{
+        node c;
+        for(rint i=0;i&lt;=9;i++) c.s[i]=s[i]+a.s[i];
+        return c;
+    }
+    inline node operator- (const node a) const{
+        node c;
+        for(rint i=0;i&lt;=9;i++) c.s[i]=s[i]-a.s[i];
+        return c;
+    }
+}f[13][11],ans,init;
+int num[13],top;
+LL l,r,a[11],sum[13],b[15];
+inline node dfs(rint k,rint st,rint zt,rint op) {
+    node res=init;
+    if(!zt) res.s[st]+=op?sum[k]+1:b[k+1];
+    if(!k) return res;
+    if(!op&amp;&amp;f[k][st].p) return f[k][st];
+    rint i,t=op?num[k]:9;
+    for(i=0;i&lt;=t;i++) res=res+dfs(k-1,i,zt&amp;(i==0),op&amp;(i==t));
+    if(!op) f[k][st]=res;
+    return res;
+}
+inline void solve(rll l,rll r) {
+    top=0;do num[++top]=r%10,sum[top]=num[top]*b[top]+sum[top-1],r/=10; while(r);ans=dfs(top,0,1,1);
+    top=0;do num[++top]=l%10,sum[top]=num[top]*b[top]+sum[top-1],l/=10; while(l);ans=ans-dfs(top,0,1,1);
+}
+int main() {
+    rint i;b[1]=init.p=1;
+    for(i=2;i&lt;13;i++) b[i]=b[i-1]*10;
+    scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r),solve(l-1,r);
+    for(i=0;i&lt;=9;++i) printf(&quot;%lld &quot;,ans.s[i]);
+    return 0;
+}
+</code></pre>
+<p>$Accepted\ version$</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int t,num[15];
+LL l,r,f[15][15][2][2];
+inline LL dfs(rint k,rint st,rint zt,rint op,rint nm) {
+    if(!k) return st;
+    if(~f[k][st][zt][op]) return f[k][st][zt][op];
+    rint i,t=op?num[k]:9;rll res=0;
+    for(i=0;i&lt;=t;i++)
+        res+=dfs(k-1,st+((!zt||i)&amp;&amp;i==nm),zt&amp;(i==0),op&amp;(i==t),nm);//前导0的特判
+    f[k][st][zt][op]=res;
+    return res;
+}
+inline LL solve(rll x,rint nm) {
+    t=0;while(x) num[++t]=x%10,x/=10;
+    memset(f,-1,sizeof(f));return dfs(t,0,1,1,nm);
+}
+int main()
+{
+    scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r),--l;
+    for(rint i=0;i&lt;=9;i++) printf(&quot;%lld &quot;,solve(r,i)-solve(l,i));//对每位一次计数
+    return 0;
+}
+</code></pre>
 <hr>
 <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="缩点"><a href="#缩点" class="headerlink" title="缩点"></a>缩点</h3><p>没想到缩点代码居然还有小长 <a href="https://www.luogu.com.cn/problem/P3387" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
