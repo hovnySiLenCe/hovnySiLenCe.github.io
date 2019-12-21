@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2019-12-05T06:54:35.408Z</updated>
+  <updated>2019-12-21T01:37:51.545Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P4404」[JSOI2010]缓存交换 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/12/21/Luogu_P4404-JSOI2010-CacheSwap-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/12/21/Luogu_P4404-JSOI2010-CacheSwap-Solution/</id>
+    <published>2019-12-21T01:09:32.000Z</published>
+    <updated>2019-12-21T01:37:51.545Z</updated>
+    
+    <summary type="html">
+    
+      优先队列细节
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="优先队列" scheme="http://hovnySiLenCe.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3409」值日班长值周班长 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/12/12/Luogu_P3409-DailyMonitors-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/12/12/Luogu_P3409-DailyMonitors-Solution/</id>
+    <published>2019-12-12T07:21:11.000Z</published>
+    <updated>2019-12-12T08:02:24.843Z</updated>
+    
+    <summary type="html">
+    
+      某种程度上的同余方程组
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="扩展欧几里得" scheme="http://hovnySiLenCe.github.io/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>「SP17247」PR003004 - Digit Sum 解题报告</title>
@@ -237,7 +281,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/</id>
     <published>2019-11-10T11:40:25.000Z</published>
-    <updated>2019-12-01T07:28:04.769Z</updated>
+    <updated>2019-12-19T12:43:19.934Z</updated>
     
     <summary type="html">
     
@@ -386,50 +430,6 @@
     <summary type="html">
     
       组合数神题
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P4396」[AHOI2013]作业 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/05/Luogu_P4396-%5BAHOI2013%5DHomework-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/05/Luogu_P4396-[AHOI2013]Homework-Solution/</id>
-    <published>2019-11-05T12:20:35.000Z</published>
-    <updated>2019-12-01T07:28:24.070Z</updated>
-    
-    <summary type="html">
-    
-      区间[l,r]内，属于[a,b]数的个数&amp;种类数
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="莫队" scheme="http://hovnySiLenCe.github.io/tags/%E8%8E%AB%E9%98%9F/"/>
-    
-      <category term="树状数组" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="分块" scheme="http://hovnySiLenCe.github.io/tags/%E5%88%86%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P3917」异或序列 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3917-XorArray-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/01/Luogu_P3917-XorArray-Solution/</id>
-    <published>2019-11-01T13:55:52.000Z</published>
-    <updated>2019-12-01T07:28:26.828Z</updated>
-    
-    <summary type="html">
-    
-      序列所有区间异或和
     
     </summary>
     
