@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「Luogu P2619」[国家集训队2]Tree I 解题报告 | h^ovny&#39;s blog</title>
+  <title itemprop="name">「Author&#39;s Choice」 | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -349,202 +349,38 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-<div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/41.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/41.jpg">
+        <div class="pattern-center-blank"></div>
+  
+    <div class="pattern-center ">
+      <div class="pattern-attachment-img">
+        <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.1/images/cover/17-1.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+      </div>
+      <header class="pattern-header ">
+        <h1 class="entry-title">
+        「Author&#39;s Choice」</h1>
+      </header>
     </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      「Luogu P2619」[国家集训队2]Tree I 解题报告</h1>
-      <p class="entry-census">
-        <span>
-          <a href="https://hovnySiLenCe.github.io/">
-            <img src="/images/avatar.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="https://hovnySiLenCe.github.io/">h^ovny</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2019-8-14<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
-  </div>
-
-<div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.com.cn/problem/P2619" target="_blank" rel="noopener">题面</a></h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>某种叫作 $wqs$ <del>（忘情水）</del>二分的神奇算法，具体的算法内容等详见学习笔记</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>$Kruskal$ 算法只能求解<strong>最小</strong>生成树，但是由于要求的白边数是一定的，这将导致最后的生成树并不是最小生成树</p>
-<p>于是考虑怎么消除白边的影响，不难想到，如果白边的边权越小，最后求出的最小生成树中的白边数肯定越多，于是就可以二分白边改变的值，表示白边的边权减小 $mid$ ，然后再跑一遍生成树，如果生成树中白边数大于 $K$ 说明修改的值过大，则将右边界减小，否则将左边界增大</p>
-<p>这样满足最后得出的答案，一定是满足有 $K$ 条白边的情况，因为题目中保证有解，且如果不满足 $K$ 条边的情况，二分都会将对左或右边界做出调整</p>
-<p>最后答案即为求出最小生成树的边权加上 $K \times$ 白边改变的值</p>
-<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><p>1、由于可能存在白边和黑边的边权一样的情况，所以在 $Kruskal$ 对边进行排序时，要把边权作为第一关键字，颜色作为第二关键字</p>
-<p>2、排序可以用<strong>归并排序</strong>优化（白边边权改变后按边权排序的排名并没有变化</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-#define rgt register
-#define rint rgt int
-#define inf 0x7f7f7f7f
-#define M 100007
-#define N 50007
-using namespace std;
-template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
-template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
-struct node{
-    int x,y,w,c;
-}b[M],p[M];
-int n,m,k,res,sum,ans,f[N],block,l,r,mid;
-inline int read() {
-    rint s=0;
-    rgt char c=getchar();
-    while(!isdigit(c)) c=getchar();
-    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
-    return s;
-}
-inline bool cmp(rgt node a,rgt node b) {return (a.w!=b.w)?a.w&lt;b.w:a.c&lt;b.c;}//排序
-inline int get(rint x) {return (f[x]!=x)?f[x]=get(f[x]):x;}
-inline int Kruskal(rint k) {
-    rint i,fx,fy;
-    for(i=1;i&lt;=m;i++) {
-        b[i]=p[i];
-        if(!p[i].c) b[i].w-=k;//改变白边的边权
-    }sort(b+1,b+1+m,cmp),block=sum=0;//可以用归并复杂度较优
-    for(i=1;i&lt;=n;i++) f[i]=i;//初始化并查集
-    for(i=1;i&lt;=m;i++) {
-        fx=get(b[i].x),fy=get(b[i].y);
-        if(fx==fy) continue;
-        f[fy]=fx;
-        sum+=!b[i].c;//记录白边数
-        if(block==n-1) break;
-    }
-    return sum;
-}
-inline void solve(rint k) {//最后用来求最小生成树用
-    rint i,fx,fy;
-    for(i=1;i&lt;=m;i++) {
-        b[i]=p[i];
-        if(!p[i].c) b[i].w-=k;
-    }sort(b+1,b+1+m,cmp),block=ans=0;
-    for(i=1;i&lt;=n;i++) f[i]=i;
-    for(i=1;i&lt;=m;i++) {
-        fx=get(b[i].x),fy=get(b[i].y);
-        if(fx==fy) continue;
-        f[fy]=fx;
-        ans+=b[i].w;
-        if(block==n-1) break;
-    }
-}
-int main()
-{
-    int i;
-    n=read(),m=read(),k=read();
-    for(i=1;i&lt;=m;i++)
-        p[i].x=read()+1,p[i].y=read()+1,
-        cmax(r,p[i].w=read()),p[i].c=read();
-    l=-r;//可以增大，可以减小
-    while(l&lt;=r) {//二分白边的改变值
-        mid=(l+r)&gt;&gt;1;
-        if(Kruskal(mid)&gt;=k)//满足条件说明还可以将改变值边的更小
-            res=mid,r=mid-1;
-        else l=mid+1;
-    }
-    solve(res);
-    printf(&quot;%d&quot;,ans+res*k);//答案要加上边数×改变的值
-    return 0;
-}
-</code></pre>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏<div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.2null"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.2null"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/08/15/Luogu_P2221-[HAOI2012]Freeway-Solution/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/33.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/33.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                「Luogu P2221」[HAOI2012]高速公路 解题报告</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2019/08/13/CF446C-DZY_Loves_Fibonacci_Numbers-Solution/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/21.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/21.jpg">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                「CF446C」DZY Loves Fibonacci Numbers 解题报告</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
+  
+  <div id="content" class="site-content">
+    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
       
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va",
-        appKey: "m9gcmILxHTKlwwTnRGXSDV8J",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
+      <!-- .entry-content -->
+      
+      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+      <footer class="post-footer">
+        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+        <div class="post-tags">
+        </div>
+        <div class="post-share">
+          <div class="social-share sharehidden share-component"></div>
+          <i class="iconfont show-share icon-forward"></i>
+        </div>
+      </footer><!-- .entry-footer -->
+    </article>
+      <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="https://hovnySiLenCe.github.io/" class="profile gravatar"><img src="/images/avatar.jpg" itemprop="image" alt="h^ovny" height="70" width="70"></a>
+          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.2/images/avatar.jpg" itemprop="image" alt="blog" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
@@ -553,14 +389,10 @@ int main()
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>devil.</p>
+        <p><i class="iconfont icon-write"></i>If you want to be loved, you have to be worth loving.</p>
       </section>
-    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
-
-
-
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
