@@ -290,7 +290,7 @@
 </header>
 
       <div id="page" class="site wrapper" style="
-    background: url(https://hovnySiLenCe.github.io/image/131.jpg) no-repeat fixed top;
+    background: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/132.jpg) no-repeat fixed top;
 ">
 <div class="blank" style="padding-top: 75px;">
 </div>
@@ -2111,5 +2111,20 @@ $(document).ready(function() {
     })
   });
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
