@@ -661,7 +661,7 @@ int main()
 </code></pre>
 <p>貌似也是 $LCT$ 教会我卡常和压行（毒瘤码风</p>
 <hr>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 $DP$"></a>数位 $DP$</h3><p>数位 $DP$ 还是比较好理解的，需要注意的就是一些初始化和 $status$</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 DP"></a>数位 DP</h3><p>数位 $DP$ 还是比较好理解的，需要注意的就是一些初始化和 $status$</p>
 <p><a href="https://www.luogu.com.cn/problem/P2657" target="_blank" rel="noopener">模板题 [SCOI2009]windy数</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define rgt register
@@ -789,7 +789,7 @@ int main() {
 </code></pre>
 <p><a href="https://www.luogu.com.cn/problem/P2602" target="_blank" rel="noopener">求数字出现的次数 Luogu P2602 [ZJOI2010]数字计数</a></p>
 <p>对于这题我也不知道为什么开结构体所有一起算会炸，发现问题的联系我跪谢</p>
-<p>最恐怖的是稍微该点地方答案就不同，$IDE$ 上跑的结果也不同</p>
+<p>最恐怖的是稍微改点地方答案就不同，$IDE$ 上跑的结果也不同</p>
 <p>$Wrong\ Answer\ version$</p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define rgt register
@@ -1027,6 +1027,73 @@ int main()
 }
 </code></pre>
 <p>后续还会贴上最大流的一些优化</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="KMP-算法"><a href="#KMP-算法" class="headerlink" title="KMP 算法"></a>KMP 算法</h3><p><a href="https://www.luogu.com.cn/problem/P3375" target="_blank" rel="noopener">Luogu P3375 【模板】KMP字符串匹配</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define N 1000003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int n,A,B,p[N];
+char a[N],b[N];
+int main()
+{
+    rint i,j;
+    scanf(&quot;%s&quot;,a+1),scanf(&quot;%s&quot;,b+1);
+    A=strlen(a+1),B=strlen(b+1);
+    for(i=2,j=0;i&lt;=B;i++) {//求next因此从i=2开始
+        while(j&amp;&amp;b[i]!=b[j+1]) j=p[j];
+        if(b[i]==b[j+1]) ++j;p[i]=j;
+    }
+    for(i=1,j=0;i&lt;=A&amp;&amp;j&lt;=B;i++) {
+        while(j&amp;&amp;(j==B||a[i]!=b[j+1])) j=p[j];
+        if(a[i]==b[j+1]) ++j;
+        if(j==B) printf(&quot;%d\n&quot;,i-B+1);//出现的位置
+    }
+    for(i=1;i&lt;=B;i++) printf(&quot;%d &quot;,p[i]);
+    return 0;
+}
+</code></pre>
+<h3 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h3><p><a href="https://www.luogu.com.cn/problem/P3809" target="_blank" rel="noopener">Luogu P3809 【模板】后缀排序 (SA)</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define N 1000010
+using namespace std;
+int n,m,x[N],y[N],c[N],sa[N],p;
+char s[N];
+int main()
+{
+    int i,k;
+    scanf(&quot;%s&quot;,s);
+    n=strlen(s);m=125;
+    for(i=0;i&lt;n;i++) c[x[i]=s[i]]++;
+    for(i=1;i&lt;m;i++) c[i]+=c[i-1];
+    for(i=0;i&lt;n;i++) sa[--c[x[i]]]=i;
+    for(k=1;k&lt;=n;k&lt;&lt;=1) {
+        p=0;
+        for(i=n-k;i&lt;n;i++) y[p++]=i;
+        for(i=0;i&lt;n;i++) if(sa[i]&gt;=k) y[p++]=sa[i]-k;
+        for(i=0;i&lt;m;i++) c[i]=0;
+        for(i=0;i&lt;n;i++) c[x[y[i]]]++;
+        for(i=1;i&lt;m;i++) c[i]+=c[i-1];
+        for(i=n-1;i&gt;=0;i--) sa[--c[x[y[i]]]]=y[i];
+        swap(x,y);p=1;x[sa[0]]=0;
+        for(i=1;i&lt;n;i++)
+            x[sa[i]]=(y[sa[i-1]]==y[sa[i]]&amp;&amp;y[sa[i-1]+k]==y[sa[i]+k])?p-1:p++;
+        if(p&gt;=n) break;
+        m=p;
+    }
+    for(i=0;i&lt;n;i++) printf(&quot;%d &quot;,sa[i]+1);
+    return 0;
+}
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1465,5 +1532,20 @@ $(document).ready(function() {
     })
   });
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
