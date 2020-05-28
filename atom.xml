@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2020-05-12T08:02:10.141Z</updated>
+  <updated>2020-05-28T08:44:14.513Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「CF1344C」Quantifier Question 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/05/28/CF1344C-Quantifier_Question-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/05/28/CF1344C-Quantifier_Question-Solution/</id>
+    <published>2020-05-28T08:32:11.000Z</published>
+    <updated>2020-05-28T08:44:14.513Z</updated>
+    
+    <summary type="html">
+    
+      与存在和任意相关的图上操作
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="拓扑排序" scheme="http://hovnySiLenCe.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>「SP2916 GSS5 - Can you answer these queries V」 解题报告</title>
@@ -417,28 +437,6 @@
     
     
       <category term="Dijkstra" scheme="http://hovnySiLenCe.github.io/tags/Dijkstra/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P5300」[GXOI/GZOI2019]与或和 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/07/Luogu_P5300-%5BGXOI_GZOI2019%5DANDORSum-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/07/Luogu_P5300-[GXOI_GZOI2019]ANDORSum-Solution/</id>
-    <published>2019-11-07T03:15:14.000Z</published>
-    <updated>2019-12-01T07:28:21.156Z</updated>
-    
-    <summary type="html">
-    
-      求矩阵所有子矩阵的OR和AND之和
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="二进制拆位" scheme="http://hovnySiLenCe.github.io/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8B%86%E4%BD%8D/"/>
-    
-      <category term="单调栈" scheme="http://hovnySiLenCe.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
   </entry>
   
