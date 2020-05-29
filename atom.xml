@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2020-05-28T08:44:14.513Z</updated>
+  <updated>2020-05-29T13:58:39.557Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「CF1344D」Résumé Review 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/05/29/CF1344D-Resume_Review-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/05/29/CF1344D-Resume_Review-Solution/</id>
+    <published>2020-05-29T13:29:29.000Z</published>
+    <updated>2020-05-29T13:58:39.557Z</updated>
+    
+    <summary type="html">
+    
+      整数函数求最值
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="二分" scheme="http://hovnySiLenCe.github.io/tags/%E4%BA%8C%E5%88%86/"/>
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>「CF1344C」Quantifier Question 解题报告</title>
@@ -37,11 +59,11 @@
   </entry>
   
   <entry>
-    <title>「SP2916 GSS5 - Can you answer these queries V」 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2020/05/12/SP2916-GSS5-Can-you-answer-these-queries-V-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2020/05/12/SP2916-GSS5-Can-you-answer-these-queries-V-Solution/</id>
+    <title>「SP2916」GSS5 - Can you answer these queries V 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/05/12/SP2916-GSS5-Can_you_answer_these_queries_V-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/05/12/SP2916-GSS5-Can_you_answer_these_queries_V-Solution/</id>
     <published>2020-05-12T07:27:55.000Z</published>
-    <updated>2020-05-12T08:02:10.141Z</updated>
+    <updated>2020-05-28T08:46:45.157Z</updated>
     
     <summary type="html">
     
@@ -417,26 +439,6 @@
       <category term="差分约束" scheme="http://hovnySiLenCe.github.io/tags/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/"/>
     
       <category term="负环" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%9F%E7%8E%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P4872」OIer们的东方梦 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/08/Luogu_P4872-OIersEasternDream-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/08/Luogu_P4872-OIersEasternDream-Solution/</id>
-    <published>2019-11-08T05:22:30.000Z</published>
-    <updated>2019-12-01T07:28:22.444Z</updated>
-    
-    <summary type="html">
-    
-      分层图最短路优化
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="Dijkstra" scheme="http://hovnySiLenCe.github.io/tags/Dijkstra/"/>
     
   </entry>
   
