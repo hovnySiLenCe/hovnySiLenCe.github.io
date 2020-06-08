@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2020-05-29T13:58:39.557Z</updated>
+  <updated>2020-06-08T14:23:14.294Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P2523」[HAOI2011]Problem c 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/06/08/Luogu_P2523-%5BHAOI2011%5DProblem_c-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/06/08/Luogu_P2523-[HAOI2011]Problem_c-Solution/</id>
+    <published>2020-06-08T13:36:54.000Z</published>
+    <updated>2020-06-08T14:23:14.294Z</updated>
+    
+    <summary type="html">
+    
+      奇奇怪怪的动态规划
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="动态规划" scheme="http://hovnySiLenCe.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>「CF1344D」Résumé Review 解题报告</title>
@@ -417,28 +437,6 @@
     
     
       <category term="状压DP" scheme="http://hovnySiLenCe.github.io/tags/%E7%8A%B6%E5%8E%8BDP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P1993」小K的农场 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/08/Luogu_P1993-LittleKFarm-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/08/Luogu_P1993-LittleKFarm-Solution/</id>
-    <published>2019-11-08T05:25:40.000Z</published>
-    <updated>2019-12-01T07:28:36.524Z</updated>
-    
-    <summary type="html">
-    
-      负环板子
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="差分约束" scheme="http://hovnySiLenCe.github.io/tags/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/"/>
-    
-      <category term="负环" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%9F%E7%8E%AF/"/>
     
   </entry>
   
