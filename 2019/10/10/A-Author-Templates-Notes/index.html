@@ -1034,7 +1034,50 @@ int main()
 }
 </code></pre>
 <p>后续还会贴上最大流的一些优化</p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="KMP-算法"><a href="#KMP-算法" class="headerlink" title="KMP 算法"></a>KMP 算法</h3><p><a href="https://www.luogu.com.cn/problem/P3375" target="_blank" rel="noopener">Luogu P3375 【模板】KMP字符串匹配</a></p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="manacher-算法"><a href="#manacher-算法" class="headerlink" title="manacher 算法"></a>manacher 算法</h3><p><a href="https://www.luogu.com.cn/problem/P3805" target="_blank" rel="noopener">Luogu P3805 【模板】manacher算法</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 11000007
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rgt int s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int n,m,len,mx,id,p[N&lt;&lt;1],ans;
+char s[N&lt;&lt;1],st[N];
+inline void init() {
+    rint i;len=strlen(st+1);
+    s[0]=&#39;!&#39;,s[1]=&#39;#&#39;,
+    n=(len&lt;&lt;1|1)+1;
+    for(i=1;i&lt;=len;i++)//扩展为 !#st_1#st_2...#? 形式
+        s[i&lt;&lt;1]=st[i],s[i&lt;&lt;1|1]=&#39;#&#39;;
+    s[n]=&#39;?&#39;;return;
+}
+inline void manacher() {
+    rint i;init();
+    for(i=1;i&lt;=n;i++) {
+        if(i&lt;mx) p[i]=min(p[(id&lt;&lt;1)-i],mx-i);//合理利用已处理部分
+        else p[i]=1;
+        while(s[i-p[i]]==s[i+p[i]]) ++p[i];
+        if(i+p[i]&gt;mx) mx=i+p[i],id=i;
+    }
+}
+int main() {
+    rint i;scanf(&quot;%s&quot;,st+1);
+    manacher();for(i=1;i&lt;n;i++) cmax(ans,p[i]);
+    printf(&quot;%d&quot;,ans-1);return 0;
+}
+</code></pre>
+<h3 id="KMP-算法"><a href="#KMP-算法" class="headerlink" title="KMP 算法"></a>KMP 算法</h3><p><a href="https://www.luogu.com.cn/problem/P3375" target="_blank" rel="noopener">Luogu P3375 【模板】KMP字符串匹配</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define rgt register
 #define rint rgt int
