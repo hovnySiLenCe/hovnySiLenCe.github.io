@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2020-08-06T08:41:28.971Z</updated>
+  <updated>2020-10-22T14:23:59.989Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P2127」序列排序 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/10/22/Luogu_P2127-SequenceSort-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/10/22/Luogu_P2127-SequenceSort-Solution/</id>
+    <published>2020-10-22T14:19:31.000Z</published>
+    <updated>2020-10-22T14:23:59.989Z</updated>
+    
+    <summary type="html">
+    
+      找环交换排序
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3444」[POI2006]ORK-Ploughing 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/09/22/Luogu_P3444-%5BPOI2006%5DORK-Ploughing-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/09/22/Luogu_P3444-[POI2006]ORK-Ploughing-Solution/</id>
+    <published>2020-09-22T13:05:29.000Z</published>
+    <updated>2020-09-22T13:33:52.000Z</updated>
+    
+    <summary type="html">
+    
+      给定能力值，每次消去矩形一边，求最小次数
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="枚举" scheme="http://hovnySiLenCe.github.io/tags/%E6%9E%9A%E4%B8%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>「Luogu P5502」[JSOI2015]最大公约数 解题报告</title>
@@ -182,9 +224,9 @@
       <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
     
     
-      <category term="优先队列" scheme="http://hovnySiLenCe.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
-    
       <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="优先队列" scheme="http://hovnySiLenCe.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
@@ -403,46 +445,6 @@
       <category term="树链剖分" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
     
       <category term="离线" scheme="http://hovnySiLenCe.github.io/tags/%E7%A6%BB%E7%BA%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P5304」[GXOI/GZOI2019]旅行者 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/11/Luogu_P5304-%5BGXOIGZOI%5DTraveler-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/11/Luogu_P5304-[GXOIGZOI]Traveler-Solution/</id>
-    <published>2019-11-11T11:31:41.000Z</published>
-    <updated>2019-12-01T07:28:11.972Z</updated>
-    
-    <summary type="html">
-    
-      两遍Dijkstra染色
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="Dijkstra" scheme="http://hovnySiLenCe.github.io/tags/Dijkstra/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「UVA12716」GCD等于XOR GCD XOR 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/10/UVa12716-GCDEqualToXOR_GCD_XOR-Solution/</id>
-    <published>2019-11-10T11:40:25.000Z</published>
-    <updated>2019-12-19T12:43:19.934Z</updated>
-    
-    <summary type="html">
-    
-      XOR等于GCD的数的对数
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
