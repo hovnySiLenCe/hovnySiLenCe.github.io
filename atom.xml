@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2020-10-22T14:23:59.989Z</updated>
+  <updated>2020-11-06T05:14:04.738Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P3052」[USACO12MAR]Cows in a Skyscraper G 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-%5BUSACO12MAR%5DCows_in_a_Skyscraper_G-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-[USACO12MAR]Cows_in_a_Skyscraper_G-Solution/</id>
+    <published>2020-11-06T05:02:35.000Z</published>
+    <updated>2020-11-06T05:14:04.738Z</updated>
+    
+    <summary type="html">
+    
+      贪心反悔机制模板题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="优先队列" scheme="http://hovnySiLenCe.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>「Luogu P2127」序列排序 解题报告</title>
@@ -421,30 +443,6 @@
     
     
       <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P4211」[LNOI2014]LCA 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4211-%5BLNOI2014%5DLCA-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4211-[LNOI2014]LCA-Solution/</id>
-    <published>2019-11-11T23:25:15.000Z</published>
-    <updated>2019-12-01T07:28:25.180Z</updated>
-    
-    <summary type="html">
-    
-      求一个点和一段区间Lca的深度和
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-      <category term="树链剖分" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
-    
-      <category term="离线" scheme="http://hovnySiLenCe.github.io/tags/%E7%A6%BB%E7%BA%BF/"/>
     
   </entry>
   

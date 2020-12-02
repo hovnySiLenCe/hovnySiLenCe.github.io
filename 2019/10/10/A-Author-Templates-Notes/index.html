@@ -332,7 +332,52 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>$\mathtt{Update}\ \mathtt{2019.12.3}$</p>
+          <p>$\mathtt{Update}\ \mathtt{2020.11.30}$</p>
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="nim游戏"><a href="#nim游戏" class="headerlink" title="nim游戏"></a>nim游戏</h3><p><del>水代码</del> 判断异或值即可</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n,T,ans;
+int read() {
+    int s=0;char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)){s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;;c=getchar();}
+    return s;
+}
+int main() {
+    T=read();
+    while(T--) {
+        n=read();ans=0;
+        for(int i=1;i&lt;=n;i++) ans^=read();
+        puts(ans?&quot;Yes&quot;:&quot;No&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h3><p><a href="https://oi-wiki.org/math/basis/" target="_blank" rel="noopener">$\mathtt{OI-wiki\ Link}$</a></p>
+<p>挺好用的 <code>/dei!</code></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+#define N 55
+using namespace std;
+int n;
+LL x,ans,p[N];
+int main() {
+    int i,j;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(i=1;i&lt;=n;i++) {
+        scanf(&quot;%lld&quot;,&amp;x);
+        for(j=51;j&gt;=0;j--)
+            if((x&gt;&gt;j)&amp;1) {
+                if(!p[j]){p[j]=x;break;}
+                x^=p[j];
+            }
+    }
+    for(i=51;i&gt;=0;i--)
+        if((ans^p[i])&gt;ans) ans^=p[i];
+    printf(&quot;%lld&quot;,ans);
+    return 0;
+}
+</code></pre>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><p>选的是我写莫队<del>(假装)</del>顶峰时的代码 <a href="https://www.luogu.com.cn/problem/CF703D" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define getchar() *(p++)
@@ -502,6 +547,54 @@ int main()
             else x=read(),L=in[x],R=out[x],Query(1,1,n);
             printf(&quot;%lld\n&quot;,ans);
         }
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="主席树"><a href="#主席树" class="headerlink" title="主席树"></a>主席树</h3><p>可持久化线段树1(主席树)模板题，基本操作</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define inf 0x7f7f7f7f
+#define N 200003
+using namespace std;
+struct node{
+    int l,r,sum;
+}T[N*80];
+int a[N],b[N],root[N];
+int n,m,k,t,res,ans;
+inline int read() {
+    rint s=0,p=1;
+    rgt char c=getchar();
+    while(!isdigit(c)) p=(c==&#39;-&#39;)?-1:1,c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s*p;
+}
+inline void modify(rint l,rint r,rint &amp;x,rint y,rint pos) {
+    T[++res]=T[y];T[res].sum++;x=res;
+    if(l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    if(pos&lt;=mid) modify(l,mid,T[x].l,T[y].l,pos);
+    else modify(mid+1,r,T[x].r,T[y].r,pos);
+}
+inline void query(rint l,rint r,rint x,rint y,rint k) {
+    if(l==r) {ans=l;return;}
+    rint mid=(l+r)&gt;&gt;1,sum=T[T[y].l].sum-T[T[x].l].sum;
+    if(k&lt;=sum) query(l,mid,T[x].l,T[y].l,k);
+    else query(mid+1,r,T[x].r,T[y].r,k-sum);
+}
+int main() {
+    rint i,x,y;n=read();m=read();
+    for(i=1;i&lt;=n;i++) b[i]=a[i]=read();
+    sort(b+1,b+1+n),t=unique(b+1,b+1+n)-b-1;
+    for(i=1;i&lt;=n;i++)
+        a[i]=lower_bound(b+1,b+1+t,a[i])-b,
+        modify(1,t,root[i],root[i-1],a[i]);
+    for(i=1;i&lt;=m;i++) {
+        x=read(),y=read(),k=read(),
+        query(1,t,root[x-1],root[y],k);
+        printf(&quot;%d\n&quot;,b[ans]);
     }
     return 0;
 }
@@ -959,6 +1052,79 @@ int main()
             Add(bl[i],bl[to]),++d[bl[to]];
         }solve();
     printf(&quot;%d&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h3 id="2-SAT-问题"><a href="#2-SAT-问题" class="headerlink" title="2-SAT 问题"></a>2-SAT 问题</h3><p>实际上其实是缩点的变种应用 <a href="https://www.luogu.com.cn/problem/P4782" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<p>这里应该还有我自己写的 <a href="https://hovnysilence.github.io/2019/11/21/LectureNotes-2-SAT-Notes/">$2-SAT$ 学习笔记</a></p>
+<p>特别注意对各种命题的建边形式</p>
+<p>若一种命题的两种情况位于同一强连通则无解，否则 $dfn$ 序即为拓扑序的反序</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 1000003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int head[N&lt;&lt;1],ver[N&lt;&lt;1],nxt[N&lt;&lt;1],n,m,t,num;
+int bl[N&lt;&lt;1],St[N&lt;&lt;1],top,dfn[N&lt;&lt;1],low[N&lt;&lt;1],res;//这里都是tarjan的标准配置
+bool vis[N],w[N];
+inline void add(rint x,rint y) {
+    ver[++t]=y,nxt[t]=head[x],head[x]=t;//肯定是单向的，表示若p则q
+}
+inline void tarjan(rint k) {
+    rint i,to;
+    dfn[k]=low[k]=++num,St[++top]=k;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i];
+        if(!dfn[to]) tarjan(to),cmin(low[k],low[to]);
+        else if(!bl[to]) cmin(low[k],dfn[to]);
+    }
+    if(dfn[k]==low[k]) {
+        bl[k]=++res;
+        while(St[top]!=k)
+            bl[St[top]]=res,--top;
+        --top;
+    }
+}
+inline void dfs(rint k) {
+    rint i,to;
+    if(k&gt;n) vis[k-n]=1,w[k-n]=1;
+    else vis[k]=1;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i]&gt;n?ver[i]-n:ver[i];
+        if(!vis[to]) dfs(ver[i]);
+    }
+}
+int main()
+{
+    rint i,x,y,vx,vy;
+    n=read(),m=read();
+    for(i=1;i&lt;=m;i++) {
+        x=read(),vx=read(),
+        y=read(),vy=read(),
+        add(y+(vy^1)*n,x+vx*n),
+        add(x+(vx^1)*n,y+vy*n);
+    }
+    for(i=1;i&lt;=(n&lt;&lt;1);i++)
+        if(!dfn[i]) tarjan(i);
+    for(i=1;i&lt;=n;i++)
+        if(bl[i]==bl[i+n]) {
+            printf(&quot;IMPOSSIBLE&quot;);
+            return 0;
+        }
+    printf(&quot;POSSIBLE\n&quot;);
+    for(i=1;i&lt;=n;i++) printf(&quot;%d &quot;,bl[i]&gt;bl[i+n]);
     return 0;
 }
 </code></pre>
