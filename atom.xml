@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2020-11-06T05:14:04.738Z</updated>
+  <updated>2020-12-03T04:46:08.641Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>「Luogu P3052」[USACO12MAR]Cows in a Skyscraper G 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-%5BUSACO12MAR%5DCows_in_a_Skyscraper_G-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-[USACO12MAR]Cows_in_a_Skyscraper_G-Solution/</id>
+    <title>「Luogu P3574」[POI2014]FAR-FarmCraft 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/12/02/Luogu_3574-%5BPOI2014%5DFAR-FarmCraft-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/12/02/Luogu_3574-[POI2014]FAR-FarmCraft-Solution/</id>
+    <published>2020-12-02T14:24:41.000Z</published>
+    <updated>2020-12-03T04:46:08.641Z</updated>
+    
+    <summary type="html">
+    
+      树形DP+贪心策略
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="树形DP" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E5%BD%A2DP/"/>
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3052」[APIO/CTSC 2007]数据备份 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-%5BAPIO_CTSC_2007%5D%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-[APIO_CTSC_2007]数据备份-Solution/</id>
     <published>2020-11-06T05:02:35.000Z</published>
-    <updated>2020-11-06T05:14:04.738Z</updated>
+    <updated>2020-12-02T23:19:32.307Z</updated>
     
     <summary type="html">
     
@@ -423,26 +445,6 @@
     
     
       <category term="可持久化线段树" scheme="http://hovnySiLenCe.github.io/tags/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P4198」楼房重建 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4198-BuildingReconstruction-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/12/Luogu_P4198-BuildingReconstruction-Solution/</id>
-    <published>2019-11-12T07:36:04.000Z</published>
-    <updated>2019-12-01T07:28:25.588Z</updated>
-    
-    <summary type="html">
-    
-      线段树维护首项固定的最长上升子序列
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
