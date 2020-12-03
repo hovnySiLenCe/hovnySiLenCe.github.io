@@ -335,7 +335,7 @@
           <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.com.cn/problem/P3574" target="_blank" rel="noopener">题面</a></h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>树形DP+贪心排序</strong></p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>思考这个最大值显然是满足能从子节点更新到父节点的</p>
 <p>因此考虑我们已经得到了 $k$ 节点所有子节点的最大值 $f_{v_i}$，考虑如何更新</p>
-<p>首先别忘了 $k$ 节点本身的值，然后由于从 $k$ 节点往下走到任意子节点 $v<em>i$ 均需 $1$ 的费用，并且先走子节点 $v_i$ 对另一个子节点 $v_j$ 会造成 $2\times size</em>{v_i}$ 的影响，现在我们要使这个费用总和最小化，就可以将这个问题转化为另一个问题：</p>
+<p>首先别忘了 $k$ 节点本身的值，然后由于从 $k$ 节点往下走到任意子节点 $v_i$ 均需 $1$ 的费用，并且先走子节点 $v_i$ 对另一个子节点 $v_j$ 会造成 $2\times size$ 的影响，现在我们要使这个费用总和最小化，就可以将这个问题转化为另一个问题：</p>
 <blockquote>
 <p>现有长度为 $t$ 的数组 $p$，数组中每个元素分别有两个值，$p[i].value$ 表示从 $k$ 走到某个节点中的最大值，$p[i].size$ 对应该节点的 $2\times size$，也就是对后面的影响</p>
 <p>费用即为：</p>
