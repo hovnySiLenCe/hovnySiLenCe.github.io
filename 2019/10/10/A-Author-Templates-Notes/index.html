@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">「Author」模板集合 学习笔记 (更新中) | h^ovny&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "h^ovny's blog";
+  mashiro_option.author_name = "h^ovny";
+  // mashiro_option.author_name = "blog";
+  mashiro_option.site_url = "https://hovnySiLenCe.github.io/";
+  mashiro_option.v_appId = "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va";
+  mashiro_option.v_appKey = "m9gcmILxHTKlwwTnRGXSDV8J";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/0.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/2.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/3.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/4.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/5.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/6.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/7.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/8.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/9-1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/10.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/11.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/12.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/13.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/14.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/15.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/16.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/17.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop ">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://hovnySiLenCe.github.io/">
+          <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>If you want to be loved, you have to be worth loving.</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/hovnySiLenCe" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="1348528381@qq.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">h^ovny&#39;s</span>
+            <span class="shironeko">blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+                    标签
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/categories">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+                    分类
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/source/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+                    资源
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/lists/">
+                          <i class="fa fa-tasks" aria-hidden="true"></i>
+                          题单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/0.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/0.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      「Author」模板集合 学习笔记 (更新中)</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">
+            <img src="/images/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">h^ovny</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-10-10<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>$\mathtt{Update}\ \mathtt{2020.12.4}$</p>
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h3><p><del>我又来水代码了 我已开始还以为裴蜀是Chinese</del> <a href="https://www.luogu.com.cn/problem/P4549" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n,ans,x;
+inline int gcd(int a,int b) {
+    return !b?a:gcd(b,a%b);
+}
+int main() {
+    int i,j;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;ans);
+    for(i=1;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;x),ans=gcd(ans,abs(x));
+    printf(&quot;%d&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h3 id="nim游戏"><a href="#nim游戏" class="headerlink" title="nim游戏"></a>nim游戏</h3><p><del>水代码</del> 判断异或值即可</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n,T,ans;
+int read() {
+    int s=0;char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)){s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;;c=getchar();}
+    return s;
+}
+int main() {
+    T=read();
+    while(T--) {
+        n=read();ans=0;
+        for(int i=1;i&lt;=n;i++) ans^=read();
+        puts(ans?&quot;Yes&quot;:&quot;No&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h3><p><a href="https://oi-wiki.org/math/basis/" target="_blank" rel="noopener">$\mathtt{OI-wiki\ Link}$</a></p>
+<p>挺好用的 <code>/dei!</code></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+#define N 55
+using namespace std;
+int n;
+LL x,ans,p[N];
+int main() {
+    int i,j;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(i=1;i&lt;=n;i++) {
+        scanf(&quot;%lld&quot;,&amp;x);
+        for(j=51;j&gt;=0;j--)
+            if((x&gt;&gt;j)&amp;1) {
+                if(!p[j]){p[j]=x;break;}
+                x^=p[j];
+            }
+    }
+    for(i=51;i&gt;=0;i--)
+        if((ans^p[i])&gt;ans) ans^=p[i];
+    printf(&quot;%lld&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h3 id="卢卡斯定理"><a href="#卢卡斯定理" class="headerlink" title="卢卡斯定理"></a>卢卡斯定理</h3><p><a href="https://www.luogu.com.cn/problem/P3807" target="_blank" rel="noopener">$\mathtt{Link}$</a> 即：</p>
+<script type="math/tex; mode=display">
+\binom nm \equiv \binom {\lfloor n/p\rfloor} {\lfloor m/p\rfloor}\cdot\binom {n\mod p} {m\mod p}\pmod p</script><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define N 100007
+#define LL long long
+using namespace std;
+int T;
+LL n,m,p,inv[N],mul[N];
+LL C(LL n,LL m) {
+    if(m&gt;n) return 0;
+    return mul[n]*inv[m]*inv[n-m]%p;
+}
+LL Lucas(LL n,LL m) {
+    if(!m) return 1;
+    return C(n%p,m%p)*Lucas(n/p,m/p)%p;
+}
+int main() {
+    int i;inv[1]=mul[1]=inv[0]=mul[0]=1;
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--) {
+        scanf(&quot;%lld%lld%lld&quot;,&amp;n,&amp;m,&amp;p);
+        for(i=2;i&lt;=p;i++) inv[i]=(p-p/i)*inv[p%i]%p;//线性求逆元
+        for(i=2;i&lt;=p;i++) inv[i]=inv[i-1]*inv[i]%p,mul[i]=mul[i-1]*i%p;
+        printf(&quot;%lld\n&quot;,Lucas(n+m,m));
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="扩展卢卡斯"><a href="#扩展卢卡斯" class="headerlink" title="扩展卢卡斯"></a>扩展卢卡斯</h3><p>此时模数不是质数，需要通过中国剩余定理合并 <a href="https://www.luogu.com.cn/problem/P4720" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 1000003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+LL n,m,ans,p;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+inline void Ex_gcd(rll a,rll b,rll &amp;x,rll &amp;y) {
+    if(!b) {x=1,y=0;return;}
+    Ex_gcd(b,a%b,y,x),y-=a/b*x;
+}
+inline LL Pow(rll a,rll b,rint p) {
+    rll res=1;for(;b;b&gt;&gt;=1,a=a*a%p)
+    if(b&amp;1) res=res*a%p;return res;
+}
+inline LL fac(rll n,rll pi,rll p) {
+    if(!n) return 1;
+    rll res=1,i;
+    for(i=2;i&lt;=p;i++)
+        if(i%pi) res=res*i%p;
+    res=Pow(res,n/p,p);
+    for(i=2;i&lt;=n%p;i++)
+        if(i%pi) res=res*i%p;
+    return res*fac(n/pi,pi,p)%p;
+}
+inline LL inv(rll n,rll p) {
+    rll x,y;Ex_gcd(n,p,x,y);
+    return (x+=p)&gt;p?x-p:x;
+}
+inline LL CRT(rll b,rll c) {
+    return b*inv(p/c,c)%p*(p/c)%p;
+}
+inline LL C(rll n,rll m,rll pi,rll pk) {
+    rll up=fac(n,pi,pk),d1=fac(m,pi,pk),d2=fac(n-m,pi,pk);
+    rll res=0,i;
+    for(i=n;i;i/=pi) res+=i/pi;
+    for(i=m;i;i/=pi) res-=i/pi;
+    for(i=n-m;i;i/=pi) res-=i/pi;
+    return up*inv(d1,pk)%pk*inv(d2,pk)%pk*Pow(pi,res,pk)%pk;
+}
+inline int Ex_Lucas(rll n,rll m) {
+    rll tp=p,c;
+    for(rint i=2;i*i&lt;=tp;i++)
+        if(tp%i==0) {
+            c=1;
+            while(tp%i==0) c*=i,tp/=i;
+            (ans+=CRT(C(n,m,i,c),c))%=p;
+        }
+    if(tp&gt;1) (ans+=CRT(C(n,m,tp,tp),tp))%=p;
+    return ans;
+}
+int main()
+{
+    scanf(&quot;%lld%lld%d&quot;,&amp;n,&amp;m,&amp;p);
+    printf(&quot;%d&quot;,Ex_Lucas(n,m));
+    return 0;
+}
+</code></pre>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><p>选的是我写莫队<del>(假装)</del>顶峰时的代码 <a href="https://www.luogu.com.cn/problem/CF703D" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define getchar() *(p++)
+#define rgt register
+#define rint rgt int
+#define N 1000007
+using namespace std;
+struct node{
+    int l,r,i;
+}b[N];
+int n,m,t,l,r,block,pos[N],Ans[N];
+int s[N],a[N],d[N],f[N],sum[N],ans;
+char bf[1&lt;&lt;25],*p=bf;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+inline bool cmp(rgt node a,rgt node b) {//看似很飘的样子(奇偶性优化
+    return (pos[a.l]^pos[b.l])?a.l&lt;b.l:(pos[a.l]&amp;1)?a.r&lt;b.r:a.r&gt;b.r;
+}
+inline bool Add(rgt int x) {if(!sum[f[x]]++) ans^=a[x];}
+inline bool Del(rgt int x) {if(!(--sum[f[x]])) ans^=a[x];}
+int main()
+{
+    rint i;bf[fread(bf,1,1&lt;&lt;25,stdin)]=&#39;\0&#39;,n=read();
+    for(i=1;i&lt;=n;i++) d[i]=a[i]=read(),s[i]=s[i-1]^a[i];
+    m=read();sort(d+1,d+1+n),t=unique(d+1,d+1+n)-d-1,block=n/sqrt(m*0.9);//玄学的块的大小
+    for(i=1;i&lt;=n;i++) f[i]=lower_bound(d+1,d+t+1,a[i])-d,pos[i]=i/block;
+    for(i=1;i&lt;=m;i++) b[i].l=read(),b[i].r=read(),b[i].i=i;
+    sort(b+1,b+1+m,cmp),l=1;
+    for(i=1;i&lt;=m;i++) {//尽量先Add再Del,否则可能会出现一些不必要的问题
+        while(r&lt;b[i].r) Add(++r);
+        while(l&gt;b[i].l) Add(--l);
+        while(r&gt;b[i].r) Del(r--);
+        while(l&lt;b[i].l) Del(l++);
+        Ans[b[i].i]=ans^s[b[i].l-1]^s[b[i].r];
+    }
+    for(i=1;i&lt;=m;i++) printf(&quot;%d\n&quot;,Ans[i]);
+    return 0;
+}
+</code></pre>
+<h3 id="树链剖分"><a href="#树链剖分" class="headerlink" title="树链剖分"></a>树链剖分</h3><p>树链剖分的理论复杂度是 $m\log^2n$，但是有其优秀的常数，一般跑不满 <a href="https://www.luogu.com.cn/problem/P3384" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<p>其分为重链和长链剖分，这里写的是重链剖分，据某神仙说，树链剖分虽长但是吼打，是 $OIer$ $\times \times$ 的首选…</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 100007
+using namespace std;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int head[N],ver[N&lt;&lt;1],nxt[N&lt;&lt;1],in[N],a[N],out[N];
+int fa[N],size[N],dep[N],son[N];
+int seg[N],rev[N],top[N],num;
+LL f[N&lt;&lt;2],tag[N&lt;&lt;2],ans,p;
+int n,T,L,R,t,x,y,w,root;
+inline void add(rint x,rint y) {
+    ver[++t]=y,nxt[t]=head[x],head[x]=t,
+    ver[++t]=x,nxt[t]=head[y],head[y]=t;
+}
+inline LL dec(rll x){return(x&gt;=p)?x-p:x;}
+inline void dfs1(rint k) {
+    rint i,to;
+    dep[k]=dep[fa[k]]+1,size[k]=1;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i];if(to==fa[k]) continue;
+        fa[to]=k,dfs1(to),size[k]+=size[to];
+        if(size[to]&gt;size[son[k]])//重儿子
+            son[k]=to;
+    }
+}
+inline void dfs2(rint k) {
+    in[k]=num;//子树的其实可以不用这么维护，但是我懒的改了，in[k]=seg[k]
+    if(son[k]) {//out[k]=seg[k]+size[k]-1
+        seg[son[k]]=++num,
+        top[son[k]]=top[k],
+        rev[num]=son[k],
+        dfs2(son[k]);
+    }
+    rint i,to;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i];if(top[to]) continue;
+        seg[to]=++num,rev[num]=top[to]=to;
+        dfs2(to);//rev表示序号所对原来的位置
+    }out[k]=num;
+}
+inline void built(rint k,rint l,rint r) {
+    if(l==r){f[k]=a[rev[l]];return;}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    built(ls,l,m),built(ls|1,m+1,r);
+    f[k]=dec(f[ls]+f[ls|1]);
+}
+inline void push(rint k,rint l,rint r) {
+    f[k]=(f[k]+tag[k]*(r-l+1))%p;
+    if(l!=r) {
+        rint ls=k&lt;&lt;1;
+        tag[ls]=dec(tag[ls]+tag[k]),
+        tag[ls|1]=dec(tag[ls|1]+tag[k]);
+    }tag[k]=0;
+}
+inline void Modify(rint k,rint l,rint r) {
+    if(tag[k]) push(k,l,r);
+    if(r&lt;L||R&lt;l) return;
+    if(L&lt;=l&amp;&amp;r&lt;=R) {tag[k]=w;return push(k,l,r);}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    Modify(ls,l,m),Modify(ls|1,m+1,r);
+    f[k]=dec(f[ls]+f[ls|1]);
+}
+inline void Query(rint k,rint l,rint r) {
+    if(tag[k]) push(k,l,r);
+    if(r&lt;L||R&lt;l) return;
+    if(L&lt;=l&amp;&amp;r&lt;=R) {ans=dec(ans+f[k]);return;}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    Query(ls,l,m),Query(ls|1,m+1,r);
+}
+#define fx top[x]
+#define fy top[y]
+inline void Add(rint x,rint y) {
+    w=read()%p;
+    while(fx!=fy) {
+        if(dep[fx]&lt;dep[fy]) swap(x,y);//保证跳的是深度较小的点
+        L=seg[fx],R=seg[x],
+        Modify(1,1,n),x=fa[fx];//跳轻边
+    }
+    if(dep[x]&lt;dep[y]) swap(x,y);
+    L=seg[y],R=seg[x],Modify(1,1,n);
+}
+inline void Ask(rint x,rint y) {
+    while(fx!=fy) {
+        if(dep[fx]&lt;dep[fy]) swap(x,y);
+        L=seg[fx],R=seg[x],
+        Query(1,1,n),x=fa[fx];
+    }
+    if(dep[x]&lt;dep[y]) swap(x,y);
+    L=seg[y],R=seg[x],Query(1,1,n);
+}
+int main()
+{
+    rint i,op;
+    n=read(),T=read(),root=read(),p=read();
+    for(i=1;i&lt;=n;i++) a[i]=read()%p;
+    for(i=1;i&lt;n;i++) add(read(),read());
+    num=seg[root]=1,rev[1]=top[root]=root;//注意root不同
+    dfs1(root),dfs2(root),built(1,1,n);//建树
+    while(T--) {
+        op=read();
+        if(op==1||op==3) {
+            if(op==3) {
+                x=read(),w=read()%p,
+                L=in[x],R=out[x],Modify(1,1,n);
+            }
+            else Add(read(),read());
+        }
+        else {
+            ans=0;
+            if(op==2) Ask(read(),read());
+            else x=read(),L=in[x],R=out[x],Query(1,1,n);
+            printf(&quot;%lld\n&quot;,ans);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="主席树"><a href="#主席树" class="headerlink" title="主席树"></a>主席树</h3><p>可持久化线段树1(主席树)模板题，基本操作</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define inf 0x7f7f7f7f
+#define N 200003
+using namespace std;
+struct node{
+    int l,r,sum;
+}T[N*80];
+int a[N],b[N],root[N];
+int n,m,k,t,res,ans;
+inline int read() {
+    rint s=0,p=1;
+    rgt char c=getchar();
+    while(!isdigit(c)) p=(c==&#39;-&#39;)?-1:1,c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s*p;
+}
+inline void modify(rint l,rint r,rint &amp;x,rint y,rint pos) {
+    T[++res]=T[y];T[res].sum++;x=res;
+    if(l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    if(pos&lt;=mid) modify(l,mid,T[x].l,T[y].l,pos);
+    else modify(mid+1,r,T[x].r,T[y].r,pos);
+}
+inline void query(rint l,rint r,rint x,rint y,rint k) {
+    if(l==r) {ans=l;return;}
+    rint mid=(l+r)&gt;&gt;1,sum=T[T[y].l].sum-T[T[x].l].sum;
+    if(k&lt;=sum) query(l,mid,T[x].l,T[y].l,k);
+    else query(mid+1,r,T[x].r,T[y].r,k-sum);
+}
+int main() {
+    rint i,x,y;n=read();m=read();
+    for(i=1;i&lt;=n;i++) b[i]=a[i]=read();
+    sort(b+1,b+1+n),t=unique(b+1,b+1+n)-b-1;
+    for(i=1;i&lt;=n;i++)
+        a[i]=lower_bound(b+1,b+1+t,a[i])-b,
+        modify(1,t,root[i],root[i-1],a[i]);
+    for(i=1;i&lt;=m;i++) {
+        x=read(),y=read(),k=read(),
+        query(1,t,root[x-1],root[y],k);
+        printf(&quot;%d\n&quot;,b[ans]);
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h3><p>第一次打可持久线段树（标记永久化），来自某道由 <a href="https://www.cnblogs.com/bztMinamoto/" target="_blank" rel="noopener">$\color{red}{\mathtt{b}}\color{black}{\mathtt{ztMinamoto}}\%\%\%$</a> 翻译的题 <a href="https://www.luogu.com.cn/problem/SP11470" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;//大致上和主席树类似，emmm...貌似主席树就是可持久化线段树...
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 100003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline LL read() {
+    rll s=0,p=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) p=(c==&#39;-&#39;),c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return p?-s:s;
+}
+inline void getc(char&amp;c) {
+    c=getchar();while(c&lt;&#39;A&#39;||c&gt;&#39;Z&#39;) c=getchar();
+}
+struct node{
+    int ls,rs;
+    LL sum,tag;
+}T[N*160];
+int n,m,L,R,t,res,a[N],root[N];LL w,ans;
+inline void built(rint k,rint l,rint r) {
+    cmax(t,k);
+    if(l==r) {T[k].sum=a[l];return;}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    built(T[k].ls=ls,l,m),built(T[k].rs=ls|1,m+1,r),
+    T[k].sum=T[ls].sum+T[ls|1].sum;
+}
+inline void Modify(rint l,rint r,rint &amp;x,rint y) {
+    if(r&lt;L||R&lt;l) return;
+    x=++t,T[t]=T[y];
+    if(L&lt;=l&amp;&amp;r&lt;=R) {T[x].tag+=w;return;}
+    T[t].sum+=w*(min(r,R)-max(l,L)+1);//划重点，标记永久化的影响
+    rint m=(l+r)&gt;&gt;1;
+    Modify(l,m,T[x].ls,T[y].ls),
+    Modify(m+1,r,T[x].rs,T[y].rs);
+}
+inline void push(rll tag,rint l,rint r) {
+    ans+=(min(R,r)-max(L,l)+1)*tag;
+}
+inline void Query(rint l,rint r,rint root) {
+    if(r&lt;L||R&lt;l) return;
+    if(T[root].tag) push(T[root].tag,l,r);//划重点，标记永久化的影响
+    if(L&lt;=l&amp;&amp;r&lt;=R) {ans+=T[root].sum;return;}
+    rint m=(l+r)&gt;&gt;1;
+    Query(l,m,T[root].ls),Query(m+1,r,T[root].rs);
+}
+int main()
+{
+    rint i;char op;
+    n=read(),m=read();
+    for(i=1;i&lt;=n;i++) a[i]=read();
+    built(1,1,n),root[0]=1;
+    while(m--) {
+        getc(op);
+        if(op==&#39;C&#39;) {
+            L=read(),R=read(),w=read(),++res;
+            Modify(1,n,root[res],root[res-1]);
+        }
+        else if(op==&#39;Q&#39;)
+            ans=0,L=read(),R=read(),Query(1,n,root[res]),printf(&quot;%lld\n&quot;,ans);
+        else if(op==&#39;H&#39;)
+            ans=0,L=read(),R=read(),Query(1,n,root[read()]),printf(&quot;%lld\n&quot;,ans);
+        else res=read();
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="Link-Cut-Tree"><a href="#Link-Cut-Tree" class="headerlink" title="Link Cut Tree"></a>Link Cut Tree</h3><p>$LCT$ 还是比较好理解的，只是想当初为了 $LCT$ 学 $Splay$ 学的头大 <a href="https://www.luogu.com.cn/problem/P5049" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define N 300007
+using namespace std;
+int fa[N],v[N],f[N],son[N][2];
+int n,T,St[N],top;bool r[N];
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+inline bool Ide(rint x) {return son[fa[x]][1]==x;}//判断是左还是右儿子
+inline bool Tol(rint x) {return (son[fa[x]][0]==x)||(son[fa[x]][1]==x);}//判断是否有实边相连
+inline void Flip(rint x) {swap(son[x][0],son[x][1]),r[x]^=1;}//翻转
+inline void push(rint x) {//下传翻转标记
+    if(!r[x]) return;r[x]=0;
+    if(son[x][0]) Flip(son[x][0]);
+    if(son[x][1]) Flip(son[x][1]);
+}
+inline void Update(rint x) {
+    f[x]=f[son[x][0]]^f[son[x][1]]^v[x];
+}
+inline void rotate(rgt int x) {
+    rint y=fa[x],z=fa[y];
+    rint ys=Ide(x),zs=Ide(y),v=son[x][ys^1];
+    if(Tol(y)) son[z][zs]=x;fa[x]=z;//y连的是不是虚边
+    son[x][ys^1]=y,fa[y]=x;
+    if(v) fa[v]=y;son[y][ys]=v;
+    Update(y),Update(x);//Updata
+}
+inline void Splay(rint x) {
+    rint y=x,z;St[top=1]=y;
+    while(Tol(y)) St[++top]=y=fa[y];//这里用于下传标记再翻转
+    while(top) push(St[top--]);
+    while(Tol(x)) {
+        y=fa[x],z=fa[y];
+        if(Tol(y))//仍然判虚边
+            rotate((son[y][0]==x)^(son[z][0]==y)?x:y);//如果在一条链上就先rotate父亲
+        rotate(x);//这样能使期望树高为log
+    }
+}
+inline void Access(rint x) {//将x和root连成一条链
+    for(rint y=0;x;x=fa[y=x])
+        Splay(x),son[x][1]=y,Update(x);
+}
+inline void Catch(rint x) {//使x成为root
+    Access(x),Splay(x),Flip(x);
+}
+inline int Search(rint x) {//寻找最浅的点，Link和Cut专用
+    Access(x),Splay(x);
+    while(son[x][0]) push(x),x=son[x][0];
+    Splay(x);return x;
+}
+inline void Link(rint x,rint y) {
+    Catch(x);
+    if(Search(y)!=x) fa[x]=y;//直接连虚边即可
+}
+inline void Cut(rint x,rint y) {
+    Catch(x);
+    if(Search(y)==x&amp;&amp;fa[y]==x&amp;&amp;!son[y][0])//要判断一系列复杂的东西
+        fa[y]=son[x][1]=0,Update(x);
+}
+inline void Query(rint x,rint y) {
+    Catch(x),Access(y),Splay(y);
+    printf(&quot;%d\n&quot;,f[y]);
+}
+int main()
+{
+    rint i,p,x,y;
+    n=read(),T=read();
+    for(i=1;i&lt;=n;i++) v[i]=read();
+    while(T--) {
+        p=read(),x=read(),y=read();
+        if(p==0) Query(x,y);
+        else if(p==1) Link(x,y);
+        else if(p==2) Cut(x,y);
+        else Splay(x),v[x]=y,Update(x);
+    }
+    return 0;
+}
+</code></pre>
+<p>貌似也是 $LCT$ 教会我卡常和压行（毒瘤码风</p>
+<hr>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 DP"></a>数位 DP</h3><p>数位 $DP$ 还是比较好理解的，需要注意的就是一些初始化和 $status$</p>
+<p><a href="https://www.luogu.com.cn/problem/P2657" target="_blank" rel="noopener">模板题 [SCOI2009]windy数</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 13
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int l,r,t,num[N],f[N][N],ans;
+inline int dfs(rint k,rint st,rint op) {
+    if(!k) return 1;
+    if(!op&amp;&amp;~f[k][st]) return f[k][st];//对没有达到上限的一般情况记忆化
+    rint i,t=op?num[k]:9,res=0;//t表示的是当前枚举的上限
+    for(i=0;i&lt;=t;i++) {
+        if(abs(st-i)&lt;2) continue;
+        if(st==11&amp;&amp;i==0)
+            res+=dfs(k-1,11,op&amp;(i==t));
+        else res+=dfs(k-1,i,op&amp;(i==t));
+    }
+    if(!op) f[k][st]=res;
+    return res;
+}
+inline int solve(rint x) {
+    memset(f,-1,sizeof(f)),t=0;//个人感觉这里第二次不用memset
+    while(x) num[++t]=x%10,x/=10;
+//  do num[++t]=x%10,x/=10; while(x);这样就可以把0算进去，有些题目会要求，但是问题不大
+    return dfs(t,11,1);
+}
+int main() {
+    l=read()-1,r=read();//对询问求见进行差分
+    printf(&quot;%d&quot;,solve(r)-solve(l));
+    return 0;
+}
+</code></pre>
+<p><a href="https://www.luogu.com.cn/problem/P3413" target="_blank" rel="noopener">SAC#1 - 萌数</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define p 1000000007
+#define N 1003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int top,num[N],sum[N],bi[N];
+int ans,f[N][11][11][2];
+char a[N],b[N];
+inline int dec(rint x){return(x&gt;=p)?x-p:x;}
+inline int dfs(rint k,rint sec,rint fir,rint st,rint zt,rint op) {//六维状态
+    if(st) return f[k][sec][fir][st]=op?sum[k]+1:bi[k+1];
+    if(!k) return st;
+    if(!op&amp;&amp;~f[k][sec][fir][st]) return f[k][sec][fir][st];
+    rint i,t=op?num[k]:9;rll res=0;
+    for(i=0;i&lt;=t;i++) res=dec(res+dfs(k-1,fir,(i==0&amp;&amp;zt)?-1:i,st|(i==sec||i==fir),zt&amp;(i==0),op&amp;(i==t)));
+    if(!op) f[k][sec][fir][st]=res;
+    return res;
+}
+int main()
+{
+    rint i,j;bi[1]=1;
+    for(i=2;i&lt;N;i++) bi[i]=(LL)bi[i-1]*10%p;
+    scanf(&quot;%s%s&quot;,a+1,b+1),top=strlen(a+1);
+    for(i=1;i&lt;=top;i++) num[i]=a[top-i+1]-&#39;0&#39;;--num[1];
+    i=1;while(num[i]&lt;0) --num[i+1],num[i]+=10,++i;
+    if(!num[top]) --top;memset(f,-1,sizeof(f));
+    for(i=1;i&lt;=top;i++) sum[i]=(sum[i-1]+(LL)num[i]*bi[i])%p;
+    ans=-dfs(top,-1,-1,0,1,1),top=strlen(b+1);
+    for(i=1;i&lt;=top;i++) num[i]=b[top-i+1]-&#39;0&#39;;
+    for(i=1;i&lt;=top;i++) sum[i]=(sum[i-1]+(LL)num[i]*bi[i])%p;
+//    memset(f,-1,sizeof(f));第二次真不用memset
+    ans+=dfs(top,-1,-1,0,1,1),printf(&quot;%d&quot;,(ans%p+p)%p);
+    return 0;
+}
+</code></pre>
+<p><a href="https://www.luogu.com.cn/problem/SP17247" target="_blank" rel="noopener">求每位数的和 SP17247 PR003004 - Digit Sum</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+int num[19],t,nm,T;
+LL f[19][191][2],l,r;
+inline LL dfs(rint k,rint st,rint op) {
+    if(!k) return st;
+    if(~f[k][st][op]) return f[k][st][op];
+    rint i,t=op?num[k]:9;rll res=0;
+    for(i=0;i&lt;=t;i++) res+=dfs(k-1,st+i,op&amp;(i==t));
+    return f[k][st][op]=res;
+}
+inline LL solve(rll c) {
+    t=0;while(c) num[++t]=c%10,c/=10;
+    memset(f,-1,sizeof(f));//记得初始化为0
+    return dfs(t,0,1);
+}
+int main() {
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--)
+        scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r),l=max(l-1,0ll),//不能为-1
+        printf(&quot;%lld\n&quot;,solve(r)-solve(l));//差分
+    return 0;
+}
+</code></pre>
+<p><a href="https://www.luogu.com.cn/problem/P2602" target="_blank" rel="noopener">求数字出现的次数 Luogu P2602 [ZJOI2010]数字计数</a></p>
+<p>对于这题我也不知道为什么开结构体所有一起算会炸，发现问题的联系我跪谢</p>
+<p>最恐怖的是稍微改点地方答案就不同，$IDE$ 上跑的结果也不同</p>
+<p>$Wrong\ Answer\ version$</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 11
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+struct node{
+    LL s[11];int p;
+    inline node operator+ (const node a) const{
+        node c;
+        for(rint i=0;i&lt;=9;i++) c.s[i]=s[i]+a.s[i];
+        return c;
+    }
+    inline node operator- (const node a) const{
+        node c;
+        for(rint i=0;i&lt;=9;i++) c.s[i]=s[i]-a.s[i];
+        return c;
+    }
+}f[13][11],ans,init;
+int num[13],top;
+LL l,r,a[11],sum[13],b[15];
+inline node dfs(rint k,rint st,rint zt,rint op) {
+    node res=init;
+    if(!zt) res.s[st]+=op?sum[k]+1:b[k+1];
+    if(!k) return res;
+    if(!op&amp;&amp;f[k][st].p) return f[k][st];
+    rint i,t=op?num[k]:9;
+    for(i=0;i&lt;=t;i++) res=res+dfs(k-1,i,zt&amp;(i==0),op&amp;(i==t));
+    if(!op) f[k][st]=res;
+    return res;
+}
+inline void solve(rll l,rll r) {
+    top=0;do num[++top]=r%10,sum[top]=num[top]*b[top]+sum[top-1],r/=10; while(r);ans=dfs(top,0,1,1);
+    top=0;do num[++top]=l%10,sum[top]=num[top]*b[top]+sum[top-1],l/=10; while(l);ans=ans-dfs(top,0,1,1);
+}
+int main() {
+    rint i;b[1]=init.p=1;
+    for(i=2;i&lt;13;i++) b[i]=b[i-1]*10;
+    scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r),solve(l-1,r);
+    for(i=0;i&lt;=9;++i) printf(&quot;%lld &quot;,ans.s[i]);
+    return 0;
+}
+</code></pre>
+<p>$Accepted\ version$</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int t,num[15];
+LL l,r,f[15][15][2][2];
+inline LL dfs(rint k,rint st,rint zt,rint op,rint nm) {
+    if(!k) return st;
+    if(~f[k][st][zt][op]) return f[k][st][zt][op];
+    rint i,t=op?num[k]:9;rll res=0;
+    for(i=0;i&lt;=t;i++)
+        res+=dfs(k-1,st+((!zt||i)&amp;&amp;i==nm),zt&amp;(i==0),op&amp;(i==t),nm);//前导0的特判
+    f[k][st][zt][op]=res;
+    return res;
+}
+inline LL solve(rll x,rint nm) {
+    t=0;while(x) num[++t]=x%10,x/=10;
+    memset(f,-1,sizeof(f));return dfs(t,0,1,1,nm);
+}
+int main()
+{
+    scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r),--l;
+    for(rint i=0;i&lt;=9;i++) printf(&quot;%lld &quot;,solve(r,i)-solve(l,i));//对每位一次计数
+    return 0;
+}
+</code></pre>
+<hr>
+<h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="缩点"><a href="#缩点" class="headerlink" title="缩点"></a>缩点</h3><p>没想到缩点代码居然还有小长 <a href="https://www.luogu.com.cn/problem/P3387" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define M 200007
+#define N 10007
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+int head[N],h[N],ver[M],nxt[M];
+int dfn[N],low[N],bl[N],res;
+int a[N],f[N],d[N];
+int n,m,num,ans,t;
+int St[N],top;
+bool vis[N];
+inline int read() {
+    rint s,p;s=p=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) p=(c==&#39;-&#39;),c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return p?-s:s;
+}
+inline void add(rint x,rint y) {
+    ver[++t]=y,nxt[t]=head[x],head[x]=t;
+}
+inline void Add(rint x,rint y) {
+    ver[++t]=y,nxt[t]=h[x],h[x]=t;
+}
+inline void tarjan(rint k) {
+    dfn[k]=low[k]=++num,St[++top]=k;
+    for(rint i=head[k],to;i;i=nxt[i]) {
+        to=ver[i];
+        if(!dfn[to]) tarjan(to),cmin(low[k],low[to]);
+        else if(!bl[to]) cmin(low[k],dfn[to]);//这个特判很重要！
+    }
+    if(dfn[k]==low[k]) {
+        bl[k]=++res,f[res]=a[k];
+        while(St[top]!=k)
+            bl[St[top]]=res,f[res]+=a[St[top--]];
+        top--;
+    }
+}
+inline void solve() {
+    rint i,to,cur;
+    queue&lt;int&gt;p;
+    for(i=1;i&lt;=res;i++)
+        if(!d[i]) cmax(ans,f[i]),p.push(i);
+    while(!p.empty()) {
+        cur=p.front(),p.pop();
+        for(i=h[cur];i;i=nxt[i]) {
+            to=ver[i],d[to]--,
+            cmax(f[to],a[to]+f[cur]),
+            cmax(ans,f[to]);
+            if(!d[to]) p.push(to);
+        }
+    }
+}
+int main()
+{
+    rint i,j,to,x,y;
+    n=read(),m=read();
+    for(i=1;i&lt;=n;i++) a[i]=read();
+    for(i=1;i&lt;=m;i++) x=read(),add(x,read());
+    for(i=1;i&lt;=n;i++) if(!dfn[i]) tarjan(i);//每个都要做一下
+    for(i=1;i&lt;=res;i++) a[i]=f[i];
+    for(i=1;i&lt;=n;i++)//二次加点有点复杂
+        for(j=head[i];j;j=nxt[j]) {
+            to=ver[j];
+            if(bl[i]==bl[to]) continue;
+            Add(bl[i],bl[to]),++d[bl[to]];
+        }solve();
+    printf(&quot;%d&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h3 id="2-SAT-问题"><a href="#2-SAT-问题" class="headerlink" title="2-SAT 问题"></a>2-SAT 问题</h3><p>实际上其实是缩点的变种应用 <a href="https://www.luogu.com.cn/problem/P4782" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<p>这里应该还有我自己写的 <a href="https://hovnysilence.github.io/2019/11/21/LectureNotes-2-SAT-Notes/">$2-SAT$ 学习笔记</a></p>
+<p>特别注意对各种命题的建边形式</p>
+<p>若一种命题的两种情况位于同一强连通则无解，否则 $dfn$ 序即为拓扑序的反序</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 1000003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int head[N&lt;&lt;1],ver[N&lt;&lt;1],nxt[N&lt;&lt;1],n,m,t,num;
+int bl[N&lt;&lt;1],St[N&lt;&lt;1],top,dfn[N&lt;&lt;1],low[N&lt;&lt;1],res;//这里都是tarjan的标准配置
+bool vis[N],w[N];
+inline void add(rint x,rint y) {
+    ver[++t]=y,nxt[t]=head[x],head[x]=t;//肯定是单向的，表示若p则q
+}
+inline void tarjan(rint k) {
+    rint i,to;
+    dfn[k]=low[k]=++num,St[++top]=k;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i];
+        if(!dfn[to]) tarjan(to),cmin(low[k],low[to]);
+        else if(!bl[to]) cmin(low[k],dfn[to]);
+    }
+    if(dfn[k]==low[k]) {
+        bl[k]=++res;
+        while(St[top]!=k)
+            bl[St[top]]=res,--top;
+        --top;
+    }
+}
+inline void dfs(rint k) {
+    rint i,to;
+    if(k&gt;n) vis[k-n]=1,w[k-n]=1;
+    else vis[k]=1;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i]&gt;n?ver[i]-n:ver[i];
+        if(!vis[to]) dfs(ver[i]);
+    }
+}
+int main()
+{
+    rint i,x,y,vx,vy;
+    n=read(),m=read();
+    for(i=1;i&lt;=m;i++) {
+        x=read(),vx=read(),
+        y=read(),vy=read(),
+        add(y+(vy^1)*n,x+vx*n),
+        add(x+(vx^1)*n,y+vy*n);
+    }
+    for(i=1;i&lt;=(n&lt;&lt;1);i++)
+        if(!dfn[i]) tarjan(i);
+    for(i=1;i&lt;=n;i++)
+        if(bl[i]==bl[i+n]) {
+            printf(&quot;IMPOSSIBLE&quot;);
+            return 0;
+        }
+    printf(&quot;POSSIBLE\n&quot;);
+    for(i=1;i&lt;=n;i++) printf(&quot;%d &quot;,bl[i]&gt;bl[i+n]);
+    return 0;
+}
+</code></pre>
+<h3 id="网络最大流"><a href="#网络最大流" class="headerlink" title="网络最大流"></a>网络最大流</h3><p>网络流背板子，只是建边较难，<del>卡Dinic是违法的</del> <a href="https://www.luogu.com.cn/problem/P3376" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define M 100007
+#define N 10007
+using namespace std;
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+struct node{
+    int to,nxt,cap;
+    node(int a,int b,int c):to(a),nxt(b),cap(c){ }
+    node(){    }
+}b[M&lt;&lt;1];
+int head[N],dep[N];
+int n,m,S,T,t=1,Maxflow;
+inline void add(rint x,rint y,rint cap) {//正边流量为cap，反边流量为0
+    b[++t]=node(y,head[x],cap),head[x]=t,
+    b[++t]=node(x,head[y],0),head[y]=t;
+}
+inline bool BFS() {
+    rint i,c,to;queue&lt;int&gt;p;
+    memset(dep,0,sizeof(dep));
+    dep[S]=1,p.push(S);//dep[S]一定要赋为0
+    while(!p.empty()) {
+        c=p.front(),p.pop();
+        for(i=head[c];i;i=b[i].nxt) {
+            to=b[i].to;
+            if(b[i].cap&amp;&amp;!dep[to]) {
+                dep[to]=dep[c]+1;//一定要先标记
+                if(to==T) return 1;
+                p.push(to);
+            }
+        }
+    }return 0;
+}
+inline int Dinic(rint k,rint flow) {
+    if(k==T) return flow;
+    rint i,to,cap,res,rest=flow;
+    for(i=head[k];i&amp;&amp;rest;i=b[i].nxt) {//rest的条件不要忘记
+        to=b[i].to,cap=b[i].cap;//可以用上当前弧优化
+        if(cap&amp;&amp;dep[to]==dep[k]+1) {
+            res=Dinic(to,min(rest,cap));
+            if(!res) dep[to]=0;
+            b[i].cap-=res,
+            b[i^1].cap+=res,
+            rest-=res;
+        }
+    }return flow-rest;
+}
+int main()
+{
+    rint i,x,y,flow=0;
+    n=read(),m=read(),S=read(),T=read();
+    for(i=1;i&lt;=m;i++)
+        x=read(),y=read(),add(x,y,read());
+    while(BFS())
+        while((flow=Dinic(S,inf)))//这里还可以用上当前弧优化
+            Maxflow+=flow;
+    printf(&quot;%d&quot;,Maxflow);
+    return 0;
+}
+</code></pre>
+<p>后续还会贴上最大流的一些优化</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="manacher-算法"><a href="#manacher-算法" class="headerlink" title="manacher 算法"></a>manacher 算法</h3><p><a href="https://www.luogu.com.cn/problem/P3805" target="_blank" rel="noopener">Luogu P3805 【模板】manacher算法</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 11000007
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rgt int s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int n,m,len,mx,id,p[N&lt;&lt;1],ans;
+char s[N&lt;&lt;1],st[N];
+inline void init() {
+    rint i;len=strlen(st+1);
+    s[0]=&#39;!&#39;,s[1]=&#39;#&#39;,
+    n=(len&lt;&lt;1|1)+1;
+    for(i=1;i&lt;=len;i++)//扩展为 !#st_1#st_2...#? 形式
+        s[i&lt;&lt;1]=st[i],s[i&lt;&lt;1|1]=&#39;#&#39;;
+    s[n]=&#39;?&#39;;return;
+}
+inline void manacher() {
+    rint i;init();
+    for(i=1;i&lt;=n;i++) {
+        if(i&lt;mx) p[i]=min(p[(id&lt;&lt;1)-i],mx-i);//合理利用已处理部分
+        else p[i]=1;
+        while(s[i-p[i]]==s[i+p[i]]) ++p[i];
+        if(i+p[i]&gt;mx) mx=i+p[i],id=i;
+    }
+}
+int main() {
+    rint i;scanf(&quot;%s&quot;,st+1);
+    manacher();for(i=1;i&lt;n;i++) cmax(ans,p[i]);
+    printf(&quot;%d&quot;,ans-1);return 0;
+}
+</code></pre>
+<h3 id="KMP-算法"><a href="#KMP-算法" class="headerlink" title="KMP 算法"></a>KMP 算法</h3><p><a href="https://www.luogu.com.cn/problem/P3375" target="_blank" rel="noopener">Luogu P3375 【模板】KMP字符串匹配</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define N 1000003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int n,A,B,p[N];
+char a[N],b[N];
+int main()
+{
+    rint i,j;
+    scanf(&quot;%s&quot;,a+1),scanf(&quot;%s&quot;,b+1);
+    A=strlen(a+1),B=strlen(b+1);
+    for(i=2,j=0;i&lt;=B;i++) {//求next因此从i=2开始
+        while(j&amp;&amp;b[i]!=b[j+1]) j=p[j];
+        if(b[i]==b[j+1]) ++j;p[i]=j;
+    }
+    for(i=1,j=0;i&lt;=A&amp;&amp;j&lt;=B;i++) {
+        while(j&amp;&amp;(j==B||a[i]!=b[j+1])) j=p[j];
+        if(a[i]==b[j+1]) ++j;
+        if(j==B) printf(&quot;%d\n&quot;,i-B+1);//出现的位置
+    }
+    for(i=1;i&lt;=B;i++) printf(&quot;%d &quot;,p[i]);
+    return 0;
+}
+</code></pre>
+<h3 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h3><p><a href="https://www.luogu.com.cn/problem/P3809" target="_blank" rel="noopener">Luogu P3809 【模板】后缀排序 (SA)</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define N 1000010
+using namespace std;
+int n,m,x[N],y[N],c[N],sa[N],p;
+char s[N];
+int main()
+{
+    int i,k;
+    scanf(&quot;%s&quot;,s);
+    n=strlen(s);m=125;
+    for(i=0;i&lt;n;i++) c[x[i]=s[i]]++;
+    for(i=1;i&lt;m;i++) c[i]+=c[i-1];
+    for(i=0;i&lt;n;i++) sa[--c[x[i]]]=i;
+    for(k=1;k&lt;=n;k&lt;&lt;=1) {
+        p=0;
+        for(i=n-k;i&lt;n;i++) y[p++]=i;
+        for(i=0;i&lt;n;i++) if(sa[i]&gt;=k) y[p++]=sa[i]-k;
+        for(i=0;i&lt;m;i++) c[i]=0;
+        for(i=0;i&lt;n;i++) c[x[y[i]]]++;
+        for(i=1;i&lt;m;i++) c[i]+=c[i-1];
+        for(i=n-1;i&gt;=0;i--) sa[--c[x[y[i]]]]=y[i];
+        swap(x,y);p=1;x[sa[0]]=0;
+        for(i=1;i&lt;n;i++)
+            x[sa[i]]=(y[sa[i-1]]==y[sa[i]]&amp;&amp;y[sa[i-1]+k]==y[sa[i]+k])?p-1:p++;
+        if(p&gt;=n) break;
+        m=p;
+    }
+    for(i=0;i&lt;n;i++) printf(&quot;%d &quot;,sa[i]+1);
+    return 0;
+}
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <!-- div class="single-reward" -->
+          <!-- div class="reward-open">赏<div class="reward-main" -->
+              <!-- ul class="reward-row" -->
+                <!-- li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+                <!-- li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+              <!-- /ul -->
+            <!-- /div -->
+          <!-- /div -->
+        <!-- /div -->
+        <!-- div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div -->
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/10/18/A-IntroductiontoAlgorithms-MasterTheorem-Notes/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/76.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/76.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                「算法导论」渐进记号&amp;主定理 学习笔记 (咕)</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/10/10/A-Contest-2019_09_15_Cx-Solution/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/73.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/73.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                「Contest」2019.09.15 Cx Solution (咕)</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va",
+        appKey: "m9gcmILxHTKlwwTnRGXSDV8J",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://hovnySiLenCe.github.io/" class="profile gravatar"><img src="/images/avatar.jpg" itemprop="image" alt="h^ovny" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://hovnySiLenCe.github.io/" itemprop="url" rel="author">h^ovny</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>devil.</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 h^ovny<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2019</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+<!-- &<a href="https://hovnySiLenCe.github.io/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">h^ovny</a> -->
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">h^ovny'sblog</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/hovnySiLenCe" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/tags">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+            标签
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/categories">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+            分类
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/source/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+            资源
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/lists/">
+                  <i class="fa fa-tasks" aria-hidden="true"></i>
+                  题单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="3049741354"
+
+    data-server="netease"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.7"
+
+    data-mutex="true"
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

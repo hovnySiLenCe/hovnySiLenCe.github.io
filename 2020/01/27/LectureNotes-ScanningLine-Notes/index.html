@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">「某讲稿」扫描线 学习笔记 | h^ovny&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "h^ovny's blog";
+  mashiro_option.author_name = "h^ovny";
+  // mashiro_option.author_name = "blog";
+  mashiro_option.site_url = "https://hovnySiLenCe.github.io/";
+  mashiro_option.v_appId = "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va";
+  mashiro_option.v_appKey = "m9gcmILxHTKlwwTnRGXSDV8J";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/0.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/2.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/3.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/4.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/5.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/6.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/7.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/8.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/9-1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/10.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/11.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/12.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/13.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/14.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/15.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/16.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/17.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop ">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://hovnySiLenCe.github.io/">
+          <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>If you want to be loved, you have to be worth loving.</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/hovnySiLenCe" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="1348528381@qq.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">h^ovny&#39;s</span>
+            <span class="shironeko">blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+                    标签
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/categories">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+                    分类
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/source/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+                    资源
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/lists/">
+                          <i class="fa fa-tasks" aria-hidden="true"></i>
+                          题单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.1/images/cover/115.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.1/images/cover/115.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      「某讲稿」扫描线 学习笔记</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">
+            <img src="/images/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">h^ovny</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-1-27<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>扫描线也不算是一个很冷门的算法吧，但是实现的时候还是稍微有点问题，这里就稍作分析</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p><del>扫面线</del>开幕雷击</p>
+<p>扫描线一般用于解决图形面积、周长等问题，最典型的应用就是处理矩形面积并、周长并类问题</p>
+<h3 id="矩形面积并"><a href="#矩形面积并" class="headerlink" title="矩形面积并"></a>矩形面积并</h3><p>题面一般是这样的：</p>
+<blockquote>
+<p>求 $n$ 个矩形的面积并，每个矩形以左下角 $(x_1,y_1)$ 和右上角 $(x_2,y_2)$ 的形式给出 </p>
+<script type="math/tex; mode=display">(1\le n \le 10^5,0\le x_1< x_2\le 10^9,0\le y_1< y_2\le 10^9)</script></blockquote>
+<p>有些时候坐标还不是整数，当然啦，这些都不是问题</p>
+<p>来康康下面的例子</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.1/image/ScanningLine-1.jpg" alt></p>
+<p>有效面积为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.1/image/ScanningLine-2.jpg" alt></p>
+<p>那么我们是不是可以按照<del>小学</del>数学方法——割补法来求，按照 $x$ 的顺序从左到右割成若干个矩形，然后从左到右像扫描一样依次求解，这就叫做扫描线</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.1/image/ScanningLine-3.jpg" alt></p>
+<p>根据 $x$ 值的不同，我们可以把这个平面图形切成好几部分，每一部分都可以看做规则的矩形来求解，而矩形的长 $a$ 是显然的，为两条线相邻 $x$ 的差，关键在于如何维护矩形的宽 $b$，也就是 $y$</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.1/image/ScanningLine-4.jpg" alt></p>
+<p>上图以第一、二条线为例，$a=3-1=2,b=(6-3)+(2-1)=4$</p>
+<p>如图由于每条线段的含义不同，分为 $+1$ 和 $-1$ 两种，通过差分来表示某段 $y$ 区间被覆盖的次数，由此可以得知 $b$，即有效的 $y$ 区间大小。其实维护点是没有意义的，因为会出现<strong>点太多和点在实数范围</strong>的情况，实际上，对于一条线段来说，左右端点之间的点本质是相同的，我们只需要维护区间即可</p>
+<p>就比如上图中 $A,B,C,D$ 四点所在的直线，我们可以看成由四个点分出的五个部分来维护。简而言之，我们不维护点，而是将每个点离散化后维护两点之间的区间</p>
+<pre><code class="lang-cpp">p[++t]=ly,p[++t]=ry;//所有y值一起离散，就好像上图A和E之间也应有一段区间
+sort(p+1,p+t+1),t=unique(p+1,p+t+1)-p-1;
+</code></pre>
+<p>比较难以理解的就是用线段树实现部分</p>
+<p><code>tag[k]</code> 维护的是差分数组，<code>f[k]</code> 表示有效 $y$ 值，也就是 $b$</p>
+<pre><code class="lang-cpp">inline void Update(rint k,rint l,rint r) {
+    if(tag[k]) f[k]=p[r+1]-p[l];//表示这段区间都被覆盖了，则b为这段区间的长度，r+1是因为端点原因
+    else if(l==r) f[k]=0;//一个点无法构成区间，为0
+    else f[k]=f[k&lt;&lt;1]+f[k&lt;&lt;1|1];//否则从儿子处更新
+}
+inline void Modify(rint k,rint l,rint r,rint op) {//op=+1/-1，表示当前线段类型
+    if(r&lt;L||R&lt;l) return;//[L,R]表示修改区间
+    if(L&lt;=l&amp;&amp;r&lt;=R) {tag[k]+=op;return Update(k,l,r);}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    Modify(ls,l,m,op),Modify(ls|1,m+1,r,op),
+    Update(k,l,r);
+}
+</code></pre>
+<p><strong>直接这样打标记会不会出什么问题？</strong></p>
+<p>确实，这样我们就不能查询任意一个区间，然而扫描线查询的是所有区间的总和，也就是 <code>f[1]</code>，因此不会出问题，我们可以讨论一下</p>
+<p>设 $k$ 为当前区间，$ls$ 表示当前区间的左子区间，$ls|1$ 为右子区间，就和线段树一样哈</p>
+<p><strong>讨论覆盖的情况</strong></p>
+<ol>
+<li>假设 $k$ 没有被覆盖<br>那么覆盖了 $k$ 的子区间之后，<code>f[k]</code> 会从 <code>f[ls]&amp;f[ls|1]</code> 处更新，结果是正确的</li>
+<li>假设 $k$ 被覆盖了<br>那么覆盖 $k$ 的子区间对 $k$ 是没有影响的，<code>f[k]</code> 由自身的区间长度决定</li>
+</ol>
+<p>然后我们就可以得知 <code>f[1]</code> 是肯定正确的，emmm，感觉这证明好像没有什么用</p>
+<p><strong><del>讨论</del>覆盖和删除并存情况</strong></p>
+<p>按照平常肯定是会出问题的，但是，矩形有个优美的性质：对边平行且相等，有覆盖肯定有删除，不会出错，因此直接写成上述那样是没问题的</p>
+<p><strong>来康康主函数咋写</strong></p>
+<pre><code class="lang-cpp">int main() {
+    int i,x,y;n=read();
+    for(i=1;i&lt;=n;i++) {//x,L,y,R分别是x1,y1,x2,y2
+        x=read(),L=read(),y=read(),R=read(),
+        p[++t]=L,b[t]=seg(x,L,R,1),
+        p[++t]=R,b[t]=seg(y,L,R,-1);//存线段
+    }n&lt;&lt;=1;
+    sort(b+1,b+n+1,cmp),sort(p+1,p+t+1);//b数组按照x排序，p是y的数组用于离散化
+    t=unique(p+1,p+t+1)-p-1;//去重
+    R=lower_bound(p+1,p+t+1,b[1].r)-p-1,//得到区间的离散值，记得端点和区间的区别
+    L=lower_bound(p+1,p+t+1,b[1].l)-p,Modify(1,1,t,b[1].op);
+    for(i=2;i&lt;=n;i++) {
+        ans+=(LL)(b[i].p-b[i-1].p)*f[1];//b[i].p-b[i-1].p=a,f[1]=b
+        L=lower_bound(p+1,p+t+1,b[i].l)-p,
+        R=lower_bound(p+1,p+t+1,b[i].r)-p-1,
+        Modify(1,1,t,b[i].op);
+    }printf(&quot;%lld&quot;,ans);
+    return 0;
+}
+</code></pre>
+<p>扫描线还是比较单纯的 <del>除了会打出炒面线、草苗线、扫面线之外</del></p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><p><a href="https://www.luogu.com.cn/problem/P5490" target="_blank" rel="noopener">Luogu P5490 【模板】扫描线</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 100003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+struct seg{//线段
+    int p,l,r,op;
+    seg(rint a,rint b,rint c,rint d):p(a),l(b),r(c),op(d){}
+    seg(){}
+}b[N&lt;&lt;1];
+int n,f[N&lt;&lt;3],tag[N&lt;&lt;3],p[N&lt;&lt;1],L,R,t;//注意数组大小
+LL ans;
+inline void Update(rint k,rint l,rint r) {
+    if(tag[k]) f[k]=p[r+1]-p[l];
+    else if(l==r) f[k]=0;
+    else f[k]=f[k&lt;&lt;1]+f[k&lt;&lt;1|1];
+}
+inline void Modify(rint k,rint l,rint r,rint op) {
+    if(r&lt;L||R&lt;l) return;
+    if(L&lt;=l&amp;&amp;r&lt;=R) {tag[k]+=op;return Update(k,l,r);}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    Modify(ls,l,m,op),Modify(ls|1,m+1,r,op),
+    Update(k,l,r);
+}
+inline bool cmp(rgt seg a,rgt seg b) {//按照x排序扫描
+    return a.p&lt;b.p;
+}
+int main() {
+    rint i,x,y;n=read();
+    for(i=1;i&lt;=n;i++) {
+        x=read(),L=read(),y=read(),R=read(),
+        p[++t]=L,b[t]=seg(x,L,R,1),
+        p[++t]=R,b[t]=seg(y,L,R,-1);
+    }n&lt;&lt;=1;
+    sort(b+1,b+n+1,cmp),sort(p+1,p+t+1);
+    t=unique(p+1,p+t+1)-p-1;
+    R=lower_bound(p+1,p+t+1,b[1].r)-p-1,
+    L=lower_bound(p+1,p+t+1,b[1].l)-p,Modify(1,1,t,1);
+    for(i=2;i&lt;=n;i++) {
+        ans+=(LL)(b[i].p-b[i-1].p)*f[1];//b[i].p-b[i-1].p=a,f[1]=b
+        L=lower_bound(p+1,p+t+1,b[i].l)-p,
+        R=lower_bound(p+1,p+t+1,b[i].r)-p-1,
+        Modify(1,1,t,b[i].op);//修改
+    }printf(&quot;%lld&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h3 id="矩形周长并"><a href="#矩形周长并" class="headerlink" title="矩形周长并"></a>矩形周长并</h3><p>矩形周长并的思路和面积并类似，也是通过扫描线一条一条进行处理</p>
+<p>来看如下例子：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.1/image/ScanningLine-5.jpg" alt></p>
+<p>可以看出，原本矩形的边会互相影响，并且多个矩形构成的新图形可能内部是空的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.1/image/ScanningLine-6.jpg" alt></p>
+<p>当然了，这些问题扫描线都可以处理</p>
+<p>依旧按照上述方法，从左往右扫描</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.1/image/ScanningLine-7.jpg" alt></p>
+<h4 id="计算平行于-y-轴的边长"><a href="#计算平行于-y-轴的边长" class="headerlink" title="计算平行于 y 轴的边长"></a>计算平行于 y 轴的边长</h4><p>平行于 $y$ 轴的边长可以看成是在 $y$ 轴上覆盖区间长度，每扫一条线，$y$ 轴上覆盖的区间就会变化，而这个变化的大小就是有效的边长长度</p>
+<p>用 <code>f[1]</code> 表示用线段树维护的在 $y$ 轴上的覆盖区间大小</p>
+<p>例如从 <code>1</code> 过渡到了 <code>2</code>，<code>f[1]</code> 从 $2$ 变成了 $4$，那么有效的边长就为 $abs(4-2)=2,ans=0+2=2$，</p>
+<p>从 <code>3-4</code>，<code>f[1]</code> 从 $5\to6$，有效边长为 $1,ans=5+1=6$，</p>
+<p>从 <code>4-5</code>，<code>f[1]</code> 从 $6\to5$，有效边长为 $abs(5-6)=1,ans=6+1=7$，</p>
+<p>从 <code>7-8</code>，<code>f[1]</code> 从 $6\to6$，无变化，</p>
+<p>但是如果我们把扫描的顺序换一下，变成 <code>8-7</code>，<code>f[1]</code> 从 $1\to 6$，$abs(1-6)=5$，然而有效边长实际上为 $0$，这就出现了问题</p>
+<p>因此我们需要在排序的时候把 $x$ 轴坐标相同的，按照 $op$ 类型排序，先 $+1$ 后 $-1$</p>
+<pre><code class="lang-cpp">struct seg{
+    int p,l,r,op;
+    seg(rint a,rint b,rint c,rint d):p(a),l(b),r(c),op(d){}
+    seg(){}
+    inline bool operator&lt; (const seg x) const{
+        return (p!=x.p)?p&lt;x.p:op&gt;x.op;
+    }
+}
+</code></pre>
+<p>同时不要忘记第一次扫描所带来的有效边长</p>
+<h4 id="计算平行于-x-轴的边长"><a href="#计算平行于-x-轴的边长" class="headerlink" title="计算平行于 x 轴的边长"></a>计算平行于 x 轴的边长</h4><p><strong>如果按照从左到右处理的话</strong>，两次扫描之间的 $x$ 坐标的差值是很容易得出的，需要知道的就是在这两次扫描之间平行于 $x$ 轴的线段的数目，显然，这个只需要维护 $y$ 轴覆盖区间形成的线段数即可</p>
+<p>这就需要我们多记录几个值，<code>bool fl[k],fr[k]</code> 分别表示左右端点是否被覆盖，<code>int g[k]</code> 表示线段数</p>
+<p>$Update()$ 还是比较容易理解的，就不再赘述，其余部分什么多大区别</p>
+<pre><code class="lang-cpp">inline void Update(rint k,rint l,rint r) {
+    if(tag[k]) f[k]=p[r+1]-p[l],g[k]=fl[k]=fr[k]=1;
+    else if(l==r) f[k]=g[k]=fl[k]=fr[k]=0;
+    else {
+        rint ls=k&lt;&lt;1;
+        f[k]=f[ls]+f[ls|1],
+        g[k]=g[ls]+g[ls|1]-(fr[ls]&amp;&amp;fl[ls|1]),
+        fl[k]=fl[ls],fr[k]=fr[ls|1];
+    }
+}
+</code></pre>
+<p><strong>当然我们还可以纵向扫描啊</strong>，也就是再做一次类似平行 $y$ 轴的操作，至于码量嘛，这个你自己好好思考一下谁更优秀</p>
+<p>最后还需要注意，每条线段有两个端点</p>
+<h4 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h4><p><a href="https://www.luogu.com.cn/problem/P1856" target="_blank" rel="noopener">Luogu P1856 [USACO5.5]矩形周长Picture</a></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 5003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0,p=1;
+    rgt char c=getchar();
+    while(!isdigit(c)) {if(c==&#39;-&#39;) p=-1;c=getchar();}
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s*p;
+}
+struct seg{
+    int p,l,r,op;
+    seg(rint a,rint b,rint c,rint d):p(a),l(b),r(c),op(d){}
+    seg(){}
+    inline bool operator&lt; (const seg x) const{
+        return (p!=x.p)?p&lt;x.p:op&gt;x.op;
+    }
+}b[N&lt;&lt;1];
+int n,L,R,p[N&lt;&lt;1],t,c,ans;
+int f[N&lt;&lt;3],g[N&lt;&lt;3],tag[N&lt;&lt;3];
+bool fl[N&lt;&lt;3],fr[N&lt;&lt;3];
+inline void Update(rint k,rint l,rint r) {
+    if(tag[k]) f[k]=p[r+1]-p[l],g[k]=fl[k]=fr[k]=1;
+    else if(l==r) f[k]=g[k]=fl[k]=fr[k]=0;
+    else {
+        rint ls=k&lt;&lt;1;
+        f[k]=f[ls]+f[ls|1],
+        g[k]=g[ls]+g[ls|1]-(fr[ls]&amp;&amp;fl[ls|1]),
+        fl[k]=fl[ls],fr[k]=fr[ls|1];
+    }
+}
+inline void Modify(rint k,rint l,rint r,rint op) {
+    if(r&lt;L||R&lt;l) return;
+    if(L&lt;=l&amp;&amp;r&lt;=R) {tag[k]+=op;return Update(k,l,r);}
+    rint m=(l+r)&gt;&gt;1,ls=k&lt;&lt;1;
+    Modify(ls,l,m,op),Modify(ls|1,m+1,r,op),
+    Update(k,l,r);
+}
+int main()
+{
+    rint i,x,y;n=read();
+    for(i=1;i&lt;=n;i++) {
+        x=read(),L=read(),y=read(),R=read(),
+        p[++t]=L,b[t]=seg(x,L,R,1),
+        p[++t]=R,b[t]=seg(y,L,R,-1);
+    }n&lt;&lt;=1;
+    sort(b+1,b+t+1),sort(p+1,p+t+1);
+    t=unique(p+1,p+t+1)-p-1,
+    R=lower_bound(p+1,p+t+1,b[1].r)-p-1,
+    L=lower_bound(p+1,p+t+1,b[1].l)-p,
+    Modify(1,1,t,1),ans=c=f[1];//第一次扫描的有效长度
+    for(i=2;i&lt;=n;i++) {
+        ans+=2*g[1]*(b[i].p-b[i-1].p),
+        L=lower_bound(p+1,p+t+1,b[i].l)-p,
+        R=lower_bound(p+1,p+t+1,b[i].r)-p-1,
+        Modify(1,1,t,b[i].op),ans+=abs(f[1]-c),c=f[1];
+    }printf(&quot;%lld&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h2 id="Problem-List"><a href="#Problem-List" class="headerlink" title="Problem List"></a>Problem List</h2><ul>
+<li>[x] <a href="https://www.luogu.com.cn/problem/P5490" target="_blank" rel="noopener">Luogu P5490 【模板】扫描线</a>  </li>
+<li>[x] <a href="https://www.luogu.com.cn/problem/P3875" target="_blank" rel="noopener">Luogu P3875 [TJOI2010]被污染的河流</a>  </li>
+<li>[x] <a href="https://www.luogu.com.cn/problem/P1502" target="_blank" rel="noopener">Luogu P1502 窗口的星星</a>  </li>
+<li>[x] <a href="https://www.luogu.com.cn/problem/P1856" target="_blank" rel="noopener">Luogu P1856 [USACO5.5]矩形周长Picture</a>  </li>
+<li>[x] <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1542" target="_blank" rel="noopener">「HDU1542」Atlantis</a>  </li>
+<li>[x] <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1828" target="_blank" rel="noopener">「HDU1828」Picture (多组数据)</a>  </li>
+<li>[ ] <a href="http://acm.hdu.edu.cn/showproblem.php?pid=3265" target="_blank" rel="noopener">「HDU3265」Posters</a>  </li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <!-- div class="single-reward" -->
+          <!-- div class="reward-open">赏<div class="reward-main" -->
+              <!-- ul class="reward-row" -->
+                <!-- li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+                <!-- li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+              <!-- /ul -->
+            <!-- /div -->
+          <!-- /div -->
+        <!-- /div -->
+        <!-- div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div -->
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/02/07/Luogu_P3963-[TJOI2013]Scholarship-Solution/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.2/images/cover/119.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.2/images/cover/119.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                「Luogu P3963」[TJOI2013]奖学金 解题报告</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/12/21/Luogu_P4404-JSOI2010-CacheSwap-Solution/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.2/images/cover/114.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.2/images/cover/114.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                「Luogu P4404」[JSOI2010]缓存交换 解题报告</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va",
+        appKey: "m9gcmILxHTKlwwTnRGXSDV8J",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://hovnySiLenCe.github.io/" class="profile gravatar"><img src="/images/avatar.jpg" itemprop="image" alt="h^ovny" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://hovnySiLenCe.github.io/" itemprop="url" rel="author">h^ovny</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>devil.</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 h^ovny<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2019</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+<!-- &<a href="https://hovnySiLenCe.github.io/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">h^ovny</a> -->
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">h^ovny'sblog</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/hovnySiLenCe" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/tags">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+            标签
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/categories">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+            分类
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/source/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+            资源
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/lists/">
+                  <i class="fa fa-tasks" aria-hidden="true"></i>
+                  题单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="3049741354"
+
+    data-server="netease"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.7"
+
+    data-mutex="true"
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

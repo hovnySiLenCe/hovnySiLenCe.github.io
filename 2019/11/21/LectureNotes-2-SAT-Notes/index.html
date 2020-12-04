@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">「某讲稿」 2-SAT 学习笔记 | h^ovny&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "h^ovny's blog";
+  mashiro_option.author_name = "h^ovny";
+  // mashiro_option.author_name = "blog";
+  mashiro_option.site_url = "https://hovnySiLenCe.github.io/";
+  mashiro_option.v_appId = "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va";
+  mashiro_option.v_appKey = "m9gcmILxHTKlwwTnRGXSDV8J";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/0.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/2.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/3.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/4.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/5.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/6.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/7.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/8.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/9-1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/10.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/11.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/12.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/13.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/14.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/15.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/16.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/17.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop ">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://hovnySiLenCe.github.io/">
+          <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>If you want to be loved, you have to be worth loving.</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/hovnySiLenCe" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="1348528381@qq.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">h^ovny&#39;s</span>
+            <span class="shironeko">blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+                    标签
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/categories">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+                    分类
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/source/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+                    资源
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/lists/">
+                          <i class="fa fa-tasks" aria-hidden="true"></i>
+                          题单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/cover/109.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/cover/109.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      「某讲稿」 2-SAT 学习笔记</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">
+            <img src="/images/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">h^ovny</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-11-21<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p><del>好孩纸写学习笔记要有格式</del></p>
+<h2 id="题目引入"><a href="#题目引入" class="headerlink" title="题目引入"></a>题目引入</h2><p>就用 $2-SAT$ 模板趴，但其实感jio第二题更加经典</p>
+<h3 id="「Luogu-P4782」【模板】2-SAT问题"><a href="#「Luogu-P4782」【模板】2-SAT问题" class="headerlink" title="「Luogu P4782」【模板】2-SAT问题"></a><a href="https://www.luogu.com.cn/problem/P4782" target="_blank" rel="noopener">「Luogu P4782」【模板】2-SAT问题</a></h3><h4 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h4><p>$2-SAT$ 问题 模板</p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>有 $n$ 个布尔变量 $x_i$，另有 $m$ 个需要满足的条件，每个条件的形式都是 “$x_i$ 为 $true/false$ 或 $x_j$ 为 $true/false$ “。比如 “$x_1$ 为 $ture$ 或 $x_3$ 为 $false$ “、”$x_7$ 为 $false$ 或 $x_2$ 为 $false$”。$2-SAT$ 问题的目标是给每个变量赋值使得所有条件得到满足。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行两个整数 $n$ 和 $m$，意义如体面所述。</p>
+<p>接下来 $m$ 行每行 $4$ 个整数 $i\ a\ j\ b$，表示 “$x_i$ 为 $a$ 或 $x_j$ 为 $b$”$(a,b\in {0,1})$</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>如无解，输出 <code>IMPOSSIBLE</code>； 否则输出 <code>POSSIBLE</code>，下 一行 $n$ 个整数 $x_i(x_i\in {0,1})$，表示构造出的解。</p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 #1："></a>输入样例 #1：</h5><pre><code>3 1
+1 1 3 0
+</code></pre><h5 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 #1："></a>输出样例 #1：</h5><pre><code>POSSIBLE
+0 0 0
+</code></pre><h4 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h4><p>$1\le n,m\le1e6$，前 $3$ 个点卡小错误，后面 $5$ 个点卡效率，由于数据随机生成，可能会含有 <code>10 0 10 0</code> 之类的坑</p>
+<h3 id="「NowCoder51271」-Katu-Puzzle"><a href="#「NowCoder51271」-Katu-Puzzle" class="headerlink" title="「NowCoder51271」 Katu Puzzle"></a><a href="https://ac.nowcoder.com/acm/problem/51271" target="_blank" rel="noopener">「NowCoder51271」 Katu Puzzle</a></h3><h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>  Katu Puzzle is presented as a directed graph G(V, E) with each edge e(a, b) labeled by a boolean operator op (one of <code>AND</code>, <code>OR</code>, <code>XOR</code>) and an integer $c (0 \leq c \leq 1)$. One Katu is solvable if one can find each vertex Vi a value $X_i (0 ≤ X_i ≤ 1)$ such that for each edge e(a, b) labeled by op and c, the following formula holds:<br> $X_a\ op\ X_b = c$<br> The calculating rules are: </p>
+<p>  <img src="\image\NowCoder51271-rules.jpg" alt></p>
+<p>  Given a Katu Puzzle, your task is to determine whether it is solvable. </p>
+<h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>The first line contains two integers $N (1 \leq N \leq 1000)$ and $M(0 \leq M \leq 1,000,000)$, indicating the number of vertices and edges.<br>The following M lines contain three integers $a (0 \leq a \lt N)$, $b(0 \leq b \lt N)$, $c$ and an operator op each, describing the edges.</p>
+<h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>Output a line containing <code>YES</code> or <code>NO</code>.</p>
+<h4 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例-1：-1"><a href="#输入样例-1：-1" class="headerlink" title="输入样例 #1："></a>输入样例 #1：</h5><pre><code>4 4
+0 1 1 AND
+1 2 1 OR
+3 2 0 AND
+3 0 0 XOR
+</code></pre><h5 id="输出样例-1：-1"><a href="#输出样例-1：-1" class="headerlink" title="输出样例 #1："></a>输出样例 #1：</h5><pre><code>YES
+//此行纯粹是为了行号
+</code></pre><hr>
+<h4 id="说明-提示-1"><a href="#说明-提示-1" class="headerlink" title="说明/提示"></a>说明/提示</h4><p>$X_0 = 1, X_1 = 1, X_2 = 0$.</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>$SAT$ 是 $satisfiability$ 的缩写，是一类适应性问题的简称，一般形式为 $k-$适应性问题，简称 $k-SAT$</p>
+<p>$2-SAT$ 是 $k-SAT$ 的一种情况，因为当 $k&gt;2$  时 $k-SAT$ 问题是 $NP$ 问题，所以……</p>
+<p>像上述题目一样，$2-SAT$ 形式一般为：给出 $n$ 个变量，以及 $m$ 个限制条件，每个限制条件形如 $(not)a_i\ op\ (not)a_j=0/1$，求是否存在对 $n$ 个变量的合法赋值方案，使 $m$ 个条件均得到满足。其中 $a_i,a_j\in {0,1}$，$op$ 可以是 $or,and,xor$ 等，也就是 $bool$ 类型运算，除了上述的类型外，貌似其他的不是很常见</p>
+<h3 id="判定方法"><a href="#判定方法" class="headerlink" title="判定方法"></a>判定方法</h3><p>$2-SAT$ 问题的判定方法如下：</p>
+<p>1、建立 $2n$ 个节点的有向图，每个变量的 $a_i$ 对应 $2$ 个节点，一般设为 $i$ 和 $i+n$</p>
+<p>2、考虑每个条件，形如 “若 $a_i$ 为 $p$ 则 $a_j$ 必须为 $q$”，$p,q\in {0,1}$。建立 $i+p\times n \to j+q\times n$ 的单向边。当然，要注意的是，上述条件蕴含着它的<strong>逆否命题</strong> “若 $a_j$ 为 $1-q$ 则 $a_i$ 必须为 $1-p$”，因此在建图的时候还应该建立 $j+(1-q)\times n\to i+(1-p)\times n$ 的单向边，也就是说，<strong>点数和边数都应是变量数和条件数的两倍</strong>，开数组，初始化的时候应特别注意</p>
+<p>3、这个时候我们就可以用 $tarjan$算法求出有向图中所有的强连通分量</p>
+<p>4、若存在 $i\in [1,n]$，满足 $i$ 和 $i+n$ 属于同一个强连通分量，则表明：若 $a_i$ 赋值为 $p$，则 $a_i$ 必须赋值为 $1-p$，显然矛盾，说明问题无解。否则题目一定有解。</p>
+<p>时间复杂度 $O(n+m)$</p>
+<p>来康个栗子</p>
+<pre><code>3 2
+1 1 3 0
+2 1 3 1
+</code></pre><p>根据上述方法建图，可得：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.3/image/2-SAT-1.jpg" alt></p>
+<p>不存在 $i,i+n$ 属于同一个强连通分量里，因此一定有解</p>
+<p>而下图则由于存在 $i,i+n$ 属于同一个强连通分量而无解</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.2/image/2-SAT-2.jpg" alt></p>
+<h3 id="合法方案"><a href="#合法方案" class="headerlink" title="合法方案"></a>合法方案</h3><p>以下图为例</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.3/image/2-SAT-1.jpg" alt></p>
+<p>在 $tarjan$ 得出每个强连通分量的基础上，考虑如何构造合法方案</p>
+<p>显然，在一个 $SCC$ 中，如果有一个变量确定了，那么它之后的一系列变量的值也确定了，因此我们可以考虑缩点来做。又因为，互为 “逆否命题”的有向边在图中成对出现，也就是说如果一个点的入度为 $0$，那么其对立点的出度即为 $0$，显然选择入度为 $0$ 的点会使其对立点被选，而选出度为 $0$ 的点则不会产生这种影响，如上图 $3,6$ 互为对立点，选 $6$ 不行，但是选 $3$ 满足</p>
+<p>于是我们就可以缩点后建出反图，其中反图中的一个点即为原图的一个 $SCC$，然后我们在反图上执行拓扑排序即可，也就是说我们想要得到的是缩点后图的拓扑序的反序，具体实现留与读者自行思考，这里不做详细分析</p>
+<p>考虑如何优化，不难发现，在 $tarjan​$ 求 $SCC​$ 的时候，由于 $tarjan​$ 是递归进行的，最先得出的 $SCC​$ 肯定是出度为 $0​$ 的，第二出度再其次，其实已经很像或者说 就是用递归求出了拓扑序的反序，即联通块的编号的顺序就是缩点后图的反序，直接根据联通块的编号判断贪心的取即可</p>
+<p>对于点 $i$ 和 $i+n$，如果 $bl[i]\lt bl[i+n]$，也就是说 $i$ 所在的 $SCC$ 编号小于 $i+n$，此时取 $i$，否则取 $i+n$</p>
+<h3 id="例题选讲"><a href="#例题选讲" class="headerlink" title="例题选讲"></a>例题选讲</h3><h4 id="「Luogu-P4782」【模板】2-SAT问题-1"><a href="#「Luogu-P4782」【模板】2-SAT问题-1" class="headerlink" title="「Luogu P4782」【模板】2-SAT问题"></a>「Luogu P4782」【模板】2-SAT问题</h4><p>由于或的性质，只要在一侧不满足的情况下向另一侧满足的情况连接有向边表示限制即可</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rll rgt LL
+#define inf 0x7f7f7f7f
+#define N 1000003
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return (a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return (a&gt;b)?a=b,1:0;}
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+int head[N&lt;&lt;1],ver[N&lt;&lt;1],nxt[N&lt;&lt;1],n,m,t,num;
+int bl[N&lt;&lt;1],St[N&lt;&lt;1],top,dfn[N&lt;&lt;1],low[N&lt;&lt;1],res;
+bool vis[N],w[N];
+inline void add(rint x,rint y) {
+    ver[++t]=y,nxt[t]=head[x],head[x]=t;
+}
+inline void tarjan(rint k) {
+    rint i,to;
+    dfn[k]=low[k]=++num,St[++top]=k;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i];
+        if(!dfn[to]) tarjan(to),cmin(low[k],low[to]);
+        else if(!bl[to]) cmin(low[k],dfn[to]);
+    }
+    if(dfn[k]==low[k]) {
+        bl[k]=++res;
+        while(St[top]!=k)
+            bl[St[top]]=res,--top;
+        --top;
+    }
+}
+inline void dfs(rint k) {
+    rint i,to;
+    if(k&gt;n) vis[k-n]=1,w[k-n]=1;
+    else vis[k]=1;
+    for(i=head[k];i;i=nxt[i]) {
+        to=ver[i]&gt;n?ver[i]-n:ver[i];
+        if(!vis[to]) dfs(ver[i]);
+    }
+}
+int main()
+{
+    rint i,x,y,vx,vy;
+    n=read(),m=read();
+    for(i=1;i&lt;=m;i++) {
+        x=read(),vx=read(),
+        y=read(),vy=read(),
+        add(y+(vy^1)*n,x+vx*n),//一侧命题为假时向另一侧命题为真连边表示限制
+        add(x+(vx^1)*n,y+vy*n);
+    }
+    for(i=1;i&lt;=(n&lt;&lt;1);i++)
+        if(!dfn[i]) tarjan(i);
+    for(i=1;i&lt;=n;i++)
+        if(bl[i]==bl[i+n]) {
+            printf(&quot;IMPOSSIBLE&quot;);//无解
+            return 0;
+        }
+    printf(&quot;POSSIBLE\n&quot;);
+    for(i=1;i&lt;=n;i++) printf(&quot;%d &quot;,bl[i]&gt;bl[i+n]);//根据反序或者说SCC编号
+    return 0;
+}
+</code></pre>
+<h4 id="「NowCoder51271」-Katu-Puzzle-1"><a href="#「NowCoder51271」-Katu-Puzzle-1" class="headerlink" title="「NowCoder51271」 Katu Puzzle"></a>「NowCoder51271」 Katu Puzzle</h4><p><a href="https://hovnysilence.github.io/2019/11/28/NowCoder51271-Katu_Puzzle-Solution/">$Solution’s\ Link$</a></p>
+<h2 id="推荐题目"><a href="#推荐题目" class="headerlink" title="推荐题目"></a>推荐题目</h2><p><a href="https://www.luogu.com.cn/problem/P4171" target="_blank" rel="noopener">类似于模板 Luogu P4171 [JSOI2010]满汉全席</a><br><a href="https://ac.nowcoder.com/acm/problem/51346" target="_blank" rel="noopener">NowCoder51346 Priest John’s Busiest Day</a></p>
+
+        </div>
+        <!-- .entry-content -->
+        <!-- div class="single-reward" -->
+          <!-- div class="reward-open">赏<div class="reward-main" -->
+              <!-- ul class="reward-row" -->
+                <!-- li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+                <!-- li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+              <!-- /ul -->
+            <!-- /div -->
+          <!-- /div -->
+        <!-- /div -->
+        <!-- div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div -->
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/11/22/Luogu_P3825-[NOI2017]Game-Solution/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/cover/110.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/cover/110.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                「Luogu P3825」[NOI2017]游戏 解题报告</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/11/16/CSP2019-Travel-Notes/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/cover/1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.3.1/images/cover/1.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                「CSP2019游记」</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va",
+        appKey: "m9gcmILxHTKlwwTnRGXSDV8J",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://hovnySiLenCe.github.io/" class="profile gravatar"><img src="/images/avatar.jpg" itemprop="image" alt="h^ovny" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://hovnySiLenCe.github.io/" itemprop="url" rel="author">h^ovny</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>devil.</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 h^ovny<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2019</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+<!-- &<a href="https://hovnySiLenCe.github.io/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">h^ovny</a> -->
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">h^ovny'sblog</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/hovnySiLenCe" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/tags">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+            标签
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/categories">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+            分类
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/source/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+            资源
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/lists/">
+                  <i class="fa fa-tasks" aria-hidden="true"></i>
+                  题单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="3049741354"
+
+    data-server="netease"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.7"
+
+    data-mutex="true"
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

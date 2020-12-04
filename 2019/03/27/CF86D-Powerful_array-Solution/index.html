@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">「CF86D」Powerful array 解题报告 | h^ovny&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "h^ovny's blog";
+  mashiro_option.author_name = "h^ovny";
+  // mashiro_option.author_name = "blog";
+  mashiro_option.site_url = "https://hovnySiLenCe.github.io/";
+  mashiro_option.v_appId = "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va";
+  mashiro_option.v_appKey = "m9gcmILxHTKlwwTnRGXSDV8J";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/0.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/2.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/3.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/4.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/5.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/6.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/7.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/8.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/9-1.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/10.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/11.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/12.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/13.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/14.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/15.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/16.jpg,https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/cover/17.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop ">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://hovnySiLenCe.github.io/">
+          <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>If you want to be loved, you have to be worth loving.</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/hovnySiLenCe" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="1348528381@qq.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">h^ovny&#39;s</span>
+            <span class="shironeko">blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+                    标签
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/categories">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+                    分类
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/source/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+                    资源
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/lists/">
+                          <i class="fa fa-tasks" aria-hidden="true"></i>
+                          题单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/24.jpg);" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/24.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      「CF86D」Powerful array 解题报告</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">
+            <img src="/images/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://hovnySiLenCe.github.io/">h^ovny</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-3-27<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="https://www.luogu.com.cn/problemnew/show/CF86D" target="_blank" rel="noopener">题面</a></h2><p>给出一个$n$个数组成的数列$a$，有$t$次询问，每次询问为一个$[l,r]$的区间，求区间内<strong>每种数字出现次数的平方×数字的值</strong> 的和</p>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><h3 id="直接上莫队咯-然后就T了"><a href="#直接上莫队咯-然后就T了" class="headerlink" title="直接上莫队咯      然后就T了"></a>直接上莫队咯      <del><code>然后就T了</code></del></h3><p>没学过莫队？！<del>我也没办法</del></p>
+<p>这道题的数据范围在$2e5$的级别，有人会问莫队肯定要炸啊 捏~</p>
+<h3 id="时限5000ms，那就可以乱搞了"><a href="#时限5000ms，那就可以乱搞了" class="headerlink" title="时限5000ms，那就可以乱搞了"></a>时限5000ms，那就可以乱搞了</h3><p>但是！还是要加一些优化</p>
+<h3 id="如何优化？"><a href="#如何优化？" class="headerlink" title="如何优化？"></a>如何优化？</h3><p>1.对于算法本身的优化</p>
+<p>由于莫队可以说是一个块状暴力的算法，就是把区间划分为$\sqrt n$块然后在块内暴力<del>（到头还是暴力）</del></p>
+<p>我们可以把要查询的区间当做点表示在平面直角坐标系上，RT：</p>
+<p><img src="https://www.cnblogs.com/images/cnblogs_com/hovny/1364959/o_%e8%8e%ab%e9%98%9f1.png" alt></p>
+<p>就像这样把询问放在平面直角坐标系上，<strong>$\large x$轴为询问该区间的顺序，$\large y$轴表示该区间的右端点</strong>，如果我们忽略区间的$L$值的影响，不难看出，虽然我们已经把区间划分在一个块里了，但是还是有很多冗余的操作，如果要是这些冗余的操作少一点就好了，这当然可以啦！</p>
+<p>我们可以让<strong>块内的区间按$\large R$ 递增</strong>，这样能省很多时间，但是在区间过渡的时候，我们还是会做很多多余的操作，因为区间都是递增的，这样改变块的时候就可能有一个很大的落差，就掉了下去，可以自己想象一下</p>
+<p><img src="https://www.cnblogs.com/images/cnblogs_com/hovny/1364959/o_%e8%8e%ab%e9%98%9f2.png" alt></p>
+<p>为了避免上述的现象，我们可以让区间像一个波浪一样，这样就很高效了，这样的划分方式叫做<code>奇偶划分</code><del>应该是这么叫的吧，还有一个是奇偶性剪枝</del></p>
+<pre><code class="lang-cpp">inline bool cmp(node a,node b){//代码是关键，讲了啥不重要(手动划线)
+    return (pos[a.l]==pos[b.l])?(pos[a.l]&amp;1)?a.r&lt;b.r:a.r&gt;b.r : a.l&lt;b.l;
+}//千万不要写if，会T！
+</code></pre>
+<p>接着就是块的大小，同样影响速度，一般普通的块的大小应该是$\large \sqrt n$，但是，根据某奆佬研究，大小为$\large n^{0.54}$时更快，Orz</p>
+<p>2.对于程序本身优化，<del>说人话就是卡卡常</del></p>
+<p>比如：</p>
+<blockquote>
+<p>加点<code>register</code></p>
+<p>非递归函数前加个<code>inline</code></p>
+<p>不用快读用<code>fread</code></p>
+<p>还有！乘法变加法……</p>
+</blockquote>
+<p>然后就把最大时间卡到了<code>622ms</code></p>
+<p><del>啊哈哈哈哈哈</del></p>
+<p>Code：</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define getchar() *(p++)//在快读基础上改一点就行了
+#define Re register//卡常必备
+#define ll long long
+#define M 1000010
+#define N 200010
+using namespace std;
+struct node{
+    int l,r,i;
+}b[N];//sum是数的多少，pos表示在哪块
+int a[N],pos[N],n,m,sum[M],l,r,block;
+ll Ans[N],ans;
+char bf[1&lt;&lt;25],*p;
+int read(){
+    Re int s=0;
+    Re char c=getchar();
+    while(!isdigit(c))
+        c=getchar();
+    while(isdigit(c))
+    {
+        s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;;
+        c=getchar();
+    }
+    return s;
+}
+inline bool cmp(node a,node b){//奇偶划分
+    return (pos[a.l]==pos[b.l])?(pos[a.l]&amp;1)?a.r&lt;b.r:a.r&gt;b.r : a.l&lt;b.l;
+}//注意，这里不要写if语句，会T
+inline void Add(Re ll x)
+{
+    sum[x]++;//有些人写在前面，那样的话就应该是+1
+    ans+=(sum[x]+sum[x]-1)*x;//就是由原来的乘变成了加，手算一小部分也没有关系啦
+}
+inline void Del(Re ll x)
+{
+    ans-=(sum[x]+sum[x]-1)*x;//这里和上面也是一样的
+    sum[x]--;//为什么我感觉上面-1会更慢呢~
+}
+int main()
+{
+    Re int i;
+    bf[fread(bf,1,1&lt;&lt;25,stdin)]=&#39;\0&#39;;p=bf;//fread大法
+    n=read();m=read();block=pow(n,0.54);//神奇的块的大小
+    for(i=1;i&lt;=n;i++)
+        a[i]=read(),pos[i]=i/block;
+    for(i=1;i&lt;=m;i++)
+        b[i].l=read(),b[i].r=read(),b[i].i=i;
+    sort(b+1,b+1+m,cmp);l=1;
+    for(i=1;i&lt;=m;i++)//然后上莫队
+    {
+        while(r&lt;b[i].r)
+            Add(a[++r]);
+        while(r&gt;b[i].r)
+            Del(a[r--]);
+        while(l&lt;b[i].l)
+            Del(a[l++]);
+        while(l&gt;b[i].l)
+            Add(a[--l]);
+        Ans[b[i].i]=ans;
+    }
+    for(i=1;i&lt;=m;i++)
+        printf(&quot;%lld\n&quot;,Ans[i]);
+    return 0;
+}
+</code></pre>
+<h3 id="再说一遍"><a href="#再说一遍" class="headerlink" title="再说一遍"></a><del>再说一遍</del></h3><h3 id="最后注意，sort的时候，如果数组本来就有序了，sort会很慢，所以千万不要在里面加if了，容易T"><a href="#最后注意，sort的时候，如果数组本来就有序了，sort会很慢，所以千万不要在里面加if了，容易T" class="headerlink" title="最后注意，sort的时候，如果数组本来就有序了，sort会很慢，所以千万不要在里面加if了，容易T"></a>最后注意，sort的时候，如果数组本来就有序了，sort会很慢，所以千万不要在里面加if了，容易T</h3>
+        </div>
+        <!-- .entry-content -->
+        <!-- div class="single-reward" -->
+          <!-- div class="reward-open">赏<div class="reward-main" -->
+              <!-- ul class="reward-row" -->
+                <!-- li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+                <!-- li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2null"></li -->
+              <!-- /ul -->
+            <!-- /div -->
+          <!-- /div -->
+        <!-- /div -->
+        <!-- div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div -->
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/03/27/Luogu_P1210-ReverseCheck-Solution/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/28.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/28.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                「Luogu P1210」回文检测 解题报告</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/03/27/CF656B-Scrambled-Solution/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/22.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.1/images/cover/22.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                「CF656B」Scrambled 解题报告</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "wi0qpsvwNbxBfAJVhOYS4Ab2-9Nh9j0Va",
+        appKey: "m9gcmILxHTKlwwTnRGXSDV8J",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://hovnySiLenCe.github.io/" class="profile gravatar"><img src="/images/avatar.jpg" itemprop="image" alt="h^ovny" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://hovnySiLenCe.github.io/" itemprop="url" rel="author">h^ovny</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>devil.</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 h^ovny<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2019</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+<!-- &<a href="https://hovnySiLenCe.github.io/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">h^ovny</a> -->
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@video/videos","name":"Believer.mp4,2321.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">h^ovny'sblog</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/hovnySiLenCe" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/tags">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-tags faa-shake" aria-hidden="true"></i>
+            标签
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/categories">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-bookmark faa-shake" aria-hidden="true"></i>
+            分类
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/source/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-cloud-download faa-vertical" aria-hidden="true"></i>
+            资源
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/lists/">
+                  <i class="fa fa-tasks" aria-hidden="true"></i>
+                  题单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura fa-spinner fa-spin" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="3049741354"
+
+    data-server="netease"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.7"
+
+    data-mutex="true"
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

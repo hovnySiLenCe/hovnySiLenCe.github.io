@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>h^ovny&#39;s blog</title>
+  
+  <subtitle>Forever</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://hovnySiLenCe.github.io/"/>
+  <updated>2020-12-03T05:25:02.288Z</updated>
+  <id>http://hovnySiLenCe.github.io/</id>
+  
+  <author>
+    <name>h^ovny</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Luogu P3574」[POI2014]FAR-FarmCraft 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/12/02/Luogu_P3574-%5BPOI2014%5DFAR-FarmCraft-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/12/02/Luogu_P3574-[POI2014]FAR-FarmCraft-Solution/</id>
+    <published>2020-12-02T14:24:41.000Z</published>
+    <updated>2020-12-03T05:25:02.288Z</updated>
+    
+    <summary type="html">
+    
+      树形DP+贪心策略
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="树形DP" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E5%BD%A2DP/"/>
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3052」[APIO/CTSC 2007]数据备份 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-%5BAPIO_CTSC_2007%5D%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/11/06/Luogu_P3620-[APIO_CTSC_2007]数据备份-Solution/</id>
+    <published>2020-11-06T05:02:35.000Z</published>
+    <updated>2020-12-03T23:20:24.130Z</updated>
+    
+    <summary type="html">
+    
+      贪心反悔机制模板题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="优先队列" scheme="http://hovnySiLenCe.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P2127」序列排序 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/10/22/Luogu_P2127-SequenceSort-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/10/22/Luogu_P2127-SequenceSort-Solution/</id>
+    <published>2020-10-22T14:19:31.000Z</published>
+    <updated>2020-10-22T14:23:59.989Z</updated>
+    
+    <summary type="html">
+    
+      找环交换排序
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3444」[POI2006]ORK-Ploughing 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/09/22/Luogu_P3444-%5BPOI2006%5DORK-Ploughing-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/09/22/Luogu_P3444-[POI2006]ORK-Ploughing-Solution/</id>
+    <published>2020-09-22T13:05:29.000Z</published>
+    <updated>2020-09-22T13:33:52.000Z</updated>
+    
+    <summary type="html">
+    
+      给定能力值，每次消去矩形一边，求最小次数
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="枚举" scheme="http://hovnySiLenCe.github.io/tags/%E6%9E%9A%E4%B8%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P5502」[JSOI2015]最大公约数 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/08/06/Luogu_P5502-%5BJSOI2015%5DMaximumGcd-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/08/06/Luogu_P5502-[JSOI2015]MaximumGcd-Solution/</id>
+    <published>2020-08-06T08:03:41.000Z</published>
+    <updated>2020-08-06T08:41:28.971Z</updated>
+    
+    <summary type="html">
+    
+      求一段区间的权值 =length*value 的 max 值题目
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="分治" scheme="http://hovnySiLenCe.github.io/tags/%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="ST表" scheme="http://hovnySiLenCe.github.io/tags/ST%E8%A1%A8/"/>
+    
+      <category term="倍增" scheme="http://hovnySiLenCe.github.io/tags/%E5%80%8D%E5%A2%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P2523」[HAOI2011]Problem c 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/06/08/Luogu_P2523-%5BHAOI2011%5DProblem_c-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/06/08/Luogu_P2523-[HAOI2011]Problem_c-Solution/</id>
+    <published>2020-06-08T13:36:54.000Z</published>
+    <updated>2020-06-08T14:23:14.294Z</updated>
+    
+    <summary type="html">
+    
+      奇奇怪怪的动态规划
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="动态规划" scheme="http://hovnySiLenCe.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「CF1344D」Résumé Review 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/05/29/CF1344D-Resume_Review-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/05/29/CF1344D-Resume_Review-Solution/</id>
+    <published>2020-05-29T13:29:29.000Z</published>
+    <updated>2020-07-23T08:31:00.514Z</updated>
+    
+    <summary type="html">
+    
+      整数函数求最值
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="二分" scheme="http://hovnySiLenCe.github.io/tags/%E4%BA%8C%E5%88%86/"/>
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「CF1344C」Quantifier Question 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/05/28/CF1344C-Quantifier_Question-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/05/28/CF1344C-Quantifier_Question-Solution/</id>
+    <published>2020-05-28T08:32:11.000Z</published>
+    <updated>2020-07-23T08:34:51.835Z</updated>
+    
+    <summary type="html">
+    
+      与存在和任意相关的图上操作
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="拓扑排序" scheme="http://hovnySiLenCe.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SP2916」GSS5 - Can you answer these queries V 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/05/12/SP2916-GSS5-Can_you_answer_these_queries_V-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/05/12/SP2916-GSS5-Can_you_answer_these_queries_V-Solution/</id>
+    <published>2020-05-12T07:27:55.000Z</published>
+    <updated>2020-05-28T08:46:45.157Z</updated>
+    
+    <summary type="html">
+    
+      规定左右端点范围的最大字段和
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3963」[TJOI2013]奖学金 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2020/02/07/Luogu_P3963-%5BTJOI2013%5DScholarship-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2020/02/07/Luogu_P3963-[TJOI2013]Scholarship-Solution/</id>
+    <published>2020-02-07T10:12:52.000Z</published>
+    <updated>2020-07-23T08:34:51.059Z</updated>
+    
+    <summary type="html">
+    
+      一道明明可以反序我却要正序做的题
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="优先队列" scheme="http://hovnySiLenCe.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「某讲稿」扫描线 学习笔记</title>
+    <link href="http://hovnySiLenCe.github.io/2020/01/27/LectureNotes-ScanningLine-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2020/01/27/LectureNotes-ScanningLine-Notes/</id>
+    <published>2020-01-27T13:52:15.000Z</published>
+    <updated>2020-01-31T12:37:55.055Z</updated>
+    
+    <summary type="html">
+    
+      扫描线应用初步详解
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://hovnySiLenCe.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="线段树" scheme="http://hovnySiLenCe.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="扫描线" scheme="http://hovnySiLenCe.github.io/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P4404」[JSOI2010]缓存交换 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/12/21/Luogu_P4404-JSOI2010-CacheSwap-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/12/21/Luogu_P4404-JSOI2010-CacheSwap-Solution/</id>
+    <published>2019-12-21T01:09:32.000Z</published>
+    <updated>2019-12-21T01:37:51.545Z</updated>
+    
+    <summary type="html">
+    
+      优先队列细节
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="贪心" scheme="http://hovnySiLenCe.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="优先队列" scheme="http://hovnySiLenCe.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3409」值日班长值周班长 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/12/12/Luogu_P3409-DailyMonitors-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/12/12/Luogu_P3409-DailyMonitors-Solution/</id>
+    <published>2019-12-12T07:21:11.000Z</published>
+    <updated>2019-12-12T08:02:24.843Z</updated>
+    
+    <summary type="html">
+    
+      某种程度上的同余方程组
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="数学" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="扩展欧几里得" scheme="http://hovnySiLenCe.github.io/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SP17247」PR003004 - Digit Sum 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/12/05/SP17247-PR003004_DigitSum-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/12/05/SP17247-PR003004_DigitSum-Solution/</id>
+    <published>2019-12-05T06:27:23.000Z</published>
+    <updated>2019-12-05T06:54:35.408Z</updated>
+    
+    <summary type="html">
+    
+      求区间数每位和
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="动态规划" scheme="http://hovnySiLenCe.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="数位DP" scheme="http://hovnySiLenCe.github.io/tags/%E6%95%B0%E4%BD%8DDP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「NowCoder51271」Katu Puzzle 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/28/NowCoder51271-Katu_Puzzle-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/28/NowCoder51271-Katu_Puzzle-Solution/</id>
+    <published>2019-11-28T07:17:23.000Z</published>
+    <updated>2019-11-28T13:34:55.075Z</updated>
+    
+    <summary type="html">
+    
+      2-SAT的全操作
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="2-SAT" scheme="http://hovnySiLenCe.github.io/tags/2-SAT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P3825」[NOI2017]游戏 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/22/Luogu_P3825-%5BNOI2017%5DGame-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/22/Luogu_P3825-[NOI2017]Game-Solution/</id>
+    <published>2019-11-22T14:28:17.000Z</published>
+    <updated>2019-12-01T07:28:27.640Z</updated>
+    
+    <summary type="html">
+    
+      三种变成两种状态的2-SAT
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="2-SAT" scheme="http://hovnySiLenCe.github.io/tags/2-SAT/"/>
+    
+      <category term="缩点" scheme="http://hovnySiLenCe.github.io/tags/%E7%BC%A9%E7%82%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「某讲稿」 2-SAT 学习笔记</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/21/LectureNotes-2-SAT-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/21/LectureNotes-2-SAT-Notes/</id>
+    <published>2019-11-21T08:27:23.000Z</published>
+    <updated>2019-12-01T07:33:27.241Z</updated>
+    
+    <summary type="html">
+    
+      浅谈2-SAT问题模型
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="2-SAT" scheme="http://hovnySiLenCe.github.io/tags/2-SAT/"/>
+    
+      <category term="缩点" scheme="http://hovnySiLenCe.github.io/tags/%E7%BC%A9%E7%82%B9/"/>
+    
+      <category term="SCC" scheme="http://hovnySiLenCe.github.io/tags/SCC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「CSP2019游记」</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/16/CSP2019-Travel-Notes/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/16/CSP2019-Travel-Notes/</id>
+    <published>2019-11-16T13:55:14.000Z</published>
+    <updated>2019-11-17T08:25:49.226Z</updated>
+    
+    <summary type="html">
+    
+      或许这才是开始
+    
+    </summary>
+    
+      <category term="游记" scheme="http://hovnySiLenCe.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+      <category term="游记" scheme="http://hovnySiLenCe.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Luogu P5305」[GXOI/GZOI2019]旧词 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/14/Luogu_P5305-%5BGXOIGZOI2019%5DOldWords-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/14/Luogu_P5305-[GXOIGZOI2019]OldWords-Solution/</id>
+    <published>2019-11-13T23:48:37.000Z</published>
+    <updated>2019-12-01T07:28:11.524Z</updated>
+    
+    <summary type="html">
+    
+      点与区间dep的k次和
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="树链剖分" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
+    
+      <category term="离线" scheme="http://hovnySiLenCe.github.io/tags/%E7%A6%BB%E7%BA%BF/"/>
+    
+      <category term="差分" scheme="http://hovnySiLenCe.github.io/tags/%E5%B7%AE%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SP11470」TTM - To the moon 解题报告</title>
+    <link href="http://hovnySiLenCe.github.io/2019/11/12/SP11470-TTM_ToTheMoon-Solution/"/>
+    <id>http://hovnySiLenCe.github.io/2019/11/12/SP11470-TTM_ToTheMoon-Solution/</id>
+    <published>2019-11-12T10:55:15.000Z</published>
+    <updated>2019-12-01T07:28:10.252Z</updated>
+    
+    <summary type="html">
+    
+      可持久化线段树板子
+    
+    </summary>
+    
+      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+    
+      <category term="可持久化线段树" scheme="http://hovnySiLenCe.github.io/tags/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+</feed>
