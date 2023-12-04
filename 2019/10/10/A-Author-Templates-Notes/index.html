@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">「Author」模板集合 学习笔记 (更新中) | h^ovny&#39;s blog</title>
+  <title itemprop="name">「Author」模板集合 学习笔记 (怀念版) | h^ovny&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -262,7 +262,7 @@
               </li>
             
               <li>
-                <a href="/">
+                <a href="/about/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
                     关于
@@ -306,7 +306,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      「Author」模板集合 学习笔记 (更新中)</h1>
+      「Author」模板集合 学习笔记 (怀念版)</h1>
       <p class="entry-census">
         <span>
           <a href="https://hovnySiLenCe.github.io/">
@@ -332,7 +332,8 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>$\mathtt{Update}\ \mathtt{2020.12.4}$</p>
+          <p>停更3年了，好怀念，上一次还是 $\downarrow$</p>
+<p>$\mathtt{Update}\ \mathtt{2020.12.4}$</p>
 <h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h3><p><del>我又来水代码了 我已开始还以为裴蜀是Chinese</del> <a href="https://www.luogu.com.cn/problem/P4549" target="_blank" rel="noopener">$\mathtt{Link}$</a></p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
@@ -488,6 +489,42 @@ int main()
 {
     scanf(&quot;%lld%lld%d&quot;,&amp;n,&amp;m,&amp;p);
     printf(&quot;%d&quot;,Ex_Lucas(n,m));
+    return 0;
+}
+</code></pre>
+<h3 id="乘法逆元2"><a href="#乘法逆元2" class="headerlink" title="乘法逆元2"></a>乘法逆元2</h3><p><a href="https://loj.ac/p/161 $O(n" target="_blank" rel="noopener">$Loj$ 加强版 $\mathtt{Link}$</a>$ 做法：先求整体的逆元，再处理前后缀乘积的该元素逆元</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define rgt register
+#define rint rgt int
+#define LL long long
+#define rLL rgt LL
+#define inf 0x7f7f7f7f
+#define N 5000007
+using namespace std;
+template&lt;class K&gt;inline bool cmax(K&amp;a,const K&amp;b){return(a&lt;b)?a=b,1:0;}
+template&lt;class K&gt;inline bool cmin(K&amp;a,const K&amp;b){return(a&gt;b)?a=b,1:0;}
+int n;LL a[N],k,p,ans,inv,c=1,ls[N],rs[N];
+inline int read() {
+    rint s=0;
+    rgt char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c)) s=(s&lt;&lt;1)+(s&lt;&lt;3)+c-&#39;0&#39;,c=getchar();
+    return s;
+}
+inline LL Pow(rLL a,rint b) {
+    rLL res=1;
+    for(;b;a=a*a%p,b&gt;&gt;=1)
+        if(b&amp;1) res=res*a%p;
+    return res;
+}
+int main() {
+    int i,j;
+    n=read(),p=read(),k=read(),ls[0]=rs[n+1]=1;
+    for(i=1;i&lt;=n;i++) a[i]=read(),ls[i]=ls[i-1]*a[i]%p;//前缀积
+    inv=Pow(ls[n],p-2),c=Pow(k,n),k=Pow(k,p-2);//整体逆元
+    for(i=n;i;i--)
+        ans+=(inv*ls[i-1]%p)*c%p,inv=inv*a[i]%p,c=c*k%p;//后缀积
+    printf(&quot;%d\n&quot;,ans%p);
     return 0;
 }
 </code></pre>
@@ -1774,7 +1811,7 @@ $(document).ready(function() {
       </li>
     
       <li>
-        <a href="/">
+        <a href="/about/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
             关于
