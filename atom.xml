@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2020-12-03T05:25:02.288Z</updated>
+  <updated>2024-02-20T12:01:41.949Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Optimizing 5-axis tool positioning and orientation for machining Reading Report</title>
+    <link href="http://hovnySiLenCe.github.io/2024/02/20/Research_Optimizing-5-axis-tool-positioning-and-orientation-for-machining_ReadingReport/"/>
+    <id>http://hovnySiLenCe.github.io/2024/02/20/Research_Optimizing-5-axis-tool-positioning-and-orientation-for-machining_ReadingReport/</id>
+    <published>2024-02-20T07:09:01.000Z</published>
+    <updated>2024-02-20T12:01:41.949Z</updated>
+    
+    <summary type="html">
+    
+      Optimizing 5-axis tool positioning and orientation for machining Reading Report
+    
+    </summary>
+    
+      <category term="科研笔记" scheme="http://hovnySiLenCe.github.io/categories/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Reading-Report" scheme="http://hovnySiLenCe.github.io/tags/Reading-Report/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「课程笔记」 概率论与数理统计 复习大纲</title>
+    <link href="http://hovnySiLenCe.github.io/2023/12/27/Course-ProbabilityTheoryAndMathematicalStatistics-Outline/"/>
+    <id>http://hovnySiLenCe.github.io/2023/12/27/Course-ProbabilityTheoryAndMathematicalStatistics-Outline/</id>
+    <published>2023-12-27T03:21:03.000Z</published>
+    <updated>2023-12-27T04:40:15.923Z</updated>
+    
+    <summary type="html">
+    
+      概统复习大纲
+    
+    </summary>
+    
+      <category term="课程笔记" scheme="http://hovnySiLenCe.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="复习大纲" scheme="http://hovnySiLenCe.github.io/tags/%E5%A4%8D%E4%B9%A0%E5%A4%A7%E7%BA%B2/"/>
+    
+      <category term="概统" scheme="http://hovnySiLenCe.github.io/tags/%E6%A6%82%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>「Luogu P3574」[POI2014]FAR-FarmCraft 解题报告</title>
@@ -365,7 +407,7 @@
     <link href="http://hovnySiLenCe.github.io/2019/11/21/LectureNotes-2-SAT-Notes/"/>
     <id>http://hovnySiLenCe.github.io/2019/11/21/LectureNotes-2-SAT-Notes/</id>
     <published>2019-11-21T08:27:23.000Z</published>
-    <updated>2019-12-01T07:33:27.241Z</updated>
+    <updated>2023-12-27T03:23:30.130Z</updated>
     
     <summary type="html">
     
@@ -401,50 +443,6 @@
     
     
       <category term="游记" scheme="http://hovnySiLenCe.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「Luogu P5305」[GXOI/GZOI2019]旧词 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/14/Luogu_P5305-%5BGXOIGZOI2019%5DOldWords-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/14/Luogu_P5305-[GXOIGZOI2019]OldWords-Solution/</id>
-    <published>2019-11-13T23:48:37.000Z</published>
-    <updated>2019-12-01T07:28:11.524Z</updated>
-    
-    <summary type="html">
-    
-      点与区间dep的k次和
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="树链剖分" scheme="http://hovnySiLenCe.github.io/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
-    
-      <category term="离线" scheme="http://hovnySiLenCe.github.io/tags/%E7%A6%BB%E7%BA%BF/"/>
-    
-      <category term="差分" scheme="http://hovnySiLenCe.github.io/tags/%E5%B7%AE%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「SP11470」TTM - To the moon 解题报告</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/12/SP11470-TTM_ToTheMoon-Solution/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/12/SP11470-TTM_ToTheMoon-Solution/</id>
-    <published>2019-11-12T10:55:15.000Z</published>
-    <updated>2019-12-01T07:28:10.252Z</updated>
-    
-    <summary type="html">
-    
-      可持久化线段树板子
-    
-    </summary>
-    
-      <category term="解题报告" scheme="http://hovnySiLenCe.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
-    
-    
-      <category term="可持久化线段树" scheme="http://hovnySiLenCe.github.io/tags/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
