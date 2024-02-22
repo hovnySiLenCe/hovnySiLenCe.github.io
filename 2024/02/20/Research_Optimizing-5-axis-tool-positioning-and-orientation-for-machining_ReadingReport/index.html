@@ -355,6 +355,10 @@
 <li><p>For a specific point on a given free-form surface with known normal orientation n and the fiber orientation v (both unitized), assuming n and v are pointing outward, the cutting orientation that forms the smallest angle with the fiber orientation is calculated as</p>
 <script type="math/tex; mode=display">
 c = \frac {v-n\cdot (n\cdot v)} {|v-n\cdot(n\cdot v)|}</script></li>
+<li><p>The CFRP machining experiments are divided into three groups: experimental group 1 (EG-1), experimental group 2 (EG-2), and control group (CG).</p>
+</li>
+<li><p>【引用方式】Kumar D, Singh KK (2015) An approach towards damage free machining of CFRP and GFRP composite material: a review. Adv Compos<br>Mater 24:49–63. <a href="https://doi.org/10.1080/09243046.2014.928966" target="_blank" rel="noopener">https://doi.org/10.1080/09243046.2014.928966</a></p>
+</li>
 </ol>
 <h3 id="专业词汇"><a href="#专业词汇" class="headerlink" title="专业词汇"></a>专业词汇</h3><ol>
 <li>autoclave molding：[化工] 蒸压罐模制法；高压釜成型</li>
@@ -365,6 +369,7 @@ c = \frac {v-n\cdot (n\cdot v)} {|v-n\cdot(n\cdot v)|}</script></li>
 <li>isotropic：各向同性</li>
 <li>alloys and polymers：合金和聚合物</li>
 <li>burr, tear, matrix cracking, delamination：毛刺、撕裂、基体开裂、分层</li>
+<li>thermal damage：热损伤</li>
 <li>Vibration-assisted machining：振动辅助切削</li>
 <li>thrust force：推力</li>
 <li>ultrasonic vibration-assisted  grinding (UVAG)：超声振动辅助磨削(UVAG)</li>
@@ -387,14 +392,27 @@ c = \frac {v-n\cdot (n\cdot v)} {|v-n\cdot(n\cdot v)|}</script></li>
 </li>
 <li><p>clearance angle and the fber cutting angle：间隙角和纤维切割角</p>
 </li>
-<li>in the C axis angle in post-processed programs and experiments：如何转变</li>
-<li>$c = \frac {v-n\cdot (n\cdot v)} {|v-n\cdot(n\cdot v)|}$ 是如何得到的</li>
+<li><p>in the C axis angle in post-processed programs and experiments：如何转变</p>
+</li>
+<li><p>$c = \frac {v-n\cdot (n\cdot v)} {|v-n\cdot(n\cdot v)|}$ 是如何得到的</p>
+</li>
+<li><p>（P6）$90 ^\circ$ 写为 $(1,1,0)$</p>
+</li>
+<li><p>conventional machining strategies 何为传统加工策略</p>
+</li>
+<li><p>三轴、五轴区别，为啥对照要用三轴</p>
+</li>
+<li><p>加工轨迹？</p>
+</li>
+<li><p>迭代的实际效用</p>
+</li>
 </ol>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ol>
 <li>（P3）纤维方向角度大于65度时，阻力随进给量增大而增大，出现连续切屑；反之减小，出现粉末状切屑</li>
 <li>$c: 最小切割方向，u:实际切割方向，v:纤维朝向​$</li>
 <li>$cos \theta(\phi) = v ⋅ u = v ⋅ (c\ cos \phi + p sin \phi)<br>\= (v ⋅ p) cos \phi = cos \theta_{min} cos \phi$</li>
-<li>迭代的实际效用</li>
+<li>刀具位置优化策略：以降低加工过程中的材料崩裂为导向，通过最小化切削方向与纤维方向间夹角，确定刀具位置，降低材料崩裂风险。</li>
+<li>加工轨迹平滑策略：对轨迹中刀具位置的突然大角度变化，使用迭代平滑的方式降低变化（不过似乎并没有改变奇异点的突然变化）</li>
 </ol>
 
         </div>
@@ -423,9 +441,26 @@ c = \frac {v-n\cdot (n\cdot v)} {|v-n\cdot(n\cdot v)|}</script></li>
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2024/02/21/Research-a-review-on-CFRP-ReadingReport/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2/images/icon/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.2/images/cover/134.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/hovnySiLenCe/cdn@1.4.2.2/images/cover/134.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                A review on research progress of machining technologies of carbon fiber-reinforced polymer and aramid fiber-reinforced polymer reading report</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2023/12/27/Course-ProbabilityTheoryAndMathematicalStatistics-Outline/" rel="next">
               <div class="background">
@@ -824,5 +859,20 @@ $(document).ready(function() {
     })
   });
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

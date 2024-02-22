@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hovnySiLenCe.github.io/"/>
-  <updated>2024-02-20T12:01:41.949Z</updated>
+  <updated>2024-02-22T12:46:29.596Z</updated>
   <id>http://hovnySiLenCe.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>A review on research progress of machining technologies of carbon fiber-reinforced polymer and aramid fiber-reinforced polymer reading report</title>
+    <link href="http://hovnySiLenCe.github.io/2024/02/21/Research-a-review-on-CFRP-ReadingReport/"/>
+    <id>http://hovnySiLenCe.github.io/2024/02/21/Research-a-review-on-CFRP-ReadingReport/</id>
+    <published>2024-02-21T08:19:12.000Z</published>
+    <updated>2024-02-22T12:46:29.596Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;词汇&quot;&gt;&lt;a href=&quot;#词汇&quot; class=&quot;headerlink&quot; title=&quot;词汇&quot;&gt;&lt;/a&gt;词汇&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;glass–fiber polymer (GFRP), carbon–fiber polymer (CFRP), and
+        
+      
+    
+    </summary>
+    
+      <category term="Research-Notes" scheme="http://hovnySiLenCe.github.io/categories/Research-Notes/"/>
+    
+    
+      <category term="Reading-Report" scheme="http://hovnySiLenCe.github.io/tags/Reading-Report/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Optimizing 5-axis tool positioning and orientation for machining Reading Report</title>
     <link href="http://hovnySiLenCe.github.io/2024/02/20/Research_Optimizing-5-axis-tool-positioning-and-orientation-for-machining_ReadingReport/"/>
     <id>http://hovnySiLenCe.github.io/2024/02/20/Research_Optimizing-5-axis-tool-positioning-and-orientation-for-machining_ReadingReport/</id>
     <published>2024-02-20T07:09:01.000Z</published>
-    <updated>2024-02-20T12:01:41.949Z</updated>
+    <updated>2024-02-22T08:55:44.957Z</updated>
     
     <summary type="html">
     
@@ -29,7 +56,7 @@
     
     </summary>
     
-      <category term="科研笔记" scheme="http://hovnySiLenCe.github.io/categories/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/"/>
+      <category term="Research-Notes" scheme="http://hovnySiLenCe.github.io/categories/Research-Notes/"/>
     
     
       <category term="Reading-Report" scheme="http://hovnySiLenCe.github.io/tags/Reading-Report/"/>
@@ -423,26 +450,6 @@
       <category term="缩点" scheme="http://hovnySiLenCe.github.io/tags/%E7%BC%A9%E7%82%B9/"/>
     
       <category term="SCC" scheme="http://hovnySiLenCe.github.io/tags/SCC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「CSP2019游记」</title>
-    <link href="http://hovnySiLenCe.github.io/2019/11/16/CSP2019-Travel-Notes/"/>
-    <id>http://hovnySiLenCe.github.io/2019/11/16/CSP2019-Travel-Notes/</id>
-    <published>2019-11-16T13:55:14.000Z</published>
-    <updated>2019-11-17T08:25:49.226Z</updated>
-    
-    <summary type="html">
-    
-      或许这才是开始
-    
-    </summary>
-    
-      <category term="游记" scheme="http://hovnySiLenCe.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-      <category term="游记" scheme="http://hovnySiLenCe.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
     
   </entry>
   
